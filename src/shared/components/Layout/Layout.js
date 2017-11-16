@@ -9,15 +9,8 @@ export default class extends Component {
     }
     return (
       <div>
-        <head>
-          <meta charSet='UTF-8' />
-          <title>{this.props.page}</title>
-        </head>
-        <div>
-          <Header />
-          <h1>{this.props.page}</h1>
-          {this.props.children}
-        </div>
+        <h1>{this.props.page}</h1>
+        {this.props.children}
       </div>
     )
   }

@@ -18,7 +18,7 @@ export default class extends Component {
         <nav>
           <div className='headerLogo'>
             <Link to='/'>
-              <a><h1>Scapree</h1></a>
+              <h1>Scapree</h1>
             </Link>
           </div>
           <HeaderForm />
@@ -26,8 +26,8 @@ export default class extends Component {
             this.state.logged
           ? <UserControl profileImg='http://localhost:3000/static/img/default-profile.png' />
             : <div className='headerLogin'>
-              <button>Sign Up</button>
-              <button>Sign In</button>
+              <button><Link to='/register'>Sign Up</Link></button>
+              <button><Link to='/login'>Sign In</Link></button>
             </div>
           }
         </nav>

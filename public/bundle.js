@@ -5109,7 +5109,7 @@ var _class = function (_Component) {
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'head',
+          'h1',
           {
             __source: {
               fileName: _jsxFileName,
@@ -5117,53 +5117,9 @@ var _class = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { charSet: 'UTF-8', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 13
-            },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'title',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 14
-              },
-              __self: this
-            },
-            this.props.page
-          )
+          this.props.page
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 16
-            },
-            __self: this
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header_Header__["a" /* default */], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 17
-            },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h1',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 18
-              },
-              __self: this
-            },
-            this.props.page
-          ),
-          this.props.children
-        )
+        this.props.children
       );
     }
   }]);
@@ -23635,6 +23591,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Header_Header__ = __webpack_require__(236);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree-new\\src\\shared\\App.js',
     _this = this;
 
@@ -23642,25 +23599,43 @@ var _jsxFileName = 'C:\\wamp64\\www\\scapree-new\\src\\shared\\App.js',
 
 
 
+
 var App = function App() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Switch */],
+    'div',
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 8
       },
       __self: _this
     },
-    __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].map(function (route, i) {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], Object.assign({ key: i }, route, {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Header_Header__["a" /* default */], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: _this
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Switch */],
+      {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 10
         },
         __self: _this
-      }));
-    })
+      },
+      __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].map(function (route, i) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], Object.assign({ key: i }, route, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          },
+          __self: _this
+        }));
+      })
+    )
   );
 };
 
@@ -26959,7 +26934,7 @@ var _class = function (_Component) {
                 __self: this
               },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
+                'h1',
                 {
                   __source: {
                     fileName: _jsxFileName,
@@ -26967,17 +26942,7 @@ var _class = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'h1',
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 21
-                    },
-                    __self: this
-                  },
-                  'Scapree'
-                )
+                'Scapree'
               )
             )
           ),
@@ -27010,7 +26975,16 @@ var _class = function (_Component) {
                 },
                 __self: this
               },
-              'Sign Up'
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+                { to: '/register', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 29
+                  },
+                  __self: this
+                },
+                'Sign Up'
+              )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'button',
@@ -27021,7 +26995,16 @@ var _class = function (_Component) {
                 },
                 __self: this
               },
-              'Sign In'
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+                { to: '/login', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 30
+                  },
+                  __self: this
+                },
+                'Sign In'
+              )
             )
           )
         )
