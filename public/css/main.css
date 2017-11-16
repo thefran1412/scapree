@@ -1,0 +1,129 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+input, button, a {
+  outline: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-sizing:border-box;
+          box-sizing:border-box;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+header{
+  height: 50px;
+  line-height: 50px;
+  color: #555;
+  background-color: white;
+  border-bottom: #ccc 1px solid;
+  overflow: hidden;
+}
+
+.headerLogo{
+  display: inline-block;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.headerSelected {
+  font-weight: bold;
+}
+
+.headerLogin {
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.headerLogin button {
+  border-radius: 50px;
+  border: 0;
+  padding: 6px 20px;
+  cursor: pointer;
+  margin: 0 5px;  
+}
+
+/* header form */
+
+#headerForm {
+  display: inline-block;
+}
+
+/* user control */
+
+#userControl {
+  margin-right: 5px;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  display: inline-block;
+  height: 50px;
+}
+#userControl img {
+  cursor: pointer;
+  width: 30px;
+  margin-top: 10px;
+  border-radius: 50%;
+  border: 2px #AAA solid; 
+}.room {
+  height: 200px;
+  width: 100px;
+  background-color: orange;
+  display: inline-block;
+  margin: 10px;
+  vertical-align:top;
+  position: relative;
+}
+
+.room a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=main.css.map*/

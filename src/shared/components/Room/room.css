@@ -1,0 +1,18 @@
+.room {
+  height: 200px;
+  width: 100px;
+  background-color: orange;
+  display: inline-block;
+  margin: 10px;
+  vertical-align:top;
+  position: relative;
+}
+
+.room a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 100%;
+  height: 100%;
+}
