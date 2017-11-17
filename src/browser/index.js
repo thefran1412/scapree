@@ -1,11 +1,11 @@
 import React from 'react'
 import {render} from 'react-dom'
-import App from '../shared/App'
+import Layout from '../shared/components/Layout/Layout'
 import {BrowserRouter} from 'react-router-dom'
 
 render(
   <BrowserRouter>
-    <App />
+    <Layout />
   </BrowserRouter>,
   document.getElementById('root')
 )
