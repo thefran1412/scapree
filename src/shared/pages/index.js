@@ -1,18 +1,42 @@
 import React, {Component} from 'react'
 import Layout from '../components/Layout/Layout'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
+import fetch from 'isomorphic-fetch'
 
-export default class Index extends Component {
+class Index extends Component {
   constructor (props) {
     super(props)
+
+    let initialData
+
+    if (__isBrowser__) {
+      initialData = window.__initialData__
+      delete window.__initialData__
+    } else {
+      initialData = props.staticContext.initialData
+    }
     this.state = {
-      rooms: []
+      rooms: initialData
     }
   }
-  componentWillMount () {
-    this.setState({
-      rooms: this.props.data
+  componentDidMount () {
+    // if (!this.state.rooms) {
+    console.log('eo')
+    // console.log(Index.requestInitialData())
+
+    Index.requestInitialData(response => {
+      this.setState({
+        rooms: response
+      })
     })
+  }
+  static requestInitialData (callback) {
+    // console.log('getting initial data')
+      // .then(callback)
+    fetch('http://localhost:3000/api/rooms')
+      .then(response => response.json())
+      .then(callback)
+      .catch(error => console.log(error))
   }
   render () {
     return (
@@ -22,6 +46,8 @@ export default class Index extends Component {
     )
   }
 }
+
+export default Index
 
 // Index.getInitialProps = async function () {
 //   const res = await fetch('http://localhost:3000/api/rooms')

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import UserControl from '../UserControl/UserControl'
 import HeaderForm from '../HeaderForm/HeaderForm.js'
 import {Link} from 'react-router-dom'
-import './header.css'
+import './Header.css'
 
 export default class extends Component {
   constructor (props) {
