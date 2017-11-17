@@ -19,7 +19,7 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, route) {
-    fetch('http://localhost:3000/api/rooms')
+    fetch('https://floating-ravine-77277.herokuapp.com/api/rooms')
       .then(response => response.json())
       .then(callback)
       .catch(error => { console.log(error) })

@@ -18,7 +18,7 @@ export default class Room extends Component {
     }
   }
   static requestInitialData (callback, params) {
-    fetch(`http://localhost:3000/api/room/${params.id}`)
+    fetch(`https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`)
       .then(response => response.json())
       .then(callback)
       .catch(error => { console.log(error) })

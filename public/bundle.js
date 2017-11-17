@@ -27032,7 +27032,7 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, route) {
-      __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch___default()('http://localhost:3000/api/rooms').then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch___default()('https://floating-ravine-77277.herokuapp.com/api/rooms').then(function (response) {
         return response.json();
       }).then(callback).catch(function (error) {
         console.log(error);
@@ -27958,7 +27958,7 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()('http://localhost:3000/api/room/' + params.id).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()('https://floating-ravine-77277.herokuapp.com/api/room/' + params.id).then(function (response) {
         return response.json();
       }).then(callback).catch(function (error) {
         console.log(error);
