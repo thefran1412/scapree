@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Layout from '../components/Layout/Layout'
 import fetch from 'isomorphic-fetch'
 
 export default class Room extends Component {
@@ -18,7 +17,10 @@ export default class Room extends Component {
     }
   }
   static requestInitialData (callback, params) {
-    fetch(`https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`)
+    // var url = `https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`
+    var url = `http://localhost:3000/api/room/${params.id}`
+    fetch(url)
+    fetch(url)
       .then(response => response.json())
       .then(callback)
       .catch(error => { console.log(error) })
@@ -33,7 +35,7 @@ export default class Room extends Component {
   }
   render () {
     return (
-      <Layout page='room'>
+      <div>
       {
         (this.state.info)
           ? (<div>
@@ -45,7 +47,7 @@ export default class Room extends Component {
           : <p>loading...</p>
         }
       }
-      </Layout>
+      </div>
     )
   }
 }

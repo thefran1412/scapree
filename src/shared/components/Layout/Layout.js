@@ -1,15 +1,19 @@
 import React, {Component} from 'react'
+import {Switch, Route} from 'react-router-dom'
+import routes from '../../routes'
 import './default.css'
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 export default class extends Component {
   render () {
-    if (!this.props.page) {
-      this.props.page = 'Undefinied'
-    }
     return (
       <div>
-        <h1>{this.props.page}</h1>
+        <Header />
+        <Switch>
+          {routes.map((route, i) => <Route key={i} {...route} />)}
+        </Switch>
+        <Footer />
         {this.props.children}
       </div>
     )

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Layout from '../components/Layout/Layout'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
 import fetch from 'isomorphic-fetch'
 
@@ -19,7 +18,9 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, route) {
-    fetch('https://floating-ravine-77277.herokuapp.com/api/rooms')
+    // var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
+    var url = 'http://localhost:3000/api/rooms'
+    fetch(url)
       .then(response => response.json())
       .then(callback)
       .catch(error => { console.log(error) })
@@ -33,9 +34,9 @@ class Index extends Component {
   }
   render () {
     return (
-      <Layout page='home'>
+      <div>
         <PrintRooms rooms={this.state.rooms} />
-      </Layout>
+      </div>
     )
   }
 }

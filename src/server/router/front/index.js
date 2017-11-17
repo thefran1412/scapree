@@ -1,4 +1,4 @@
-import App from '../../../shared/App'
+import Layout from '../../../shared/components/Layout/Layout'
 import routes from '../../../shared/routes'
 
 const React = require('react')
@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 function sendHTML (url, initialData, params, notSend) {
   const content = renderToString(
     <StaticRouter location={url} context={{initialData}}>
-      <App />
+      <Layout />
     </StaticRouter>
   )
   notSend.send(`
