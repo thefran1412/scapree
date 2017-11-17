@@ -16,30 +16,35 @@ app.get('*', (req, res) => {
   if (!!activeRoute) {
     const requestInitialData = activeRoute.component.requestInitialData
 
-    requestInitialData((initialData) => {
-      const context = {initialData}
-      const markup = renderToString(
-        <StaticRouter location={req.url} context={context}>
-          <App />
-        </StaticRouter>
-      )
-      res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <title>Scapree</title>
-            <link rel="stylesheet" href="/static/css/main.css">
-            <script src="/static/bundle.js" defer></script>
-            <script>window.__initialData__ = ${serialize(initialData)}</script>
-          </head>
-          <body>
-            <div id='root'>${markup}</div>
-          </body>
-        </html>
-      `)
+    requestInitialData
+    ? requestInitialData((initialData) => {
+      sendHTML(req.url, initialData, params, res)
     }, params)
+    : sendHTML(req.url, '', params, res)
   }
 })
+
+function sendHTML (url, initialData, params, notSend) {
+  const content = renderToString(
+    <StaticRouter location={url} context={{initialData}}>
+      <App />
+    </StaticRouter>
+  )
+  notSend.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>Scapree</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script src="/static/bundle.js" defer></script>
+        <script>window.__initialData__ = ${serialize(initialData)}</script>
+      </head>
+      <body>
+        <div id='root'>${content}</div>
+      </body>
+    </html>
+  `)
+}
 
 export default app
