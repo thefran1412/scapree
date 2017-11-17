@@ -10,11 +10,15 @@ export default class extends Component {
   }
   componentWillMount () {
     if (this.props.rooms) {
-      console.log(this.props.rooms)
       this.setState({
         rooms: this.props.rooms
       })
     }
+  }
+  componentWillReceiveProps (next) {
+    this.setState({
+      rooms: next.rooms
+    })
   }
   render () {
     return (

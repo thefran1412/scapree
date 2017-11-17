@@ -26975,7 +26975,6 @@ var Index = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
     var initialData = void 0;
-
     if (__isBrowser__) {
       initialData = window.__initialData__;
       delete window.__initialData__;
@@ -26993,15 +26992,11 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // if (!this.state.rooms) {
-      console.log('eo');
-      // console.log(Index.requestInitialData())
-
-      Index.requestInitialData(function (response) {
-        _this2.setState({
-          rooms: response
+      if (!this.state.rooms) {
+        Index.requestInitialData(function (rooms) {
+          _this2.setState({ rooms: rooms });
         });
-      });
+      }
     }
   }, {
     key: 'render',
@@ -27010,13 +27005,13 @@ var Index = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_1__components_Layout_Layout__["a" /* default */],
         { page: 'home', __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 36
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 37
           },
           __self: this
         })
@@ -27025,12 +27020,10 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback) {
-      // console.log('getting initial data')
-      // .then(callback)
       __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch___default()('http://localhost:3000/api/rooms').then(function (response) {
         return response.json();
       }).then(callback).catch(function (error) {
-        return console.log(error);
+        console.log(error);
       });
     }
   }]);
@@ -27039,15 +27032,6 @@ var Index = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (Index);
-
-// Index.getInitialProps = async function () {
-//   const res = await fetch('http://localhost:3000/api/rooms')
-//   const data = await res.json()
-
-//   console.log(`Show data fetched. Count: ${data.length}`)
-
-//   return {data}
-// }
 
 /***/ }),
 /* 236 */
@@ -27256,11 +27240,17 @@ var _class = function (_Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       if (this.props.rooms) {
-        console.log(this.props.rooms);
         this.setState({
           rooms: this.props.rooms
         });
       }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(next) {
+      this.setState({
+        rooms: next.rooms
+      });
     }
   }, {
     key: 'render',
@@ -27272,14 +27262,14 @@ var _class = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 25
           },
           __self: this
         },
         this.state.rooms.map(function (room, item) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Room_Room__["a" /* default */], { info: room, key: item, __source: {
               fileName: _jsxFileName,
-              lineNumber: 25
+              lineNumber: 29
             },
             __self: _this2
           });

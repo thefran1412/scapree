@@ -8,7 +8,6 @@ class Index extends Component {
     super(props)
 
     let initialData
-
     if (__isBrowser__) {
       initialData = window.__initialData__
       delete window.__initialData__
@@ -20,23 +19,17 @@ class Index extends Component {
     }
   }
   componentDidMount () {
-    // if (!this.state.rooms) {
-    console.log('eo')
-    // console.log(Index.requestInitialData())
-
-    Index.requestInitialData(response => {
-      this.setState({
-        rooms: response
+    if (!this.state.rooms) {
+      Index.requestInitialData(rooms => {
+        this.setState({rooms})
       })
-    })
+    }
   }
   static requestInitialData (callback) {
-    // console.log('getting initial data')
-      // .then(callback)
     fetch('http://localhost:3000/api/rooms')
       .then(response => response.json())
       .then(callback)
-      .catch(error => console.log(error))
+      .catch(error => { console.log(error) })
   }
   render () {
     return (
@@ -48,12 +41,3 @@ class Index extends Component {
 }
 
 export default Index
-
-// Index.getInitialProps = async function () {
-//   const res = await fetch('http://localhost:3000/api/rooms')
-//   const data = await res.json()
-
-//   console.log(`Show data fetched. Count: ${data.length}`)
-
-//   return {data}
-// }
