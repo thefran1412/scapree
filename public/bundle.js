@@ -27019,7 +27019,7 @@ var Index = function (_Component) {
     }
   }], [{
     key: 'requestInitialData',
-    value: function requestInitialData(callback) {
+    value: function requestInitialData(callback, route) {
       __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch___default()('http://localhost:3000/api/rooms').then(function (response) {
         return response.json();
       }).then(callback).catch(function (error) {
@@ -27360,6 +27360,8 @@ var Room = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Layout_Layout__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\room.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27372,7 +27374,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import {getRoom} from '../services/api.js'
+
 
 var Room = function (_Component) {
   _inherits(Room, _Component);
@@ -27382,35 +27384,31 @@ var Room = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Room.__proto__ || Object.getPrototypeOf(Room)).call(this, props));
 
+    var initialData = void 0;
+    if (__isBrowser__) {
+      initialData = window.__initialData__;
+      delete window.__initialData__;
+    } else {
+      initialData = props.staticContext.initialData;
+    }
     _this.state = {
-      info: {}
+      info: initialData
     };
-
-    _this.room = _this.room.bind(_this);
     return _this;
   }
-  // static async getInitialProps ({query}) {
-  //   const ress = await fetch(`http://localhost:3000/api/room/${query.id}`)
-  //   const data = await ress.json()
-
-  //   return {data}
-  // }
-
 
   _createClass(Room, [{
-    key: 'room',
-    value: function room() {
-      // getRoom({_id: 'id'}, (data) => {
-      //   this.setState({
-      //     rooms: data.data
-      //   })
-      // })
-    }
-  }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      console.log(this.props.data);
-      // this.room()
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var params = this.props.match.params;
+
+      if (!this.state.info) {
+        Room.requestInitialData(function (info) {
+          _this2.setState({ info: info });
+        }, params);
+      }
     }
   }, {
     key: 'render',
@@ -27419,47 +27417,73 @@ var Room = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_1__components_Layout_Layout__["a" /* default */],
         { page: 'room', __source: {
             fileName: _jsxFileName,
-            lineNumber: 33
-          },
-          __self: this
-        },
-        'id: ',
-        this.props.data._id,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 34
-          },
-          __self: this
-        }),
-        'name: ',
-        this.props.data.name,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        }),
-        'minAge: ',
-        this.props.data.minAge,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
-          __source: {
-            fileName: _jsxFileName,
             lineNumber: 36
           },
           __self: this
-        })
+        },
+        this.state.info ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            },
+            __self: this
+          },
+          'id: ',
+          this.state.info._id,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 40
+            },
+            __self: this
+          }),
+          'name: ',
+          this.state.info.name,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            },
+            __self: this
+          }),
+          'minAge: ',
+          this.state.info.minAge,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 42
+            },
+            __self: this
+          })
+        ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            },
+            __self: this
+          },
+          'loading...'
+        ),
+        '}'
       );
+    }
+  }], [{
+    key: 'requestInitialData',
+    value: function requestInitialData(callback, params) {
+      __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()('http://localhost:3000/api/room/' + params.id).then(function (response) {
+        return response.json();
+      }).then(callback).catch(function (error) {
+        console.log(error);
+      });
     }
   }]);
 
   return Room;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-// Room.getInitialProps = async function ({query}) {
-// }
-
 
 /* harmony default export */ __webpack_exports__["a"] = (Room);
 

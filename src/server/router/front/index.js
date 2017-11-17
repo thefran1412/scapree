@@ -10,32 +10,36 @@ const app = express()
 
 app.get('*', (req, res) => {
   const activeRoute = routes.find(route => matchPath(req.url, route))
-  const requestInitialData = activeRoute.component.requestInitialData
 
-  requestInitialData((initialData) => {
-    console.log(initialData)
-    const context = {initialData}
-    const markup = renderToString(
-      <StaticRouter location={req.url} context={context}>
-        <App />
-      </StaticRouter>
-    )
-    res.send(`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <title>Scapree</title>
-          <link rel="stylesheet" href="/static/css/main.css">
-          <script src="/static/bundle.js" defer></script>
-          <script>window.__initialData__ = ${serialize(initialData)}</script>
-        </head>
-        <body>
-          <div id='root'>${markup}</div>
-        </body>
-      </html>
-    `)
-  })
+  const {params} = matchPath(req.url, activeRoute)
+
+  if (!!activeRoute) {
+    const requestInitialData = activeRoute.component.requestInitialData
+
+    requestInitialData((initialData) => {
+      const context = {initialData}
+      const markup = renderToString(
+        <StaticRouter location={req.url} context={context}>
+          <App />
+        </StaticRouter>
+      )
+      res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <title>Scapree</title>
+            <link rel="stylesheet" href="/static/css/main.css">
+            <script src="/static/bundle.js" defer></script>
+            <script>window.__initialData__ = ${serialize(initialData)}</script>
+          </head>
+          <body>
+            <div id='root'>${markup}</div>
+          </body>
+        </html>
+      `)
+    }, params)
+  }
 })
 
 export default app

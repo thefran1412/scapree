@@ -18,18 +18,18 @@ class Index extends Component {
       rooms: initialData
     }
   }
+  static requestInitialData (callback, route) {
+    fetch('http://localhost:3000/api/rooms')
+      .then(response => response.json())
+      .then(callback)
+      .catch(error => { console.log(error) })
+  }
   componentDidMount () {
     if (!this.state.rooms) {
       Index.requestInitialData(rooms => {
         this.setState({rooms})
       })
     }
-  }
-  static requestInitialData (callback) {
-    fetch('http://localhost:3000/api/rooms')
-      .then(response => response.json())
-      .then(callback)
-      .catch(error => { console.log(error) })
   }
   render () {
     return (
