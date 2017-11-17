@@ -4,8 +4,9 @@
   "description": "Scape reality",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -w",
-    "start": "nodemon server.js",
+    "watch": "webpack -w",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "build": "webpack"
   },
   "author": "Francesc Edo",
