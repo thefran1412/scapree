@@ -7,9 +7,6 @@ import './Header.css'
 export default class extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      logged: false
-    }
   }
 
   render () {
@@ -23,7 +20,7 @@ export default class extends Component {
           </div>
           <HeaderForm />
           {
-            this.state.logged
+            this.props.logged
           ? <UserControl profileImg='http://localhost:3000/static/img/default-profile.png' />
             : <div className='headerLogin'>
               <button><Link to='/register'>Sign Up</Link></button>

@@ -15,19 +15,21 @@ app.get('*', (req, res) => {
 
   if (!!activeRoute) {
     const requestInitialData = activeRoute.component.requestInitialData
+    console.log(req.session)
+    const token = req.session.token || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVhMGM2MjVmMTEzYzAyMTliNDJjZDNhNCIsInVzZXJuYW1lIjoiZnJhbmNodSIsImVtYWlsIjoiZnJhbmNodUBnbWFpbC5jb20iLCJuYW1lIjoiRnJhbmNlc2MgRWRvIiwidXNlclR5cGUiOiJhZG1pbiJ9LCJpYXQiOjE1MTExOTQxNTh9.J9_EAGjZXGCvgwSGzZuDuUqhhfRrjXrLNYJi-XufvXc"
 
     requestInitialData
     ? requestInitialData((initialData) => {
-      sendHTML(req.url, initialData, params, res)
+      sendHTML(req.url, initialData, token, res)
     }, params)
-    : sendHTML(req.url, '', params, res)
+    : sendHTML(req.url, '', token, res)
   }
 })
 
-function sendHTML (url, initialData, params, notSend) {
+function sendHTML (url, initialData, token, notSend) {
   const content = renderToString(
     <StaticRouter location={url} context={{initialData}}>
-      <Layout />
+      <Layout token={token} />
     </StaticRouter>
   )
   notSend.send(`

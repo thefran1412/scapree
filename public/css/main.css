@@ -112,6 +112,11 @@ header h1 {
   margin-top: 10px;
   border-radius: 50%;
   border: 2px #AAA solid; 
+}#loginForm input{
+  padding: 10px;
+  color: black;
+  margin: 10px;
+
 }.room {
   height: 200px;
   width: 100px;

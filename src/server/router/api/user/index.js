@@ -7,6 +7,7 @@ const router = express.Router()
 const login = require('./handlers/login')
 // const logout = require('./handlers/logout')
 const register = require('./handlers/register')
+const checkToken = require('./handlers/checkToken')
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
@@ -14,6 +15,8 @@ router.use(bodyParser.json())
 router.post('/register', register)
 router.post('/login', login)
 // router.post('/logout', logout)
+
+router.post('/check', checkToken)
 
 router.get('/users', (req, res) => {
   const User = require('../../../models/User.js')

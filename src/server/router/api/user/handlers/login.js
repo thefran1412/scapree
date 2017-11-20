@@ -6,10 +6,10 @@ function login (req, res) {
   User.logIn(username, password, (err, data) => {
     if (err) throw err
     if (!data.success) {
-      res.status(500).json(data)
+      res.json(data)
     } else {
       req.session.token = data.token
-      res.status(200).json(data.success)
+      res.status(200).json({success: data.success, token: data.token})
     }
   })
 }
