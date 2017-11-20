@@ -24,11 +24,11 @@ export default class extends Component {
     return (
       <div>
         {
-          this.state.rooms.map((room, item) => {
-            return (
-              <Room info={room} key={item} />
-            )
+          this.state.rooms
+          ? this.state.rooms.map((room, item) => {
+            return (<Room info={room} key={item} />)
           })
+          : <p>Nothing found</p>
         }
       </div>
     )

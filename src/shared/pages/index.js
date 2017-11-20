@@ -18,8 +18,8 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, route) {
-    // var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
-    var url = 'http://localhost:3000/api/rooms'
+    var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
+    // var url = 'http://localhost:3000/api/rooms'
     fetch(url)
       .then(response => response.json())
       .then(callback)

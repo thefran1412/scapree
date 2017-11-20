@@ -17,8 +17,8 @@ export default class Room extends Component {
     }
   }
   static requestInitialData (callback, params) {
-    // var url = `https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`
-    var url = `http://localhost:3000/api/room/${params.id}`
+    var url = `https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`
+    // var url = `http://localhost:3000/api/room/${params.id}`
     fetch(url)
     fetch(url)
       .then(response => response.json())
@@ -36,17 +36,15 @@ export default class Room extends Component {
   render () {
     return (
       <div>
-      {
-        (this.state.info)
-          ? (<div>
-            id: {this.state.info._id}<br />
-            name: {this.state.info.name}<br />
-            minAge: {this.state.info.minAge}<br />
-            </div>
-          )
-          : <p>loading...</p>
+        {
+          this.state.info
+            ? (<div>
+              id: {this.state.info._id}<br />
+              name: {this.state.info.name}<br />
+              minAge: {this.state.info.minAge}<br />
+            </div>)
+            : <p>loading...</p>
         }
-      }
       </div>
     )
   }
