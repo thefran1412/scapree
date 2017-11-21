@@ -1,11 +1,11 @@
 const express = require('express')
 let bodyParser = require('body-parser')
 
-//const passport = require('../../../config/passport')
+// const passport = require('../../../config/passport')
 
 const router = express.Router()
 const login = require('./handlers/login')
-// const logout = require('./handlers/logout')
+const logout = require('./handlers/logout')
 const register = require('./handlers/register')
 const checkToken = require('./handlers/checkToken')
 
@@ -14,7 +14,7 @@ router.use(bodyParser.json())
 
 router.post('/register', register)
 router.post('/login', login)
-// router.post('/logout', logout)
+router.post('/logout', logout)
 
 router.post('/check', checkToken)
 

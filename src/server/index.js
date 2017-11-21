@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const expressSession = require('./middlewares/expressSession.js')
 const expressValidator = require('./middlewares/expressValidator.js')
-const globalVars = require('./middlewares/globalVars.js')
 const cors = require('cors')
 
 const app = express()
@@ -12,9 +11,8 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(expressSession)
 app.use(expressValidator)
-app.use(globalVars)
+app.use(expressSession)
 
 /* ROUTES */
 

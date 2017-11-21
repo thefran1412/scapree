@@ -7,7 +7,11 @@ function check (req, res) {
       console.log(err)
       res.json({success: false})
     } else {
-      res.json({success: true, data: decoded})
+      if (decoded.user._id === req.session.user._id) {
+        res.json({success: true, data: decoded})
+      } else {
+        res.json({success: false})
+      }
     }
   })
 }

@@ -13,6 +13,16 @@ function login (username, password, func) {
     })
 }
 
+function logout (func) {
+  axios.post('http://localhost:3000/api/logout')
+    .then(answer => {
+      func(answer.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
 function checkToken (token, func) {
   axios.post('http://localhost:3000/api/check', {
     token: token
@@ -25,4 +35,4 @@ function checkToken (token, func) {
     })
 }
 
-export {login, checkToken}
+export {login, checkToken, logout}

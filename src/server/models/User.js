@@ -76,7 +76,7 @@ module.exports.logIn = (username, password, callback) => {
             userType: user.userType
           }
           const token = generateToken(newUser)
-          callback(err, {success: true, token})
+          callback(err, {success: true, token, newUser})
         } else {
           callback(err, {success: false, message: 'incorrect password'})
         }

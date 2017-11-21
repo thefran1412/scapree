@@ -10,20 +10,19 @@ export default class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit (info) {
-    var logged = this.props.setLogged
+    var doLogin = this.props.login
     login(info.username, info.password, function (answer) {
       if (answer.success) {
         store.set('token', answer.token)
-        logged(true)
+        doLogin(answer.user, answer.token)
       } else {
         alert(answer.message)
-        logged(false)
       }
     })
   }
   render () {
     if (this.props.logged) {
-      return <Redirect to='/' />
+      return <Redirect to='/home' />
     }
     return (
       <div>

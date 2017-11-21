@@ -1,8 +1,7 @@
 const session = require('express-session')
 
 module.exports = session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true,
-  cookie: { secure: true }
+  secret: 'process.env.SECRET',
+  saveUninitialized: false,
+  resave: false
 })

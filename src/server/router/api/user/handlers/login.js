@@ -8,8 +8,9 @@ function login (req, res) {
     if (!data.success) {
       res.json(data)
     } else {
+      req.session.user = data.newUser
       req.session.token = data.token
-      res.status(200).json({success: data.success, token: data.token})
+      res.status(200).json({success: data.success, token: data.token, user: data.newUser})
     }
   })
 }

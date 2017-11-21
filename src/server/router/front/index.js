@@ -15,21 +15,21 @@ app.get('*', (req, res) => {
 
   if (!!activeRoute) {
     const requestInitialData = activeRoute.component.requestInitialData
-    console.log(req.session)
-    const token = req.session.token || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVhMGM2MjVmMTEzYzAyMTliNDJjZDNhNCIsInVzZXJuYW1lIjoiZnJhbmNodSIsImVtYWlsIjoiZnJhbmNodUBnbWFpbC5jb20iLCJuYW1lIjoiRnJhbmNlc2MgRWRvIiwidXNlclR5cGUiOiJhZG1pbiJ9LCJpYXQiOjE1MTExOTQxNTh9.J9_EAGjZXGCvgwSGzZuDuUqhhfRrjXrLNYJi-XufvXc"
+
+    let user = req.session.user ? req.session.user : 'unregistered'
 
     requestInitialData
     ? requestInitialData((initialData) => {
-      sendHTML(req.url, initialData, token, res)
+      sendHTML(req.url, initialData, user, res)
     }, params)
-    : sendHTML(req.url, '', token, res)
+    : sendHTML(req.url, '', user, res)
   }
 })
 
-function sendHTML (url, initialData, token, notSend) {
+function sendHTML (url, initialData, user, notSend) {
   const content = renderToString(
     <StaticRouter location={url} context={{initialData}}>
-      <Layout token={token} />
+      <Layout user={user} />
     </StaticRouter>
   )
   notSend.send(`
@@ -41,6 +41,7 @@ function sendHTML (url, initialData, token, notSend) {
         <link rel="stylesheet" href="/static/css/main.css">
         <script src="/static/bundle.js" defer></script>
         <script>window.__initialData__ = ${serialize(initialData)}</script>
+        <script>window.__user__ = ${serialize(user)}</script>
       </head>
       <body>
         <div id='root'>${content}</div>

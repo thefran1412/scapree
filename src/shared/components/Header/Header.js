@@ -7,8 +7,18 @@ import './Header.css'
 export default class extends Component {
   constructor (props) {
     super(props)
-  }
 
+    this.state = {
+      user: this.props.user,
+      logged: this.props.logged
+    }
+  }
+  componentWillReceiveProps (props) {
+    this.setState({
+      user: props.user,
+      logged: props.logged
+    })
+  }
   render () {
     return (
       <header>
@@ -20,8 +30,8 @@ export default class extends Component {
           </div>
           <HeaderForm />
           {
-            this.props.logged
-          ? <UserControl profileImg='http://localhost:3000/static/img/default-profile.png' />
+            this.state.logged
+            ? <UserControl />
             : <div className='headerLogin'>
               <button><Link to='/register'>Sign Up</Link></button>
               <button><Link to='/login'>Sign In</Link></button>
