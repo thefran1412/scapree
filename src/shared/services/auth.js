@@ -1,38 +1,67 @@
 import axios from 'axios'
 
 function login (username, password, func) {
-  axios.post('http://localhost:3000/api/login', {
-    username: username,
-    password: password
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/login',
+    data: {username, password},
+    func
   })
-    .then(answer => {
-      func(answer.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
 }
 
 function logout (func) {
-  axios.post('http://localhost:3000/api/logout')
-    .then(answer => {
-      func(answer.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/logout',
+    data: {},
+    func
+  })
+}
+
+function register (info, func) {
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/logout',
+    data: info,
+    func
+  })
 }
 
 function checkToken (token, func) {
-  axios.post('http://localhost:3000/api/check', {
-    token: token
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/check/token',
+    data: {token},
+    func
   })
+}
+
+function checkUsername (username, func) {
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/check/token',
+    data: {username},
+    func
+  })
+}
+
+function checkEmail (email, func) {
+  ajax({
+    method: axios.post,
+    url: 'http://localhost:3000/api/check/token',
+    data: {email},
+    func
+  })
+}
+
+function ajax (data) {
+  data.method(data.url, data.data)
     .then(answer => {
-      func(answer.data)
+      data.func(answer.data)
     })
     .catch(error => {
       console.log(error)
     })
 }
 
-export {login, checkToken, logout}
+export {login, checkToken, logout, register, checkUsername, checkEmail}

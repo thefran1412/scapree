@@ -5,16 +5,28 @@ function registerUser (req, res) {
   console.log(username)
   const account = new User({username, password, email, name, userType})
 
-  User.register(account, (err, user) => {
-    if (err) {
-      return res.status(500).json({success: false, msg: 'There was some error.'})
-    }
-    res.status(200).json({
-      success: true,
-      msg: 'Successful created new user.',
-      user
+  // validate data
+  req.check('name', 'Invalid name').trim().isLength({min: 1})
+  req.check('username', 'Invalid username').trim().isLength({min: 1})
+  req.check('email', 'Invalid email address').isEmail().trim().normalizeEmail()
+  req.check('password', 'Password is invalid').isLength({min: 3}).equals(req.body.alsoPassword)
+
+  const errors = req.validationErrors()
+
+  if (errors) {
+    res.json({success: false, msg: errors})
+  } else {
+    User.register(account, (err, user) => {
+      if (err) {
+        return res.json({success: false, msg: 'There was some error.'})
+      }
+      res.json({
+        success: true,
+        msg: 'Successful created new user.',
+        user
+      })
     })
-  })
+  }
 }
 
 module.exports = registerUser

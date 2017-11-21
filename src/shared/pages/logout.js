@@ -13,13 +13,10 @@ export default class Login extends Component {
   logOut () {
     logout(response => {
       if (response.success) {
-        console.log('1')
         this.props.logout()
-        console.log('2')
         this.setState({
           done: true
         })
-        console.log('3')
       }
     })
   }

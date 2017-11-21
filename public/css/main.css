@@ -117,6 +117,11 @@ header h1 {
   color: black;
   margin: 10px;
 
+}#registerForm input{
+  padding: 10px;
+  color: black;
+  margin: 10px;
+
 }.room {
   height: 200px;
   width: 100px;

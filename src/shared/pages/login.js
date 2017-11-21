@@ -11,7 +11,7 @@ export default class Login extends Component {
   }
   handleSubmit (info) {
     var doLogin = this.props.login
-    login(info.username, info.password, function (answer) {
+    login(info.username, info.password, answer => {
       if (answer.success) {
         store.set('token', answer.token)
         doLogin(answer.user, answer.token)

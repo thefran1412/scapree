@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './LoginForm.css'
 
-export default class Login extends Component {
+export default class LoginForm extends Component {
   constructor (props) {
     super(props)
 

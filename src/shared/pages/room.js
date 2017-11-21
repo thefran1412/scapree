@@ -42,6 +42,8 @@ export default class Room extends Component {
               id: {this.state.info._id}<br />
               name: {this.state.info.name}<br />
               minAge: {this.state.info.minAge}<br />
+              minPeople: {this.state.info.minPeople}<br />
+              maxPeople: {this.state.info.maxPeople}<br />
             </div>)
             : <p>loading...</p>
         }
