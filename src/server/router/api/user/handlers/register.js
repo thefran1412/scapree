@@ -2,7 +2,6 @@ const User = require('../../../../models/User')
 
 function registerUser (req, res) {
   const {username, password, email, name, userType} = req.body
-  console.log(username)
   const account = new User({username, password, email, name, userType})
 
   // validate data

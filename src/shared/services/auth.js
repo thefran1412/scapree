@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {ajax} from './common.js'
 
 function login (username, password, func) {
   ajax({
@@ -52,16 +53,6 @@ function checkEmail (email, func) {
     data: {email},
     func
   })
-}
-
-function ajax (data) {
-  data.method(data.url, data.data)
-    .then(answer => {
-      data.func(answer.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
 }
 
 export {login, checkToken, logout, register, checkUsername, checkEmail}

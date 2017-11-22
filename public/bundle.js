@@ -4261,10 +4261,12 @@ var createPath = function createPath(location) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return checkEmail; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(296);
+
 
 
 function login(username, password, func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/login',
     data: { username: username, password: password },
@@ -4273,7 +4275,7 @@ function login(username, password, func) {
 }
 
 function logout(func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/logout',
     data: {},
@@ -4282,7 +4284,7 @@ function logout(func) {
 }
 
 function register(info, func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/register',
     data: info,
@@ -4291,7 +4293,7 @@ function register(info, func) {
 }
 
 function checkToken(token, func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/check/token',
     data: { token: token },
@@ -4300,7 +4302,7 @@ function checkToken(token, func) {
 }
 
 function checkUsername(username, func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/check/username',
     data: { username: username },
@@ -4309,19 +4311,11 @@ function checkUsername(username, func) {
 }
 
 function checkEmail(email, func) {
-  ajax({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: 'http://localhost:3000/api/check/email',
     data: { email: email },
     func: func
-  });
-}
-
-function ajax(data) {
-  data.method(data.url, data.data).then(function (answer) {
-    data.func(answer.data);
-  }).catch(function (error) {
-    console.log(error);
   });
 }
 
@@ -31324,8 +31318,9 @@ var RegisterForm = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_LoginForm_LoginForm__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_rooms__ = __webpack_require__(297);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\home.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31340,32 +31335,51 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Login = function (_Component) {
-  _inherits(Login, _Component);
 
-  function Login(props) {
-    _classCallCheck(this, Login);
+var Home = function (_Component) {
+  _inherits(Home, _Component);
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+  function Home(props) {
+    _classCallCheck(this, Home);
+
+    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+    var initialData = void 0;
+    if (__isBrowser__) {
+      initialData = window.__initialData__;
+      delete window.__initialData__;
+    } else {
+      initialData = props.staticContext.initialData;
+    }
+    _this.state = {
+      rooms: initialData
+    };
+    return _this;
   }
 
-  _createClass(Login, [{
-    key: 'render',
-    value: function render() {
-      if (!this.props.logged) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 11
-          },
-          __self: this
+  _createClass(Home, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      if (!this.state.rooms) {
+        Home.requestInitialData(function (rooms) {
+          _this2.setState({ rooms: rooms });
         });
       }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      // if (!this.props.logged) {
+      //   return <Redirect to='/login' />
+      // }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 36
           },
           __self: this
         },
@@ -31374,20 +31388,31 @@ var Login = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 37
             },
             __self: this
           },
           'Home'
-        )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 38
+          },
+          __self: this
+        })
       );
+    }
+  }], [{
+    key: 'requestInitialData',
+    value: function requestInitialData(callback, route) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])({}, callback);
     }
   }]);
 
-  return Login;
+  return Home;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Login);
+/* harmony default export */ __webpack_exports__["a"] = (Home);
 
 /***/ }),
 /* 288 */
@@ -31769,6 +31794,56 @@ var App = function App() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 295 */,
+/* 296 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ajax; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return objectToQuery; });
+function ajax(data) {
+  data.method(data.url, data.data).then(function (answer) {
+    data.func(answer.data);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
+
+function objectToQuery(object) {
+  var array = [];
+  Object.keys(object).map(function (name, index) {
+    array.push(name + '=' + object[name]);
+  });
+  return '?' + array.join('&');
+}
+
+
+
+/***/ }),
+/* 297 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getRooms; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(296);
+
+
+
+function getRooms(data, func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+    url: 'http://localhost:3000/api/rooms' + Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["b" /* objectToQuery */])(data),
+    func: func
+  });
+}
+
+
+
+// var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
 
 /***/ })
 /******/ ]);
