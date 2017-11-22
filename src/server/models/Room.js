@@ -26,10 +26,15 @@ var RoomSchema = new Schema({
   price: Number,
   languages: Array,
   visible: Boolean,
-  review: [{
-    type: Schema.ObjectId,
-    ref: 'Review'
-  }],
+  location: {
+    type: {type: String},
+    coordinates: [Number, Number],
+    address: String,
+    code: String,
+    city: String,
+    country: String
+  },
+  tags: Array, 
   created: Date
 })
 

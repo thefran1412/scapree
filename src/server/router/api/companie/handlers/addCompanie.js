@@ -1,9 +1,11 @@
+const mongoose = require('mongoose')
 const Companie = require('../../../../models/Companie.js')
 
 module.exports = function (req, res) {
   const params = req.body
   const newCompanie = new Companie({
     name: params.name || 'undefined',
+    user: mongoose.Types.ObjectId(params.user),
     contact: {
       email: params.mail,
       phone: +params.phone
@@ -11,16 +13,15 @@ module.exports = function (req, res) {
     desc: params.desc,
     profileImg: params.profileImg || 'default.png',
     coverImg: params.coverImg || 'default.png',
-    tags: ['architecture', 'scary'],
-    visible: params.visible || true,
     location: {
-      lat: 41.408225,
-      long: 2.153634,
+      type: 'point',
+      coordinates: [2.153634, 41.408225],
       address: 'Ptge Frigola 14',
       code: '08012',
       city: 'Barcelona',
       country: 'Catalonia'
     },
+    visible: params.visible || true,
     created: +new Date() + 7 * 24 * 60 * 60 * 1000
   })
 

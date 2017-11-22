@@ -3,6 +3,10 @@ const Schema = mongoose.Schema
 
 var CompanieSchema = new Schema({
   name: String,
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
   contact: {
     email: String,
     phone: Number
@@ -10,10 +14,9 @@ var CompanieSchema = new Schema({
   desc: String,
   profileImg: String,
   coverImg: String,
-  tags: Array,
   location: {
-    lat: Number,
-    long: Number,
+    type: {type: String},
+    coordinates: [Number, Number],
     address: String,
     code: String,
     city: String,

@@ -10,9 +10,19 @@ module.exports = function (req, res) {
   // if (props.type === 'mine') {
   //   filters.companie = req.session.user.companie
   // }
-  // if (props.lat && props.long) {
-  //   filters.location = {lat: props.lat, long: props.long}
-  // }
+  if (props.lat && props.long) {
+    filters.location = {
+      $near: {
+        $geometry: {
+          type: 'Point',
+          'coordinates': [+props.long, +props.lat]
+        },
+        $maxDistance: 100000
+      }
+    }
+
+    // {coordinates:{lat: props.lat, long: props.long}}
+  }
   if (props.people) {
     filters.minPeople = {$lte: +props.people}
     filters.maxPeople = {$gte: +props.people}
