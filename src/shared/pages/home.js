@@ -19,7 +19,7 @@ export default class Home extends Component {
     }
   }
   static requestInitialData (callback, route) {
-    getRooms({}, callback)
+    getRooms({people: 5}, callback)
   }
   componentDidMount () {
     if (!this.state.rooms) {
