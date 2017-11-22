@@ -4,7 +4,7 @@ function checkUsername (req, res) {
   const {username} = req.body
   console.log(username)
 
-  req.check('username', 'not a valid username provided').matches(/^[a-z0-9\d](?:[a-z0-9\d]|.(?=[a-z0-9\d])){0,38}/, 'g')
+  req.check('username', 'not a valid username provided').matches(/^[a-zA-Z0-9]+$/, 'g')
   const errors = req.validationErrors()
 
   if (errors) {

@@ -8,7 +8,7 @@ function registerUser (req, res) {
   // validate data
   req.check('name', 'Invalid name').trim().isLength({min: 1})
   req.check('username', 'Invalid username').trim().isLength({min: 1})
-  req.check('email', 'Invalid email address').isEmail().trim().normalizeEmail()
+  req.check('email', 'Invalid email address').isEmail()
   req.check('password', 'Password is invalid').isLength({min: 3}).equals(req.body.alsoPassword)
 
   const errors = req.validationErrors()

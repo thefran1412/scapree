@@ -30,11 +30,13 @@
     "mongodb": "*",
     "mongoose": "^4.13.2",
     "node-time-ago": "^1.0.0",
+    "path": "^0.12.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.1.2",
     "serialize-javascript": "^1.4.0",
+    "serve-favicon": "^2.4.5",
     "source-map-support": "^0.4.15",
     "store": "^2.0.12"
   },

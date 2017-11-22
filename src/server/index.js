@@ -19,6 +19,7 @@ app.use(expressSession)
 const api = require('./router/api')
 const front = require('./router/front').default
 
+app.use('/favicon.ico', express.static('public/favicon.ico'))
 app.use('/static', express.static('public'))
 app.use('/api', api)
 app.use('/', front)

@@ -7,16 +7,20 @@ import {Redirect} from 'react-router-dom'
 export default class Register extends Component {
   constructor (props) {
     super(props)
-
+    this.state = {
+      registered: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit (info) {
     register(info, data => {
-      console.log(data)
+      if (data.success) {
+        this.setState({registered: true})
+      }
     })
   }
   render () {
-    if (this.props.logged) {
+    if (this.state.registered) {
       return <Redirect to='/' />
     }
     return (

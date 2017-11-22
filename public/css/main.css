@@ -121,8 +121,12 @@ header h1 {
   padding: 10px;
   color: black;
   margin: 10px;
+}
 
-}.room {
+.validationError{
+  border: 1px solid red;
+}
+.room {
   height: 200px;
   width: 100px;
   background-color: orange;

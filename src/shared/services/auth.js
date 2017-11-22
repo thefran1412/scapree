@@ -21,7 +21,7 @@ function logout (func) {
 function register (info, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/logout',
+    url: 'http://localhost:3000/api/register',
     data: info,
     func
   })
@@ -39,7 +39,7 @@ function checkToken (token, func) {
 function checkUsername (username, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/check/token',
+    url: 'http://localhost:3000/api/check/username',
     data: {username},
     func
   })
@@ -48,7 +48,7 @@ function checkUsername (username, func) {
 function checkEmail (email, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/check/token',
+    url: 'http://localhost:3000/api/check/email',
     data: {email},
     func
   })
