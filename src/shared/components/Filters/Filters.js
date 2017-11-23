@@ -6,7 +6,7 @@ export default class extends Component {
   constructor () {
     super()
     this.state = {
-      number: '',
+      number: 0,
       address: '',
       coords: []
     }
@@ -22,9 +22,18 @@ export default class extends Component {
   }
   handleSubmit (e) {
     if (e) e.preventDefault()
-    if (this.state.coords.length) {
-      this.props.updateState(this.state)
+    let newState = {
+      filters: {
+        people: +this.state.number,
+        address: this.props.filters.address,
+        coords: this.props.filters.coords
+      }
     }
+    if (this.state.coords.length) {
+      newState.filters.coords = this.state.coords
+      newState.filters.address = this.state.address
+    }
+    this.props.updateState(newState)
   }
   // handle Adress
   handleAddressChange (address) {
@@ -57,7 +66,8 @@ export default class extends Component {
     }
     const inputProps = {
       value: this.state.address,
-      onChange: this.handleAddressChange
+      onChange: this.handleAddressChange,
+      placeholder: 'City, Zipcode or Address'
     }
     return (
       <div id='headerForm'>
@@ -68,6 +78,7 @@ export default class extends Component {
             classNames={cssClasses}
             options={options}
             onSelect={this.handleAddressSelect}
+            googleLogo={false}
           />
           <input type='number' onChange={this.handleChange} />
         </form>

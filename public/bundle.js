@@ -24610,7 +24610,7 @@ var _class = function (_Component) {
       logged: logged,
       filters: {
         location: {},
-        people: 5,
+        people: 0,
         address: '',
         coords: []
       }
@@ -24674,7 +24674,7 @@ var _class = function (_Component) {
       Object(__WEBPACK_IMPORTED_MODULE_9__services_location__["a" /* getCoordsInfo */])(coords, function (response) {
         _this3.updateState({
           location: {
-            coords: { lat: coords.latitude, long: coords.longitude },
+            coords: [coords.latitude, coords.longitude],
             city: response
           }
         });
@@ -24694,12 +24694,6 @@ var _class = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8_react_geolocation__["a" /* default */], { onSuccess: this.setLocation, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 91
-          },
-          __self: this
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Header_Header__["a" /* default */], {
           logged: this.state.logged,
           login: this.login,
@@ -24708,7 +24702,7 @@ var _class = function (_Component) {
           updateState: this.updateState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 92
+            lineNumber: 91
           },
           __self: this
         }),
@@ -24717,28 +24711,38 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 98
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].map(function (route, i) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { key: i, exact: route.exact, path: route.path, render: function render(props) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(route.component, Object.assign({
-                  logged: _this4.state.logged,
-                  login: _this4.login,
-                  user: _this4.state.user,
-                  logout: _this4.logout,
-                  location: _this4.state.location
-                }, props, {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 102
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 101
+                    },
+                    __self: _this4
                   },
-                  __self: _this4
-                }));
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(route.component, Object.assign({
+                    logged: _this4.state.logged,
+                    login: _this4.login,
+                    user: _this4.state.user,
+                    logout: _this4.logout,
+                    filters: _this4.state.filters
+                  }, props, {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 102
+                    },
+                    __self: _this4
+                  }))
+                );
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 100
               },
               __self: _this4
             });
@@ -24747,7 +24751,7 @@ var _class = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 114
           },
           __self: this
         })
@@ -24757,6 +24761,12 @@ var _class = function (_Component) {
 
   return _class;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+// <Geolocation onSuccess={this.setLocation} />
+// <Redirect to={{
+//   pathname: '/',
+//   search: '?utm=your+face'
+// }} />
+
 
 /* harmony default export */ __webpack_exports__["a"] = (_class);
 
@@ -27907,6 +27917,7 @@ var routes = [{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_common__ = __webpack_require__(116);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27916,6 +27927,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -27954,6 +27966,34 @@ var Index = function (_Component) {
       }
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this3 = this;
+
+      var oldProps = JSON.stringify(this.props.filters);
+      var newProps = JSON.stringify(nextProps.filters);
+
+      if (newProps !== oldProps) {
+        console.log(nextProps);
+        Index.requestInitialData(function (rooms) {
+          _this3.setState({ rooms: rooms });
+        });
+        console.log('update props');
+        if (nextProps) {}
+        var obj = {
+          people: nextProps.filters.people
+        };
+        if (nextProps.filters.coords.length) {
+          obj.lat = nextProps.filters.coords[0];
+          obj.long = nextProps.filters.coords[1];
+          obj.address = nextProps.filters.address;
+        }
+        var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
+        console.log(url, this.props);
+        this.props.history.push(url);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -27961,13 +28001,25 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 62
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            },
+            __self: this
+          },
+          this.props.filters.address,
+          this.props.filters.people
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 64
           },
           __self: this
         })
@@ -31432,6 +31484,21 @@ var Home = function (_Component) {
       console.log(this.props.location);
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this3 = this;
+
+      var oldProps = JSON.stringify(this.props.filters);
+      var newProps = JSON.stringify(nextProps.filters);
+
+      if (newProps !== oldProps) {
+        Home.requestInitialData(function (rooms) {
+          _this3.setState({ rooms: rooms });
+        });
+        console.log('update props');
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       // if (!this.props.logged) {
@@ -31442,24 +31509,41 @@ var Home = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 55
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '?people=10&address=Barcelona,spain', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          },
+          __self: this
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h1',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 45
+              lineNumber: 57
             },
             __self: this
           },
           'Home'
         ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            },
+            __self: this
+          },
+          this.props.filters.address
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 59
           },
           __self: this
         })
@@ -31471,9 +31555,9 @@ var Home = function (_Component) {
       var params = {
         people: 5
       };
-      if (this && this.props.location.coords) {
-        params.lat = this.props.location.coords.lat;
-        params.long = this.props.location.coords.long;
+      if (this && this.props.filters.coords) {
+        params.lat = this.props.filters.coords.lat;
+        params.long = this.props.filters.coords.long;
       }
       Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])(params, callback);
     }
@@ -31615,7 +31699,7 @@ var _class = function (_Component) {
               )
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], { updateState: this.props.updateState, __source: {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], { updateState: this.props.updateState, filters: this.props.filters, __source: {
               fileName: _jsxFileName,
               lineNumber: 31
             },
@@ -31943,7 +32027,7 @@ Geolocation.defaultProps = {
   lazy: false
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Geolocation);
+/* unused harmony default export */ var _unused_webpack_default_export = (Geolocation);
 //# sourceMappingURL=react-geolocation.es.js.map
 
 
@@ -31983,7 +32067,7 @@ var _class = function (_Component) {
     var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
 
     _this.state = {
-      number: '',
+      number: 0,
       address: '',
       coords: []
     };
@@ -32006,9 +32090,18 @@ var _class = function (_Component) {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       if (e) e.preventDefault();
+      var newState = {
+        filters: {
+          people: +this.state.number,
+          address: this.props.filters.address,
+          coords: this.props.filters.coords
+        }
+      };
       if (this.state.coords.length) {
-        this.props.updateState(this.state);
+        newState.filters.coords = this.state.coords;
+        newState.filters.address = this.state.address;
       }
+      this.props.updateState(newState);
     }
     // handle Adress
 
@@ -32052,13 +32145,13 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 58
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 58
             },
             __self: _this3
           }),
@@ -32075,13 +32168,14 @@ var _class = function (_Component) {
       };
       var inputProps = {
         value: this.state.address,
-        onChange: this.handleAddressChange
+        onChange: this.handleAddressChange,
+        placeholder: 'City, Zipcode or Address'
       };
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 73
           },
           __self: this
         },
@@ -32090,7 +32184,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 74
             },
             __self: this
           },
@@ -32100,22 +32194,23 @@ var _class = function (_Component) {
             classNames: cssClasses,
             options: options,
             onSelect: this.handleAddressSelect,
+            googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 75
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', onChange: this.handleChange, __source: {
               fileName: _jsxFileName,
-              lineNumber: 72
+              lineNumber: 83
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 85
           },
           __self: this
         })

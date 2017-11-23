@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import routes from '../../routes'
 import './default.css'
 import Header from '../Header/Header'
@@ -38,7 +38,7 @@ export default class extends Component {
       logged: logged,
       filters: {
         location: {},
-        people: 5,
+        people: 0,
         address: '',
         coords: []
       }
@@ -79,7 +79,7 @@ export default class extends Component {
     getCoordsInfo(coords, response => {
       this.updateState({
         location: {
-          coords: {lat: coords.latitude, long: coords.longitude},
+          coords: [coords.latitude, coords.longitude],
           city: response
         }
       })
@@ -88,7 +88,6 @@ export default class extends Component {
   render () {
     return (
       <div>
-        <Geolocation onSuccess={this.setLocation} />
         <Header
           logged={this.state.logged}
           login={this.login}
@@ -99,14 +98,16 @@ export default class extends Component {
         <Switch>
           {routes.map((route, i) => (
             <Route key={i} exact={route.exact} path={route.path} render={props => (
-              <route.component
-                logged={this.state.logged}
-                login={this.login}
-                user={this.state.user}
-                logout={this.logout}
-                location={this.state.location}
-                {...props}
-              />
+              <div>
+                <route.component
+                  logged={this.state.logged}
+                  login={this.login}
+                  user={this.state.user}
+                  logout={this.logout}
+                  filters={this.state.filters}
+                  {...props}
+                />
+              </div>
             )} />
           ))}
         </Switch>
@@ -115,3 +116,8 @@ export default class extends Component {
     )
   }
 }
+        // <Geolocation onSuccess={this.setLocation} />
+                // <Redirect to={{
+                //   pathname: '/',
+                //   search: '?utm=your+face'
+                // }} />
