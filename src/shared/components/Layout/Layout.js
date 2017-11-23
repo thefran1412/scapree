@@ -6,6 +6,9 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import {checkToken} from '../../services/auth'
 import store from 'store'
+// import {geolocated} from 'react-geolocated'
+import Geolocation from 'react-geolocation'
+import {getCoordsInfo} from '../../services/location'
 
 export default class extends Component {
   constructor (props) {
@@ -32,12 +35,14 @@ export default class extends Component {
     // setting state
     this.state = {
       user: user,
-      logged: logged
+      logged: logged,
+      location: ''
     }
 
     this.setUserInfo = this.setUserInfo.bind(this)
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
+    this.setLocation = this.setLocation.bind(this)
   }
   setUserInfo (logged, user = 'unregistered') {
     this.setState({
@@ -65,13 +70,24 @@ export default class extends Component {
   componentDidMount () {
     this.login(this.props.token)
   }
+  setLocation (position) {
+    console.log(position)
+    const coords = position.coords
+    getCoordsInfo(coords, response => {
+      this.setState({
+        location: {coords: {lat: coords.latitude, long: coords.longitude}, city: response}
+      })
+    })
+  }
   render () {
     return (
       <div>
+        <Geolocation onSuccess={this.setLocation} />
         <Header
           logged={this.state.logged}
           login={this.login}
           user={this.state.user}
+          location={this.state.location}
         />
         <Switch>
           {routes.map((route, i) => (
@@ -81,6 +97,7 @@ export default class extends Component {
                 login={this.login}
                 user={this.state.user}
                 logout={this.logout}
+                location={this.state.location}
                 {...props}
               />
             )} />

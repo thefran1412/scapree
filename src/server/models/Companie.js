@@ -26,4 +26,6 @@ var CompanieSchema = new Schema({
   created: Date
 })
 
+CompanieSchema.index({location: '2dsphere'})
+
 module.exports = mongoose.model('Companie', CompanieSchema)

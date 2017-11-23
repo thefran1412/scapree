@@ -14,7 +14,7 @@ module.exports = function (req, res) {
     profileImg: params.profileImg || 'default.png',
     coverImg: params.coverImg || 'default.png',
     location: {
-      type: 'point',
+      type: 'Point',
       coordinates: [2.153634, 41.408225],
       address: 'Ptge Frigola 14',
       code: '08012',

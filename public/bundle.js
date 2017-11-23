@@ -24553,6 +24553,8 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_auth__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_store__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_store__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_geolocation__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_location__ = __webpack_require__(298);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\components\\Layout\\Layout.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -24569,6 +24571,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
+// import {geolocated} from 'react-geolocated'
 
 
 
@@ -24602,12 +24607,14 @@ var _class = function (_Component) {
     // setting state
     _this.state = {
       user: user,
-      logged: logged
+      logged: logged,
+      location: ''
     };
 
     _this.setUserInfo = _this.setUserInfo.bind(_this);
     _this.login = _this.login.bind(_this);
     _this.logout = _this.logout.bind(_this);
+    _this.setLocation = _this.setLocation.bind(_this);
     return _this;
   }
 
@@ -24653,26 +24660,46 @@ var _class = function (_Component) {
       this.login(this.props.token);
     }
   }, {
+    key: 'setLocation',
+    value: function setLocation(position) {
+      var _this3 = this;
+
+      console.log(position);
+      var coords = position.coords;
+      Object(__WEBPACK_IMPORTED_MODULE_9__services_location__["a" /* getCoordsInfo */])(coords, function (response) {
+        _this3.setState({
+          location: { coords: { lat: coords.latitude, long: coords.longitude }, city: response }
+        });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 84
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8_react_geolocation__["a" /* default */], { onSuccess: this.setLocation, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 85
+          },
+          __self: this
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Header_Header__["a" /* default */], {
           logged: this.state.logged,
           login: this.login,
           user: this.state.user,
+          location: this.state.location,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 86
           },
           __self: this
         }),
@@ -24681,36 +24708,37 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 76
+              lineNumber: 92
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].map(function (route, i) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { key: i, exact: route.exact, path: route.path, render: function render(props) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(route.component, Object.assign({
-                  logged: _this3.state.logged,
-                  login: _this3.login,
-                  user: _this3.state.user,
-                  logout: _this3.logout
+                  logged: _this4.state.logged,
+                  login: _this4.login,
+                  user: _this4.state.user,
+                  logout: _this4.logout,
+                  location: _this4.state.location
                 }, props, {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 79
+                    lineNumber: 95
                   },
-                  __self: _this3
+                  __self: _this4
                 }));
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 78
+                lineNumber: 94
               },
-              __self: _this3
+              __self: _this4
             });
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 106
           },
           __self: this
         })
@@ -27938,7 +27966,7 @@ var Index = function (_Component) {
     }
   }], [{
     key: 'requestInitialData',
-    value: function requestInitialData(callback, route) {
+    value: function requestInitialData(callback) {
       // var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
       var url = 'http://localhost:3000/api/rooms';
       __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()(url).then(function (response) {
@@ -31346,6 +31374,7 @@ var RegisterForm = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_rooms__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_location__ = __webpack_require__(298);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\home.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31355,6 +31384,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -31379,6 +31409,7 @@ var Home = function (_Component) {
     _this.state = {
       rooms: initialData
     };
+    _this.location();
     return _this;
   }
 
@@ -31394,6 +31425,16 @@ var Home = function (_Component) {
       }
     }
   }, {
+    key: 'location',
+    value: function location() {
+      if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled) {
+        console.log(this.props);
+        Object(__WEBPACK_IMPORTED_MODULE_4__services_location__["a" /* getCoordsInfo */])(this.props.coords, function (response) {
+          console.log(response);
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       // if (!this.props.logged) {
@@ -31404,7 +31445,7 @@ var Home = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 46
           },
           __self: this
         },
@@ -31413,7 +31454,7 @@ var Home = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 47
             },
             __self: this
           },
@@ -31421,7 +31462,7 @@ var Home = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 48
           },
           __self: this
         })
@@ -31429,7 +31470,7 @@ var Home = function (_Component) {
     }
   }], [{
     key: 'requestInitialData',
-    value: function requestInitialData(callback, route) {
+    value: function requestInitialData(callback) {
       Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])({ people: 5 }, callback);
     }
   }]);
@@ -31843,6 +31884,166 @@ var App = function App() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 297 */,
+/* 298 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCoordsInfo; });
+/* unused harmony export getDirectionInfo */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(116);
+
+
+
+function getCoordsInfo(coords, _func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+    url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + coords.latitude + ',' + coords.longitude,
+    func: function func(response) {
+      var city = response.results.filter(function (location) {
+        var types = JSON.stringify(location.types);
+        var rightTypes = JSON.stringify(['locality', 'political']);
+        return types === rightTypes;
+      });
+      _func(city[0]);
+    }
+  });
+}
+
+function getDirectionInfo(direction, func) {
+  // body...
+}
+
+
+
+/***/ }),
+/* 299 */,
+/* 300 */,
+/* 301 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Geolocation = function (_React$Component) {
+  _inherits(Geolocation, _React$Component);
+
+  function Geolocation(props) {
+    _classCallCheck(this, Geolocation);
+
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.getCurrentPosition = function () {
+      var _this$props = _this.props,
+          enableHighAccuracy = _this$props.enableHighAccuracy,
+          timeout = _this$props.timeout,
+          maximumAge = _this$props.maximumAge,
+          onSuccess = _this$props.onSuccess,
+          onError = _this$props.onError;
+
+
+      _this.setState({ fetchingPosition: true });
+
+      return window.navigator.geolocation.getCurrentPosition(function (position) {
+        if (_this.willUnmount) return;
+
+        _this.setState({ position: position, fetchingPosition: false }, function () {
+          return onSuccess(position);
+        });
+      }, function (err) {
+        if (_this.willUnmount) return;
+
+        _this.setState({ err: err, fetchingPosition: false }, function () {
+          return onError(err);
+        });
+      }, { enableHighAccuracy: enableHighAccuracy, timeout: timeout, maximumAge: maximumAge });
+    };
+
+    _this.state = {
+      fetchingPosition: false,
+      position: undefined,
+      error: undefined
+    };
+    return _this;
+  }
+
+  Geolocation.prototype.componentWillMount = function componentWillMount() {
+    if ((typeof window === 'undefined' ? 'undefined' : _typeof(window)) !== 'object') {
+      return;
+    }
+
+    if (!('geolocation' in window.navigator)) {
+      return;
+    }
+
+    if (this.props.lazy) {
+      return;
+    }
+
+    this.getCurrentPosition();
+  };
+
+  Geolocation.prototype.componentWillUnmount = function componentWillUnmount() {
+    this.willUnmount = true;
+  };
+
+  Geolocation.prototype.render = function render() {
+    if (!this.props.render) {
+      return null;
+    }
+    return this.props.render({
+      getCurrentPosition: this.getCurrentPosition,
+      fetchingPosition: this.state.fetchingPosition,
+      position: this.state.position,
+      error: this.state.error
+    }) || null;
+  };
+
+  return Geolocation;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+Geolocation.propTypes = {
+  // https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions
+  enableHighAccuracy: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  timeout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  maximumAge: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+  onSuccess: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  onError: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  // Do not call getCurrentPosition on mount
+  lazy: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+};
+
+Geolocation.defaultProps = {
+  enableHighAccuracy: false,
+  timeout: Infinity,
+  maximumAge: 0,
+  onSuccess: function onSuccess(pos) {},
+  // eslint-disable-next-line handle-callback-err
+  onError: function onError(err) {},
+  lazy: false
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Geolocation);
+//# sourceMappingURL=react-geolocation.es.js.map
+
 
 /***/ })
 /******/ ]);

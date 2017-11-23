@@ -13,10 +13,7 @@ module.exports = function (req, res) {
   if (props.lat && props.long) {
     filters.location = {
       $near: {
-        $geometry: {
-          type: 'Point',
-          'coordinates': [+props.long, +props.lat]
-        },
+        $geometry: {type: 'Point', 'coordinates': [+props.long, +props.lat]},
         $maxDistance: 100000
       }
     }

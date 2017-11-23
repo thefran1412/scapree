@@ -34,8 +34,10 @@ var RoomSchema = new Schema({
     city: String,
     country: String
   },
-  tags: Array, 
+  tags: Array,
   created: Date
 })
+
+RoomSchema.index({location: '2dsphere'})
 
 module.exports = mongoose.model('Room', RoomSchema)
