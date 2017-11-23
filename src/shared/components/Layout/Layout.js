@@ -39,23 +39,23 @@ export default class extends Component {
       filters: {
         location: {},
         people: 5,
-        date: new Date()
+        address: '',
+        coords: []
       }
     }
 
-    this.setUserInfo = this.setUserInfo.bind(this)
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
+    this.setUserInfo = this.setUserInfo.bind(this)
     this.setLocation = this.setLocation.bind(this)
+    this.updateState = this.updateState.bind(this)
+  }
+  updateState (object) {
+    this.setState(object)
   }
   setUserInfo (logged, user = 'unregistered') {
-    this.setState({
-      user: user,
-      logged: logged
-    })
-    if (user === 'unregistered') {
-      store.remove('token')
-    }
+    this.updateState({user, logged})
+    if (user === 'unregistered') store.remove('token')
   }
   login (user = 'unregistered', token) {
     if (token) {
@@ -77,8 +77,11 @@ export default class extends Component {
   setLocation (position) {
     const coords = position.coords
     getCoordsInfo(coords, response => {
-      this.setState({
-        location: {coords: {lat: coords.latitude, long: coords.longitude}, city: response}
+      this.updateState({
+        location: {
+          coords: {lat: coords.latitude, long: coords.longitude},
+          city: response
+        }
       })
     })
   }
@@ -90,7 +93,8 @@ export default class extends Component {
           logged={this.state.logged}
           login={this.login}
           user={this.state.user}
-          location={this.state.location}
+          filters={this.state.filters}
+          updateState={this.updateState}
         />
         <Switch>
           {routes.map((route, i) => (

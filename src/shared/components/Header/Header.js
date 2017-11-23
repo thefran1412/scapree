@@ -28,7 +28,7 @@ export default class extends Component {
               <h1>Scapree</h1>
             </Link>
           </div>
-          <Filters />
+          <Filters updateState={this.props.updateState} />
           {
             this.state.logged
             ? <UserControl />

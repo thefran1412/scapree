@@ -17,7 +17,7 @@ app.get('*', (req, res) => {
     const requestInitialData = activeRoute.component.requestInitialData
 
     let user = req.session.user ? req.session.user : 'unregistered'
-    console.log('initialdata', requestInitialData)
+
     requestInitialData
     ? requestInitialData((initialData) => {
       sendHTML(req.url, initialData, user, res)

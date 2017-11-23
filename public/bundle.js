@@ -24611,29 +24611,31 @@ var _class = function (_Component) {
       filters: {
         location: {},
         people: 5,
-        date: new Date()
+        address: '',
+        coords: []
       }
     };
 
-    _this.setUserInfo = _this.setUserInfo.bind(_this);
     _this.login = _this.login.bind(_this);
     _this.logout = _this.logout.bind(_this);
+    _this.setUserInfo = _this.setUserInfo.bind(_this);
     _this.setLocation = _this.setLocation.bind(_this);
+    _this.updateState = _this.updateState.bind(_this);
     return _this;
   }
 
   _createClass(_class, [{
+    key: 'updateState',
+    value: function updateState(object) {
+      this.setState(object);
+    }
+  }, {
     key: 'setUserInfo',
     value: function setUserInfo(logged) {
       var user = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'unregistered';
 
-      this.setState({
-        user: user,
-        logged: logged
-      });
-      if (user === 'unregistered') {
-        __WEBPACK_IMPORTED_MODULE_7_store___default.a.remove('token');
-      }
+      this.updateState({ user: user, logged: logged });
+      if (user === 'unregistered') __WEBPACK_IMPORTED_MODULE_7_store___default.a.remove('token');
     }
   }, {
     key: 'login',
@@ -24670,8 +24672,11 @@ var _class = function (_Component) {
 
       var coords = position.coords;
       Object(__WEBPACK_IMPORTED_MODULE_9__services_location__["a" /* getCoordsInfo */])(coords, function (response) {
-        _this3.setState({
-          location: { coords: { lat: coords.latitude, long: coords.longitude }, city: response }
+        _this3.updateState({
+          location: {
+            coords: { lat: coords.latitude, long: coords.longitude },
+            city: response
+          }
         });
       });
     }
@@ -24685,13 +24690,13 @@ var _class = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 90
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8_react_geolocation__["a" /* default */], { onSuccess: this.setLocation, __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 91
           },
           __self: this
         }),
@@ -24699,10 +24704,11 @@ var _class = function (_Component) {
           logged: this.state.logged,
           login: this.login,
           user: this.state.user,
-          location: this.state.location,
+          filters: this.state.filters,
+          updateState: this.updateState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 92
           },
           __self: this
         }),
@@ -24711,7 +24717,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 99
             },
             __self: this
           },
@@ -24726,13 +24732,13 @@ var _class = function (_Component) {
                 }, props, {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 98
+                    lineNumber: 102
                   },
                   __self: _this4
                 }));
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 97
+                lineNumber: 101
               },
               __self: _this4
             });
@@ -24741,7 +24747,7 @@ var _class = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109
+            lineNumber: 113
           },
           __self: this
         })
@@ -31609,8 +31615,7 @@ var _class = function (_Component) {
               )
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], {
-            __source: {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], { updateState: this.props.updateState, __source: {
               fileName: _jsxFileName,
               lineNumber: 31
             },
@@ -31794,8 +31799,6 @@ var App = function App() {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCoordsInfo; });
-/* unused harmony export getDirectionInfo */
-/* unused harmony export initAutocomplete */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(116);
@@ -31817,13 +31820,6 @@ function getCoordsInfo(coords, _func) {
   });
 }
 
-function getDirectionInfo(direction, func) {
-  // body...
-}
-function initAutocomplete(autocomplete) {
-  autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), { types: ['geocode'] });
-  // autocomplete.addListener('place_changed', fillInAddress)
-}
 
 
 /***/ }),
@@ -31958,11 +31954,10 @@ Geolocation.defaultProps = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_location_js__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Filters_css__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Filters_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Filters_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Filters_css__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Filters_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Filters_css__);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\components\\Filters\\Filters.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31979,7 +31974,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
 var _class = function (_Component) {
   _inherits(_class, _Component);
 
@@ -31989,89 +31983,86 @@ var _class = function (_Component) {
     var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
 
     _this.state = {
-      text: '',
       number: '',
-      date: '',
-      address: ''
+      address: '',
+      coords: []
     };
+    _this.update = _this.update.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleAddressChange = _this.handleAddressChange.bind(_this);
+    _this.handleAddressSelect = _this.handleAddressSelect.bind(_this);
     return _this;
   }
+  // handle form
+
 
   _createClass(_class, [{
     key: 'handleChange',
     value: function handleChange(e) {
-      this.setState(_defineProperty({}, e.target.type, e.target.value));
-    }
-  }, {
-    key: 'handleAddressChange',
-    value: function handleAddressChange(address) {
-      this.setState({ address: address });
-    }
-  }, {
-    key: 'handleAddressSelect',
-    value: function handleAddressSelect(info) {
-      // console.log(info)
-      Object(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__["geocodeByAddress"])('Tokyo, Japan').then(function (results) {
-        return Object(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__["getLatLng"])(results[0]);
-      }).then(function (_ref) {
-        var lat = _ref.lat,
-            lng = _ref.lng;
-        return console.log('Successfully got latitude and longitude', { lat: lat, lng: lng });
-      });
+      this.update([e.target.type], e.target.value);
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
-      e.preventDefault();
-      console.log(this.state);
+      if (e) e.preventDefault();
+      if (this.state.coords.length) {
+        this.props.updateState(this.state);
+      }
+    }
+    // handle Adress
+
+  }, {
+    key: 'handleAddressChange',
+    value: function handleAddressChange(address) {
+      this.update('address', address);
+      this.update('coords', []);
     }
   }, {
-    key: 'initAutocomplete',
-    value: function initAutocomplete() {
-      console.log('executed');
+    key: 'handleAddressSelect',
+    value: function handleAddressSelect(address, placeId) {
+      var _this2 = this;
+
+      Object(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
+        return Object(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__["getLatLng"])(results[0]);
+      }).then(function (_ref) {
+        var lat = _ref.lat,
+            lng = _ref.lng;
+
+        _this2.update('address', address);
+        _this2.update('coords', [lat, lng]);
+      });
+    }
+    // update state
+
+  }, {
+    key: 'update',
+    value: function update(key, value) {
+      this.setState(_defineProperty({}, key, value), this.handleSubmit);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var AutocompleteItem = function AutocompleteItem(_ref2) {
-        var formattedSuggestion = _ref2.formattedSuggestion;
+        var suggestion = _ref2.suggestion;
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 42
+              lineNumber: 49
             },
-            __self: _this2
+            __self: _this3
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'strong',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 43
-              },
-              __self: _this2
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
             },
-            formattedSuggestion.mainText
-          ),
-          ' ',
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'small',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 44
-              },
-              __self: _this2
-            },
-            formattedSuggestion.secondaryText
-          )
+            __self: _this3
+          }),
+          suggestion
         );
       };
       var cssClasses = {
@@ -32084,58 +32075,47 @@ var _class = function (_Component) {
       };
       var inputProps = {
         value: this.state.address,
-        onChange: this.handleAddressChange,
-        onSelect: this.handleAddressSelect
+        onChange: this.handleAddressChange
       };
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 63
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
-          { onSubmit: this.handleSubmit, __source: {
+          {
+            __source: {
               fileName: _jsxFileName,
-              lineNumber: 62
+              lineNumber: 64
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete___default.a, {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete___default.a, {
             inputProps: inputProps,
             autocompleteItem: AutocompleteItem,
             classNames: cssClasses,
             options: options,
+            onSelect: this.handleAddressSelect,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 65
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', onChange: this.handleChange, __source: {
               fileName: _jsxFileName,
-              lineNumber: 69
-            },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date', onChange: this.handleChange, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 70
-            },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: 'search', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 71
+              lineNumber: 72
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 74
           },
           __self: this
         })
