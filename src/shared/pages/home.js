@@ -19,14 +19,14 @@ export default class Home extends Component {
     }
   }
   static requestInitialData (callback) {
-    let params = {
+    let obj = {
       people: 5
     }
     if (this && this.props.filters.coords) {
-      params.lat = this.props.filters.coords.lat
-      params.long = this.props.filters.coords.long
+      obj.lat = this.props.filters.coords.lat
+      obj.long = this.props.filters.coords.long
     }
-    getRooms(params, callback)
+    getRooms(obj, callback)
   }
   componentDidMount () {
     if (!this.state.rooms) {

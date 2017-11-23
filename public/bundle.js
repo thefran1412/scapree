@@ -27918,6 +27918,7 @@ var routes = [{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_common__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_rooms__ = __webpack_require__(289);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27932,6 +27933,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+// import queryString from 'query-string'
 
 var Index = function (_Component) {
   _inherits(Index, _Component);
@@ -27959,6 +27962,7 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      console.log('mounted');
       if (!this.state.rooms) {
         Index.requestInitialData(function (rooms) {
           _this2.setState({ rooms: rooms });
@@ -27970,15 +27974,15 @@ var Index = function (_Component) {
     value: function componentWillReceiveProps(nextProps) {
       var _this3 = this;
 
+      // compare if props changed
       var oldProps = JSON.stringify(this.props.filters);
       var newProps = JSON.stringify(nextProps.filters);
 
       if (newProps !== oldProps) {
+        // if they did change
         console.log(nextProps);
-        Index.requestInitialData(function (rooms) {
-          _this3.setState({ rooms: rooms });
-        });
         console.log('update props');
+        // change url
         if (nextProps) {}
         var obj = {
           people: nextProps.filters.people
@@ -27991,6 +27995,11 @@ var Index = function (_Component) {
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
         console.log(url, this.props);
         this.props.history.push(url);
+
+        // get data again
+        Index.requestInitialData(function (rooms) {
+          _this3.setState({ rooms: rooms });
+        }, {}, obj);
       }
     }
   }, {
@@ -28001,7 +28010,7 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 66
           },
           __self: this
         },
@@ -28010,7 +28019,7 @@ var Index = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 67
             },
             __self: this
           },
@@ -28019,7 +28028,7 @@ var Index = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 68
           },
           __self: this
         })
@@ -28027,14 +28036,9 @@ var Index = function (_Component) {
     }
   }], [{
     key: 'requestInitialData',
-    value: function requestInitialData(callback) {
-      // var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'
-      var url = 'http://localhost:3000/api/rooms';
-      __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()(url).then(function (response) {
-        return response.json();
-      }).then(callback).catch(function (error) {
-        console.log(error);
-      });
+    value: function requestInitialData(callback, params, query) {
+      console.log(query);
+      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["a" /* getRooms */])(query, callback);
     }
   }]);
 
@@ -31552,14 +31556,14 @@ var Home = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback) {
-      var params = {
+      var obj = {
         people: 5
       };
       if (this && this.props.filters.coords) {
-        params.lat = this.props.filters.coords.lat;
-        params.long = this.props.filters.coords.long;
+        obj.lat = this.props.filters.coords.lat;
+        obj.long = this.props.filters.coords.long;
       }
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])(params, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])(obj, callback);
     }
   }]);
 
