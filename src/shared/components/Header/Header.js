@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import UserControl from '../UserControl/UserControl'
-import HeaderForm from '../HeaderForm/HeaderForm.js'
+import Filters from '../Filters/Filters.js'
 import {Link} from 'react-router-dom'
 import './Header.css'
 
@@ -28,7 +28,7 @@ export default class extends Component {
               <h1>Scapree</h1>
             </Link>
           </div>
-          <HeaderForm />
+          <Filters />
           {
             this.state.logged
             ? <UserControl />

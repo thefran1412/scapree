@@ -36,7 +36,11 @@ export default class extends Component {
     this.state = {
       user: user,
       logged: logged,
-      location: ''
+      filters: {
+        location: {},
+        people: 5,
+        date: new Date()
+      }
     }
 
     this.setUserInfo = this.setUserInfo.bind(this)
@@ -71,7 +75,6 @@ export default class extends Component {
     this.login(this.props.token)
   }
   setLocation (position) {
-    console.log(position)
     const coords = position.coords
     getCoordsInfo(coords, response => {
       this.setState({

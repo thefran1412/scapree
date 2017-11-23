@@ -4,7 +4,8 @@ header{
   color: #555;
   background-color: white;
   border-bottom: #ccc 1px solid;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  position:relative
 }
 
 .headerLogo{

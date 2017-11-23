@@ -19,5 +19,10 @@ function getCoordsInfo (coords, func) {
 function getDirectionInfo (direction, func) {
   // body...
 }
-
-export {getCoordsInfo, getDirectionInfo}
+function initAutocomplete (autocomplete) {
+  autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete')),
+      {types: ['geocode']})
+  // autocomplete.addListener('place_changed', fillInAddress)
+}
+export {getCoordsInfo, getDirectionInfo, initAutocomplete}

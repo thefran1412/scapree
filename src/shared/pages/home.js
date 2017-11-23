@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
 import {getRooms} from '../services/rooms'
-import {getCoordsInfo} from '../services/location'
 
 export default class Home extends Component {
   constructor (props) {
@@ -18,10 +17,16 @@ export default class Home extends Component {
     this.state = {
       rooms: initialData
     }
-    this.location()
   }
   static requestInitialData (callback) {
-    getRooms({people: 5}, callback)
+    let params = {
+      people: 5
+    }
+    if (this && this.props.location.coords) {
+      params.lat = this.props.location.coords.lat
+      params.long = this.props.location.coords.long
+    }
+    getRooms(params, callback)
   }
   componentDidMount () {
     if (!this.state.rooms) {
@@ -29,14 +34,7 @@ export default class Home extends Component {
         this.setState({rooms})
       })
     }
-  }
-  location () {
-    if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled) {
-      console.log(this.props)
-      getCoordsInfo(this.props.coords, response => {
-        console.log(response)
-      })
-    }
+    console.log(this.props.location)
   }
   render () {
     // if (!this.props.logged) {
