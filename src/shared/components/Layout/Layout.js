@@ -105,6 +105,7 @@ export default class extends Component {
                   user={this.state.user}
                   logout={this.logout}
                   filters={this.state.filters}
+                  updateState={this.updateState}
                   {...props}
                 />
               </div>

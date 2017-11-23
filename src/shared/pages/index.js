@@ -3,7 +3,7 @@ import PrintRooms from '../components/PrintRooms/PrintRooms'
 import fetch from 'isomorphic-fetch'
 import {objectToQuery} from '../services/common'
 import {getRooms} from '../services/rooms'
-// import queryString from 'query-string'
+import queryString from 'query-string'
 
 class Index extends Component {
   constructor (props) {
@@ -25,11 +25,28 @@ class Index extends Component {
     getRooms(query, callback)
   }
   componentDidMount () {
-    console.log('mounted')
     if (!this.state.rooms) {
       Index.requestInitialData(rooms => {
         this.setState({rooms})
       })
+    }
+    if (this.props.location.search) {
+      // set state by url
+      const parsed = queryString.parse(this.props.location.search)
+
+      let newState = {
+        filters: {
+          people: +parsed.people,
+          address: this.props.filters.address,
+          coords: this.props.filters.coords
+        }
+      }
+      if (parsed.address.length) {
+        newState.filters.coords = [parsed.lat, parsed.long]
+        newState.filters.address = parsed.address
+      }
+
+      this.props.updateState(newState)
     }
   }
   componentWillReceiveProps (nextProps) {

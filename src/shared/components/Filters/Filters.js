@@ -3,12 +3,12 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import './Filters.css'
 
 export default class extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
-      number: 0,
-      address: '',
-      coords: []
+      number: this.props.filters.people,
+      address: this.props.filters.address,
+      coords: this.props.filters.coords
     }
     this.update = this.update.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -80,7 +80,11 @@ export default class extends Component {
             onSelect={this.handleAddressSelect}
             googleLogo={false}
           />
-          <input type='number' onChange={this.handleChange} />
+          <input
+            type='number'
+            onChange={this.handleChange}
+            b
+          />
         </form>
         <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />
       </div>
