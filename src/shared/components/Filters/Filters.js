@@ -53,20 +53,6 @@ export default class extends Component {
     ? this.setState(object, func)
     : this.setState(object)
   }
-  // componentWillMount () {
-  //   console.log(this.props)
-  // }
-  // componentDidMount () {
-  //   console.log(this.props)
-  // }
-  // componentWillReceiveProps (newProps) {
-  //   this.setState({
-  //     number: newProps.people,
-  //     address: newProps.address,
-  //     coords: newProps.coords
-  //   })
-  //   console.log('updating props', newProps)
-  // }
 
   render () {
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)

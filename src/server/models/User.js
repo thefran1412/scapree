@@ -3,8 +3,6 @@ let bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema
 const {generateToken} = require('../services/token.js')
 
-// types of user: normal, admin, company
-
 var UserSchema = new Schema({
   username: {
     type: String,

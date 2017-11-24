@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
-import {getRooms} from '../services/rooms'
+import {getMyRooms} from '../services/rooms'
 
 export default class Home extends Component {
   constructor (props) {
@@ -19,14 +19,13 @@ export default class Home extends Component {
     }
   }
   static requestInitialData (callback) {
-    let obj = {
-      people: 5
-    }
-    if (this && this.props.filters.coords) {
-      obj.lat = this.props.filters.coords.lat
-      obj.long = this.props.filters.coords.long
-    }
-    getRooms(obj, callback)
+    getMyRooms(data => {
+      if (data.success === false) {
+        console.log(data)
+      } else {
+        callback(data)
+      }
+    })
   }
   componentDidMount () {
     if (!this.state.rooms) {
@@ -53,7 +52,6 @@ export default class Home extends Component {
     // }
     return (
       <div>
-        <Redirect to='?people=10&address=Barcelona,spain' />
         <h1>Home</h1>
         <p>{this.props.filters.address}</p>
         <PrintRooms rooms={this.state.rooms} />

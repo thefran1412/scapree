@@ -30,31 +30,14 @@ class Index extends Component {
         this.setState({rooms})
       })
     }
-    // if (this.props.location.search) {
-    //   // set state by url
-    //   const parsed = queryString.parse(this.props.location.search)
-
-    //   let newState = {
-    //     filters: {
-    //       people: +parsed.people,
-    //       address: this.props.filters.address,
-    //       coords: this.props.filters.coords
-    //     }
-    //   }
-    //   if (parsed.address.length) {
-    //     newState.filters.coords = [parsed.lat, parsed.long]
-    //     newState.filters.address = parsed.address
-    //   }
-
-    //   this.props.updateState(newState)
-    // }
   }
   componentWillReceiveProps (nextProps) {
     // compare if props changed
     const oldProps = JSON.stringify(this.props.filters)
     const newProps = JSON.stringify(nextProps.filters)
-
+    console.log('always update')
     if (newProps !== oldProps) {
+      console.log('on diff update')
       // if they did change
       // console.log('index recieve diff props', nextProps.filters)
       // change url

@@ -12324,7 +12324,8 @@ module.exports = self.fetch.bind(self);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getRooms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getRooms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getMyRooms; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(43);
@@ -12335,6 +12336,14 @@ function getRooms(data, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
     url: 'http://localhost:3000/api/rooms' + Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["b" /* objectToQuery */])(data),
+    func: func
+  });
+}
+
+function getMyRooms(func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+    url: 'http://localhost:3000/api/myrooms',
     func: func
   });
 }
@@ -28023,24 +28032,6 @@ var Index = function (_Component) {
           _this2.setState({ rooms: rooms });
         });
       }
-      // if (this.props.location.search) {
-      //   // set state by url
-      //   const parsed = queryString.parse(this.props.location.search)
-
-      //   let newState = {
-      //     filters: {
-      //       people: +parsed.people,
-      //       address: this.props.filters.address,
-      //       coords: this.props.filters.coords
-      //     }
-      //   }
-      //   if (parsed.address.length) {
-      //     newState.filters.coords = [parsed.lat, parsed.long]
-      //     newState.filters.address = parsed.address
-      //   }
-
-      //   this.props.updateState(newState)
-      // }
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -28050,8 +28041,9 @@ var Index = function (_Component) {
       // compare if props changed
       var oldProps = JSON.stringify(this.props.filters);
       var newProps = JSON.stringify(nextProps.filters);
-
+      console.log('always update');
       if (newProps !== oldProps) {
+        console.log('on diff update');
         // if they did change
         // console.log('index recieve diff props', nextProps.filters)
         // change url
@@ -28082,7 +28074,7 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 65
           },
           __self: this
         },
@@ -28091,7 +28083,7 @@ var Index = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 66
             },
             __self: this
           },
@@ -28100,7 +28092,7 @@ var Index = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 67
           },
           __self: this
         })
@@ -28110,7 +28102,7 @@ var Index = function (_Component) {
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
       // console.log(query)
-      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["a" /* getRooms */])(query, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["b" /* getRooms */])(query, callback);
     }
   }]);
 
@@ -31889,22 +31881,16 @@ var Home = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 54
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '?people=10&address=Barcelona,spain', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 56
-          },
-          __self: this
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h1',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 55
             },
             __self: this
           },
@@ -31915,7 +31901,7 @@ var Home = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 56
             },
             __self: this
           },
@@ -31923,7 +31909,7 @@ var Home = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 57
           },
           __self: this
         })
@@ -31932,14 +31918,13 @@ var Home = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback) {
-      var obj = {
-        people: 5
-      };
-      if (this && this.props.filters.coords) {
-        obj.lat = this.props.filters.coords.lat;
-        obj.long = this.props.filters.coords.long;
-      }
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getRooms */])(obj, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_rooms__["a" /* getMyRooms */])(function (data) {
+        if (data.success === false) {
+          console.log(data);
+        } else {
+          callback(data);
+        }
+      });
     }
   }]);
 
@@ -32287,21 +32272,6 @@ var _class = function (_Component) {
     value: function update(object, func) {
       func ? this.setState(object, func) : this.setState(object);
     }
-    // componentWillMount () {
-    //   console.log(this.props)
-    // }
-    // componentDidMount () {
-    //   console.log(this.props)
-    // }
-    // componentWillReceiveProps (newProps) {
-    //   this.setState({
-    //     number: newProps.people,
-    //     address: newProps.address,
-    //     coords: newProps.coords
-    //   })
-    //   console.log('updating props', newProps)
-    // }
-
   }, {
     key: 'render',
     value: function render() {
@@ -32314,13 +32284,13 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 72
+              lineNumber: 58
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 72
+              lineNumber: 58
             },
             __self: _this3
           }),
@@ -32344,7 +32314,7 @@ var _class = function (_Component) {
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 73
           },
           __self: this
         },
@@ -32353,7 +32323,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 74
             },
             __self: this
           },
@@ -32366,7 +32336,7 @@ var _class = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 75
             },
             __self: this
           }),
@@ -32377,14 +32347,14 @@ var _class = function (_Component) {
             placeholder: 'People',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 97
+              lineNumber: 83
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 104
+            lineNumber: 90
           },
           __self: this
         })

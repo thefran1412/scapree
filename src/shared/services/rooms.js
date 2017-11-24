@@ -9,6 +9,14 @@ function getRooms (data, func) {
   })
 }
 
-export {getRooms}
+function getMyRooms (func) {
+  ajax({
+    method: axios.get,
+    url: 'http://localhost:3000/api/myrooms',
+    func
+  })
+}
+
+export {getRooms, getMyRooms}
 
 // var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'

@@ -7,9 +7,10 @@ module.exports = function (req, res) {
   let filters = {
     visible: true
   }
-  // if (props.type === 'mine') {
-  //   filters.companie = req.session.user.companie
-  // }
+  console.log(req.session.user)
+  if (props.type === 'mine') {
+    filters.companie = req.session.user.companie
+  }
   if (props.lat && props.long) {
     filters.location = {
       $near: {
