@@ -1,10 +1,13 @@
 import axios from 'axios'
 import {ajax} from './common.js'
 
+// const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://scapree.herokuapp.com'
+
 function login (username, password, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/login',
+    url: `${baseUrl}/api/login`,
     data: {username, password},
     func
   })
@@ -13,7 +16,7 @@ function login (username, password, func) {
 function logout (func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/logout',
+    url: `${baseUrl}/api/logout`,
     data: {},
     func
   })
@@ -22,7 +25,7 @@ function logout (func) {
 function register (info, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/register',
+    url: `${baseUrl}/api/register`,
     data: info,
     func
   })
@@ -31,7 +34,7 @@ function register (info, func) {
 function checkToken (token, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/check/token',
+    url: `${baseUrl}/api/check/token`,
     data: {token},
     func
   })
@@ -40,7 +43,7 @@ function checkToken (token, func) {
 function checkUsername (username, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/check/username',
+    url: `${baseUrl}/api/check/username`,
     data: {username},
     func
   })
@@ -49,7 +52,7 @@ function checkUsername (username, func) {
 function checkEmail (email, func) {
   ajax({
     method: axios.post,
-    url: 'http://localhost:3000/api/check/email',
+    url: `${baseUrl}/api/check/email`,
     data: {email},
     func
   })

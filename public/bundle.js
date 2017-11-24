@@ -4265,10 +4265,13 @@ var createPath = function createPath(location) {
 
 
 
+// const baseUrl = 'http://localhost:3000'
+var baseUrl = 'https://scapree.herokuapp.com';
+
 function login(username, password, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/login',
+    url: baseUrl + '/api/login',
     data: { username: username, password: password },
     func: func
   });
@@ -4277,7 +4280,7 @@ function login(username, password, func) {
 function logout(func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/logout',
+    url: baseUrl + '/api/logout',
     data: {},
     func: func
   });
@@ -4286,7 +4289,7 @@ function logout(func) {
 function register(info, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/register',
+    url: baseUrl + '/api/register',
     data: info,
     func: func
   });
@@ -4295,7 +4298,7 @@ function register(info, func) {
 function checkToken(token, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/check/token',
+    url: baseUrl + '/api/check/token',
     data: { token: token },
     func: func
   });
@@ -4304,7 +4307,7 @@ function checkToken(token, func) {
 function checkUsername(username, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/check/username',
+    url: baseUrl + '/api/check/username',
     data: { username: username },
     func: func
   });
@@ -4313,7 +4316,7 @@ function checkUsername(username, func) {
 function checkEmail(email, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
-    url: 'http://localhost:3000/api/check/email',
+    url: baseUrl + '/api/check/email',
     data: { email: email },
     func: func
   });
@@ -12332,10 +12335,13 @@ module.exports = self.fetch.bind(self);
 
 
 
+// const baseUrl = 'http://localhost:3000'
+var baseUrl = 'https://scapree.herokuapp.com';
+
 function getRooms(data, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
-    url: 'http://localhost:3000/api/rooms' + Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["b" /* objectToQuery */])(data),
+    url: baseUrl + '/api/rooms' + Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["b" /* objectToQuery */])(data),
     func: func
   });
 }
@@ -12343,7 +12349,7 @@ function getRooms(data, func) {
 function getMyRooms(func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
-    url: 'http://localhost:3000/api/myrooms',
+    url: baseUrl + '/api/myrooms',
     func: func
   });
 }
@@ -30000,8 +30006,8 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      // var url = `https://floating-ravine-77277.herokuapp.com/api/room/${params.id}`
-      var url = 'http://localhost:3000/api/room/' + params.id;
+      var url = 'https://scapree.herokuapp.com/api/room/' + params.id;
+      // var url = `http://localhost:3000/api/room/${params.id}`
       __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default()(url);
       __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default()(url).then(function (response) {
         return response.json();
