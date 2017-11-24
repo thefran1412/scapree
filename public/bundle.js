@@ -5579,8 +5579,6 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ajax; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return stateToObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return objectToQuery; });
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 function ajax(data) {
   data.method(data.url, data.data).then(function (answer) {
     data.func(answer.data);
@@ -5604,7 +5602,6 @@ function stateToObject(object) {
 
 function objectToQuery(object) {
   var array = [];
-  console.log(typeof object === 'undefined' ? 'undefined' : _typeof(object));
   if (Object.keys(object).length === 0) return '';
   Object.keys(object).map(function (name, index) {
     array.push(name + '=' + object[name]);

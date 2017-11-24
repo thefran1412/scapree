@@ -23,7 +23,6 @@ function stateToObject (object) {
 
 function objectToQuery (object) {
   let array = []
-  console.log(typeof object)
   if (Object.keys(object).length === 0) return ''
   Object.keys(object).map((name, index) => {
     array.push(`${name}=${object[name]}`)
