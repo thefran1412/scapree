@@ -18,7 +18,7 @@ export default class extends Component {
   }
   // handle form
   handleChange (e) {
-    this.update([e.target.type], e.target.value)
+    this.update({[e.target.type]: e.target.value}, this.handleSubmit)
   }
   handleSubmit (e) {
     if (e) e.preventDefault()
@@ -29,7 +29,7 @@ export default class extends Component {
         coords: this.state.coords
       }
     }
-    console.log(this.state)
+    console.log('handle submit', this.state)
     if (this.state.coords.length) {
       newState.filters.coords = this.state.coords
       newState.filters.address = this.state.address
@@ -38,22 +38,20 @@ export default class extends Component {
   }
   // handle Adress
   handleAddressChange (address) {
-    this.update('address', address)
-    this.update('coords', [])
+    this.update({address, coords: []})
   }
   handleAddressSelect (address, placeId) {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        this.update('address', address)
-        this.update('coords', [lat, lng])
+        this.update({address, coords: [lat, lng]}, this.handleSubmit)
       })
   }
   // update state
-  update (key, value) {
-    this.setState({
-      [key]: value
-    }, this.handleSubmit)
+  update (object, func) {
+    func
+    ? this.setState(object, func())
+    : this.setState(object)
   }
   // componentWillMount () {
   //   console.log(this.props)

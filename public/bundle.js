@@ -24670,7 +24670,7 @@ var _class = function (_Component) {
       filters: {
         location: {},
         people: query.people ? +query.people : 0,
-        address: query.address ? query.address : '',
+        address: coords.length && query.address ? query.address : '',
         coords: coords
       }
     };
@@ -28066,7 +28066,7 @@ var Index = function (_Component) {
           obj.address = nextProps.filters.address;
         }
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
-        console.log(url, this.props);
+        console.log(url, nextProps);
         this.props.history.push(url);
 
         // get data again
@@ -32240,7 +32240,7 @@ var _class = function (_Component) {
   _createClass(_class, [{
     key: 'handleChange',
     value: function handleChange(e) {
-      this.update([e.target.type], e.target.value);
+      this.update(_defineProperty({}, e.target.type, e.target.value), this.handleSubmit);
     }
   }, {
     key: 'handleSubmit',
@@ -32253,7 +32253,7 @@ var _class = function (_Component) {
           coords: this.state.coords
         }
       };
-      console.log(this.state);
+      console.log('handle submit', this.state);
       if (this.state.coords.length) {
         newState.filters.coords = this.state.coords;
         newState.filters.address = this.state.address;
@@ -32265,8 +32265,7 @@ var _class = function (_Component) {
   }, {
     key: 'handleAddressChange',
     value: function handleAddressChange(address) {
-      this.update('address', address);
-      this.update('coords', []);
+      this.update({ address: address, coords: [] });
     }
   }, {
     key: 'handleAddressSelect',
@@ -32279,16 +32278,15 @@ var _class = function (_Component) {
         var lat = _ref.lat,
             lng = _ref.lng;
 
-        _this2.update('address', address);
-        _this2.update('coords', [lat, lng]);
+        _this2.update({ address: address, coords: [lat, lng] }, _this2.handleSubmit);
       });
     }
     // update state
 
   }, {
     key: 'update',
-    value: function update(key, value) {
-      this.setState(_defineProperty({}, key, value), this.handleSubmit);
+    value: function update(object, func) {
+      func ? this.setState(object, func()) : this.setState(object);
     }
     // componentWillMount () {
     //   console.log(this.props)
@@ -32317,13 +32315,13 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 72
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 72
             },
             __self: _this3
           }),
@@ -32347,7 +32345,7 @@ var _class = function (_Component) {
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 87
           },
           __self: this
         },
@@ -32356,7 +32354,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 88
             },
             __self: this
           },
@@ -32369,7 +32367,7 @@ var _class = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 91
+              lineNumber: 89
             },
             __self: this
           }),
@@ -32380,14 +32378,14 @@ var _class = function (_Component) {
             placeholder: 'People',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 97
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 106
+            lineNumber: 104
           },
           __self: this
         })

@@ -69,7 +69,7 @@ class Index extends Component {
         obj.address = nextProps.filters.address
       }
       const url = '/' + objectToQuery(obj)
-      console.log(url, this.props)
+      console.log(url, nextProps)
       this.props.history.push(url)
 
       // get data again

@@ -49,7 +49,7 @@ export default class extends Component {
       filters: {
         location: {},
         people: query.people ? +query.people : 0,
-        address: query.address ? query.address : '',
+        address: coords.length && query.address ? query.address : '',
         coords: coords
       }
     }
