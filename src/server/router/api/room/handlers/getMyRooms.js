@@ -9,6 +9,7 @@ module.exports = function (req, res) {
 
     Companie.findOne(filters)
       .then(companies => {
+        console.log(companies)
         Room.find({companie: companies._id})
           .then(tasks => res.send(tasks))
           .catch(err => console.log(err))
