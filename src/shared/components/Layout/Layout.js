@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import routes from '../../routes'
 import './default.css'
 import Header from '../Header/Header'
@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer'
 import {checkToken} from '../../services/auth'
 import store from 'store'
 // import {geolocated} from 'react-geolocated'
-import Geolocation from 'react-geolocation'
+// import Geolocation from 'react-geolocation'
 import {getCoordsInfo} from '../../services/location'
 
 export default class extends Component {
@@ -17,11 +17,16 @@ export default class extends Component {
 
     // setting user
     let user
+    let query
     if (__isBrowser__) {
       user = window.__user__
       delete window.__user__
+
+      query = window.__query__
+      delete window.__query__
     } else {
       user = props.user
+      query = props.query
     }
 
     // setting logged
@@ -32,15 +37,20 @@ export default class extends Component {
       logged = true
     }
 
+    // parse query
+    const coords = []
+    if (query.lat && query.long) {
+      coords.push(+query.lat, +query.long)
+    }
     // setting state
     this.state = {
       user: user,
       logged: logged,
       filters: {
         location: {},
-        people: 0,
-        address: '',
-        coords: []
+        people: query.people ? +query.people : 0,
+        address: query.address ? query.address : '',
+        coords: coords
       }
     }
 
@@ -117,8 +127,3 @@ export default class extends Component {
     )
   }
 }
-        // <Geolocation onSuccess={this.setLocation} />
-                // <Redirect to={{
-                //   pathname: '/',
-                //   search: '?utm=your+face'
-                // }} />

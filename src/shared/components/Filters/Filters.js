@@ -25,8 +25,8 @@ export default class extends Component {
     let newState = {
       filters: {
         people: +this.state.number,
-        address: this.props.filters.address,
-        coords: this.props.filters.coords
+        address: this.state.address,
+        coords: this.state.coords
       }
     }
     if (this.state.coords.length) {
@@ -54,6 +54,21 @@ export default class extends Component {
       [key]: value
     }, this.handleSubmit)
   }
+  // componentWillMount () {
+  //   console.log(this.props)
+  // }
+  // componentDidMount () {
+  //   console.log(this.props)
+  // }
+  componentWillReceiveProps (newProps) {
+    this.setState({
+      number: newProps.people,
+      address: newProps.address,
+      coords: newProps.coords
+    })
+    console.log('updating props', newProps)
+  }
+
   render () {
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)
     const cssClasses = {
@@ -82,8 +97,9 @@ export default class extends Component {
           />
           <input
             type='number'
+            value={this.state.number}
             onChange={this.handleChange}
-            b
+            placeholder='People'
           />
         </form>
         <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />

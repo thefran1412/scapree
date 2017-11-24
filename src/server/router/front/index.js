@@ -23,16 +23,16 @@ app.get('*', (req, res) => {
     let user = req.session.user ? req.session.user : 'unregistered'
     requestInitialData
     ? requestInitialData((initialData) => {
-      sendHTML(req.url, initialData, user, res)
+      sendHTML(req.url, initialData, user, query, res)
     }, params, query)
-    : sendHTML(req.url, '', user, res)
+    : sendHTML(req.url, '', user, query, res)
   }
 })
 
-function sendHTML (url, initialData, user, notSend) {
+function sendHTML (url, initialData, user, query, notSend) {
   const content = renderToString(
     <StaticRouter location={url} context={{initialData}}>
-      <Layout user={user} />
+      <Layout user={user} query={query} />
     </StaticRouter>
   )
   notSend.send(`
@@ -45,6 +45,7 @@ function sendHTML (url, initialData, user, notSend) {
         <script src="/static/bundle.js" defer></script>
         <script>window.__initialData__ = ${serialize(initialData)}</script>
         <script>window.__user__ = ${serialize(user)}</script>
+        <script>window.__query__ = ${serialize(query)}</script>
       </head>
       <body>
         <div id='root'>${content}</div>

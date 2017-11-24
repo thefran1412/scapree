@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 
 render(
   <BrowserRouter>
-    <Layout />
+    <Layout url={window.location.href} />
   </BrowserRouter>,
   document.getElementById('root')
 )
