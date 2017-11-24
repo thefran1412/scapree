@@ -4265,8 +4265,8 @@ var createPath = function createPath(location) {
 
 
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function login(username, password, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
@@ -12335,8 +12335,8 @@ module.exports = self.fetch.bind(self);
 
 
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function getRooms(data, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
@@ -30006,8 +30006,8 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      var url = 'https://scapree.herokuapp.com/api/room/' + params.id;
-      // var url = `http://localhost:3000/api/room/${params.id}`
+      // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
+      var url = 'http://localhost:3000/api/room/' + params.id;
       __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default()(url);
       __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default()(url).then(function (response) {
         return response.json();
