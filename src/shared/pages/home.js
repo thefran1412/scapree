@@ -47,9 +47,9 @@ export default class Home extends Component {
     }
   }
   render () {
-    // if (!this.props.logged) {
-    //   return <Redirect to='/login' />
-    // }
+    if (!this.props.logged) {
+      return <Redirect to='/login' />
+    }
     return (
       <div>
         <h1>Home</h1>

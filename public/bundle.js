@@ -31879,9 +31879,14 @@ var Home = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      // if (!this.props.logged) {
-      //   return <Redirect to='/login' />
-      // }
+      if (!this.props.logged) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51
+          },
+          __self: this
+        });
+      }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
