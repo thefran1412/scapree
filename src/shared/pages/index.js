@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
 import fetch from 'isomorphic-fetch'
-import {objectToQuery} from '../services/common'
+import {objectToQuery, stateToObject} from '../services/common'
 import {getRooms} from '../services/rooms'
 import queryString from 'query-string'
 
@@ -21,40 +21,28 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, params, query) {
-    // console.log(query)
+    console.log(query)
     getRooms(query, callback)
   }
   componentDidMount () {
+    console.log('mounted')
+    const obj = stateToObject(this.props.filters)
     if (!this.state.rooms) {
       Index.requestInitialData(rooms => {
         this.setState({rooms})
-      })
+      }, {}, obj)
     }
   }
   componentWillReceiveProps (nextProps) {
-    // compare if props changed
     const oldProps = JSON.stringify(this.props.filters)
     const newProps = JSON.stringify(nextProps.filters)
-    console.log('always update')
+
     if (newProps !== oldProps) {
-      console.log('on diff update')
-      // if they did change
-      // console.log('index recieve diff props', nextProps.filters)
-      // change url
-      if (nextProps) {}
-      const obj = {
-        people: nextProps.filters.people
-      }
-      if (nextProps.filters.coords.length) {
-        obj.lat = nextProps.filters.coords[0]
-        obj.long = nextProps.filters.coords[1]
-        obj.address = nextProps.filters.address
-      }
+      const obj = stateToObject(nextProps.filters)
       const url = '/' + objectToQuery(obj)
-      // console.log(url, nextProps)
+
       this.props.history.push(url)
 
-      // get data again
       Index.requestInitialData(rooms => {
         this.setState({rooms})
       }, {}, obj)

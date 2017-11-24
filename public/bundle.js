@@ -5577,7 +5577,10 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ajax; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return stateToObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return objectToQuery; });
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 function ajax(data) {
   data.method(data.url, data.data).then(function (answer) {
     data.func(answer.data);
@@ -5586,8 +5589,23 @@ function ajax(data) {
   });
 }
 
+function stateToObject(object) {
+  var newObject = {};
+  if (object.coords.length) {
+    newObject.lat = object.coords[0];
+    newObject.long = object.coords[1];
+    newObject.address = object.address;
+  }
+  if (object.address) {
+    newObject.address = object.address;
+  }
+  return newObject;
+}
+
 function objectToQuery(object) {
   var array = [];
+  console.log(typeof object === 'undefined' ? 'undefined' : _typeof(object));
+  if (Object.keys(object).length === 0) return '';
   Object.keys(object).map(function (name, index) {
     array.push(name + '=' + object[name]);
   });
@@ -28033,10 +28051,12 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      console.log('mounted');
+      var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(this.props.filters);
       if (!this.state.rooms) {
         Index.requestInitialData(function (rooms) {
           _this2.setState({ rooms: rooms });
-        });
+        }, {}, obj);
       }
     }
   }, {
@@ -28044,29 +28064,15 @@ var Index = function (_Component) {
     value: function componentWillReceiveProps(nextProps) {
       var _this3 = this;
 
-      // compare if props changed
       var oldProps = JSON.stringify(this.props.filters);
       var newProps = JSON.stringify(nextProps.filters);
-      console.log('always update');
+
       if (newProps !== oldProps) {
-        console.log('on diff update');
-        // if they did change
-        // console.log('index recieve diff props', nextProps.filters)
-        // change url
-        if (nextProps) {}
-        var obj = {
-          people: nextProps.filters.people
-        };
-        if (nextProps.filters.coords.length) {
-          obj.lat = nextProps.filters.coords[0];
-          obj.long = nextProps.filters.coords[1];
-          obj.address = nextProps.filters.address;
-        }
+        var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(nextProps.filters);
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
-        // console.log(url, nextProps)
+
         this.props.history.push(url);
 
-        // get data again
         Index.requestInitialData(function (rooms) {
           _this3.setState({ rooms: rooms });
         }, {}, obj);
@@ -28080,7 +28086,7 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 53
           },
           __self: this
         },
@@ -28089,7 +28095,7 @@ var Index = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 54
             },
             __self: this
           },
@@ -28098,7 +28104,7 @@ var Index = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 55
           },
           __self: this
         })
@@ -28107,7 +28113,7 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      // console.log(query)
+      console.log(query);
       Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["b" /* getRooms */])(query, callback);
     }
   }]);
