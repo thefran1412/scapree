@@ -28053,8 +28053,7 @@ var Index = function (_Component) {
 
       if (newProps !== oldProps) {
         // if they did change
-        console.log(nextProps);
-        console.log('update props');
+        // console.log('index recieve diff props', nextProps.filters)
         // change url
         if (nextProps) {}
         var obj = {
@@ -28066,7 +28065,7 @@ var Index = function (_Component) {
           obj.address = nextProps.filters.address;
         }
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
-        console.log(url, nextProps);
+        // console.log(url, nextProps)
         this.props.history.push(url);
 
         // get data again
@@ -28083,7 +28082,7 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 82
           },
           __self: this
         },
@@ -28092,7 +28091,7 @@ var Index = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 84
+              lineNumber: 83
             },
             __self: this
           },
@@ -28101,7 +28100,7 @@ var Index = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 84
           },
           __self: this
         })
@@ -28110,7 +28109,7 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      console.log(query);
+      // console.log(query)
       Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["a" /* getRooms */])(query, callback);
     }
   }]);
@@ -32253,11 +32252,11 @@ var _class = function (_Component) {
           coords: this.state.coords
         }
       };
-      console.log('handle submit', this.state);
       if (this.state.coords.length) {
         newState.filters.coords = this.state.coords;
         newState.filters.address = this.state.address;
       }
+      // console.log('handle submit', this.state)
       this.props.updateState(newState);
     }
     // handle Adress
@@ -32286,7 +32285,7 @@ var _class = function (_Component) {
   }, {
     key: 'update',
     value: function update(object, func) {
-      func ? this.setState(object, func()) : this.setState(object);
+      func ? this.setState(object, func) : this.setState(object);
     }
     // componentWillMount () {
     //   console.log(this.props)

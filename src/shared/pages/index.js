@@ -21,7 +21,7 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, params, query) {
-    console.log(query)
+    // console.log(query)
     getRooms(query, callback)
   }
   componentDidMount () {
@@ -56,8 +56,7 @@ class Index extends Component {
 
     if (newProps !== oldProps) {
       // if they did change
-      console.log(nextProps)
-      console.log('update props')
+      // console.log('index recieve diff props', nextProps.filters)
       // change url
       if (nextProps) {}
       const obj = {
@@ -69,7 +68,7 @@ class Index extends Component {
         obj.address = nextProps.filters.address
       }
       const url = '/' + objectToQuery(obj)
-      console.log(url, nextProps)
+      // console.log(url, nextProps)
       this.props.history.push(url)
 
       // get data again

@@ -29,11 +29,11 @@ export default class extends Component {
         coords: this.state.coords
       }
     }
-    console.log('handle submit', this.state)
     if (this.state.coords.length) {
       newState.filters.coords = this.state.coords
       newState.filters.address = this.state.address
     }
+    // console.log('handle submit', this.state)
     this.props.updateState(newState)
   }
   // handle Adress
@@ -50,7 +50,7 @@ export default class extends Component {
   // update state
   update (object, func) {
     func
-    ? this.setState(object, func())
+    ? this.setState(object, func)
     : this.setState(object)
   }
   // componentWillMount () {
