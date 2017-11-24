@@ -28023,24 +28023,24 @@ var Index = function (_Component) {
           _this2.setState({ rooms: rooms });
         });
       }
-      if (this.props.location.search) {
-        // set state by url
-        var parsed = __WEBPACK_IMPORTED_MODULE_5_query_string___default.a.parse(this.props.location.search);
+      // if (this.props.location.search) {
+      //   // set state by url
+      //   const parsed = queryString.parse(this.props.location.search)
 
-        var newState = {
-          filters: {
-            people: +parsed.people,
-            address: this.props.filters.address,
-            coords: this.props.filters.coords
-          }
-        };
-        if (parsed.address.length) {
-          newState.filters.coords = [parsed.lat, parsed.long];
-          newState.filters.address = parsed.address;
-        }
+      //   let newState = {
+      //     filters: {
+      //       people: +parsed.people,
+      //       address: this.props.filters.address,
+      //       coords: this.props.filters.coords
+      //     }
+      //   }
+      //   if (parsed.address.length) {
+      //     newState.filters.coords = [parsed.lat, parsed.long]
+      //     newState.filters.address = parsed.address
+      //   }
 
-        this.props.updateState(newState);
-      }
+      //   this.props.updateState(newState)
+      // }
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -32253,6 +32253,7 @@ var _class = function (_Component) {
           coords: this.state.coords
         }
       };
+      console.log(this.state);
       if (this.state.coords.length) {
         newState.filters.coords = this.state.coords;
         newState.filters.address = this.state.address;
@@ -32295,17 +32296,15 @@ var _class = function (_Component) {
     // componentDidMount () {
     //   console.log(this.props)
     // }
+    // componentWillReceiveProps (newProps) {
+    //   this.setState({
+    //     number: newProps.people,
+    //     address: newProps.address,
+    //     coords: newProps.coords
+    //   })
+    //   console.log('updating props', newProps)
+    // }
 
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(newProps) {
-      this.setState({
-        number: newProps.people,
-        address: newProps.address,
-        coords: newProps.coords
-      });
-      console.log('updating props', newProps);
-    }
   }, {
     key: 'render',
     value: function render() {
@@ -32318,13 +32317,13 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 74
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 74
             },
             __self: _this3
           }),
@@ -32348,7 +32347,7 @@ var _class = function (_Component) {
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 89
           },
           __self: this
         },
@@ -32357,7 +32356,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 90
             },
             __self: this
           },
@@ -32370,7 +32369,7 @@ var _class = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 91
             },
             __self: this
           }),
@@ -32381,14 +32380,14 @@ var _class = function (_Component) {
             placeholder: 'People',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 98
+              lineNumber: 99
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 106
           },
           __self: this
         })

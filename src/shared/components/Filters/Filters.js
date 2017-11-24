@@ -29,6 +29,7 @@ export default class extends Component {
         coords: this.state.coords
       }
     }
+    console.log(this.state)
     if (this.state.coords.length) {
       newState.filters.coords = this.state.coords
       newState.filters.address = this.state.address
@@ -60,14 +61,14 @@ export default class extends Component {
   // componentDidMount () {
   //   console.log(this.props)
   // }
-  componentWillReceiveProps (newProps) {
-    this.setState({
-      number: newProps.people,
-      address: newProps.address,
-      coords: newProps.coords
-    })
-    console.log('updating props', newProps)
-  }
+  // componentWillReceiveProps (newProps) {
+  //   this.setState({
+  //     number: newProps.people,
+  //     address: newProps.address,
+  //     coords: newProps.coords
+  //   })
+  //   console.log('updating props', newProps)
+  // }
 
   render () {
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)

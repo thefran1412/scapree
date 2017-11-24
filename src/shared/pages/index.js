@@ -30,24 +30,24 @@ class Index extends Component {
         this.setState({rooms})
       })
     }
-    if (this.props.location.search) {
-      // set state by url
-      const parsed = queryString.parse(this.props.location.search)
+    // if (this.props.location.search) {
+    //   // set state by url
+    //   const parsed = queryString.parse(this.props.location.search)
 
-      let newState = {
-        filters: {
-          people: +parsed.people,
-          address: this.props.filters.address,
-          coords: this.props.filters.coords
-        }
-      }
-      if (parsed.address.length) {
-        newState.filters.coords = [parsed.lat, parsed.long]
-        newState.filters.address = parsed.address
-      }
+    //   let newState = {
+    //     filters: {
+    //       people: +parsed.people,
+    //       address: this.props.filters.address,
+    //       coords: this.props.filters.coords
+    //     }
+    //   }
+    //   if (parsed.address.length) {
+    //     newState.filters.coords = [parsed.lat, parsed.long]
+    //     newState.filters.address = parsed.address
+    //   }
 
-      this.props.updateState(newState)
-    }
+    //   this.props.updateState(newState)
+    // }
   }
   componentWillReceiveProps (nextProps) {
     // compare if props changed
