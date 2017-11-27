@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
 import CreateCompany from '../components/CreateCompany/CreateCompany'
 import {getMyRooms} from '../services/rooms'
@@ -33,35 +33,33 @@ export default class Home extends Component {
     }
   }
   componentWillReceiveProps (nextProps) {
-    const oldProps = JSON.stringify(this.props.filters)
-    const newProps = JSON.stringify(nextProps.filters)
-
-    if (newProps !== oldProps) {
+    Home.requestInitialData(rooms => {
+      this.setState({rooms})
+    })
+  }
+  handleSubmit (data) {
+    createCompany(data, response => {
+      console.log('response', response)
       Home.requestInitialData(rooms => {
         this.setState({rooms})
       })
-      console.log('update props')
-    }
-  }
-  handleSubmit (data) {
-    console.log(data)
-    createCompany(data, response => {
-      console.log('response', response)
     })
   }
   render () {
-    // if (!this.props.logged) {
-    //   return <Redirect to='/login' />
-    // }
+    if (!this.props.logged) {
+      return <Redirect to='/login' />
+    }
     return (
       <div>
         <h1>Home</h1>
-        <CreateCompany submit={this.handleSubmit} />
         {
           (this.state.logged && !this.state.success)
           ? <CreateCompany submit={this.handleSubmit} />
           : (this.state.success)
-            ? <PrintRooms rooms={this.state.rooms} />
+            ? (<div>
+              <PrintRooms rooms={this.state.rooms} />
+              <Link to='/addroom'>Add Room</Link>
+            </div>)
             : <p>you shouldn't be here</p> // <Redirect to='/login' />
         }
       </div>

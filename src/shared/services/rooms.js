@@ -20,4 +20,13 @@ function getMyRooms (func) {
   })
 }
 
-export {getRooms, getMyRooms}
+function addRoom (data, func) {
+  ajax({
+    method: axios.post,
+    url: `${baseUrl}/api/room`,
+    data,
+    func
+  })
+}
+
+export {getRooms, getMyRooms, addRoom}

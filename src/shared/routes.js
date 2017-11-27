@@ -1,9 +1,10 @@
-import index from './pages/index.js'
-import room from './pages/room.js'
-import login from './pages/login.js'
-import logout from './pages/logout.js'
-import register from './pages/register.js'
-import home from './pages/home.js'
+import index from './pages/index'
+import room from './pages/room'
+import login from './pages/login'
+import logout from './pages/logout'
+import register from './pages/register'
+import home from './pages/home'
+import addroom from './pages/addroom'
 
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
   {
     path: '/home',
     component: home
+  },
+  {
+    path: '/addroom',
+    component: addroom
   }
 ]
 

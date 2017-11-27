@@ -14,14 +14,6 @@ var CompanieSchema = new Schema({
   desc: String,
   profileImg: String,
   coverImg: String,
-  location: {
-    type: {type: String},
-    coordinates: [Number, Number],
-    address: String,
-    code: String,
-    city: String,
-    country: String
-  },
   visible: Boolean,
   created: Date
 })

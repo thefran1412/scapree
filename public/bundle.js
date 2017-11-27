@@ -12344,6 +12344,7 @@ module.exports = self.fetch.bind(self);
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getRooms; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getMyRooms; });
+/* unused harmony export addRoom */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(33);
@@ -12365,6 +12366,15 @@ function getMyRooms(func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
     url: baseUrl + '/api/myrooms',
+    func: func
+  });
+}
+
+function addRoom(data, func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+    url: baseUrl + '/api/room',
+    data: data,
     func: func
   });
 }
@@ -27953,12 +27963,14 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_index_js__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_room_js__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_login_js__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_logout_js__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_register_js__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_js__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_index__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_room__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_login__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_logout__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_register__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_addroom__ = __webpack_require__(314);
+
 
 
 
@@ -27968,23 +27980,26 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 var routes = [{
   path: '/',
-  component: __WEBPACK_IMPORTED_MODULE_0__pages_index_js__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_0__pages_index__["a" /* default */],
   exact: true
 }, {
   path: '/room/:id',
-  component: __WEBPACK_IMPORTED_MODULE_1__pages_room_js__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_1__pages_room__["a" /* default */]
 }, {
   path: '/login',
-  component: __WEBPACK_IMPORTED_MODULE_2__pages_login_js__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_2__pages_login__["a" /* default */]
 }, {
   path: '/logout',
-  component: __WEBPACK_IMPORTED_MODULE_3__pages_logout_js__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_3__pages_logout__["a" /* default */]
 }, {
   path: '/register',
-  component: __WEBPACK_IMPORTED_MODULE_4__pages_register_js__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_4__pages_register__["a" /* default */]
 }, {
   path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_5__pages_home_js__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_5__pages_home__["a" /* default */]
+}, {
+  path: '/addroom',
+  component: __WEBPACK_IMPORTED_MODULE_6__pages_addroom__["a" /* default */]
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -31869,36 +31884,39 @@ var Home = function (_Component) {
     value: function componentWillReceiveProps(nextProps) {
       var _this3 = this;
 
-      var oldProps = JSON.stringify(this.props.filters);
-      var newProps = JSON.stringify(nextProps.filters);
-
-      if (newProps !== oldProps) {
-        Home.requestInitialData(function (rooms) {
-          _this3.setState({ rooms: rooms });
-        });
-        console.log('update props');
-      }
+      Home.requestInitialData(function (rooms) {
+        _this3.setState({ rooms: rooms });
+      });
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(data) {
-      console.log(data);
+      var _this4 = this;
+
       Object(__WEBPACK_IMPORTED_MODULE_5__services_companies__["a" /* createCompany */])(data, function (response) {
         console.log('response', response);
+        Home.requestInitialData(function (rooms) {
+          _this4.setState({ rooms: rooms });
+        });
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      // if (!this.props.logged) {
-      //   return <Redirect to='/login' />
-      // }
+      if (!this.props.logged) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50
+          },
+          __self: this
+        });
+      }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 53
           },
           __self: this
         },
@@ -31907,34 +31925,48 @@ var Home = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 54
             },
             __self: this
           },
           'Home'
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 59
-          },
-          __self: this
-        }),
         this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 57
           },
           __self: this
-        }) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 64
+        }) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 59
+            },
+            __self: this
           },
-          __self: this
-        }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 60
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+            { to: '/addroom', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 61
+              },
+              __self: this
+            },
+            'Add Room'
+          )
+        ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 63
             },
             __self: this
           },
@@ -33698,6 +33730,314 @@ function getCoordsInfo(coords, _func) {
 }
 
 
+
+/***/ }),
+/* 313 */,
+/* 314 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_rooms__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__);
+var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\addroom.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var AddRoom = function (_Component) {
+  _inherits(AddRoom, _Component);
+
+  function AddRoom(props) {
+    _classCallCheck(this, AddRoom);
+
+    var _this = _possibleConstructorReturn(this, (AddRoom.__proto__ || Object.getPrototypeOf(AddRoom)).call(this, props));
+
+    _this.state = {
+      name: '',
+      desc: '',
+      minAge: undefined,
+      minPeople: undefined,
+      maxPeople: undefined,
+      duration: undefined,
+      difficulty: undefined,
+      price: undefined,
+      address: '',
+      coords: []
+    };
+    _this.update = _this.update.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleAddressChange = _this.handleAddressChange.bind(_this);
+    _this.handleAddressSelect = _this.handleAddressSelect.bind(_this);
+    return _this;
+  }
+
+  _createClass(AddRoom, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      console.log(this.state);
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: 'handleAddressChange',
+    value: function handleAddressChange(address) {
+      this.update({ address: address, coords: [] });
+    }
+  }, {
+    key: 'handleAddressSelect',
+    value: function handleAddressSelect(address, placeId) {
+      var _this2 = this;
+
+      Object(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
+        return Object(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__["getLatLng"])(results[0]);
+      }).then(function (_ref) {
+        var lat = _ref.lat,
+            lng = _ref.lng;
+
+        _this2.update({ address: address, coords: [lat, lng] }, _this2.handleSubmit);
+      });
+    }
+    // update state
+
+  }, {
+    key: 'update',
+    value: function update(object, func) {
+      func ? this.setState(object, func) : this.setState(object);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      // if (!this.props.logged) {
+      //   return <Redirect to='/login' />
+      // }
+      var AutocompleteItem = function AutocompleteItem(_ref2) {
+        var suggestion = _ref2.suggestion;
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 57
+            },
+            __self: _this3
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 57
+            },
+            __self: _this3
+          }),
+          suggestion
+        );
+      };
+      var cssClasses = {
+        root: 'autocompleteRoot',
+        input: 'autocompleteInput',
+        autocompleteContainer: 'autocompleteContainer'
+      };
+      var options = {
+        country: ['es']
+      };
+      var inputProps = {
+        value: this.state.address,
+        onChange: this.handleAddressChange,
+        placeholder: 'City, Zipcode or Address'
+      };
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h1',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 73
+            },
+            __self: this
+          },
+          'Add Room'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'form',
+          { onSubmit: this.handleSubmit, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 74
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'text',
+            onChange: this.handleChange,
+            value: this.state.name,
+            name: 'name',
+            placeholder: 'Name',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 75
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+            onChange: this.handleChange,
+            value: this.state.desc,
+            name: 'desc',
+            placeholder: 'Description',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 83
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.minAge,
+            name: 'minAge',
+            placeholder: 'Min. Age',
+            min: '1',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.minPeople,
+            name: 'minPeople',
+            placeholder: 'Min. People',
+            min: '1',
+            max: '1000',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 99
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.maxPeople,
+            name: 'maxPeople',
+            placeholder: 'Max. People',
+            min: this.state.minPeople,
+            max: '1000',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 109
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.duration,
+            name: 'duration',
+            placeholder: 'Duration',
+            min: '1',
+            max: '1000',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 119
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.difficulty,
+            name: 'difficulty',
+            placeholder: 'Difficulty',
+            max: '100',
+            min: '0',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 129
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'number',
+            onChange: this.handleChange,
+            value: this.state.price,
+            name: 'price',
+            placeholder: 'Price',
+            min: '1',
+            required: true,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 139
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete___default.a, {
+            inputProps: inputProps,
+            autocompleteItem: AutocompleteItem,
+            classNames: cssClasses,
+            options: options,
+            onSelect: this.handleAddressSelect,
+            googleLogo: false,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 148
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'submit',
+            value: 'Create',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 156
+            },
+            __self: this
+          })
+        )
+      );
+    }
+  }]);
+
+  return AddRoom;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (AddRoom);
 
 /***/ })
 /******/ ]);
