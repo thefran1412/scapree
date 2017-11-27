@@ -7,7 +7,7 @@ const baseUrl = 'http://localhost:3000'
 function getRooms (data, func) {
   ajax({
     method: axios.get,
-    url: `${baseUrl}/api/rooms` + objectToQuery(data),
+    url: `${baseUrl}/api/rooms/` + objectToQuery(data),
     func
   })
 }
@@ -21,5 +21,3 @@ function getMyRooms (func) {
 }
 
 export {getRooms, getMyRooms}
-
-// var url = 'https://floating-ravine-77277.herokuapp.com/api/rooms'

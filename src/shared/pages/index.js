@@ -21,11 +21,9 @@ class Index extends Component {
     }
   }
   static requestInitialData (callback, params, query) {
-    console.log(query)
     getRooms(query, callback)
   }
   componentDidMount () {
-    console.log('mounted')
     const obj = stateToObject(this.props.filters)
     if (!this.state.rooms) {
       Index.requestInitialData(rooms => {
@@ -39,6 +37,7 @@ class Index extends Component {
 
     if (newProps !== oldProps) {
       const obj = stateToObject(nextProps.filters)
+      console.log(nextProps.filters, obj)
       const url = '/' + objectToQuery(obj)
 
       this.props.history.push(url)

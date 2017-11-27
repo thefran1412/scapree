@@ -29,6 +29,9 @@ export default class extends Component {
             </Link>
           </div>
           <Filters updateState={this.props.updateState} filters={this.props.filters} />
+          <Link to='/home'>
+            <h1>Home</h1>
+          </Link>
           {
             this.state.logged
             ? <UserControl />

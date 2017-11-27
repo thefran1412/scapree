@@ -124,6 +124,11 @@ header h1 {
 .autocompleteContainer {
   position: absolute;
   z-index: 1;  
+}#createCompany input{
+  padding: 10px;
+  color: black;
+  margin: 10px;
+
 }.room {
   height: 200px;
   width: 100px;

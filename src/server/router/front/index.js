@@ -22,7 +22,7 @@ app.get('*', (req, res) => {
 
     let user = req.session.user ? req.session.user : 'unregistered'
     requestInitialData
-    ? requestInitialData((initialData) => {
+    ? requestInitialData(initialData => {
       sendHTML(req.url, initialData, user, query, res)
     }, params, query)
     : sendHTML(req.url, '', user, query, res)

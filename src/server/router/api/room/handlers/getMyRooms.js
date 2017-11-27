@@ -6,16 +6,18 @@ module.exports = function (req, res) {
     let filters = {
       user: req.session.user._id
     }
-
     Companie.findOne(filters)
       .then(companies => {
-        console.log(companies)
-        Room.find({companie: companies._id})
-          .then(tasks => res.send(tasks))
-          .catch(err => console.log(err))
+        if (companies) {
+          Room.find({companie: companies._id})
+            .then(tasks => res.send({success: true, logged: true, companie: true, data: tasks}))
+            .catch(err => console.log(err))
+        } else {
+          res.send({success: false, logged: true, companie: false, msg: 'This user has no companie linked'})
+        }
       })
       .catch(err => console.log(err))
   } else {
-    res.send({success: false})
+    res.send({success: false, logged: false, companie: false, msg: 'User is not logged in'})
   }
 }

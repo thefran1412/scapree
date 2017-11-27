@@ -1,5 +1,5 @@
 function ajax (data) {
-  data.method(data.url, data.data)
+  data.method(data.url, {...data.data, withCredentials: true})
     .then(answer => {
       data.func(answer.data)
     })
@@ -15,15 +15,14 @@ function stateToObject (object) {
     newObject.long = object.coords[1]
     newObject.address = object.address
   }
-  if (object.address) {
-    newObject.address = object.address
+  if (object.people) {
+    newObject.people = object.people
   }
   return newObject
 }
 
 function objectToQuery (object) {
   let array = []
-  console.log(typeof object)
   if (Object.keys(object).length === 0) return ''
   Object.keys(object).map((name, index) => {
     array.push(`${name}=${object[name]}`)

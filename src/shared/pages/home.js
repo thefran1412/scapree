@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import PrintRooms from '../components/PrintRooms/PrintRooms'
+import CreateCompany from '../components/CreateCompany/CreateCompany'
 import {getMyRooms} from '../services/rooms'
+import {createCompany} from '../services/companies'
 
 export default class Home extends Component {
   constructor (props) {
@@ -15,25 +17,20 @@ export default class Home extends Component {
       initialData = props.staticContext.initialData
     }
     this.state = {
-      rooms: initialData
+      ...initialData
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
-  static requestInitialData (callback) {
-    getMyRooms(data => {
-      if (data.success === false) {
-        console.log(data)
-      } else {
-        callback(data)
-      }
-    })
+  static requestInitialData (callback, params, query) {
+    getMyRooms(callback)
   }
   componentDidMount () {
     if (!this.state.rooms) {
-      Home.requestInitialData(rooms => {
-        this.setState({rooms})
+      Home.requestInitialData(data => {
+        console.log(data)
+        this.setState({...data})
       })
     }
-    console.log(this.props.location)
   }
   componentWillReceiveProps (nextProps) {
     const oldProps = JSON.stringify(this.props.filters)
@@ -46,15 +43,27 @@ export default class Home extends Component {
       console.log('update props')
     }
   }
+  handleSubmit (data) {
+    console.log(data)
+    createCompany(data, response => {
+      console.log('response', response)
+    })
+  }
   render () {
-    if (!this.props.logged) {
-      return <Redirect to='/login' />
-    }
+    // if (!this.props.logged) {
+    //   return <Redirect to='/login' />
+    // }
     return (
       <div>
         <h1>Home</h1>
-        <p>{this.props.filters.address}</p>
-        <PrintRooms rooms={this.state.rooms} />
+        <CreateCompany submit={this.handleSubmit} />
+        {
+          (this.state.logged && !this.state.success)
+          ? <CreateCompany submit={this.handleSubmit} />
+          : (this.state.success)
+            ? <PrintRooms rooms={this.state.rooms} />
+            : <p>you shouldn't be here</p> // <Redirect to='/login' />
+        }
       </div>
     )
   }
