@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
-import {createRoom} from '../services/rooms'
+import {addRoom} from '../services/rooms'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
 export default class AddRoom extends Component {
@@ -26,8 +26,12 @@ export default class AddRoom extends Component {
     this.handleAddressSelect = this.handleAddressSelect.bind(this)
   }
   handleSubmit (e) {
-    e.preventDefault()
-    console.log(this.state)
+    if (e) {
+      e.preventDefault()
+    }
+    addRoom(this.state, response => {
+      console.log(response)
+    })
   }
   handleChange (e) {
     this.setState({
@@ -158,6 +162,8 @@ export default class AddRoom extends Component {
             value='Create'
           />
         </form>
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />
+
       </div>
     )
   }

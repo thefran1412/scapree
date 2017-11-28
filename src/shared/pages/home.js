@@ -57,7 +57,7 @@ export default class Home extends Component {
           ? <CreateCompany submit={this.handleSubmit} />
           : (this.state.success)
             ? (<div>
-              <PrintRooms rooms={this.state.rooms} />
+              <PrintRooms rooms={this.state.data} />
               <Link to='/addroom'>Add Room</Link>
             </div>)
             : <p>you shouldn't be here</p> // <Redirect to='/login' />
