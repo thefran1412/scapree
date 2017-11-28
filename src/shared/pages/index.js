@@ -50,7 +50,6 @@ class Index extends Component {
   render () {
     return (
       <div>
-        <p>{this.props.filters.address}{this.props.filters.people}</p>
         <PrintRooms rooms={this.state.rooms} />
       </div>
     )

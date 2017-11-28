@@ -1,0 +1,5 @@
+.rooms{
+  min-height: calc(100vh - 260px);
+  padding-top: 10px;
+  padding-left: 10px;
+}

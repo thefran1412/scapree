@@ -36,8 +36,8 @@ export default class extends Component {
             this.state.logged
             ? <UserControl />
             : <div className='headerLogin'>
-              <button><Link to='/register'>Sign Up</Link></button>
-              <button><Link to='/login'>Sign In</Link></button>
+              <Link to='/register'>Sign Up</Link>
+              <Link to='/login'>Sign In</Link>
             </div>
           }
         </nav>

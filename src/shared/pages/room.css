@@ -1,0 +1,33 @@
+#roomDetail {
+  min-height: calc(100vh - 260px);
+  position: relative;
+}
+
+#sectionSelector {
+  width: 100%;
+  height: 30px;
+  background: red;
+}
+.sectionSelectorFixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+#fixedBar {
+  background: orange;
+  height: calc(100% - 30px);
+  width: 38%;
+  display: inline-block;
+  height: 500px;
+}
+.fixedBarFixed {
+  position: fixed;
+  right: 0;
+  top: 30px;
+}
+#mainSection {
+  width: 62%;
+  height: 2000px;
+  background: yellow;
+  display: inline-block;
+}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Room from '../Room/Room'
+import './PrintRooms.css'
 
 export default class extends Component {
   constructor (props) {
@@ -22,7 +23,7 @@ export default class extends Component {
   }
   render () {
     return (
-      <div>
+      <div className='rooms'>
         {
           this.state.rooms
           ? this.state.rooms.map((room, item) => {
