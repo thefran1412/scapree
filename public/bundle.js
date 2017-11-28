@@ -30142,13 +30142,29 @@ var Room = function (_Component) {
       window.addEventListener('scroll', this.handleScroll);
     }
   }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(target) {
+      if (target === window.location.hash) {
+        window.location.hash = '#header';
+      }
+      window.location.hash = target;
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
+      var img = '/static/uploads/' + this.state.profileImg;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'roomDetail', __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 62
           },
           __self: this
         },
@@ -30157,7 +30173,7 @@ var Room = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 53
+              lineNumber: 63
             },
             __self: this
           },
@@ -30165,38 +30181,194 @@ var Room = function (_Component) {
             'div',
             { id: 'sectionSelector', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 54
+                lineNumber: 64
               },
               __self: this
             },
-            'Navigation Bar'
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 65
+                },
+                __self: this
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                { onClick: function onClick() {
+                    _this3.handleClick('#summary');
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 66
+                  },
+                  __self: this
+                },
+                'Summary'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                { onClick: function onClick() {
+                    _this3.handleClick('#description');
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 67
+                  },
+                  __self: this
+                },
+                'Description'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                { onClick: function onClick() {
+                    _this3.handleClick('#ratings');
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 68
+                  },
+                  __self: this
+                },
+                'Ratings'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                { onClick: function onClick() {
+                    _this3.handleClick('#location');
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 69
+                  },
+                  __self: this
+                },
+                'Location'
+              )
+            )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { id: 'mainSection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 55
+                lineNumber: 72
               },
               __self: this
             },
-            'Main Section'
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { id: 'summary', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 73
+                },
+                __self: this
+              },
+              'summary'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { id: 'description', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 76
+                },
+                __self: this
+              },
+              'description'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { id: 'ratings', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 79
+                },
+                __self: this
+              },
+              'ratings'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { id: 'location', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                },
+                __self: this
+              },
+              'location'
+            )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { id: 'fixedBar', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 56
+                lineNumber: 86
               },
               __self: this
             },
-            'Fixed bar'
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'roomPoster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 87
+              },
+              __self: this
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h3',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 88
+                },
+                __self: this
+              },
+              'Creado por:'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 89
+                },
+                __self: this
+              },
+              this.state.companie.name || 'undefined'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h3',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 90
+                },
+                __self: this
+              },
+              'Contact:'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 91
+                },
+                __self: this
+              },
+              this.state.companie.contact.email
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 92
+                },
+                __self: this
+              },
+              this.state.companie.contact.phone
+            )
           ),
           'name: ',
           this.state.name,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 94
             },
             __self: this
           }),
@@ -30205,7 +30377,7 @@ var Room = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 95
             },
             __self: this
           }),
@@ -30214,7 +30386,7 @@ var Room = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 96
             },
             __self: this
           }),
@@ -30223,7 +30395,7 @@ var Room = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 97
             },
             __self: this
           })

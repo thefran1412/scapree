@@ -47,13 +47,50 @@ export default class Room extends Component {
     }
     window.addEventListener('scroll', this.handleScroll)
   }
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+  handleClick (target) {
+    if (target === window.location.hash) {
+      window.location.hash = '#header'
+    }
+    window.location.hash = target
+  }
   render () {
+    const img = `/static/uploads/${this.state.profileImg}`
     return (
       <div id='roomDetail'>
         <div>
-          <div id='sectionSelector'>Navigation Bar</div>
-          <div id='mainSection'>Main Section</div>
-          <div id='fixedBar'>Fixed bar</div>
+          <div id='sectionSelector'>
+            <ul>
+              <li onClick={() => { this.handleClick('#summary') }}>Summary</li>
+              <li onClick={() => { this.handleClick('#description') }}>Description</li>
+              <li onClick={() => { this.handleClick('#ratings') }}>Ratings</li>
+              <li onClick={() => { this.handleClick('#location') }}>Location</li>
+            </ul>
+          </div>
+          <div id='mainSection'>
+            <div id='summary'>
+              summary
+            </div>
+            <div id='description'>
+              description
+            </div>
+            <div id='ratings'>
+              ratings
+            </div>
+            <div id='location'>
+              location
+            </div>
+          </div>
+          <div id='fixedBar'>
+            <div className='roomPoster' style={{backgroundImage: `url(${img})`}} />
+            <h3>Creado por:</h3>
+            <p>{this.state.companie.name || 'undefined'}</p>
+            <h3>Contact:</h3>
+            <p>{this.state.companie.contact.email}</p>
+            <p>{this.state.companie.contact.phone}</p>
+          </div>
           name: {this.state.name}<br />
           minAge: {this.state.minAge}<br />
           minPeople: {this.state.minPeople}<br />

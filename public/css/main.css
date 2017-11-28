@@ -235,7 +235,7 @@ header a {
   min-height: calc(100vh - 260px);
   position: relative;
 }
-
+/* SELECTOR */
 #sectionSelector {
   width: 100%;
   height: 30px;
@@ -246,22 +246,68 @@ header a {
   left: 0;
   top: 0;
 }
+#sectionSelector ul {
+  width: calc(100% - 300px);
+}
+#sectionSelector li {
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* FIXED BAR */
+
 #fixedBar {
   background: orange;
-  height: calc(100% - 30px);
-  width: 38%;
   display: inline-block;
-  height: 500px;
+  width: 300px;
 }
 .fixedBarFixed {
   position: fixed;
   right: 0;
   top: 30px;
 }
+.roomPoster{
+  height: 375px;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+/* MAIN SECTION */
+
 #mainSection {
-  width: 62%;
+  width: calc(100% - 300px);
   height: 2000px;
   background: yellow;
   display: inline-block;
+  vertical-align: top;
+}
+
+#summary {
+  height: 375px;
+  width: 100%;
+  background: green;
+}
+#description {
+  width: 100%;
+  height: 200px;
+  background: lightblue;
+}
+#ratings {
+  width: 100%;
+  height: 200px;
+  background: skyblue;
+}
+#location {
+  width: 100%;
+  height: 200px;
+  background: darkblue;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map*/
