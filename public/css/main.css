@@ -239,7 +239,8 @@ header a {
 #sectionSelector {
   width: 100%;
   height: 30px;
-  background: red;
+  /*background: red;*/
+  z-index: 10
 }
 .sectionSelectorFixed {
   position: fixed;
@@ -259,7 +260,7 @@ header a {
 /* FIXED BAR */
 
 #fixedBar {
-  background: orange;
+  /*background: orange;*/
   display: inline-block;
   width: 300px;
 }
@@ -268,15 +269,27 @@ header a {
   right: 0;
   top: 30px;
 }
-.roomPoster{
+#poster{
   height: 375px;
   width: 100%;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  /*border-radius: 5px;*/
+  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
   background-size: cover;
   overflow: hidden;
   position: relative;
+}
+.book {
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  padding: 10px;
+  height: 50px;
+  line-height: 30px;
+/*  background: red;
+*/  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-align: center;
+
 }
 
 /* MAIN SECTION */
@@ -284,30 +297,84 @@ header a {
 #mainSection {
   width: calc(100% - 300px);
   height: 2000px;
-  background: yellow;
-  display: inline-block;
+/*  background: yellow;
+*/  display: inline-block;
   vertical-align: top;
 }
+
+/* SUMMARY */
 
 #summary {
   height: 375px;
   width: 100%;
-  background: green;
+/*  background: green;
+*/  padding: 15% 10px 10px 20px;
 }
+#summary h1 {
+  padding-bottom: 2px;
+  font-size: 35px;
+}
+.dv-star-rating {
+  padding-bottom: 10px;
+  z-index: 0;
+  font-size: 20px;
+}
+.address{
+  padding-bottom: 10px;
+}
+.address p {
+  cursor: pointer;
+  display: inline-block;
+}
+
+/*.summaryInfo {
+  display: inline-block;
+}*/
+.summaryInfo > div {
+  display: inline-block;
+  margin: 0 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+.summaryInfo img, .summaryInfo p {
+  display: inline-block;
+}
+.summaryInfo img {
+  vertical-align: middle;
+  margin: 0 5px;
+  margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #description {
   width: 100%;
   height: 200px;
-  background: lightblue;
-}
+/*  background: lightblue;
+*/}
 #ratings {
   width: 100%;
   height: 200px;
-  background: skyblue;
-}
+/*  background: skyblue;
+*/}
 #location {
   width: 100%;
   height: 200px;
-  background: darkblue;
-  color: white;
+/*  background: darkblue;
+*/  color: white;
 }
 /*# sourceMappingURL=main.css.map*/

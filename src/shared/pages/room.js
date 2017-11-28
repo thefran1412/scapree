@@ -1,5 +1,7 @@
+import StarRatingComponent from 'react-star-rating-component'
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
+import * as Vibrant from 'node-vibrant'
 import './room.css'
 
 export default class Room extends Component {
@@ -14,8 +16,10 @@ export default class Room extends Component {
       initialData = props.staticContext.initialData
     }
     this.state = {
-      ...initialData
+      ...initialData,
+      rgb: 'rgb(255, 255, 255)'
     }
+    this.getColor = this.getColor.bind(this)
   }
   static requestInitialData (callback, params) {
     // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
@@ -39,10 +43,11 @@ export default class Room extends Component {
     }
   }
   componentDidMount () {
+    console.log('component mounted')
     const {params} = this.props.match
     if (!this.state.info) {
       Room.requestInitialData(info => {
-        this.setState({...info})
+        this.setState(info, this.getColor)
       }, params)
     }
     window.addEventListener('scroll', this.handleScroll)
@@ -56,8 +61,35 @@ export default class Room extends Component {
     }
     window.location.hash = target
   }
+  getColor () {
+    console.log('called')
+    const img = `/static/uploads/${this.state.profileImg}`
+    Vibrant.from(img).getPalette((err, palette) => {
+      if (err) throw err
+      const rgb = palette.Vibrant._rgb
+      this.setState({
+        rgb: ` rgb(${rgb.join()})`
+      })
+    })
+  }
   render () {
     const img = `/static/uploads/${this.state.profileImg}`
+    const reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html?ctlsrc=1511895829286&src=01d&category=224FREYYA14B48FB04FF'
+    const group = '/static/media/group.png'
+    const clock = '/static/media/clock.png'
+    let difficulty = '/static/media/'
+    let difficultyAlt = ''
+    if (this.state.difficulty <= 33) {
+      difficulty += 'easy.png'
+      difficultyAlt = 'Facil'
+    } else if (this.state.difficulty <= 66) {
+      difficulty += 'medium.png'
+      difficultyAlt = 'Medio'
+    } else {
+      difficulty += 'hard.png'
+      difficultyAlt = 'Dificil'
+    }
+
     return (
       <div id='roomDetail'>
         <div>
@@ -70,8 +102,39 @@ export default class Room extends Component {
             </ul>
           </div>
           <div id='mainSection'>
-            <div id='summary'>
-              summary
+            <div id='summary' style={{backgroundColor: this.state.rgb}}>
+              <h1>{this.state.name}</h1>
+              <StarRatingComponent
+                name='stars'
+                starCount={5}
+                value={4}
+                starColor={'#c34a4a'}
+                emptyStarColor={'#e0e0e0'}
+                editing={false}
+              />
+              <div className='address'>
+                <p onClick={() => { this.handleClick('#location') }}>
+                  {
+                    this.state.location
+                    ? this.state.location.address
+                    : 'Loading...'
+                  }
+                </p>
+              </div>
+              <div className='summaryInfo'>
+                <div>
+                  <img src={group} width='15' title={`De ${this.state.minPeople} a ${this.state.maxPeople} personas`} alt='Personas' />
+                  <p>{this.state.minPeople}-{this.state.maxPeople}</p>
+                </div>
+                <div>
+                  <img src={clock} width='15' title={this.state.duration + ' minutos'} alt='Tiempo' />
+                  <p>{this.state.duration}'</p>
+                </div>
+                <div>
+                  <img src={difficulty} title={difficultyAlt} alt={difficultyAlt} width='15' />
+                  <p>{difficultyAlt}</p>
+                </div>
+              </div>
             </div>
             <div id='description'>
               description
@@ -84,17 +147,26 @@ export default class Room extends Component {
             </div>
           </div>
           <div id='fixedBar'>
-            <div className='roomPoster' style={{backgroundImage: `url(${img})`}} />
+            <div id='poster' style={{backgroundImage: `url(${img})`}} />
             <h3>Creado por:</h3>
-            <p>{this.state.companie.name || 'undefined'}</p>
+            <p>
+              {
+                this.state.companie
+                ? this.state.companie.name
+                : 'Loading...'
+              }
+            </p>
             <h3>Contact:</h3>
-            <p>{this.state.companie.contact.email}</p>
-            <p>{this.state.companie.contact.phone}</p>
+            {
+              this.state.companie
+              ? (<div>
+                <p>{this.state.companie.contact.email}</p>
+                <p>{this.state.companie.contact.phone}</p>
+              </div>)
+              : 'Loading'
+            }
+            <a target='_blank' href={reservation} className='book'>Reservar</a>
           </div>
-          name: {this.state.name}<br />
-          minAge: {this.state.minAge}<br />
-          minPeople: {this.state.minPeople}<br />
-          maxPeople: {this.state.maxPeople}<br />
         </div>
       </div>
     )

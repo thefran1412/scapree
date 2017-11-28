@@ -5,5 +5,5 @@ module.exports = function (req, res) {
   Room.findById(id)
     .populate('companie')
     .then(tasks => res.json(tasks))
-    .catch(err => console.log(err))
+    .catch(err => res.status(500).json({success: false, msg: err}))
 }

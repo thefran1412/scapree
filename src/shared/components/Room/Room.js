@@ -41,7 +41,7 @@ export default class Room extends Component {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
           <div className='roomInfo'>
             <div className='basicInfo'>
               <h4>{this.props.info.name}</h4>
@@ -51,6 +51,7 @@ export default class Room extends Component {
                 value={4}
                 starColor={'#c34a4a'}
                 emptyStarColor={'#e0e0e0'}
+                editing={false}
               />
             </div>
           </div>
