@@ -47,6 +47,8 @@ export default class Room extends Component {
     }
   }
   componentDidMount () {
+    document.documentElement.scrollTop = 0
+
     const {params} = this.props.match
     if (!this.state.info) {
       Room.requestInitialData(info => {

@@ -38273,6 +38273,8 @@ var Room = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      document.documentElement.scrollTop = 0;
+
       var params = this.props.match.params;
 
       if (!this.state.info) {
@@ -38347,7 +38349,7 @@ var Room = function (_Component) {
         'div',
         { id: 'roomDetail', __source: {
             fileName: _jsxFileName,
-            lineNumber: 108
+            lineNumber: 110
           },
           __self: this
         },
@@ -38356,7 +38358,7 @@ var Room = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 109
+              lineNumber: 111
             },
             __self: this
           },
@@ -38364,7 +38366,7 @@ var Room = function (_Component) {
             'div',
             { id: 'sectionSelector', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 110
+                lineNumber: 112
               },
               __self: this
             },
@@ -38373,7 +38375,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 111
+                  lineNumber: 113
                 },
                 __self: this
               },
@@ -38383,7 +38385,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#summary');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 112
+                    lineNumber: 114
                   },
                   __self: this
                 },
@@ -38395,7 +38397,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#description');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 113
+                    lineNumber: 115
                   },
                   __self: this
                 },
@@ -38407,7 +38409,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#ratings');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 114
+                    lineNumber: 116
                   },
                   __self: this
                 },
@@ -38419,7 +38421,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#location');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 115
+                    lineNumber: 117
                   },
                   __self: this
                 },
@@ -38431,7 +38433,7 @@ var Room = function (_Component) {
             'div',
             { id: 'mainSection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 118
+                lineNumber: 120
               },
               __self: this
             },
@@ -38439,7 +38441,7 @@ var Room = function (_Component) {
               'div',
               { id: 'summary', style: { backgroundColor: this.state.rgbdark }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 119
+                  lineNumber: 121
                 },
                 __self: this
               },
@@ -38448,7 +38450,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 120
+                    lineNumber: 122
                   },
                   __self: this
                 },
@@ -38463,7 +38465,7 @@ var Room = function (_Component) {
                 editing: false,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 121
+                  lineNumber: 123
                 },
                 __self: this
               }),
@@ -38471,7 +38473,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'address', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 129
+                    lineNumber: 131
                   },
                   __self: this
                 },
@@ -38481,7 +38483,7 @@ var Room = function (_Component) {
                       _this4.handleClick('#location');
                     }, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 130
+                      lineNumber: 132
                     },
                     __self: this
                   },
@@ -38492,7 +38494,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'summaryInfo', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 138
+                    lineNumber: 140
                   },
                   __self: this
                 },
@@ -38501,13 +38503,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 139
+                      lineNumber: 141
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: group, width: '15', title: 'De ' + this.state.minPeople + ' a ' + this.state.maxPeople + ' personas', alt: 'Personas', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 140
+                      lineNumber: 142
                     },
                     __self: this
                   }),
@@ -38516,7 +38518,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 141
+                        lineNumber: 143
                       },
                       __self: this
                     },
@@ -38530,13 +38532,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 143
+                      lineNumber: 145
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: clock, width: '15', title: this.state.duration + ' minutos', alt: 'Tiempo', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 144
+                      lineNumber: 146
                     },
                     __self: this
                   }),
@@ -38545,7 +38547,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 145
+                        lineNumber: 147
                       },
                       __self: this
                     },
@@ -38558,13 +38560,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 147
+                      lineNumber: 149
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 148
+                      lineNumber: 150
                     },
                     __self: this
                   }),
@@ -38573,7 +38575,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 149
+                        lineNumber: 151
                       },
                       __self: this
                     },
@@ -38585,7 +38587,7 @@ var Room = function (_Component) {
                 'div',
                 { id: 'price', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 152
+                    lineNumber: 154
                   },
                   __self: this
                 },
@@ -38594,7 +38596,7 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 153
+                      lineNumber: 155
                     },
                     __self: this
                   },
@@ -38607,7 +38609,7 @@ var Room = function (_Component) {
               'div',
               { id: 'description', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 156
+                  lineNumber: 158
                 },
                 __self: this
               },
@@ -38616,7 +38618,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 157
+                    lineNumber: 159
                   },
                   __self: this
                 },
@@ -38627,7 +38629,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 158
+                    lineNumber: 160
                   },
                   __self: this
                 },
@@ -38638,7 +38640,7 @@ var Room = function (_Component) {
               'div',
               { id: 'ratings', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 160
+                  lineNumber: 162
                 },
                 __self: this
               },
@@ -38647,7 +38649,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 161
+                    lineNumber: 163
                   },
                   __self: this
                 },
@@ -38658,7 +38660,7 @@ var Room = function (_Component) {
               'div',
               { id: 'location', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 163
+                  lineNumber: 165
                 },
                 __self: this
               },
@@ -38667,7 +38669,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 164
+                    lineNumber: 166
                   },
                   __self: this
                 },
@@ -38679,13 +38681,13 @@ var Room = function (_Component) {
             'div',
             { id: 'fixedBar', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 167
+                lineNumber: 169
               },
               __self: this
             },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 168
+                lineNumber: 170
               },
               __self: this
             }),
@@ -38694,7 +38696,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 169
+                  lineNumber: 171
                 },
                 __self: this
               },
@@ -38705,7 +38707,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 170
+                  lineNumber: 172
                 },
                 __self: this
               },
@@ -38716,7 +38718,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 177
+                  lineNumber: 179
                 },
                 __self: this
               },
@@ -38727,7 +38729,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 180
+                  lineNumber: 182
                 },
                 __self: this
               },
@@ -38736,7 +38738,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 181
+                    lineNumber: 183
                   },
                   __self: this
                 },
@@ -38747,7 +38749,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 182
+                    lineNumber: 184
                   },
                   __self: this
                 },
@@ -38758,7 +38760,7 @@ var Room = function (_Component) {
               'a',
               { target: '_blank', href: reservation, className: 'book', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 186
+                  lineNumber: 188
                 },
                 __self: this
               },
@@ -47124,14 +47126,9 @@ var AddRoom = function (_Component) {
     value: function render() {
       var _this5 = this;
 
-      if (!this.props.logged) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 79
-          },
-          __self: this
-        });
-      }
+      // if (!this.props.logged) {
+      //   return <Redirect to='/login' />
+      // }
       var AutocompleteItem = function AutocompleteItem(_ref2) {
         var suggestion = _ref2.suggestion;
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

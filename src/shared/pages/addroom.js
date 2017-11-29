@@ -75,9 +75,9 @@ export default class AddRoom extends Component {
     })
   }
   render () {
-    if (!this.props.logged) {
-      return <Redirect to='/login' />
-    }
+    // if (!this.props.logged) {
+    //   return <Redirect to='/login' />
+    // }
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)
     const cssClasses = {
       root: 'autocompleteRoot',
