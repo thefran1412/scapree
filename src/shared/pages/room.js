@@ -17,7 +17,8 @@ export default class Room extends Component {
     }
     this.state = {
       ...initialData,
-      rgb: 'rgb(255, 255, 255)'
+      rgb: 'rgb(195, 74, 74)',
+      rgbdark: 'rgb(63, 63, 63)'
     }
     this.getColor = this.getColor.bind(this)
   }
@@ -33,17 +34,19 @@ export default class Room extends Component {
     let scroll = document.documentElement.scrollTop
     let selector = document.getElementById('sectionSelector')
     let sideBar = document.getElementById('fixedBar')
+    let main = document.getElementById('mainSection')
 
     if (scroll >= 60) {
       selector.className = 'sectionSelectorFixed'
       sideBar.className = 'fixedBarFixed'
+      main.className = 'mainSectionFixed'
     } else {
       selector.className = ''
       sideBar.className = ''
+      main.className = ''
     }
   }
   componentDidMount () {
-    console.log('component mounted')
     const {params} = this.props.match
     if (!this.state.info) {
       Room.requestInitialData(info => {
@@ -62,21 +65,27 @@ export default class Room extends Component {
     window.location.hash = target
   }
   getColor () {
-    console.log('called')
-    const img = `/static/uploads/${this.state.profileImg}`
-    Vibrant.from(img).getPalette((err, palette) => {
-      if (err) throw err
-      const rgb = palette.Vibrant._rgb
-      this.setState({
-        rgb: ` rgb(${rgb.join()})`
+    if (this.state.profileImg && this.state.rgb === 'rgb(195, 74, 74)') {
+      const img = `/static/uploads/${this.state.profileImg}`
+      Vibrant.from(img).getPalette((err, palette) => {
+        if (err) throw err
+        // console.log(palette)
+        const rgbdark = palette.DarkMuted._rgb
+        const rgb = palette.Vibrant._rgb
+        this.setState({
+          rgbdark: ` rgb(${rgbdark.join()})`,
+          rgb: ` rgb(${rgb.join()})`
+        })
       })
-    })
+    }
   }
   render () {
     const img = `/static/uploads/${this.state.profileImg}`
     const reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html?ctlsrc=1511895829286&src=01d&category=224FREYYA14B48FB04FF'
-    const group = '/static/media/group.png'
-    const clock = '/static/media/clock.png'
+
+    const group = '/static/media/group_white.png'
+    const clock = '/static/media/clock_white.png'
+
     let difficulty = '/static/media/'
     let difficultyAlt = ''
     if (this.state.difficulty <= 33) {
@@ -85,7 +94,7 @@ export default class Room extends Component {
     } else if (this.state.difficulty <= 66) {
       difficulty += 'medium.png'
       difficultyAlt = 'Medio'
-    } else {
+    } else if (this.state.difficulty <= 100) {
       difficulty += 'hard.png'
       difficultyAlt = 'Dificil'
     }
@@ -102,13 +111,13 @@ export default class Room extends Component {
             </ul>
           </div>
           <div id='mainSection'>
-            <div id='summary' style={{backgroundColor: this.state.rgb}}>
+            <div id='summary' style={{backgroundColor: this.state.rgbdark}}>
               <h1>{this.state.name}</h1>
               <StarRatingComponent
                 name='stars'
                 starCount={5}
                 value={4}
-                starColor={'#c34a4a'}
+                starColor={this.state.rgb}
                 emptyStarColor={'#e0e0e0'}
                 editing={false}
               />
@@ -128,22 +137,26 @@ export default class Room extends Component {
                 </div>
                 <div>
                   <img src={clock} width='15' title={this.state.duration + ' minutos'} alt='Tiempo' />
-                  <p>{this.state.duration}'</p>
+                  <p>{this.state.duration} min.</p>
                 </div>
                 <div>
                   <img src={difficulty} title={difficultyAlt} alt={difficultyAlt} width='15' />
                   <p>{difficultyAlt}</p>
                 </div>
               </div>
+              <div id='price'>
+                <p>{this.state.price} €</p>
+              </div>
             </div>
             <div id='description'>
-              description
+              <h4>Descripción</h4>
+              <p>{this.state.desc}</p>
             </div>
             <div id='ratings'>
-              ratings
+              <h4>Opiniones</h4>
             </div>
             <div id='location'>
-              location
+              <h4>Ubicación</h4>
             </div>
           </div>
           <div id='fixedBar'>

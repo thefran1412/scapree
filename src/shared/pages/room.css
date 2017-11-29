@@ -2,16 +2,26 @@
   min-height: calc(100vh - 260px);
   position: relative;
 }
+#roomDetail > div {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+#roomDetail h4 {
+  font-size: 27px;
+}
+
 /* SELECTOR */
 #sectionSelector {
   width: 100%;
   height: 30px;
-  /*background: red;*/
+  background: white;
   z-index: 10
 }
 .sectionSelectorFixed {
   position: fixed;
-  left: 0;
+  left: calc(50% - 600px);
   top: 0;
 }
 #sectionSelector ul {
@@ -27,20 +37,18 @@
 /* FIXED BAR */
 
 #fixedBar {
-  /*background: orange;*/
+  background: orange;
   display: inline-block;
   width: 300px;
 }
 .fixedBarFixed {
   position: fixed;
-  right: 0;
+  right: calc(50% - 600px);
   top: 30px;
 }
 #poster{
   height: 375px;
   width: 100%;
-  /*border-radius: 5px;*/
-  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -51,8 +59,8 @@
   padding: 10px;
   height: 50px;
   line-height: 30px;
-/*  background: red;
-*/  text-decoration: none;
+  background: red;
+  text-decoration: none;
   color: black;
   display: inline-block;
   text-align: center;
@@ -64,28 +72,34 @@
 #mainSection {
   width: calc(100% - 300px);
   height: 2000px;
-/*  background: yellow;
-*/  display: inline-block;
+  background: yellow;
+  display: inline-block;
   vertical-align: top;
+}
+.mainSectionFixed {
+  padding-top: 30px;
 }
 
 /* SUMMARY */
 
 #summary {
+  position: relative;
   height: 375px;
   width: 100%;
-/*  background: green;
-*/  padding: 15% 10px 10px 20px;
+  color: white;
+  padding: 110px 10px 10px 20px;
 }
 #summary h1 {
   padding-bottom: 2px;
   font-size: 35px;
 }
+
 .dv-star-rating {
   padding-bottom: 10px;
   z-index: 0;
   font-size: 20px;
 }
+
 .address{
   padding-bottom: 10px;
 }
@@ -94,12 +108,12 @@
   display: inline-block;
 }
 
-/*.summaryInfo {
-  display: inline-block;
-}*/
+.summaryInfo {
+  margin-bottom: 15px;
+}
 .summaryInfo > div {
   display: inline-block;
-  margin: 0 5px;
+  margin-right: 20px;
   margin-top: 5px;
   text-align: center;
 }
@@ -108,39 +122,45 @@
 }
 .summaryInfo img {
   vertical-align: middle;
-  margin: 0 5px;
+  margin-right: 10px;
   margin-bottom: 3px;
+}
+#price {
+  font-size: 30px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* DESCRIPTION */
 #description {
   width: 100%;
-  height: 200px;
-/*  background: lightblue;
-*/}
+  padding: 20px;
+  padding-top: 40px;
+}
+#description p {
+  line-height: 22px;
+  padding-top: 10px;
+}
 #ratings {
   width: 100%;
+  padding: 20px;
+  padding-top: 40px;
   height: 200px;
 /*  background: skyblue;
 */}
 #location {
   width: 100%;
   height: 200px;
-/*  background: darkblue;
-*/  color: white;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1218px) {
+  .fixedBarFixed {
+    right: 0;
+  }
+  .sectionSelectorFixed {
+    left: 0;
+  }
 }

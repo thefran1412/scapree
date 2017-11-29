@@ -23,39 +23,39 @@ export default class Room extends Component {
     }
     return (
       <div className='room'>
-        <Link to={`/room/${this.props.info._id}`}>
-          <div className='roomPoster' style={{backgroundImage: `url(${img})`}}>
-            <div className='features'>
-              <div className='otherInfo'>
-                <div>
-                  <img src={group} width='15' title={`De ${info.minPeople} a ${info.maxPeople} personas`} alt='Personas' />
-                  <p>{info.minPeople}-{info.maxPeople}</p>
-                </div>
-                <div>
-                  <img src={clock} width='15' title={info.duration + ' minutos'} alt='Tiempo' />
-                  <p>{info.duration}'</p>
-                </div>
-                <div>
-                  <img src={difficulty} title={difficultyAlt} alt={difficultyAlt} width='15' />
-                  <p>{difficultyAlt}</p>
+          <Link to={`/room/${this.props.info._id}`}>
+            <div className='roomPoster' style={{backgroundImage: `url(${img})`}}>
+              <div className='features'>
+                <div className='otherInfo'>
+                  <div>
+                    <img src={group} width='15' title={`De ${info.minPeople} a ${info.maxPeople} personas`} alt='Personas' />
+                    <p>{info.minPeople}-{info.maxPeople}</p>
+                  </div>
+                  <div>
+                    <img src={clock} width='15' title={info.duration + ' minutos'} alt='Tiempo' />
+                    <p>{info.duration}'</p>
+                  </div>
+                  <div>
+                    <img src={difficulty} title={difficultyAlt} alt={difficultyAlt} width='15' />
+                    <p>{difficultyAlt}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='roomInfo'>
-            <div className='basicInfo'>
-              <h4>{this.props.info.name}</h4>
-              <StarRatingComponent
-                name='stars'
-                starCount={5}
-                value={4}
-                starColor={'#c34a4a'}
-                emptyStarColor={'#e0e0e0'}
-                editing={false}
-              />
+            <div className='roomInfo'>
+              <div className='basicInfo'>
+                <h4>{this.props.info.name}</h4>
+                <StarRatingComponent
+                  name='stars'
+                  starCount={5}
+                  value={4}
+                  starColor={'#c34a4a'}
+                  emptyStarColor={'#e0e0e0'}
+                  editing={false}
+                />
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
       </div>
     )
   }

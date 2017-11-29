@@ -30116,7 +30116,8 @@ var Room = function (_Component) {
       initialData = props.staticContext.initialData;
     }
     _this.state = Object.assign({}, initialData, {
-      rgb: 'rgb(255, 255, 255)'
+      rgb: 'rgb(195, 74, 74)',
+      rgbdark: 'rgb(63, 63, 63)'
     });
     _this.getColor = _this.getColor.bind(_this);
     return _this;
@@ -30128,13 +30129,16 @@ var Room = function (_Component) {
       var scroll = document.documentElement.scrollTop;
       var selector = document.getElementById('sectionSelector');
       var sideBar = document.getElementById('fixedBar');
+      var main = document.getElementById('mainSection');
 
       if (scroll >= 60) {
         selector.className = 'sectionSelectorFixed';
         sideBar.className = 'fixedBarFixed';
+        main.className = 'mainSectionFixed';
       } else {
         selector.className = '';
         sideBar.className = '';
+        main.className = '';
       }
     }
   }, {
@@ -30142,7 +30146,6 @@ var Room = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      console.log('component mounted');
       var params = this.props.match.params;
 
       if (!this.state.info) {
@@ -30170,15 +30173,19 @@ var Room = function (_Component) {
     value: function getColor() {
       var _this3 = this;
 
-      console.log('called');
-      var img = '/static/uploads/' + this.state.profileImg;
-      __WEBPACK_IMPORTED_MODULE_3_node_vibrant__["from"](img).getPalette(function (err, palette) {
-        if (err) throw err;
-        var rgb = palette.Vibrant._rgb;
-        _this3.setState({
-          rgb: ' rgb(' + rgb.join() + ')'
+      if (this.state.profileImg && this.state.rgb === 'rgb(195, 74, 74)') {
+        var img = '/static/uploads/' + this.state.profileImg;
+        __WEBPACK_IMPORTED_MODULE_3_node_vibrant__["from"](img).getPalette(function (err, palette) {
+          if (err) throw err;
+          // console.log(palette)
+          var rgbdark = palette.DarkMuted._rgb;
+          var rgb = palette.Vibrant._rgb;
+          _this3.setState({
+            rgbdark: ' rgb(' + rgbdark.join() + ')',
+            rgb: ' rgb(' + rgb.join() + ')'
+          });
         });
-      });
+      }
     }
   }, {
     key: 'render',
@@ -30187,8 +30194,10 @@ var Room = function (_Component) {
 
       var img = '/static/uploads/' + this.state.profileImg;
       var reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html?ctlsrc=1511895829286&src=01d&category=224FREYYA14B48FB04FF';
-      var group = '/static/media/group.png';
-      var clock = '/static/media/clock.png';
+
+      var group = '/static/media/group_white.png';
+      var clock = '/static/media/clock_white.png';
+
       var difficulty = '/static/media/';
       var difficultyAlt = '';
       if (this.state.difficulty <= 33) {
@@ -30197,7 +30206,7 @@ var Room = function (_Component) {
       } else if (this.state.difficulty <= 66) {
         difficulty += 'medium.png';
         difficultyAlt = 'Medio';
-      } else {
+      } else if (this.state.difficulty <= 100) {
         difficulty += 'hard.png';
         difficultyAlt = 'Dificil';
       }
@@ -30206,7 +30215,7 @@ var Room = function (_Component) {
         'div',
         { id: 'roomDetail', __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 103
           },
           __self: this
         },
@@ -30215,7 +30224,7 @@ var Room = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 104
             },
             __self: this
           },
@@ -30223,7 +30232,7 @@ var Room = function (_Component) {
             'div',
             { id: 'sectionSelector', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 105
               },
               __self: this
             },
@@ -30232,7 +30241,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 97
+                  lineNumber: 106
                 },
                 __self: this
               },
@@ -30242,7 +30251,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#summary');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 98
+                    lineNumber: 107
                   },
                   __self: this
                 },
@@ -30254,7 +30263,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#description');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 99
+                    lineNumber: 108
                   },
                   __self: this
                 },
@@ -30266,7 +30275,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#ratings');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 100
+                    lineNumber: 109
                   },
                   __self: this
                 },
@@ -30278,7 +30287,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#location');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 101
+                    lineNumber: 110
                   },
                   __self: this
                 },
@@ -30290,15 +30299,15 @@ var Room = function (_Component) {
             'div',
             { id: 'mainSection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 104
+                lineNumber: 113
               },
               __self: this
             },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
               'div',
-              { id: 'summary', style: { backgroundColor: this.state.rgb }, __source: {
+              { id: 'summary', style: { backgroundColor: this.state.rgbdark }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 105
+                  lineNumber: 114
                 },
                 __self: this
               },
@@ -30307,7 +30316,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 106
+                    lineNumber: 115
                   },
                   __self: this
                 },
@@ -30317,12 +30326,12 @@ var Room = function (_Component) {
                 name: 'stars',
                 starCount: 5,
                 value: 4,
-                starColor: '#c34a4a',
+                starColor: this.state.rgb,
                 emptyStarColor: '#e0e0e0',
                 editing: false,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 107
+                  lineNumber: 116
                 },
                 __self: this
               }),
@@ -30330,7 +30339,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'address', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 115
+                    lineNumber: 124
                   },
                   __self: this
                 },
@@ -30340,7 +30349,7 @@ var Room = function (_Component) {
                       _this4.handleClick('#location');
                     }, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 116
+                      lineNumber: 125
                     },
                     __self: this
                   },
@@ -30351,7 +30360,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'summaryInfo', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 124
+                    lineNumber: 133
                   },
                   __self: this
                 },
@@ -30360,13 +30369,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 125
+                      lineNumber: 134
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: group, width: '15', title: 'De ' + this.state.minPeople + ' a ' + this.state.maxPeople + ' personas', alt: 'Personas', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 126
+                      lineNumber: 135
                     },
                     __self: this
                   }),
@@ -30375,7 +30384,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 127
+                        lineNumber: 136
                       },
                       __self: this
                     },
@@ -30389,13 +30398,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 129
+                      lineNumber: 138
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: clock, width: '15', title: this.state.duration + ' minutos', alt: 'Tiempo', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 130
+                      lineNumber: 139
                     },
                     __self: this
                   }),
@@ -30404,12 +30413,12 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 131
+                        lineNumber: 140
                       },
                       __self: this
                     },
                     this.state.duration,
-                    '\''
+                    ' min.'
                   )
                 ),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -30417,13 +30426,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 133
+                      lineNumber: 142
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 134
+                      lineNumber: 143
                     },
                     __self: this
                   }),
@@ -30432,12 +30441,33 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 135
+                        lineNumber: 144
                       },
                       __self: this
                     },
                     difficultyAlt
                   )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'div',
+                { id: 'price', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 147
+                  },
+                  __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  'p',
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 148
+                    },
+                    __self: this
+                  },
+                  this.state.price,
+                  ' \u20AC'
                 )
               )
             ),
@@ -30445,44 +30475,85 @@ var Room = function (_Component) {
               'div',
               { id: 'description', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 139
+                  lineNumber: 151
                 },
                 __self: this
               },
-              'description'
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'h4',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 152
+                  },
+                  __self: this
+                },
+                'Descripci\xF3n'
+              ),
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'p',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 153
+                  },
+                  __self: this
+                },
+                this.state.desc
+              )
             ),
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
               'div',
               { id: 'ratings', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 142
+                  lineNumber: 155
                 },
                 __self: this
               },
-              'ratings'
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'h4',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 156
+                  },
+                  __self: this
+                },
+                'Opiniones'
+              )
             ),
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
               'div',
               { id: 'location', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 145
+                  lineNumber: 158
                 },
                 __self: this
               },
-              'location'
+              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                'h4',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 159
+                  },
+                  __self: this
+                },
+                'Ubicaci\xF3n'
+              )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
             'div',
             { id: 'fixedBar', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 149
+                lineNumber: 162
               },
               __self: this
             },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 150
+                lineNumber: 163
               },
               __self: this
             }),
@@ -30491,7 +30562,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 151
+                  lineNumber: 164
                 },
                 __self: this
               },
@@ -30502,7 +30573,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 152
+                  lineNumber: 165
                 },
                 __self: this
               },
@@ -30513,7 +30584,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 159
+                  lineNumber: 172
                 },
                 __self: this
               },
@@ -30524,7 +30595,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 162
+                  lineNumber: 175
                 },
                 __self: this
               },
@@ -30533,7 +30604,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 163
+                    lineNumber: 176
                   },
                   __self: this
                 },
@@ -30544,7 +30615,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 164
+                    lineNumber: 177
                   },
                   __self: this
                 },
@@ -30555,7 +30626,7 @@ var Room = function (_Component) {
               'a',
               { target: '_blank', href: reservation, className: 'book', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 168
+                  lineNumber: 181
                 },
                 __self: this
               },

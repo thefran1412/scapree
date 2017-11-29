@@ -16,8 +16,9 @@
   height: 100%;
 }
 .roomPoster{
-  height: 375px;
+  /*height: 375px;*/
   width: 100%;
+  padding-top: 125%;
   border-radius: 5px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
   background-size: cover;
@@ -35,19 +36,22 @@
   vertical-align: top;
 }
 .roomInfo {
-  /*text-align: right;*/
+  text-align: left;
 }
 .basicInfo {
   margin-top: 5px;
   display: inline-block;
 }
 .otherInfo {
-  width: 70%;
+  width: 100%;
   text-align: right;
   display: inline-block;
   vertical-align: top;
   margin-top: 118px;
   margin-right: 4px;
+  position: absolute;
+  bottom: 7px;
+  right: 1px;
 }
 .otherInfo > div {
   display: inline-block;
@@ -66,4 +70,16 @@
 .room h4 {
   margin-top: 5px;
   font-size: 19px;
+}
+
+.resize {
+  display: inline-block;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 425px) {
+  .room{
+    width: 90%
+  }
 }
