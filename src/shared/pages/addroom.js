@@ -169,7 +169,7 @@ export default class AddRoom extends Component {
           />
           <UploadImg
             onChange={this.handleFileChange}
-            preview='room'
+            preview='poster'
           />
           <input
             type='submit'

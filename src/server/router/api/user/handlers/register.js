@@ -18,12 +18,15 @@ function registerUser (req, res) {
     User.register(account, (err, user) => {
       if (err) {
         return res.json({success: false, msg: 'There was some error.'})
+      } else {
+        delete user.password
+        
+        res.json({
+          success: true,
+          msg: 'Successful created new user.',
+          user
+        })
       }
-      res.json({
-        success: true,
-        msg: 'Successful created new user.',
-        user
-      })
     })
   }
 }

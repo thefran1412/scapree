@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-box-sizing:border-box;
           box-sizing:border-box;
 }
@@ -147,7 +147,7 @@ header a {
   padding: 20px;
   border: none;
 }
-.roomPreview {
+.posterPreview {
   width: 300px;
   height: 375px;
   border-radius: 5px;
@@ -159,8 +159,24 @@ header a {
   display: inline-block;
 }
 
-.companiePreview {
-
+.profilePreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+.coverPreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
 }#createCompany input{
   padding: 10px;
   color: black;
@@ -315,43 +331,12 @@ header a {
 
 /* FIXED BAR */
 
-#fixedBar {
-  background: orange;
-  display: inline-block;
-  width: 300px;
-}
-.fixedBarFixed {
-  position: fixed;
-  right: calc(50% - 600px);
-  top: 30px;
-}
-#poster{
-  height: 375px;
-  width: 100%;
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-}
-.book {
-  width: calc(100% - 20px);
-  margin: 0 10px;
-  padding: 10px;
-  height: 50px;
-  line-height: 30px;
-  background: red;
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-  text-align: center;
-
-}
 
 /* MAIN SECTION */
 
 #mainSection {
   width: calc(100% - 300px);
   height: 2000px;
-  background: yellow;
   display: inline-block;
   vertical-align: top;
 }
@@ -436,11 +421,76 @@ header a {
 /* MEDIA QUERIES */
 
 @media (max-width: 1218px) {
-  .fixedBarFixed {
-    right: 0;
-  }
   .sectionSelectorFixed {
     left: 0;
   }
+}#sideBar {
+  display: inline-block;
+  width: 300px;
 }
+#sideBar a {
+  color: black;
+  text-decoration: none; 
+}
+.sideBarFixed {
+  position: fixed;
+  right: calc(50% - 600px);
+  top: 30px;
+}
+#poster{
+  height: 375px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+.profileImg {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+.companieInfo p {
+  display: inline-block;
+  padding-top: 30px;
+  margin-right: 10px;
+  vertical-align: top;
+  font-weight: bold;
+  width: 220px;
+}
+.roomInfo hr{
+  border: 0;
+  background: grey;
+}
+.companieInfo {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+}
+.contactInfo a {
+  display: block;
+  margin-bottom: 25px;
+}
+#book {
+  width: 100%;
+  padding: 10px;
+  line-height: 30px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white !important;
+}
+@media (max-width: 1218px) {
+  .sideBarFixed {
+    right: 0;
+  }
+}
+
 /*# sourceMappingURL=main.css.map*/

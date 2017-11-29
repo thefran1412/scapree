@@ -10,7 +10,7 @@ module.exports = function (req, res) {
       .then(companies => {
         if (companies) {
           Room.find({companie: companies._id})
-            .then(tasks => res.send({success: true, logged: true, companie: true, data: tasks}))
+            .then(rooms => res.send({success: true, logged: true, companie: true, rooms: rooms}))
             .catch(err => console.log(err))
         } else {
           res.send({success: false, logged: true, companie: false, msg: 'This user has no companie linked'})

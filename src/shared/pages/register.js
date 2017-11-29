@@ -15,14 +15,11 @@ export default class Register extends Component {
   handleSubmit (info) {
     register(info, data => {
       if (data.success) {
-        this.setState({registered: true})
+        this.props.history.push('/login')
       }
     })
   }
   render () {
-    if (this.state.registered) {
-      return <Redirect to='/' />
-    }
     return (
       <div>
         <h1>Register</h1>

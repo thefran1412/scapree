@@ -2,6 +2,7 @@ import StarRatingComponent from 'react-star-rating-component'
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
 import * as Vibrant from 'node-vibrant'
+import SideBar from '../components/SideBar/SideBar'
 import './room.css'
 
 export default class Room extends Component {
@@ -33,12 +34,12 @@ export default class Room extends Component {
   handleScroll (e) {
     let scroll = document.documentElement.scrollTop
     let selector = document.getElementById('sectionSelector')
-    let sideBar = document.getElementById('fixedBar')
+    let sideBar = document.getElementById('sideBar')
     let main = document.getElementById('mainSection')
 
     if (scroll >= 60) {
       selector.className = 'sectionSelectorFixed'
-      sideBar.className = 'fixedBarFixed'
+      sideBar.className = 'sideBarFixed'
       main.className = 'mainSectionFixed'
     } else {
       selector.className = ''
@@ -87,9 +88,6 @@ export default class Room extends Component {
     }
   }
   render () {
-    const img = `/static/uploads/${this.state.profileImg}`
-    const reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html?ctlsrc=1511895829286&src=01d&category=224FREYYA14B48FB04FF'
-
     const group = '/static/media/group_white.png'
     const clock = '/static/media/clock_white.png'
 
@@ -166,27 +164,11 @@ export default class Room extends Component {
               <h4>Ubicación</h4>
             </div>
           </div>
-          <div id='fixedBar'>
-            <div id='poster' style={{backgroundImage: `url(${img})`}} />
-            <h3>Creado por:</h3>
-            <p>
-              {
-                this.state.companie
-                ? this.state.companie.name
-                : 'Loading...'
-              }
-            </p>
-            <h3>Contact:</h3>
-            {
-              this.state.companie
-              ? (<div>
-                <p>{this.state.companie.contact.email}</p>
-                <p>{this.state.companie.contact.phone}</p>
-              </div>)
-              : 'Loading'
-            }
-            <a target='_blank' href={reservation} className='book'>Reservar</a>
-          </div>
+          <SideBar
+            companie={this.state.companie}
+            profileImg={this.state.profileImg}
+            rgb={this.state.rgb}
+          />
         </div>
       </div>
     )

@@ -8,7 +8,7 @@
   padding: 20px;
   border: none;
 }
-.roomPreview {
+.posterPreview {
   width: 300px;
   height: 375px;
   border-radius: 5px;
@@ -19,6 +19,22 @@
   display: inline-block;
 }
 
-.companiePreview {
-
+.profilePreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+.coverPreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
 }

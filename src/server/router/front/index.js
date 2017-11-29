@@ -44,6 +44,7 @@ function sendHTML (url, initialData, user, query, notSend) {
         <title>Scapree</title>
         <link rel="stylesheet" href="/static/css/main.css">
         <script src="/static/bundle.js" defer></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
         <script>window.__initialData__ = ${serialize(initialData)}</script>
         <script>window.__user__ = ${serialize(user)}</script>
         <script>window.__query__ = ${serialize(query)}</script>
