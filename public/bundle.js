@@ -47006,7 +47006,7 @@ function createCompany(data, func) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_rooms__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_images__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_UploadImg_UploadImg__ = __webpack_require__(512);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\addroom.js';
@@ -47106,25 +47106,13 @@ var AddRoom = function (_Component) {
     }
   }, {
     key: 'handleFileChange',
-    value: function handleFileChange() {
-      var _this4 = this;
-
-      var data = new FormData();
-      data.append('image', document.getElementById('image').files[0]);
-
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_images__["a" /* uploadImage */])(data, function (response) {
-        console.log(response);
-        if (response.success) {
-          _this4.setState({
-            profileImg: response.msg
-          });
-        }
-      });
+    value: function handleFileChange(imgName) {
+      this.setState({ profileImg: imgName });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this4 = this;
 
       // if (!this.props.logged) {
       //   return <Redirect to='/login' />
@@ -47136,15 +47124,15 @@ var AddRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 71
             },
-            __self: _this5
+            __self: _this4
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 71
             },
-            __self: _this5
+            __self: _this4
           }),
           suggestion
         );
@@ -47167,7 +47155,7 @@ var AddRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 86
           },
           __self: this
         },
@@ -47176,7 +47164,7 @@ var AddRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 97
+              lineNumber: 87
             },
             __self: this
           },
@@ -47186,7 +47174,7 @@ var AddRoom = function (_Component) {
           'form',
           { onSubmit: this.handleSubmit, id: 'uploadForm', __source: {
               fileName: _jsxFileName,
-              lineNumber: 98
+              lineNumber: 88
             },
             __self: this
           },
@@ -47199,7 +47187,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 89
             },
             __self: this
           }),
@@ -47211,7 +47199,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 107
+              lineNumber: 97
             },
             __self: this
           }),
@@ -47225,7 +47213,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 114
+              lineNumber: 104
             },
             __self: this
           }),
@@ -47240,7 +47228,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 123
+              lineNumber: 113
             },
             __self: this
           }),
@@ -47255,7 +47243,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 133
+              lineNumber: 123
             },
             __self: this
           }),
@@ -47270,7 +47258,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 143
+              lineNumber: 133
             },
             __self: this
           }),
@@ -47285,7 +47273,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 153
+              lineNumber: 143
             },
             __self: this
           }),
@@ -47299,7 +47287,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 163
+              lineNumber: 153
             },
             __self: this
           }),
@@ -47312,19 +47300,16 @@ var AddRoom = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 172
+              lineNumber: 162
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'file',
-            name: 'image',
-            id: 'image',
-            accept: 'image/x-png,image/gif,image/jpeg',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_UploadImg_UploadImg__["a" /* default */], {
             onChange: this.handleFileChange,
+            preview: 'room',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 180
+              lineNumber: 170
             },
             __self: this
           }),
@@ -47333,20 +47318,14 @@ var AddRoom = function (_Component) {
             value: 'Create',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 187
+              lineNumber: 174
             },
             __self: this
           })
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/static/uploads/' + this.state.profileImg, width: '200', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 192
-          },
-          __self: this
-        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 193
+            lineNumber: 179
           },
           __self: this
         })
@@ -48916,6 +48895,114 @@ function uploadImage(data, func) {
 }
 
 
+
+/***/ }),
+/* 511 */,
+/* 512 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_images__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UploadImg_css__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UploadImg_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__UploadImg_css__);
+var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\components\\UploadImg\\UploadImg.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var UploadImg = function (_Component) {
+  _inherits(UploadImg, _Component);
+
+  function UploadImg(props) {
+    _classCallCheck(this, UploadImg);
+
+    var _this = _possibleConstructorReturn(this, (UploadImg.__proto__ || Object.getPrototypeOf(UploadImg)).call(this, props));
+
+    _this.state = {
+      image: 'default.png',
+      preview: _this.props.preview
+    };
+    _this.handleFileChange = _this.handleFileChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(UploadImg, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'handleFileChange',
+    value: function handleFileChange() {
+      var _this2 = this;
+
+      var data = new FormData();
+      data.append('image', document.getElementById('image').files[0]);
+
+      Object(__WEBPACK_IMPORTED_MODULE_0__services_images__["a" /* uploadImage */])(data, function (response) {
+        console.log(response);
+        if (response.success) {
+          _this2.setState({
+            image: response.msg
+          });
+          _this2.props.onChange(response.msg);
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var img = '/static/uploads/' + this.state.image;
+
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        'div',
+        { id: 'uploadImg', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', {
+          type: 'file',
+          name: 'image',
+          id: 'image',
+          accept: 'image/x-png,image/gif,image/jpeg',
+          onChange: this.handleFileChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 36
+          },
+          __self: this
+        }),
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { style: { backgroundImage: 'url(/static/uploads/' + this.state.image + ')' }, className: this.state.preview + 'Preview', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43
+          },
+          __self: this
+        })
+      );
+    }
+  }]);
+
+  return UploadImg;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (UploadImg);
+
+/***/ }),
+/* 513 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -137,6 +137,30 @@ header a {
 .autocompleteContainer {
   position: absolute;
   z-index: 1;  
+}#uploadImg {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+#image {
+  display: inline-block;
+  padding: 20px;
+  border: none;
+}
+.roomPreview {
+  width: 300px;
+  height: 375px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.companiePreview {
+
 }#createCompany input{
   padding: 10px;
   color: black;
@@ -171,6 +195,7 @@ header a {
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
           box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  background-position: center; 
   background-size: cover;
   overflow: hidden;
   position: relative;

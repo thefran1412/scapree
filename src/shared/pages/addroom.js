@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {addRoom} from '../services/rooms'
-import {uploadImage} from '../services/images'
+import UploadImg from '../components/UploadImg/UploadImg'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
 export default class AddRoom extends Component {
@@ -61,18 +61,8 @@ export default class AddRoom extends Component {
     ? this.setState(object, func)
     : this.setState(object)
   }
-  handleFileChange () {
-    const data = new FormData()
-    data.append('image', document.getElementById('image').files[0])
-
-    uploadImage(data, response => {
-      console.log(response)
-      if (response.success) {
-        this.setState({
-          profileImg: response.msg
-        })
-      }
-    })
+  handleFileChange (imgName) {
+    this.setState({profileImg: imgName})
   }
   render () {
     // if (!this.props.logged) {
@@ -177,19 +167,15 @@ export default class AddRoom extends Component {
             onSelect={this.handleAddressSelect}
             googleLogo={false}
           />
-          <input
-            type='file'
-            name='image'
-            id='image'
-            accept='image/x-png,image/gif,image/jpeg'
+          <UploadImg
             onChange={this.handleFileChange}
+            preview='room'
           />
           <input
             type='submit'
             value='Create'
           />
         </form>
-        <img src={`/static/uploads/${this.state.profileImg}`} width='200' />
         <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />
       </div>
     )
