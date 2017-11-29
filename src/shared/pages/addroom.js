@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {addRoom} from '../services/rooms'
+import {uploadImage} from '../services/images'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
 export default class AddRoom extends Component {
@@ -17,11 +18,13 @@ export default class AddRoom extends Component {
       difficulty: undefined,
       price: undefined,
       address: '',
-      coords: []
+      coords: [],
+      profileImg: 'default.png'
     }
     this.update = this.update.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleFileChange = this.handleFileChange.bind(this)
     this.handleAddressChange = this.handleAddressChange.bind(this)
     this.handleAddressSelect = this.handleAddressSelect.bind(this)
   }
@@ -30,7 +33,11 @@ export default class AddRoom extends Component {
       e.preventDefault()
     }
     addRoom(this.state, response => {
-      console.log(response)
+      if (response._id) {
+        this.props.history.push('/home')
+      } else {
+        alert(response.msg)
+      }
     })
   }
   handleChange (e) {
@@ -45,7 +52,7 @@ export default class AddRoom extends Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        this.update({address, coords: [lat, lng]}, this.handleSubmit)
+        this.update({address, coords: [lat, lng]})
       })
   }
   // update state
@@ -54,10 +61,23 @@ export default class AddRoom extends Component {
     ? this.setState(object, func)
     : this.setState(object)
   }
+  handleFileChange () {
+    const data = new FormData()
+    data.append('image', document.getElementById('image').files[0])
+
+    uploadImage(data, response => {
+      console.log(response)
+      if (response.success) {
+        this.setState({
+          profileImg: response.msg
+        })
+      }
+    })
+  }
   render () {
-    // if (!this.props.logged) {
-    //   return <Redirect to='/login' />
-    // }
+    if (!this.props.logged) {
+      return <Redirect to='/login' />
+    }
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)
     const cssClasses = {
       root: 'autocompleteRoot',
@@ -75,7 +95,7 @@ export default class AddRoom extends Component {
     return (
       <div>
         <h1>Add Room</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} id='uploadForm'>
           <input
             type='text'
             onChange={this.handleChange}
@@ -158,12 +178,19 @@ export default class AddRoom extends Component {
             googleLogo={false}
           />
           <input
+            type='file'
+            name='image'
+            id='image'
+            accept='image/x-png,image/gif,image/jpeg'
+            onChange={this.handleFileChange}
+          />
+          <input
             type='submit'
             value='Create'
           />
         </form>
+        <img src={`/static/uploads/${this.state.profileImg}`} width='200' />
         <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />
-
       </div>
     )
   }

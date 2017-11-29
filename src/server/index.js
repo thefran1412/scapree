@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const expressSession = require('./middlewares/expressSession.js')
 const expressValidator = require('./middlewares/expressValidator.js')
+const fileUpload = require('express-fileupload')
 const cors = require('cors')
 
 const app = express()
@@ -9,6 +10,7 @@ const app = express()
 /* MIDDLEWARES */
 
 app.use(cors())
+app.use(fileUpload())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(expressValidator)

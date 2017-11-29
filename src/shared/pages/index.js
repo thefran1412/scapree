@@ -37,7 +37,6 @@ class Index extends Component {
 
     if (newProps !== oldProps) {
       const obj = stateToObject(nextProps.filters)
-      console.log(nextProps.filters, obj)
       const url = '/' + objectToQuery(obj)
 
       this.props.history.push(url)

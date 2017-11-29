@@ -4391,7 +4391,7 @@ var createPath = function createPath(location) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return stateToObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return objectToQuery; });
 function ajax(data) {
-  data.method(data.url, Object.assign({}, data.data, { withCredentials: true })).then(function (answer) {
+  data.method(data.url, data.data, { withCredentials: true }).then(function (answer) {
     data.func(answer.data);
   }).catch(function (error) {
     console.log(error);
@@ -4652,8 +4652,8 @@ module.exports = copyObject;
 
 
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function login(username, password, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
@@ -14333,23 +14333,23 @@ var createTransitionManager = function createTransitionManager() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addRoom; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common__ = __webpack_require__(38);
 
 
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function getRooms(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
-    url: baseUrl + '/api/rooms/' + Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["b" /* objectToQuery */])(data),
+    url: baseUrl + '/api/rooms/' + Object(__WEBPACK_IMPORTED_MODULE_1__common__["b" /* objectToQuery */])(data),
     func: func
   });
 }
 
 function getMyRooms(func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
     url: baseUrl + '/api/myrooms',
     func: func
@@ -14357,7 +14357,7 @@ function getMyRooms(func) {
 }
 
 function addRoom(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: baseUrl + '/api/room',
     data: data,
@@ -36172,7 +36172,6 @@ var Index = function (_Component) {
 
       if (newProps !== oldProps) {
         var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(nextProps.filters);
-        console.log(nextProps.filters, obj);
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
 
         this.props.history.push(url);
@@ -36190,13 +36189,13 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 51
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 52
           },
           __self: this
         })
@@ -38305,13 +38304,18 @@ var Room = function (_Component) {
         var img = '/static/uploads/' + this.state.profileImg;
         __WEBPACK_IMPORTED_MODULE_3_node_vibrant__["from"](img).getPalette(function (err, palette) {
           if (err) throw err;
-          // console.log(palette)
-          var rgbdark = palette.DarkMuted._rgb;
-          var rgb = palette.Vibrant._rgb;
-          _this3.setState({
-            rgbdark: ' rgb(' + rgbdark.join() + ')',
-            rgb: ' rgb(' + rgb.join() + ')'
-          });
+          if (palette.DarkMuted) {
+            var rgbdark = palette.DarkMuted._rgb;
+            _this3.setState({
+              rgbdark: ' rgb(' + rgbdark.join() + ')'
+            });
+          }
+          if (palette.Vibrant) {
+            var rgb = palette.Vibrant._rgb;
+            _this3.setState({
+              rgb: ' rgb(' + rgb.join() + ')'
+            });
+          }
         });
       }
     }
@@ -38343,7 +38347,7 @@ var Room = function (_Component) {
         'div',
         { id: 'roomDetail', __source: {
             fileName: _jsxFileName,
-            lineNumber: 103
+            lineNumber: 108
           },
           __self: this
         },
@@ -38352,7 +38356,7 @@ var Room = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 104
+              lineNumber: 109
             },
             __self: this
           },
@@ -38360,7 +38364,7 @@ var Room = function (_Component) {
             'div',
             { id: 'sectionSelector', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 105
+                lineNumber: 110
               },
               __self: this
             },
@@ -38369,7 +38373,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 106
+                  lineNumber: 111
                 },
                 __self: this
               },
@@ -38379,7 +38383,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#summary');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 107
+                    lineNumber: 112
                   },
                   __self: this
                 },
@@ -38391,7 +38395,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#description');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 108
+                    lineNumber: 113
                   },
                   __self: this
                 },
@@ -38403,7 +38407,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#ratings');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 109
+                    lineNumber: 114
                   },
                   __self: this
                 },
@@ -38415,7 +38419,7 @@ var Room = function (_Component) {
                     _this4.handleClick('#location');
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 110
+                    lineNumber: 115
                   },
                   __self: this
                 },
@@ -38427,7 +38431,7 @@ var Room = function (_Component) {
             'div',
             { id: 'mainSection', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 113
+                lineNumber: 118
               },
               __self: this
             },
@@ -38435,7 +38439,7 @@ var Room = function (_Component) {
               'div',
               { id: 'summary', style: { backgroundColor: this.state.rgbdark }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 114
+                  lineNumber: 119
                 },
                 __self: this
               },
@@ -38444,7 +38448,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 115
+                    lineNumber: 120
                   },
                   __self: this
                 },
@@ -38459,7 +38463,7 @@ var Room = function (_Component) {
                 editing: false,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 116
+                  lineNumber: 121
                 },
                 __self: this
               }),
@@ -38467,7 +38471,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'address', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 124
+                    lineNumber: 129
                   },
                   __self: this
                 },
@@ -38477,7 +38481,7 @@ var Room = function (_Component) {
                       _this4.handleClick('#location');
                     }, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 125
+                      lineNumber: 130
                     },
                     __self: this
                   },
@@ -38488,7 +38492,7 @@ var Room = function (_Component) {
                 'div',
                 { className: 'summaryInfo', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 133
+                    lineNumber: 138
                   },
                   __self: this
                 },
@@ -38497,13 +38501,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 134
+                      lineNumber: 139
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: group, width: '15', title: 'De ' + this.state.minPeople + ' a ' + this.state.maxPeople + ' personas', alt: 'Personas', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 135
+                      lineNumber: 140
                     },
                     __self: this
                   }),
@@ -38512,7 +38516,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 136
+                        lineNumber: 141
                       },
                       __self: this
                     },
@@ -38526,13 +38530,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 138
+                      lineNumber: 143
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: clock, width: '15', title: this.state.duration + ' minutos', alt: 'Tiempo', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 139
+                      lineNumber: 144
                     },
                     __self: this
                   }),
@@ -38541,7 +38545,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 140
+                        lineNumber: 145
                       },
                       __self: this
                     },
@@ -38554,13 +38558,13 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 142
+                      lineNumber: 147
                     },
                     __self: this
                   },
                   __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 143
+                      lineNumber: 148
                     },
                     __self: this
                   }),
@@ -38569,7 +38573,7 @@ var Room = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 144
+                        lineNumber: 149
                       },
                       __self: this
                     },
@@ -38581,7 +38585,7 @@ var Room = function (_Component) {
                 'div',
                 { id: 'price', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 147
+                    lineNumber: 152
                   },
                   __self: this
                 },
@@ -38590,7 +38594,7 @@ var Room = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 148
+                      lineNumber: 153
                     },
                     __self: this
                   },
@@ -38603,7 +38607,7 @@ var Room = function (_Component) {
               'div',
               { id: 'description', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 151
+                  lineNumber: 156
                 },
                 __self: this
               },
@@ -38612,7 +38616,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 152
+                    lineNumber: 157
                   },
                   __self: this
                 },
@@ -38623,7 +38627,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 153
+                    lineNumber: 158
                   },
                   __self: this
                 },
@@ -38634,7 +38638,7 @@ var Room = function (_Component) {
               'div',
               { id: 'ratings', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 155
+                  lineNumber: 160
                 },
                 __self: this
               },
@@ -38643,7 +38647,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 156
+                    lineNumber: 161
                   },
                   __self: this
                 },
@@ -38654,7 +38658,7 @@ var Room = function (_Component) {
               'div',
               { id: 'location', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 158
+                  lineNumber: 163
                 },
                 __self: this
               },
@@ -38663,7 +38667,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 159
+                    lineNumber: 164
                   },
                   __self: this
                 },
@@ -38675,13 +38679,13 @@ var Room = function (_Component) {
             'div',
             { id: 'fixedBar', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 162
+                lineNumber: 167
               },
               __self: this
             },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 163
+                lineNumber: 168
               },
               __self: this
             }),
@@ -38690,7 +38694,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 164
+                  lineNumber: 169
                 },
                 __self: this
               },
@@ -38701,7 +38705,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 165
+                  lineNumber: 170
                 },
                 __self: this
               },
@@ -38712,7 +38716,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 172
+                  lineNumber: 177
                 },
                 __self: this
               },
@@ -38723,7 +38727,7 @@ var Room = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 175
+                  lineNumber: 180
                 },
                 __self: this
               },
@@ -38732,7 +38736,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 176
+                    lineNumber: 181
                   },
                   __self: this
                 },
@@ -38743,7 +38747,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 177
+                    lineNumber: 182
                   },
                   __self: this
                 },
@@ -38754,7 +38758,7 @@ var Room = function (_Component) {
               'a',
               { target: '_blank', href: reservation, className: 'book', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 181
+                  lineNumber: 186
                 },
                 __self: this
               },
@@ -38767,8 +38771,8 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      var url = 'https://scapree.herokuapp.com/api/room/' + params.id;
-      // var url = `http://localhost:3000/api/room/${params.id}`
+      // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
+      var url = 'http://localhost:3000/api/room/' + params.id;
       __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default()(url).then(function (response) {
         return response.json();
       }).then(callback).catch(function (error) {
@@ -46977,8 +46981,8 @@ var CreateCompany = function (_Component) {
 
 
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function createCompany(data, func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
@@ -47000,8 +47004,9 @@ function createCompany(data, func) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_rooms__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_images__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\addroom.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -47013,6 +47018,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -47037,11 +47043,13 @@ var AddRoom = function (_Component) {
       difficulty: undefined,
       price: undefined,
       address: '',
-      coords: []
+      coords: [],
+      profileImg: 'default.png'
     };
     _this.update = _this.update.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleFileChange = _this.handleFileChange.bind(_this);
     _this.handleAddressChange = _this.handleAddressChange.bind(_this);
     _this.handleAddressSelect = _this.handleAddressSelect.bind(_this);
     return _this;
@@ -47050,11 +47058,17 @@ var AddRoom = function (_Component) {
   _createClass(AddRoom, [{
     key: 'handleSubmit',
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       if (e) {
         e.preventDefault();
       }
       Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["a" /* addRoom */])(this.state, function (response) {
-        console.log(response);
+        if (response._id) {
+          _this2.props.history.push('/home');
+        } else {
+          alert(response.msg);
+        }
       });
     }
   }, {
@@ -47070,15 +47084,15 @@ var AddRoom = function (_Component) {
   }, {
     key: 'handleAddressSelect',
     value: function handleAddressSelect(address, placeId) {
-      var _this2 = this;
+      var _this3 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
-        return Object(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete__["getLatLng"])(results[0]);
+      Object(__WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
+        return Object(__WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete__["getLatLng"])(results[0]);
       }).then(function (_ref) {
         var lat = _ref.lat,
             lng = _ref.lng;
 
-        _this2.update({ address: address, coords: [lat, lng] }, _this2.handleSubmit);
+        _this3.update({ address: address, coords: [lat, lng] });
       });
     }
     // update state
@@ -47089,13 +47103,35 @@ var AddRoom = function (_Component) {
       func ? this.setState(object, func) : this.setState(object);
     }
   }, {
+    key: 'handleFileChange',
+    value: function handleFileChange() {
+      var _this4 = this;
+
+      var data = new FormData();
+      data.append('image', document.getElementById('image').files[0]);
+
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_images__["a" /* uploadImage */])(data, function (response) {
+        console.log(response);
+        if (response.success) {
+          _this4.setState({
+            profileImg: response.msg
+          });
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this5 = this;
 
-      // if (!this.props.logged) {
-      //   return <Redirect to='/login' />
-      // }
+      if (!this.props.logged) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 79
+          },
+          __self: this
+        });
+      }
       var AutocompleteItem = function AutocompleteItem(_ref2) {
         var suggestion = _ref2.suggestion;
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -47103,15 +47139,15 @@ var AddRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 81
             },
-            __self: _this3
+            __self: _this5
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 81
             },
-            __self: _this3
+            __self: _this5
           }),
           suggestion
         );
@@ -47134,7 +47170,7 @@ var AddRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 96
           },
           __self: this
         },
@@ -47143,7 +47179,7 @@ var AddRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 97
             },
             __self: this
           },
@@ -47151,9 +47187,9 @@ var AddRoom = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'form',
-          { onSubmit: this.handleSubmit, __source: {
+          { onSubmit: this.handleSubmit, id: 'uploadForm', __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 98
             },
             __self: this
           },
@@ -47166,7 +47202,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 99
             },
             __self: this
           }),
@@ -47178,7 +47214,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 107
             },
             __self: this
           }),
@@ -47192,7 +47228,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 94
+              lineNumber: 114
             },
             __self: this
           }),
@@ -47207,7 +47243,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 103
+              lineNumber: 123
             },
             __self: this
           }),
@@ -47222,7 +47258,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 113
+              lineNumber: 133
             },
             __self: this
           }),
@@ -47237,7 +47273,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 123
+              lineNumber: 143
             },
             __self: this
           }),
@@ -47252,7 +47288,7 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 133
+              lineNumber: 153
             },
             __self: this
           }),
@@ -47266,11 +47302,11 @@ var AddRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 143
+              lineNumber: 163
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_places_autocomplete___default.a, {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_places_autocomplete___default.a, {
             inputProps: inputProps,
             autocompleteItem: AutocompleteItem,
             classNames: cssClasses,
@@ -47279,7 +47315,19 @@ var AddRoom = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 152
+              lineNumber: 172
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            type: 'file',
+            name: 'image',
+            id: 'image',
+            accept: 'image/x-png,image/gif,image/jpeg',
+            onChange: this.handleFileChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 180
             },
             __self: this
           }),
@@ -47288,14 +47336,20 @@ var AddRoom = function (_Component) {
             value: 'Create',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 160
+              lineNumber: 187
             },
             __self: this
           })
         ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/static/uploads/' + this.state.profileImg, width: '200', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 192
+          },
+          __self: this
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 193
           },
           __self: this
         })
@@ -48833,6 +48887,34 @@ function getCoordsInfo(coords, _func) {
       });
       _func(city[0]);
     }
+  });
+}
+
+
+
+/***/ }),
+/* 509 */,
+/* 510 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return uploadImage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common__ = __webpack_require__(38);
+
+
+
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
+
+function uploadImage(data, func) {
+  console.log(data);
+  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+    url: baseUrl + '/api/upload/',
+    data: data,
+    func: func
   });
 }
 

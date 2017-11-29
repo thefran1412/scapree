@@ -1,5 +1,5 @@
 function ajax (data) {
-  data.method(data.url, {...data.data, withCredentials: true})
+  data.method(data.url, data.data, {withCredentials: true})
     .then(answer => {
       data.func(answer.data)
     })

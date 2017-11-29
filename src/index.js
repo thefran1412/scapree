@@ -14,5 +14,10 @@ if (process.env.NODE_ENV === 'development') {
   console.log('production')
 }
 
+// app.use('*', (req, res) => {
+//   console.log('entered')
+//   res.send('404 page not found')
+// })
+
 app.listen(PORT)
 console.log(`Listening on PORT ${PORT}...`)

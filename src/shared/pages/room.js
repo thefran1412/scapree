@@ -23,8 +23,8 @@ export default class Room extends Component {
     this.getColor = this.getColor.bind(this)
   }
   static requestInitialData (callback, params) {
-    var url = `https://scapree.herokuapp.com/api/room/${params.id}`
-    // var url = `http://localhost:3000/api/room/${params.id}`
+    // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
+    var url = `http://localhost:3000/api/room/${params.id}`
     fetch(url)
       .then(response => response.json())
       .then(callback)
@@ -69,13 +69,18 @@ export default class Room extends Component {
       const img = `/static/uploads/${this.state.profileImg}`
       Vibrant.from(img).getPalette((err, palette) => {
         if (err) throw err
-        // console.log(palette)
-        const rgbdark = palette.DarkMuted._rgb
-        const rgb = palette.Vibrant._rgb
-        this.setState({
-          rgbdark: ` rgb(${rgbdark.join()})`,
-          rgb: ` rgb(${rgb.join()})`
-        })
+        if (palette.DarkMuted) {
+          const rgbdark = palette.DarkMuted._rgb
+          this.setState({
+            rgbdark: ` rgb(${rgbdark.join()})`
+          })
+        }
+        if (palette.Vibrant) {
+          const rgb = palette.Vibrant._rgb
+          this.setState({
+            rgb: ` rgb(${rgb.join()})`
+          })
+        }
       })
     }
   }
