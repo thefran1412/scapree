@@ -229,9 +229,14 @@ header a {
 
 /* MEDIA QUERIES */
 
+@media (max-width: 768px) {
+  .room{
+    width: 44%;
+  }
+}
 @media (max-width: 425px) {
   .room{
-    width: 90%
+    width: 90%;
   }
 }#registerForm input{
   padding: 10px;

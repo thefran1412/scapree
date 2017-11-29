@@ -23,8 +23,8 @@ export default class Room extends Component {
     this.getColor = this.getColor.bind(this)
   }
   static requestInitialData (callback, params) {
-    // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
-    var url = `http://localhost:3000/api/room/${params.id}`
+    var url = `https://scapree.herokuapp.com/api/room/${params.id}`
+    // var url = `http://localhost:3000/api/room/${params.id}`
     fetch(url)
       .then(response => response.json())
       .then(callback)
