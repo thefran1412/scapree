@@ -1,6 +1,38 @@
-#loginForm input{
-  padding: 10px;
+#loginForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  /*background-color: red;*/
+  /*border: 1px solid #484848;*/
+  border-radius: 5px;
+  padding: 20px;
+  /*background-color: whitesmoke;*/
+}
+#loginForm h1 {
+  font-size: 30px;
+  
+}
+#loginForm input[type='text'], #loginForm input[type='password']{
+  padding: 10px 0;
   color: #484848;
-  margin: 10px;
-
+  width: 100%;
+  border: 0;
+  /*border-radius: 3px;*/
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.loginButton {
+  margin-top: 25px;
+  width: calc(50% - 10px);
+  background-color: #484848;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 10px;
 }

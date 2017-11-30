@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import './LoginForm.css'
 
 export default class LoginForm extends Component {
@@ -24,6 +25,7 @@ export default class LoginForm extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} id='loginForm'>
+        <h1>Login</h1>
         <input
           type='text'
           name='username'
@@ -39,9 +41,14 @@ export default class LoginForm extends Component {
           onChange={this.handleChange}
         />
         <input
+          style={{marginRight: '20px'}}
           type='submit'
           value='Login'
+          className='loginButton'
         />
+        <Link to='/register' className='loginButton'>
+          Register
+        </Link>
       </form>
     )
   }

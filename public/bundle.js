@@ -34439,27 +34439,15 @@ var Login = function (_Component) {
       }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        {
-          __source: {
+        { style: { height: 'calc(100vh - 260px)' }, __source: {
             fileName: _jsxFileName,
             lineNumber: 28
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 29
-            },
-            __self: this
-          },
-          'Login'
-        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_LoginForm_LoginForm__["a" /* default */], { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 29
           },
           __self: this
         })
@@ -34479,8 +34467,9 @@ var Login = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LoginForm_css__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LoginForm_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__LoginForm_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LoginForm_css__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LoginForm_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__LoginForm_css__);
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\LoginForm\\LoginForm.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -34492,6 +34481,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -34531,10 +34521,21 @@ var LoginForm = function (_Component) {
         'form',
         { onSubmit: this.handleSubmit, id: 'loginForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 26
+            lineNumber: 27
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h1',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            },
+            __self: this
+          },
+          'Login'
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'username',
@@ -34543,7 +34544,7 @@ var LoginForm = function (_Component) {
           onChange: this.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 29
           },
           __self: this
         }),
@@ -34555,19 +34556,31 @@ var LoginForm = function (_Component) {
           onChange: this.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 36
           },
           __self: this
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          style: { marginRight: '20px' },
           type: 'submit',
           value: 'Login',
+          className: 'loginButton',
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 43
           },
           __self: this
-        })
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+          { to: '/register', className: 'loginButton', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            },
+            __self: this
+          },
+          'Register'
+        )
       );
     }
   }]);
@@ -36259,12 +36272,17 @@ var Home = function (_Component) {
           },
           'Home'
         ),
-        this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 57
+          },
+          __self: this
+        }) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 59
             },
             __self: this
           },
@@ -36272,24 +36290,19 @@ var Home = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
             { to: '/addroom', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 58
+                lineNumber: 60
               },
               __self: this
             },
             'Add Room'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 61
             },
             __self: this
           })
-        ) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 62
-          },
-          __self: this
-        }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           {
             __source: {
