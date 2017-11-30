@@ -42,15 +42,17 @@ export default class Companie extends Component {
   }
   render () {
     const profileImg = `url(/static/uploads/${this.state.profileImg})`
+    const coverImg = `url(/static/uploads/${this.state.coverImg})`
     const phone = '/static/media/phone.svg'
     const mail = '/static/media/mail.svg'
     return (
       <div id='companie'>
         <div
           className='coverImg'
-          style={{backgroundImage: profileImg}}
+          style={{backgroundImage: coverImg}}
         />
         <div className='container'>
+          <div className='bigProfileImg' style={{backgroundImage: profileImg}} />
           <h1>{this.state.name}</h1>
           <div>
             <div className='companieDetailed'>

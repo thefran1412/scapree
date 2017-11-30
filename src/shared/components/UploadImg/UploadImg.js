@@ -24,13 +24,13 @@ export default class UploadImg extends Component {
         this.setState({
           image: response.msg
         })
-        this.props.onChange(response.msg)
+        const state = this.props.state || undefined
+
+        this.props.onChange(response.msg, state)
       }
     })
   }
   render () {
-    const img = `/static/uploads/${this.state.image}`
-
     return (
       <div id='uploadImg'>
         <input

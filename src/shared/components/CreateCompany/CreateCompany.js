@@ -13,7 +13,8 @@ export default class CreateCompany extends Component {
       desc: '',
       address: '',
       coords: [],
-      profileImg: ''
+      profileImg: 'default.png',
+      coverImg: 'default.png'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -29,9 +30,9 @@ export default class CreateCompany extends Component {
       [e.target.name]: e.target.value
     })
   }
-  handleFileChange (imageName) {
+  handleFileChange (imageName, state) {
     this.setState({
-      profileImg: imageName
+      [state]: imageName
     })
   }
   render () {
@@ -72,7 +73,13 @@ export default class CreateCompany extends Component {
           />
           <UploadImg
             onChange={this.handleFileChange}
+            preview='cover'
+            state='coverImg'
+          />
+          <UploadImg
+            onChange={this.handleFileChange}
             preview='profile'
+            state='profileImg'
           />
           <input
             type='submit'

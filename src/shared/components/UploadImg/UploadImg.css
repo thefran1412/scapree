@@ -1,5 +1,5 @@
 #uploadImg {
-  width: 300px;
+  /*width: 300px;*/
   margin: 0 auto;
   text-align: center;
 }
@@ -26,13 +26,12 @@
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 .coverPreview {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
+  width: 100%;
+  height: 400px;
   background-position: center;
   background-size: cover;
   overflow: hidden;

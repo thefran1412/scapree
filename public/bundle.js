@@ -13660,15 +13660,15 @@ var UploadImg = function (_Component) {
           _this2.setState({
             image: response.msg
           });
-          _this2.props.onChange(response.msg);
+          var state = _this2.props.state || undefined;
+
+          _this2.props.onChange(response.msg, state);
         }
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var img = '/static/uploads/' + this.state.image;
-
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
         'div',
         { id: 'uploadImg', __source: {
@@ -36264,14 +36264,20 @@ var Home = function (_Component) {
           },
           'Add Room'
         ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          },
+          __self: this
+        }),
         this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 59
           },
           __self: this
         }) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 61
           },
           __self: this
         }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -36279,7 +36285,7 @@ var Home = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 62
             },
             __self: this
           },
@@ -36344,7 +36350,8 @@ var CreateCompany = function (_Component) {
       desc: '',
       address: '',
       coords: [],
-      profileImg: ''
+      profileImg: 'default.png',
+      coverImg: 'default.png'
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
@@ -36366,10 +36373,8 @@ var CreateCompany = function (_Component) {
     }
   }, {
     key: 'handleFileChange',
-    value: function handleFileChange(imageName) {
-      this.setState({
-        profileImg: imageName
-      });
+    value: function handleFileChange(imageName, state) {
+      this.setState(_defineProperty({}, state, imageName));
     }
   }, {
     key: 'render',
@@ -36378,7 +36383,7 @@ var CreateCompany = function (_Component) {
         'div',
         { id: 'createCompany', __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 40
           },
           __self: this
         },
@@ -36387,7 +36392,7 @@ var CreateCompany = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 40
+              lineNumber: 41
             },
             __self: this
           },
@@ -36397,7 +36402,7 @@ var CreateCompany = function (_Component) {
           'form',
           { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 42
             },
             __self: this
           },
@@ -36410,7 +36415,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 42
+              lineNumber: 43
             },
             __self: this
           }),
@@ -36423,7 +36428,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 51
             },
             __self: this
           }),
@@ -36436,7 +36441,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 59
             },
             __self: this
           }),
@@ -36448,16 +36453,27 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 67
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
+            onChange: this.handleFileChange,
+            preview: 'cover',
+            state: 'coverImg',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 74
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
             onChange: this.handleFileChange,
             preview: 'profile',
+            state: 'profileImg',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 79
             },
             __self: this
           }),
@@ -36467,7 +36483,7 @@ var CreateCompany = function (_Component) {
             value: 'Envia',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 84
             },
             __self: this
           })
@@ -37969,22 +37985,23 @@ var Companie = function (_Component) {
     key: 'render',
     value: function render() {
       var profileImg = 'url(/static/uploads/' + this.state.profileImg + ')';
+      var coverImg = 'url(/static/uploads/' + this.state.coverImg + ')';
       var phone = '/static/media/phone.svg';
       var mail = '/static/media/mail.svg';
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'companie', __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 49
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
           className: 'coverImg',
-          style: { backgroundImage: profileImg },
+          style: { backgroundImage: coverImg },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 50
           },
           __self: this
         }),
@@ -37992,16 +38009,22 @@ var Companie = function (_Component) {
           'div',
           { className: 'container', __source: {
               fileName: _jsxFileName,
-              lineNumber: 53
+              lineNumber: 54
             },
             __self: this
           },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'bigProfileImg', style: { backgroundImage: profileImg }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 55
+            },
+            __self: this
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h1',
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 54
+                lineNumber: 56
               },
               __self: this
             },
@@ -38012,7 +38035,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 55
+                lineNumber: 57
               },
               __self: this
             },
@@ -38020,7 +38043,7 @@ var Companie = function (_Component) {
               'div',
               { className: 'companieDetailed', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 56
+                  lineNumber: 58
                 },
                 __self: this
               },
@@ -38029,7 +38052,7 @@ var Companie = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 60
+                    lineNumber: 62
                   },
                   __self: this
                 },
@@ -38037,7 +38060,7 @@ var Companie = function (_Component) {
                   'div',
                   { className: 'descInfo', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 61
+                      lineNumber: 63
                     },
                     __self: this
                   },
@@ -38046,7 +38069,7 @@ var Companie = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 62
+                        lineNumber: 64
                       },
                       __self: this
                     },
@@ -38057,7 +38080,7 @@ var Companie = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 63
+                        lineNumber: 65
                       },
                       __self: this
                     },
@@ -38068,7 +38091,7 @@ var Companie = function (_Component) {
                   'div',
                   { className: 'contactInfo', __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 65
+                      lineNumber: 67
                     },
                     __self: this
                   },
@@ -38077,7 +38100,7 @@ var Companie = function (_Component) {
                     {
                       __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 66
+                        lineNumber: 68
                       },
                       __self: this
                     },
@@ -38087,13 +38110,13 @@ var Companie = function (_Component) {
                     'a',
                     { href: 'mailto:' + this.state.email, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 67
+                        lineNumber: 69
                       },
                       __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 68
+                        lineNumber: 70
                       },
                       __self: this
                     }),
@@ -38102,7 +38125,7 @@ var Companie = function (_Component) {
                       {
                         __source: {
                           fileName: _jsxFileName,
-                          lineNumber: 68
+                          lineNumber: 70
                         },
                         __self: this
                       },
@@ -38113,13 +38136,13 @@ var Companie = function (_Component) {
                     'a',
                     { href: 'tel:' + this.state.phone, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 70
+                        lineNumber: 72
                       },
                       __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 71
+                        lineNumber: 73
                       },
                       __self: this
                     }),
@@ -38128,7 +38151,7 @@ var Companie = function (_Component) {
                       {
                         __source: {
                           fileName: _jsxFileName,
-                          lineNumber: 71
+                          lineNumber: 73
                         },
                         __self: this
                       },
@@ -38142,7 +38165,7 @@ var Companie = function (_Component) {
               'div',
               { className: 'mapWrapper', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 79
+                  lineNumber: 81
                 },
                 __self: this
               },
@@ -38151,7 +38174,7 @@ var Companie = function (_Component) {
                 address: this.state.rooms[0].location.address,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 82
+                  lineNumber: 84
                 },
                 __self: this
               }) : 'Loading...'
@@ -38162,7 +38185,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 92
               },
               __self: this
             },
@@ -38170,7 +38193,7 @@ var Companie = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
               fileName: _jsxFileName,
-              lineNumber: 91
+              lineNumber: 93
             },
             __self: this
           })

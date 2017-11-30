@@ -53,6 +53,7 @@ export default class Home extends Component {
       <div>
         <h1>Home</h1>
         <Link to='/addroom'>Add Room</Link>
+        <CreateCompany submit={this.handleSubmit} />
         {
           (this.state.logged && !this.state.success)
           ? <CreateCompany submit={this.handleSubmit} />
