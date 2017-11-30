@@ -52,11 +52,12 @@ export default class Home extends Component {
     return (
       <div>
         <h1>Home</h1>
-        <Link to='/addroom'>Add Room</Link>
-        <CreateCompany submit={this.handleSubmit} />
         {
           (this.state.logged && !this.state.success)
-          ? <CreateCompany submit={this.handleSubmit} />
+          ? (<div>
+              <Link to='/addroom'>Add Room</Link>
+            <CreateCompany submit={this.handleSubmit} />
+            </div>)
           : (this.state.success)
             ? <PrintRooms rooms={this.state.rooms} />
             : <p>you shouldn't be here</p>
