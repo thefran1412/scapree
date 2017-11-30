@@ -12,6 +12,14 @@ function getRooms (data, func) {
   })
 }
 
+function getRoom (id, func) {
+  ajax({
+    method: axios.get,
+    url: `${baseUrl}/api/room/${id}`,
+    func
+  })
+}
+
 function getMyRooms (func) {
   ajax({
     method: axios.get,
@@ -29,4 +37,4 @@ function addRoom (data, func) {
   })
 }
 
-export {getRooms, getMyRooms, addRoom}
+export {getRooms, getRoom, getMyRooms, addRoom}

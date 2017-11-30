@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch'
 import * as Vibrant from 'node-vibrant'
 import SideBar from '../components/SideBar/SideBar'
 import Maps from '../components/Maps/Maps'
+import {getRoom} from '../services/rooms'
 import './room.css'
 
 export default class Room extends Component {
@@ -25,12 +26,7 @@ export default class Room extends Component {
     this.getColor = this.getColor.bind(this)
   }
   static requestInitialData (callback, params) {
-    // var url = `https://scapree.herokuapp.com/api/room/${params.id}`
-    var url = `http://localhost:3000/api/room/${params.id}`
-    fetch(url)
-      .then(response => response.json())
-      .then(callback)
-      .catch(error => { console.log(error) })
+    getRoom(params.id, callback)
   }
   handleScroll (e) {
     let scroll = document.documentElement.scrollTop
@@ -176,6 +172,7 @@ export default class Room extends Component {
           <SideBar
             companie={this.state.companie}
             profileImg={this.state.profileImg}
+            reservation={this.state.reservation}
             rgb={this.state.rgb}
           />
         </div>

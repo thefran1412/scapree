@@ -19,6 +19,7 @@ export default class AddRoom extends Component {
       price: undefined,
       address: '',
       coords: [],
+      reservation: '',
       profileImg: 'default.png'
     }
     this.update = this.update.bind(this)
@@ -80,7 +81,8 @@ export default class AddRoom extends Component {
     const inputProps = {
       value: this.state.address,
       onChange: this.handleAddressChange,
-      placeholder: 'City, Zipcode or Address'
+      placeholder: 'City, Zipcode or Address',
+      required: true
     }
     return (
       <div>
@@ -157,6 +159,14 @@ export default class AddRoom extends Component {
             name='price'
             placeholder='Price'
             min='1'
+            required
+          />
+          <input
+            type='url'
+            onChange={this.handleChange}
+            value={this.state.reservation}
+            name='reservation'
+            placeholder='Url de Reserva'
             required
           />
           <PlacesAutocomplete

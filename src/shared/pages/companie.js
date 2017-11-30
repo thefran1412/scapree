@@ -28,6 +28,8 @@ export default class Companie extends Component {
     getCompanie(params.id, callback)
   }
   componentDidMount () {
+    document.documentElement.scrollTop = 0
+
     const {params} = this.props.match
     if (!this.state.info) {
       Companie.requestInitialData(response => {

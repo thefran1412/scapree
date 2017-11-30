@@ -8,7 +8,6 @@ export default class SideBar extends Component {
   }
   render () {
     const img = `/static/uploads/${this.props.profileImg}`
-    const reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html'
     const phone = '/static/media/phone.svg'
     const mail = '/static/media/mail.svg'
     return (
@@ -38,7 +37,7 @@ export default class SideBar extends Component {
             </div>)
             : 'Loading'
           }
-          <a target='_blank' href={reservation} id='book' style={{backgroundColor: this.props.rgb}}>Reservar</a>
+          <a target='_blank' href={this.props.reservation} id='book' style={{backgroundColor: this.props.rgb}}>Reservar</a>
         </div>
       </div>
     )

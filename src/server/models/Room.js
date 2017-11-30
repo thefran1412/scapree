@@ -26,6 +26,10 @@ var RoomSchema = new Schema({
   price: Number,
   languages: Array,
   visible: Boolean,
+  reservation: {
+    type: String,
+    required: true
+  },
   location: {
     type: {type: String},
     coordinates: [Number, Number],

@@ -33,6 +33,7 @@
     "mongodb": "*",
     "mongoose": "^4.13.2",
     "node-time-ago": "^1.0.0",
+    "node-vibrant": "^3.0.0",
     "path": "^0.12.7",
     "query-string": "^5.0.1",
     "react": "^15.6.1",

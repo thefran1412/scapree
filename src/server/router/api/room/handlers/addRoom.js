@@ -20,6 +20,7 @@ module.exports = function (req, res) {
             difficulty: +params.difficulty,
             price: +params.price,
             visible: params.visible || true,
+            reservation: params.reservation || '/',
             location: {
               type: 'Point',
               coordinates: [params.coords[1], params.coords[0]],
