@@ -16,7 +16,7 @@ export default class UploadImg extends Component {
   }
   handleFileChange () {
     const data = new FormData()
-    data.append('image', document.getElementById('image').files[0])
+    data.append('image', document.getElementById(`${this.state.preview}Image`).files[0])
 
     uploadImage(data, response => {
       console.log(response)
@@ -36,7 +36,7 @@ export default class UploadImg extends Component {
         <input
           type='file'
           name='image'
-          id='image'
+          id={`${this.state.preview}Image`}
           accept='image/x-png,image/gif,image/jpeg'
           onChange={this.handleFileChange}
         />

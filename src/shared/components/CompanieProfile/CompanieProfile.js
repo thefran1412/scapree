@@ -5,12 +5,6 @@ import Maps from '../../components/Maps/Maps'
 import './CompanieProfile.css'
 
 export default class CompanieProfile extends Component {
-  componentWillMount () {
-    console.log('rendering with: ', this.props)
-  }
-  componentDidMount () {
-    console.log('rendered with: ', this.props)
-  }
   render () {
     const profileImg = `url(/static/uploads/${this.props.data.profileImg})`
     const coverImg = `url(/static/uploads/${this.props.data.coverImg})`
@@ -57,7 +51,7 @@ export default class CompanieProfile extends Component {
                   coords={this.props.data.rooms[0].location.coordinates}
                   address={this.props.data.rooms[0].location.address}
                 />)
-                : 'Loading...'
+                : 'Add room to see map'
               }
             </div>
           </div>

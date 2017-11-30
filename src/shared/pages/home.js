@@ -21,7 +21,6 @@ export default class Home extends Component {
     if (!this.state.rooms) {
       this.getData()
     }
-    console.log('mounted', this.state)
   }
   // componentWillReceiveProps (nextProps) {
   //   console.log('recieved')
@@ -35,7 +34,6 @@ export default class Home extends Component {
   }
   getData () {
     getMyCompanie(response => {
-      console.log('response', response)
       this.setState(response)
     })
   }

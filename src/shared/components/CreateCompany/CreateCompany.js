@@ -22,7 +22,6 @@ export default class CreateCompany extends Component {
   }
   handleSubmit (e) {
     e.preventDefault()
-    console.log(typeof this.props.submit)
     this.props.submit(this.state)
   }
   handleChange (e) {
