@@ -18,8 +18,14 @@ export default class CompanieProfile extends Component {
         />
         <div className='container'>
           <div className='bigProfileImg' style={{backgroundImage: profileImg}} />
-          <h1>{this.props.data.name}</h1>
-          <p>{this.props.from}</p>
+          <div className='titleAndSome'>
+            <h1>{this.props.data.name}</h1>
+            {
+              (this.props.from === 'home')
+              ? <Link to='/' className='adminButton'>Edit</Link>
+              : ''
+            }
+          </div>
           <div>
             <div className='companieDetailed'>
               {
@@ -56,7 +62,7 @@ export default class CompanieProfile extends Component {
             </div>
           </div>
           <h2>Rooms</h2>
-          <PrintRooms rooms={this.props.data.rooms} />
+          <PrintRooms rooms={this.props.data.rooms} from={this.props.from} />
         </div>
       </div>
     )

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Room from '../Room/Room'
+import {Link} from 'react-router-dom'
 import './PrintRooms.css'
 
 export default class extends Component {
@@ -25,11 +26,26 @@ export default class extends Component {
     return (
       <div className='rooms'>
         {
-          this.state.rooms
+          this.state.rooms.length
           ? this.state.rooms.map((room, item) => {
-            return (<Room info={room} key={item} />)
+            return (<Room info={room} key={item} from={this.props.from || ''} />)
           })
           : <p>Nothing found</p>
+        }
+        {
+          (this.props.from === 'home')
+          ? (
+            <div className='room'>
+              <Link to='/addroom'>
+                <div className='roomPoster'>
+                  <div className='addRoom'>
+                    <img src='/static/media/plus.svg' width='50' />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )
+          : ''
         }
       </div>
     )

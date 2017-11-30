@@ -28,11 +28,13 @@ export default class SideBar extends Component {
           {
             this.props.companie
             ? (<div className='contactInfo'>
-              <a href={`mailto:${this.props.companie.email}`}>
-                <img src={mail} width='15' /><p>{this.props.companie.contact.email}</p>
+              <a href={`mailto:${this.props.companie.contact.email}`}>
+                <img src={mail} width='15' />
+                <p>{this.props.companie.contact.email}</p>
               </a>
-              <a href={`tel:${this.props.companie.phone}`}>
-                <img src={phone} width='15' /><p>{this.props.companie.contact.phone}</p>
+              <a href={`tel:${this.props.companie.contact.phone}`}>
+                <img src={phone} width='15' />
+                <p>{this.props.companie.contact.phone}</p>
               </a>
             </div>)
             : 'Loading'

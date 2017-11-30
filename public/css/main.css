@@ -143,6 +143,22 @@ header a {
   min-height: calc(100vh - 260px);
   position: relative;
 }
+#companie h1 {
+  font-size: 43px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 160px;
+  vertical-align: middle;
+} 
+#companie h2 {
+  font-size: 45px;
+  margin: 30px 10px 10px 10px;
+}
+#companie h3 {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
 .container {
   max-width: 1290px;
   width: 100%;
@@ -164,23 +180,22 @@ header a {
   position: absolute;
   top: -105px;
 }
-#companie h1 {
-  font-size: 43px;
-  font-weight: bold;
+.titleAndSome {
   margin: 30px 10px;
-  margin-left: 160px;
 }
-#companie h2 {
-  font-size: 45px;
-  margin: 30px 10px 10px 10px;
+.adminButton {
+  display: inline-block;
+  background: rgb(195, 74, 74);
+  padding: 10px;
+  float: right;
+  border-radius: 2px;
+  width: 100px;
+  margin-left: 10px;
+  /* vertical-align: middle; */
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
-#companie h3 {
-  font-size: 30px;
-  padding-bottom: 25px;
-  padding-top: 10px;
-}
-/* #484848 */
-
 .companieDetailed {
   width: 50%;
   height: 500px;
@@ -237,6 +252,19 @@ header a {
   padding-top: 10px;
   padding-left: 10px;
   text-align: center;
+}
+.addRoom {
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  vertical-align: middle;
+  text-align: center;
+  background-color: whitesmoke;
+}
+.addRoom img {
+  margin: 50% auto;
 }.room {
   width: 300px;
   display: inline-block;
