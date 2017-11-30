@@ -17,8 +17,35 @@ function getCompanie (id, func) {
   ajax({
     method: axios.get,
     url: `${baseUrl}/api/companie/${id}`,
-    func
+    func: response => {
+      func(orderData(response, false))
+    }
   })
 }
 
-export {createCompany, getCompanie}
+function getMyCompanie (func) {
+  ajax({
+    method: axios.get,
+    url: `${baseUrl}/api/mycompanie`,
+    func: response => {
+      func(orderData(response, true))
+    }
+  })
+}
+
+function orderData (response, mine) {
+  if (response.data) {
+    const obj = {
+      ...response.data.companie,
+      rooms: response.data.rooms
+    }
+    if (mine) {
+      obj.success = response.success
+      obj.logged = response.logged
+      obj.companie = response.companie
+    }
+    return obj
+  }
+  return response
+}
+export {createCompany, getCompanie, getMyCompanie}

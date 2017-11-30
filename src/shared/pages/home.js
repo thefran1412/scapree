@@ -1,48 +1,42 @@
 import React, {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
-import PrintRooms from '../components/PrintRooms/PrintRooms'
+// import PrintRooms from '../components/PrintRooms/PrintRooms'
 import CreateCompany from '../components/CreateCompany/CreateCompany'
-import {getMyRooms} from '../services/rooms'
-import {createCompany} from '../services/companies'
+import {createCompany, getMyCompanie} from '../services/companies'
+import CompanieProfile from '../components/CompanieProfile/CompanieProfile'
 
 export default class Home extends Component {
   constructor (props) {
     super(props)
 
-    let initialData
-    if (__isBrowser__) {
-      initialData = window.__initialData__
-      delete window.__initialData__
-    } else {
-      initialData = props.staticContext.initialData
-    }
-    this.state = {
-      ...initialData
-    }
+    this.state = {}
+
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.getData = this.getData.bind(this)
   }
-  static requestInitialData (callback, params, query) {
-    getMyRooms(callback)
-  }
+  // static requestInitialData (callback, params, query) {
+  //   getMyCompanie(callback)
+  // }
   componentDidMount () {
     if (!this.state.rooms) {
-      Home.requestInitialData(data => {
-        console.log(data)
-        this.setState({...data})
-      })
+      this.getData()
     }
+    console.log('mounted', this.state)
   }
-  componentWillReceiveProps (nextProps) {
-    Home.requestInitialData(data => {
-      this.setState({...data})
+  // componentWillReceiveProps (nextProps) {
+  //   console.log('recieved')
+  //   this.getData()
+  // }
+
+  handleSubmit (data) {
+    createCompany(data, data => {
+      this.getData()
     })
   }
-  handleSubmit (data) {
-    createCompany(data, response => {
+  getData () {
+    getMyCompanie(response => {
       console.log('response', response)
-      Home.requestInitialData(data => {
-        this.setState({...data})
-      })
+      this.setState(response)
     })
   }
   render () {
@@ -51,15 +45,11 @@ export default class Home extends Component {
     }
     return (
       <div>
-        <h1>Home</h1>
         {
           (this.state.logged && !this.state.success)
           ? <CreateCompany submit={this.handleSubmit} />
-          : (this.state.success)
-            ? (<div>
-              <Link to='/addroom'>Add Room</Link>
-              <PrintRooms rooms={this.state.rooms} />
-            </div>)
+          : (this.state.success && this.state.rooms)
+            ? <CompanieProfile data={this.state} from='home' />
             : <p>you shouldn't be here</p>
         }
       </div>

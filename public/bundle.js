@@ -8052,9 +8052,9 @@ var _class = function (_Component) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getRooms; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getRoom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getMyRooms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getRooms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getRoom; });
+/* unused harmony export getMyRooms */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addRoom; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
@@ -13711,6 +13711,7 @@ var UploadImg = function (_Component) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createCompany; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getCompanie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getMyCompanie; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(26);
@@ -13729,14 +13730,40 @@ function createCompany(data, func) {
   });
 }
 
-function getCompanie(id, func) {
+function getCompanie(id, _func) {
   Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
     url: baseUrl + '/api/companie/' + id,
-    func: func
+    func: function func(response) {
+      _func(orderData(response, false));
+    }
   });
 }
 
+function getMyCompanie(_func2) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+    url: baseUrl + '/api/mycompanie',
+    func: function func(response) {
+      _func2(orderData(response, true));
+    }
+  });
+}
+
+function orderData(response, mine) {
+  if (response.data) {
+    var obj = Object.assign({}, response.data.companie, {
+      rooms: response.data.rooms
+    });
+    if (mine) {
+      obj.success = response.success;
+      obj.logged = response.logged;
+      obj.companie = response.companie;
+    }
+    return obj;
+  }
+  return response;
+}
 
 
 /***/ }),
@@ -29192,7 +29219,7 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["d" /* getRooms */])(query, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["c" /* getRooms */])(query, callback);
     }
   }]);
 
@@ -31694,7 +31721,7 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_6__services_rooms__["c" /* getRoom */])(params.id, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_6__services_rooms__["b" /* getRoom */])(params.id, callback);
     }
   }]);
 
@@ -36180,10 +36207,9 @@ var RegisterForm = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_rooms__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_companies__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_companies__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_CompanieProfile_CompanieProfile__ = __webpack_require__(542);
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\home.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -36196,7 +36222,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
+// import PrintRooms from '../components/PrintRooms/PrintRooms'
 
 
 
@@ -36209,49 +36235,47 @@ var Home = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
-    var initialData = void 0;
-    if (__isBrowser__) {
-      initialData = window.__initialData__;
-      delete window.__initialData__;
-    } else {
-      initialData = props.staticContext.initialData;
-    }
-    _this.state = Object.assign({}, initialData);
+    _this.state = {};
+
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.getData = _this.getData.bind(_this);
     return _this;
   }
+  // static requestInitialData (callback, params, query) {
+  //   getMyCompanie(callback)
+  // }
+
 
   _createClass(Home, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
       if (!this.state.rooms) {
-        Home.requestInitialData(function (data) {
-          console.log(data);
-          _this2.setState(Object.assign({}, data));
-        });
+        this.getData();
       }
+      console.log('mounted', this.state);
     }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var _this3 = this;
+    // componentWillReceiveProps (nextProps) {
+    //   console.log('recieved')
+    //   this.getData()
+    // }
 
-      Home.requestInitialData(function (data) {
-        _this3.setState(Object.assign({}, data));
-      });
-    }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(data) {
-      var _this4 = this;
+      var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_5__services_companies__["a" /* createCompany */])(data, function (response) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["a" /* createCompany */])(data, function (data) {
+        _this2.getData();
+      });
+    }
+  }, {
+    key: 'getData',
+    value: function getData() {
+      var _this3 = this;
+
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["c" /* getMyCompanie */])(function (response) {
         console.log('response', response);
-        Home.requestInitialData(function (data) {
-          _this4.setState(Object.assign({}, data));
-        });
+        _this3.setState(response);
       });
     }
   }, {
@@ -36260,7 +36284,7 @@ var Home = function (_Component) {
       if (!this.props.logged) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 44
           },
           __self: this
         });
@@ -36270,68 +36294,32 @@ var Home = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 47
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 54
-            },
-            __self: this
-          },
-          'Home'
-        ),
-        this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
+        this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 50
           },
           __self: this
-        }) : this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 59
-            },
-            __self: this
+        }) : this.state.success && this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_CompanieProfile_CompanieProfile__["a" /* default */], { data: this.state, from: 'home', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 52
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { to: '/addroom', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 60
-              },
-              __self: this
-            },
-            'Add Room'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 61
-            },
-            __self: this
-          })
-        ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __self: this
+        }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 53
             },
             __self: this
           },
           'you shouldn\'t be here'
         )
       );
-    }
-  }], [{
-    key: 'requestInitialData',
-    value: function requestInitialData(callback, params, query) {
-      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["b" /* getMyRooms */])(callback);
     }
   }]);
 
@@ -37949,12 +37937,10 @@ var geocodeByPlaceId = exports.geocodeByPlaceId = function geocodeByPlaceId(plac
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_companies__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__companie_css__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__companie_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__companie_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_PrintRooms_PrintRooms__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Maps_Maps__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_companies__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companie_css__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companie_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__companie_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CompanieProfile_CompanieProfile__ = __webpack_require__(542);
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\companie.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37964,8 +37950,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
 
 
 
@@ -37987,9 +37971,8 @@ var Companie = function (_Component) {
     } else {
       initialData = props.staticContext.initialData;
     }
-    if (initialData && initialData.success) {
-      _this.state = Object.assign({}, initialData.data.companie, { rooms: initialData.data.rooms });
-    } else {
+    _this.state = initialData;
+    if (initialData && initialData.name) {} else {
       _this.state = {
         name: '', desc: '', profileImg: 'default.png', created: '', location: {}, contact: {}, rooms: []
       };
@@ -38003,14 +37986,13 @@ var Companie = function (_Component) {
       var _this2 = this;
 
       document.documentElement.scrollTop = 0;
-
       var params = this.props.match.params;
 
-      if (!this.state.info) {
+
+      if (!this.state.name) {
         Companie.requestInitialData(function (response) {
-          if (response.success) {
-            var obj = Object.assign({}, response.data.companie, { rooms: response.data.rooms });
-            _this2.setState(obj);
+          if (response.name) {
+            _this2.setState(response);
           }
         }, params);
       }
@@ -38018,226 +38000,27 @@ var Companie = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var profileImg = 'url(/static/uploads/' + this.state.profileImg + ')';
-      var coverImg = 'url(/static/uploads/' + this.state.coverImg + ')';
-      var phone = '/static/media/phone.svg';
-      var mail = '/static/media/mail.svg';
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { id: 'companie', __source: {
+        {
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 42
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
-          className: 'coverImg',
-          style: { backgroundImage: coverImg },
-          __source: {
+        this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CompanieProfile_CompanieProfile__["a" /* default */], { data: this.state, from: 'companie', __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 45
           },
           __self: this
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'container', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 54
-            },
-            __self: this
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'bigProfileImg', style: { backgroundImage: profileImg }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 55
-            },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h1',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 56
-              },
-              __self: this
-            },
-            this.state.name
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 57
-              },
-              __self: this
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'companieDetailed', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 58
-                },
-                __self: this
-              },
-              this.state.contact ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 62
-                  },
-                  __self: this
-                },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'descInfo', __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 63
-                    },
-                    __self: this
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 64
-                      },
-                      __self: this
-                    },
-                    'Descripci\xF3n'
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 65
-                      },
-                      __self: this
-                    },
-                    this.state.desc
-                  )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'contactInfo', __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 67
-                    },
-                    __self: this
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 68
-                      },
-                      __self: this
-                    },
-                    'Contacto'
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { href: 'mailto:' + this.state.email, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 69
-                      },
-                      __self: this
-                    },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 70
-                      },
-                      __self: this
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'p',
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 70
-                        },
-                        __self: this
-                      },
-                      this.state.contact.email
-                    )
-                  ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { href: 'tel:' + this.state.phone, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 72
-                      },
-                      __self: this
-                    },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 73
-                      },
-                      __self: this
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'p',
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 73
-                        },
-                        __self: this
-                      },
-                      this.state.contact.phone
-                    )
-                  )
-                )
-              ) : 'Loading'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'mapWrapper', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 81
-                },
-                __self: this
-              },
-              this.state.rooms.length ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Maps_Maps__["a" /* default */], {
-                coords: this.state.rooms[0].location.coordinates,
-                address: this.state.rooms[0].location.address,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 84
-                },
-                __self: this
-              }) : 'Loading...'
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h2',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 92
-              },
-              __self: this
-            },
-            'Rooms'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 93
-            },
-            __self: this
-          })
-        )
+        }) : 'Loading...'
       );
     }
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_companies__["b" /* getCompanie */])(params.id, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["b" /* getCompanie */])(params.id, callback);
     }
   }]);
 
@@ -52711,6 +52494,296 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
+
+/***/ }),
+/* 542 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Maps_Maps__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css__);
+var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\CompanieProfile\\CompanieProfile.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var CompanieProfile = function (_Component) {
+  _inherits(CompanieProfile, _Component);
+
+  function CompanieProfile() {
+    _classCallCheck(this, CompanieProfile);
+
+    return _possibleConstructorReturn(this, (CompanieProfile.__proto__ || Object.getPrototypeOf(CompanieProfile)).apply(this, arguments));
+  }
+
+  _createClass(CompanieProfile, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      console.log('rendering with: ', this.props);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log('rendered with: ', this.props);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var profileImg = 'url(/static/uploads/' + this.props.data.profileImg + ')';
+      var coverImg = 'url(/static/uploads/' + this.props.data.coverImg + ')';
+      var phone = '/static/media/phone.svg';
+      var mail = '/static/media/mail.svg';
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'companie', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
+          className: 'coverImg',
+          style: { backgroundImage: coverImg },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          },
+          __self: this
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'container', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'bigProfileImg', style: { backgroundImage: profileImg }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            },
+            __self: this
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h1',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 27
+              },
+              __self: this
+            },
+            this.props.data.name
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 28
+              },
+              __self: this
+            },
+            this.props.from
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'companieDetailed', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                },
+                __self: this
+              },
+              this.props.data.contact ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 34
+                  },
+                  __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'descInfo', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 35
+                    },
+                    __self: this
+                  },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h3',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 36
+                      },
+                      __self: this
+                    },
+                    'Descripci\xF3n'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 37
+                      },
+                      __self: this
+                    },
+                    this.props.data.desc
+                  )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'contactInfo', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 39
+                    },
+                    __self: this
+                  },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h3',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 40
+                      },
+                      __self: this
+                    },
+                    'Contacto'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'a',
+                    { href: 'mailto:' + this.props.data.email, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 41
+                      },
+                      __self: this
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 42
+                      },
+                      __self: this
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'p',
+                      {
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 42
+                        },
+                        __self: this
+                      },
+                      this.props.data.contact.email
+                    )
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'a',
+                    { href: 'tel:' + this.props.data.phone, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 44
+                      },
+                      __self: this
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 45
+                      },
+                      __self: this
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'p',
+                      {
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 45
+                        },
+                        __self: this
+                      },
+                      this.props.data.contact.phone
+                    )
+                  )
+                )
+              ) : 'Loading'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'mapWrapper', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 53
+                },
+                __self: this
+              },
+              this.props.data.rooms.length ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Maps_Maps__["a" /* default */], {
+                coords: this.props.data.rooms[0].location.coordinates,
+                address: this.props.data.rooms[0].location.address,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 56
+                },
+                __self: this
+              }) : 'Loading...'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h2',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 64
+              },
+              __self: this
+            },
+            'Rooms'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.props.data.rooms, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 65
+            },
+            __self: this
+          })
+        )
+      );
+    }
+  }]);
+
+  return CompanieProfile;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (CompanieProfile);
+
+/***/ }),
+/* 543 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

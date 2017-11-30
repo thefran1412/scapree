@@ -40,7 +40,7 @@ function sendHTML (url, initialData, user, query, notSend) {
     <html lang="en">
       <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Scapree</title>
         <link rel="stylesheet" href="/static/css/main.css">
         <script src="/static/bundle.js" defer></script>
