@@ -49223,11 +49223,13 @@ var Companie = function (_Component) {
     key: 'render',
     value: function render() {
       var profileImg = 'url(/static/uploads/' + this.state.profileImg + ')';
+      var phone = '/static/media/phone.svg';
+      var mail = '/static/media/mail.svg';
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { id: 'companie', __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 46
           },
           __self: this
         },
@@ -49236,7 +49238,7 @@ var Companie = function (_Component) {
           style: { backgroundImage: profileImg },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 47
           },
           __self: this
         }),
@@ -49244,7 +49246,7 @@ var Companie = function (_Component) {
           'div',
           { className: 'container', __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 51
             },
             __self: this
           },
@@ -49253,7 +49255,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 50
+                lineNumber: 52
               },
               __self: this
             },
@@ -49264,7 +49266,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 51
+                lineNumber: 53
               },
               __self: this
             },
@@ -49272,17 +49274,129 @@ var Companie = function (_Component) {
               'div',
               { className: 'companieDetailed', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 52
+                  lineNumber: 54
                 },
                 __self: this
               },
-              'detailed'
+              this.state.contact ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 58
+                  },
+                  __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'descInfo', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 59
+                    },
+                    __self: this
+                  },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h3',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 60
+                      },
+                      __self: this
+                    },
+                    'Descripci\xF3n'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 61
+                      },
+                      __self: this
+                    },
+                    this.state.desc
+                  )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'contactInfo', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 63
+                    },
+                    __self: this
+                  },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h3',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 64
+                      },
+                      __self: this
+                    },
+                    'Contacto'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'a',
+                    { href: 'mailto:' + this.state.email, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 65
+                      },
+                      __self: this
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 66
+                      },
+                      __self: this
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'p',
+                      {
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 66
+                        },
+                        __self: this
+                      },
+                      this.state.contact.email
+                    )
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'a',
+                    { href: 'tel:' + this.state.phone, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 68
+                      },
+                      __self: this
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 69
+                      },
+                      __self: this
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'p',
+                      {
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 69
+                        },
+                        __self: this
+                      },
+                      this.state.contact.phone
+                    )
+                  )
+                )
+              ) : 'Loading'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'mapWrapper', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55
+                  lineNumber: 77
                 },
                 __self: this
               },
@@ -49291,7 +49405,7 @@ var Companie = function (_Component) {
                 address: this.state.rooms[0].location.address,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 58
+                  lineNumber: 80
                 },
                 __self: this
               }) : 'Loading...'
@@ -49302,7 +49416,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 66
+                lineNumber: 88
               },
               __self: this
             },
@@ -49310,7 +49424,7 @@ var Companie = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
               fileName: _jsxFileName,
-              lineNumber: 67
+              lineNumber: 89
             },
             __self: this
           })

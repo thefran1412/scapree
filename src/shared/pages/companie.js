@@ -40,6 +40,8 @@ export default class Companie extends Component {
   }
   render () {
     const profileImg = `url(/static/uploads/${this.state.profileImg})`
+    const phone = '/static/media/phone.svg'
+    const mail = '/static/media/mail.svg'
     return (
       <div id='companie'>
         <div
@@ -50,7 +52,27 @@ export default class Companie extends Component {
           <h1>{this.state.name}</h1>
           <div>
             <div className='companieDetailed'>
-              detailed
+              {
+                this.state.contact
+                ? (
+                  <div>
+                    <div className='descInfo'>
+                      <h3>Descripción</h3>
+                      <p>{this.state.desc}</p>
+                    </div>
+                    <div className='contactInfo'>
+                      <h3>Contacto</h3>
+                      <a href={`mailto:${this.state.email}`}>
+                        <img src={mail} width='15' /><p>{this.state.contact.email}</p>
+                      </a>
+                      <a href={`tel:${this.state.phone}`}>
+                        <img src={phone} width='15' /><p>{this.state.contact.phone}</p>
+                      </a>
+                    </div>
+                  </div>
+                )
+                : 'Loading'
+              }
             </div>
             <div className='mapWrapper'>
               {

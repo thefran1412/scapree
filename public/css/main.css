@@ -163,22 +163,45 @@ header a {
   font-size: 45px;
   margin: 30px 10px 10px 10px;
 }
+#companie h3 {
+  font-size: 30px;
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
 /* #484848 */
 
 .companieDetailed {
   width: 50%;
   height: 500px;
-  background: orange;
   display: inline-block;
   vertical-align: top;
-  padding: 10px; 
+  padding: 10px;
+  overflow: hidden;
+}
+.descInfo {
+  padding-bottom: 30px;
+}
+.contactInfo a {
+  display: block;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #484848;
+}
+.contactInfo img {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.contactInfo p{
+  display: inline-block;
 }
 .mapWrapper{
   width: 50%;
   height: 500px;
   display: inline-block;
   padding: 10px;
-}#maps {
+}
+#maps {
   width: 100%;
   height: 100%;
 }
