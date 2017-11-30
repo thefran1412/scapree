@@ -36,7 +36,7 @@ export default class extends Component {
           (this.props.from === 'home')
           ? (
             <div className='room'>
-              <Link to='/room/add'>
+              <Link to='/room/add' className='roomLink'>
                 <div className='roomPoster'>
                   <div className='addRoom'>
                     <img src='/static/media/plus.svg' width='50' />

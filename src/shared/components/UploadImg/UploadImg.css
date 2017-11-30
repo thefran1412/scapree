@@ -3,6 +3,9 @@
   margin: 0 auto;
   text-align: center;
 }
+#uploadImg input {
+  padding: 10px;
+}
 #image {
   display: inline-block;
   padding: 20px;
@@ -16,7 +19,8 @@
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
 .profilePreview {

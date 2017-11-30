@@ -149,6 +149,9 @@ header a {
   margin: 0 auto;
   text-align: center;
 }
+#uploadImg input {
+  padding: 10px;
+}
 #image {
   display: inline-block;
   padding: 20px;
@@ -163,7 +166,8 @@ header a {
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
 .profilePreview {
@@ -309,7 +313,8 @@ header a {
 }
 .addRoom img {
   margin: 50% auto;
-}.room {
+}
+.room {
   width: 300px;
   display: inline-block;
   margin: 10px 20px;
