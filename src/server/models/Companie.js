@@ -7,10 +7,8 @@ var CompanieSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-  contact: {
-    email: String,
-    phone: Number
-  },
+  email: String,
+  phone: Number,
   desc: String,
   profileImg: String,
   coverImg: String,

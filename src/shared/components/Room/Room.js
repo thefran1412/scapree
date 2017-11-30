@@ -25,7 +25,7 @@ export default class Room extends Component {
     }
     return (
       <div className='room'>
-        <Link to={`/room/${this.props.info._id}`}>
+        <Link to={`/room/${this.props.info._id}`} className='roomLink'>
           <div className='roomPoster' style={{backgroundImage: `url(${img})`}}>
             <div className='features'>
               <div className='otherInfo'>
@@ -44,7 +44,9 @@ export default class Room extends Component {
               </div>
             </div>
           </div>
-          <div className='roomInfo'>
+        </Link>
+        <div className='roomInfo'>
+          <Link to={`/room/${this.props.info._id}`} className='roomNameLink'>
             <div className='basicInfo'>
               <h4>{this.props.info.name}</h4>
               <StarRatingComponent
@@ -56,8 +58,15 @@ export default class Room extends Component {
                 editing={false}
               />
             </div>
-          </div>
-        </Link>
+          </Link>
+          {
+            (this.props.from === 'home')
+            ? (<div className='bottomRight'>
+              <Link className='bottomRightButton' to={`/room/edit/${this.props.info._id}`}>Edit</Link>
+            </div>)
+            : ''
+          }
+        </div>
       </div>
     )
   }

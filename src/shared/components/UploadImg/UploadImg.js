@@ -7,7 +7,7 @@ export default class UploadImg extends Component {
     super(props)
 
     this.state = {
-      image: 'default.png',
+      image: this.props.img || 'default.png',
       preview: this.props.preview
     }
     this.handleFileChange = this.handleFileChange.bind(this)

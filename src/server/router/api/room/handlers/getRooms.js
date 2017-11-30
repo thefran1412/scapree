@@ -18,14 +18,11 @@ module.exports = function (req, res) {
         $maxDistance: 10000
       }
     }
-
-    // {coordinates:{lat: props.lat, long: props.long}}
   }
   if (props.people) {
     filters.minPeople = {$lte: +props.people}
     filters.maxPeople = {$gte: +props.people}
   }
-  console.log()
   Room.find(filters)
     // .populate('companie')
     .then(tasks => res.json(tasks))

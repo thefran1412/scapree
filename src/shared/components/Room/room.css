@@ -6,13 +6,13 @@
   vertical-align:top;
   position: relative;
 }
-
 .room a {
   display: inline-block;
   text-decoration: none;
   color: #484848;
+}
+.roomLink {
   width: 100%;
-  height: 100%;
   height: 100%;
 }
 .roomPoster{
@@ -38,10 +38,29 @@
 }
 .roomInfo {
   text-align: left;
+  position: relative;
+}
+.roomNameLink {
+  display: inline-block !important;
+  width: auto !important; 
 }
 .basicInfo {
   margin-top: 5px;
   display: inline-block;
+}
+.bottomRight {
+  /*position: absolute;*/
+  display: inline-block;
+  float: right;
+  bottom: 0;
+  right: 0;
+}
+.bottomRightButton {
+  background-color: #c34a4a;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 2px;
+  color: white !important;
 }
 .otherInfo {
   width: 100%;

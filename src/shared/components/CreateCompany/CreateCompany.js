@@ -6,15 +6,25 @@ import UploadImg from '../../components/UploadImg/UploadImg'
 export default class CreateCompany extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      desc: '',
-      address: '',
-      coords: [],
-      profileImg: 'default.png',
-      coverImg: 'default.png'
+    const {data} = this.props
+    if (this.props.data) {
+      this.state = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        desc: data.desc,
+        profileImg: data.profileImg,
+        coverImg: data.coverImg
+      }
+    } else {
+      this.state = {
+        name: '',
+        email: '',
+        phone: '',
+        desc: '',
+        profileImg: 'default.png',
+        coverImg: 'default.png'
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -72,11 +82,13 @@ export default class CreateCompany extends Component {
           />
           <UploadImg
             onChange={this.handleFileChange}
+            img={this.state.coverImg}
             preview='cover'
             state='coverImg'
           />
           <UploadImg
             onChange={this.handleFileChange}
+            img={this.state.profileImg}
             preview='profile'
             state='profileImg'
           />

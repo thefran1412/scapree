@@ -33,6 +33,15 @@ function getMyCompanie (func) {
   })
 }
 
+function editCompanie (data, func) {
+  ajax({
+    method: axios.put,
+    url: `${baseUrl}/api/companie/${data.id}`,
+    data,
+    func
+  })
+}
+
 function orderData (response, mine) {
   if (response.data) {
     const obj = {
@@ -48,4 +57,5 @@ function orderData (response, mine) {
   }
   return response
 }
-export {createCompany, getCompanie, getMyCompanie}
+
+export {createCompany, getCompanie, getMyCompanie, editCompanie}

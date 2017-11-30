@@ -19249,7 +19249,7 @@ var _class = function (_Component) {
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-            { to: '/addroom', __source: {
+            { to: '/room/add', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 39
               },
@@ -21541,7 +21541,7 @@ var UploadImg = function (_Component) {
     var _this = _possibleConstructorReturn(this, (UploadImg.__proto__ || Object.getPrototypeOf(UploadImg)).call(this, props));
 
     _this.state = {
-      image: 'default.png',
+      image: _this.props.img || 'default.png',
       preview: _this.props.preview
     };
     _this.handleFileChange = _this.handleFileChange.bind(_this);
@@ -21615,8 +21615,9 @@ var UploadImg = function (_Component) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getCompanie; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getMyCompanie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getCompanie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getMyCompanie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return editCompanie; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(30);
@@ -21655,6 +21656,15 @@ function getMyCompanie(_func2) {
   });
 }
 
+function editCompanie(data, func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put,
+    url: baseUrl + '/api/companie/' + data.id,
+    data: data,
+    func: func
+  });
+}
+
 function orderData(response, mine) {
   if (response.data) {
     var obj = Object.assign({}, response.data.companie, {
@@ -21669,6 +21679,7 @@ function orderData(response, mine) {
   }
   return response;
 }
+
 
 
 /***/ }),
@@ -21767,7 +21778,7 @@ var CompanieProfile = function (_Component) {
             ),
             this.props.from === 'home' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'adminButton', __source: {
+              { to: '/companie/edit/' + this.props.data._id, className: 'adminButton', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 25
                 },
@@ -21793,7 +21804,7 @@ var CompanieProfile = function (_Component) {
                 },
                 __self: this
               },
-              this.props.data.contact ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              this.props.data.phone ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 {
                   __source: {
@@ -21875,7 +21886,7 @@ var CompanieProfile = function (_Component) {
                         },
                         __self: this
                       },
-                      this.props.data.contact.email
+                      this.props.data.email
                     )
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -21901,7 +21912,7 @@ var CompanieProfile = function (_Component) {
                         },
                         __self: this
                       },
-                      this.props.data.contact.phone
+                      this.props.data.phone
                     )
                   )
                 )
@@ -37255,13 +37266,17 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_index__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_room__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_login__ = __webpack_require__(501);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_logout__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_register__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_login__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_logout__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_register__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_room__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_addroom__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_companie__ = __webpack_require__(532);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_editroom__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_companie__ = __webpack_require__(532);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_editcompanie__ = __webpack_require__(545);
+
+
 
 
 
@@ -37276,26 +37291,34 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_0__pages_index__["a" /* default */],
   exact: true
 }, {
-  path: '/room/:id',
-  component: __WEBPACK_IMPORTED_MODULE_1__pages_room__["a" /* default */]
-}, {
   path: '/login',
-  component: __WEBPACK_IMPORTED_MODULE_2__pages_login__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_1__pages_login__["a" /* default */]
 }, {
   path: '/logout',
-  component: __WEBPACK_IMPORTED_MODULE_3__pages_logout__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_2__pages_logout__["a" /* default */]
 }, {
   path: '/register',
-  component: __WEBPACK_IMPORTED_MODULE_4__pages_register__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_3__pages_register__["a" /* default */]
 }, {
   path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_5__pages_home__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_4__pages_home__["a" /* default */]
 }, {
-  path: '/addroom',
+  path: '/room/add',
   component: __WEBPACK_IMPORTED_MODULE_6__pages_addroom__["a" /* default */]
 }, {
+  path: '/room/edit/:id',
+  component: __WEBPACK_IMPORTED_MODULE_7__pages_editroom__["a" /* default */]
+}, {
+  path: '/room/:id',
+  component: __WEBPACK_IMPORTED_MODULE_5__pages_room__["a" /* default */],
+  exact: true
+}, {
+  path: '/companie/edit/:id',
+  component: __WEBPACK_IMPORTED_MODULE_9__pages_editcompanie__["a" /* default */]
+}, {
   path: '/companie/:id',
-  component: __WEBPACK_IMPORTED_MODULE_7__pages_companie__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_8__pages_companie__["a" /* default */],
+  exact: true
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -37482,7 +37505,7 @@ var Room = function (_Component) {
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-          { to: '/room/' + this.props.info._id, __source: {
+          { to: '/room/' + this.props.info._id, className: 'roomLink', __source: {
               fileName: _jsxFileName,
               lineNumber: 28
             },
@@ -37598,12 +37621,21 @@ var Room = function (_Component) {
                 )
               )
             )
-          ),
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'roomInfo', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            },
+            __self: this
+          },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'roomInfo', __source: {
+            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+            { to: '/room/' + this.props.info._id, className: 'roomNameLink', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
+                lineNumber: 49
               },
               __self: this
             },
@@ -37611,7 +37643,7 @@ var Room = function (_Component) {
               'div',
               { className: 'basicInfo', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 48
+                  lineNumber: 50
                 },
                 __self: this
               },
@@ -37620,7 +37652,7 @@ var Room = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 49
+                    lineNumber: 51
                   },
                   __self: this
                 },
@@ -37635,12 +37667,31 @@ var Room = function (_Component) {
                 editing: false,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 50
+                  lineNumber: 52
                 },
                 __self: this
               })
             )
-          )
+          ),
+          this.props.from === 'home' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'bottomRight', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 64
+              },
+              __self: this
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { className: 'bottomRightButton', to: '/room/edit/' + this.props.info._id, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 65
+                },
+                __self: this
+              },
+              'Edit'
+            )
+          ) : ''
         )
       );
     }
@@ -46105,7 +46156,7 @@ var SideBar = function (_Component) {
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
-              { href: 'mailto:' + this.props.companie.contact.email, __source: {
+              { href: 'mailto:' + this.props.companie.email, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 31
                 },
@@ -46126,12 +46177,12 @@ var SideBar = function (_Component) {
                   },
                   __self: this
                 },
-                this.props.companie.contact.email
+                this.props.companie.email
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'a',
-              { href: 'tel:' + this.props.companie.contact.phone, __source: {
+              { href: 'tel:' + this.props.companie.phone, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 35
                 },
@@ -46152,7 +46203,7 @@ var SideBar = function (_Component) {
                   },
                   __self: this
                 },
-                this.props.companie.contact.phone
+                this.props.companie.phone
               )
             )
           ) : 'Loading',
@@ -50545,7 +50596,7 @@ var Home = function (_Component) {
     value: function getData() {
       var _this3 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["c" /* getMyCompanie */])(function (response) {
+      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["d" /* getMyCompanie */])(function (response) {
         _this3.setState(response);
       });
     }
@@ -50634,16 +50685,27 @@ var CreateCompany = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (CreateCompany.__proto__ || Object.getPrototypeOf(CreateCompany)).call(this, props));
 
-    _this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      desc: '',
-      address: '',
-      coords: [],
-      profileImg: 'default.png',
-      coverImg: 'default.png'
-    };
+    var data = _this.props.data;
+
+    if (_this.props.data) {
+      _this.state = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        desc: data.desc,
+        profileImg: data.profileImg,
+        coverImg: data.coverImg
+      };
+    } else {
+      _this.state = {
+        name: '',
+        email: '',
+        phone: '',
+        desc: '',
+        profileImg: 'default.png',
+        coverImg: 'default.png'
+      };
+    }
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleFileChange = _this.handleFileChange.bind(_this);
@@ -50673,7 +50735,7 @@ var CreateCompany = function (_Component) {
         'div',
         { id: 'createCompany', __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 49
           },
           __self: this
         },
@@ -50682,7 +50744,7 @@ var CreateCompany = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 40
+              lineNumber: 50
             },
             __self: this
           },
@@ -50692,7 +50754,7 @@ var CreateCompany = function (_Component) {
           'form',
           { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 51
             },
             __self: this
           },
@@ -50705,7 +50767,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 42
+              lineNumber: 52
             },
             __self: this
           }),
@@ -50718,7 +50780,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 60
             },
             __self: this
           }),
@@ -50731,7 +50793,7 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 68
             },
             __self: this
           }),
@@ -50743,27 +50805,29 @@ var CreateCompany = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 76
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
             onChange: this.handleFileChange,
+            img: this.state.coverImg,
             preview: 'cover',
             state: 'coverImg',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 83
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
             onChange: this.handleFileChange,
+            img: this.state.profileImg,
             preview: 'profile',
             state: 'profileImg',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 89
             },
             __self: this
           }),
@@ -50773,7 +50837,7 @@ var CreateCompany = function (_Component) {
             value: 'Envia',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 95
             },
             __self: this
           })
@@ -52294,7 +52358,7 @@ var Companie = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["b" /* getCompanie */])(params.id, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["c" /* getCompanie */])(params.id, callback);
     }
   }]);
 
@@ -52822,6 +52886,198 @@ function getCoordsInfo(coords, _func) {
 }
 
 
+
+/***/ }),
+/* 543 */,
+/* 544 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(10);
+var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\editroom.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var EditRoom = function (_Component) {
+  _inherits(EditRoom, _Component);
+
+  function EditRoom(props) {
+    _classCallCheck(this, EditRoom);
+
+    var _this = _possibleConstructorReturn(this, (EditRoom.__proto__ || Object.getPrototypeOf(EditRoom)).call(this, props));
+
+    _this.state = {
+      rooms: []
+    };
+    return _this;
+  }
+
+  _createClass(EditRoom, [{
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'editRoom', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 14
+            },
+            __self: this
+          },
+          'Edit Room'
+        )
+      );
+    }
+  }]);
+
+  return EditRoom;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (EditRoom);
+
+/***/ }),
+/* 545 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_companies__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__ = __webpack_require__(519);
+var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\editcompanie.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var EditCompanie = function (_Component) {
+  _inherits(EditCompanie, _Component);
+
+  function EditCompanie(props) {
+    _classCallCheck(this, EditCompanie);
+
+    var _this = _possibleConstructorReturn(this, (EditCompanie.__proto__ || Object.getPrototypeOf(EditCompanie)).call(this, props));
+
+    var initialData = void 0;
+    if (__isBrowser__) {
+      initialData = window.__initialData__;
+      delete window.__initialData__;
+    } else {
+      initialData = props.staticContext.initialData;
+    }
+    _this.state = Object.assign({}, initialData);
+
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(EditCompanie, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      document.documentElement.scrollTop = 0;
+      var params = this.props.match.params;
+
+
+      if (!this.state.name) {
+        EditCompanie.requestInitialData(function (response) {
+          if (response.name) {
+            _this2.setState(response);
+          }
+        }, params);
+      }
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(data) {
+      var _this3 = this;
+
+      data.id = this.state._id;
+      data.user = this.state.user;
+
+      console.log(data);
+      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["b" /* editCompanie */])(data, function (response) {
+        if (response.success) {
+          _this3.props.history.push('/home');
+        } else {
+          console.log(response);
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'editCompanie', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 52
+            },
+            __self: this
+          },
+          'Edit companie'
+        ),
+        this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CreateCompany_CreateCompany__["a" /* default */], {
+          submit: this.handleSubmit,
+          data: this.state,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55
+          },
+          __self: this
+        }) : 'Loading...'
+      );
+    }
+  }], [{
+    key: 'requestInitialData',
+    value: function requestInitialData(callback, params, query) {
+      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["c" /* getCompanie */])(params.id, callback);
+    }
+  }]);
+
+  return EditCompanie;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (EditCompanie);
 
 /***/ })
 /******/ ]);

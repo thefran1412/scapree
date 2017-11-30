@@ -139,6 +139,50 @@ header a {
 .autocompleteContainer {
   position: absolute;
   z-index: 1;  
+}#createCompany input{
+  padding: 10px;
+  color: #484848;
+  margin: 10px;
+
+}#uploadImg {
+  /*width: 300px;*/
+  margin: 0 auto;
+  text-align: center;
+}
+#image {
+  display: inline-block;
+  padding: 20px;
+  border: none;
+}
+.posterPreview {
+  width: 300px;
+  height: 375px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.profilePreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+.coverPreview {
+  width: 100%;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
 }#companie {
   min-height: calc(100vh - 260px);
   position: relative;
@@ -273,13 +317,13 @@ header a {
   vertical-align:top;
   position: relative;
 }
-
 .room a {
   display: inline-block;
   text-decoration: none;
   color: #484848;
+}
+.roomLink {
   width: 100%;
-  height: 100%;
   height: 100%;
 }
 .roomPoster{
@@ -307,10 +351,29 @@ header a {
 }
 .roomInfo {
   text-align: left;
+  position: relative;
+}
+.roomNameLink {
+  display: inline-block !important;
+  width: auto !important; 
 }
 .basicInfo {
   margin-top: 5px;
   display: inline-block;
+}
+.bottomRight {
+  /*position: absolute;*/
+  display: inline-block;
+  float: right;
+  bottom: 0;
+  right: 0;
+}
+.bottomRightButton {
+  background-color: #c34a4a;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 2px;
+  color: white !important;
 }
 .otherInfo {
   width: 100%;
@@ -357,124 +420,7 @@ header a {
   .room{
     width: 90%;
   }
-}#uploadImg {
-  /*width: 300px;*/
-  margin: 0 auto;
-  text-align: center;
-}
-#image {
-  display: inline-block;
-  padding: 20px;
-  border: none;
-}
-.posterPreview {
-  width: 300px;
-  height: 375px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.profilePreview {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  display: block;
-  margin: 0 auto;
-}
-.coverPreview {
-  width: 100%;
-  height: 400px;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  display: inline-block;
-}#createCompany input{
-  padding: 10px;
-  color: #484848;
-  margin: 10px;
-
-}#registerForm {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 5px;
-  padding: 50px 20px;
-}
-#registerForm h1 {
-  font-size: 30px;
-  
-}
-#registerForm input[type='text'], #registerForm input[type='password'], #registerForm input[type='email']{
-  padding: 10px 0;
-  color: #484848;
-  width: 100%;
-  border: 0;
-  margin: 10px 0;
-  border-bottom: 1px solid #484848;
-}
-.registerButton {
-  margin-top: 25px;
-  width: calc(50% - 10px);
-  background-color: #484848;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  padding: 10px 0;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 10px;
-  cursor: pointer;
-}
-.validationError{
-  border-bottom: 2px solid red !important;
-}
-#loginForm {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 5px;
-  padding: 50px 20px;
-}
-#loginForm h1 {
-  font-size: 30px;
-  
-}
-#loginForm input[type='text'], #loginForm input[type='password']{
-  padding: 10px 0;
-  color: #484848;
-  width: 100%;
-  border: 0;
-  margin: 10px 0;
-  border-bottom: 1px solid #484848;
-}
-.loginButton {
-  margin-top: 25px;
-  width: calc(50% - 10px);
-  background-color: #484848;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  padding: 10px 0;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 10px;
-  cursor: pointer;
-}
-#roomDetail {
+}#roomDetail {
   min-height: calc(100vh - 260px);
   position: relative;
 }
@@ -682,6 +628,79 @@ header a {
   .sideBarFixed {
     right: 0;
   }
+}
+#registerForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 50px 20px;
+}
+#registerForm h1 {
+  font-size: 30px;
+  
+}
+#registerForm input[type='text'], #registerForm input[type='password'], #registerForm input[type='email']{
+  padding: 10px 0;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.registerButton {
+  margin-top: 25px;
+  width: calc(50% - 10px);
+  background-color: #484848;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 10px;
+  cursor: pointer;
+}
+.validationError{
+  border-bottom: 2px solid red !important;
+}
+#loginForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 50px 20px;
+}
+#loginForm h1 {
+  font-size: 30px;
+  
+}
+#loginForm input[type='text'], #loginForm input[type='password']{
+  padding: 10px 0;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.loginButton {
+  margin-top: 25px;
+  width: calc(50% - 10px);
+  background-color: #484848;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 10px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map*/

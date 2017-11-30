@@ -22,14 +22,14 @@ export default class CompanieProfile extends Component {
             <h1>{this.props.data.name}</h1>
             {
               (this.props.from === 'home')
-              ? <Link to='/' className='adminButton'>Edit</Link>
+              ? <Link to={`/companie/edit/${this.props.data._id}`} className='adminButton'>Edit</Link>
               : ''
             }
           </div>
           <div>
             <div className='companieDetailed'>
               {
-                this.props.data.contact
+                this.props.data.phone
                 ? (
                   <div>
                     <div className='descInfo'>
@@ -39,10 +39,10 @@ export default class CompanieProfile extends Component {
                     <div className='contactInfo'>
                       <h3>Contacto</h3>
                       <a href={`mailto:${this.props.data.email}`}>
-                        <img src={mail} width='15' /><p>{this.props.data.contact.email}</p>
+                        <img src={mail} width='15' /><p>{this.props.data.email}</p>
                       </a>
                       <a href={`tel:${this.props.data.phone}`}>
-                        <img src={phone} width='15' /><p>{this.props.data.contact.phone}</p>
+                        <img src={phone} width='15' /><p>{this.props.data.phone}</p>
                       </a>
                     </div>
                   </div>
