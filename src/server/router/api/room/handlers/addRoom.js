@@ -40,3 +40,5 @@ module.exports = function (req, res) {
     res.json({success: false, msg: 'User not logged in'})
   }
 }
+
+// /public/uploads/
