@@ -9,7 +9,6 @@ export default class Maps extends Component {
     this.setState(this.props)
   }
   componentWillReceiveProps (newProps) {
-    console.log(newProps)
     this.setState(newProps)
   }
   render () {

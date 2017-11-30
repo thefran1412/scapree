@@ -49193,7 +49193,6 @@ var Companie = function (_Component) {
     } else {
       initialData = props.staticContext.initialData;
     }
-    console.log('initial daaaat', initialData);
     if (initialData && initialData.success) {
       _this.state = Object.assign({}, initialData.data.companie, { rooms: initialData.data.rooms });
     } else {
@@ -49228,7 +49227,7 @@ var Companie = function (_Component) {
         'div',
         { id: 'companie', __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 44
           },
           __self: this
         },
@@ -49237,7 +49236,7 @@ var Companie = function (_Component) {
           style: { backgroundImage: profileImg },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 45
           },
           __self: this
         }),
@@ -49245,7 +49244,7 @@ var Companie = function (_Component) {
           'div',
           { className: 'container', __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 49
             },
             __self: this
           },
@@ -49254,7 +49253,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 51
+                lineNumber: 50
               },
               __self: this
             },
@@ -49265,7 +49264,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 52
+                lineNumber: 51
               },
               __self: this
             },
@@ -49273,7 +49272,7 @@ var Companie = function (_Component) {
               'div',
               { className: 'companieDetailed', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 53
+                  lineNumber: 52
                 },
                 __self: this
               },
@@ -49283,19 +49282,19 @@ var Companie = function (_Component) {
               'div',
               { className: 'mapWrapper', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 56
+                  lineNumber: 55
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Maps_Maps__["a" /* default */], {
-                coords: [59.938043, 30.337157],
-                address: 'Passatge de Frigola, 14, Barcelona, Spain',
+              this.state.rooms.length ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Maps_Maps__["a" /* default */], {
+                coords: this.state.rooms[0].location.coordinates,
+                address: this.state.rooms[0].location.address,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 57
+                  lineNumber: 58
                 },
                 __self: this
-              })
+              }) : 'Loading...'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -49303,7 +49302,7 @@ var Companie = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 63
+                lineNumber: 66
               },
               __self: this
             },
@@ -49311,7 +49310,7 @@ var Companie = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 67
             },
             __self: this
           })
@@ -49975,7 +49974,6 @@ var Maps = function (_Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
-      console.log(newProps);
       this.setState(newProps);
     }
   }, {
@@ -49985,7 +49983,7 @@ var Maps = function (_Component) {
         'div',
         { id: 'maps', __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 16
           },
           __self: this
         },
@@ -49993,7 +49991,7 @@ var Maps = function (_Component) {
           'a',
           { href: 'https://www.google.com/maps/place/' + this.props.address, target: '_blank', className: 'mapAddress', __source: {
               fileName: _jsxFileName,
-              lineNumber: 18
+              lineNumber: 17
             },
             __self: this
           },
@@ -50003,7 +50001,7 @@ var Maps = function (_Component) {
           'div',
           { className: 'onlyMap', __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 18
             },
             __self: this
           },
@@ -50011,7 +50009,7 @@ var Maps = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_google_map_react___default.a,
             { apiKey: 'AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8', center: [this.props.coords[1], this.props.coords[0]], defaultZoom: 15, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 20
+                lineNumber: 19
               },
               __self: this
             },
@@ -50021,7 +50019,7 @@ var Maps = function (_Component) {
               text: 'Kreyser Avrora',
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 21
+                lineNumber: 20
               },
               __self: this
             })

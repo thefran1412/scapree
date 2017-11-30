@@ -16,7 +16,6 @@ export default class Companie extends Component {
     } else {
       initialData = props.staticContext.initialData
     }
-    console.log('initial daaaat', initialData)
     if (initialData && initialData.success) {
       this.state = {...initialData.data.companie, rooms: initialData.data.rooms}
     } else {
@@ -54,10 +53,14 @@ export default class Companie extends Component {
               detailed
             </div>
             <div className='mapWrapper'>
-              <Maps
-                coords={[59.938043, 30.337157]}
-                address='Passatge de Frigola, 14, Barcelona, Spain'
-              />
+              {
+                this.state.rooms.length
+                ? (<Maps
+                  coords={this.state.rooms[0].location.coordinates}
+                  address={this.state.rooms[0].location.address}
+                />)
+                : 'Loading...'
+              }
             </div>
           </div>
           <h2>Rooms</h2>
