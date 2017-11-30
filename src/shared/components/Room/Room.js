@@ -7,18 +7,18 @@ export default class Room extends Component {
   render () {
     const info = this.props.info
     const img = `/static/uploads/${info.profileImg}`
-    const group = '/static/media/group_white.png'
-    const clock = '/static/media/clock_white.png'
+    const group = '/static/media/group_white.svg'
+    const clock = '/static/media/clock_white.svg'
     let difficulty = '/static/media/'
     let difficultyAlt = ''
     if (info.difficulty <= 33) {
-      difficulty += 'easy.png'
+      difficulty += 'easy.svg'
       difficultyAlt = 'Facil'
     } else if (info.difficulty <= 66) {
-      difficulty += 'medium.png'
+      difficulty += 'medium.svg'
       difficultyAlt = 'Medio'
     } else {
-      difficulty += 'hard.png'
+      difficulty += 'hard.svg'
       difficultyAlt = 'Dificil'
     }
     return (

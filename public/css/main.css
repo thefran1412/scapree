@@ -33,6 +33,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-box-sizing:border-box;
           box-sizing:border-box;
+  color: #484848;
 }
 ol, ul {
   list-style: none;
@@ -124,7 +125,7 @@ header input {
 }
 
 header a {
-  color: black;
+  color: #484848;
   text-decoration: none;
 }.autocompleteRoot {
   display: inline-block;
@@ -137,51 +138,66 @@ header a {
 .autocompleteContainer {
   position: absolute;
   z-index: 1;  
-}#uploadImg {
-  width: 300px;
+}#companie {
+  min-height: calc(100vh - 260px);
+  position: relative;
+}
+
+.coverImg {
+  width: 100%;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+}
+.container {
+  max-width: 1290px;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
 }
-#image {
-  display: inline-block;
-  padding: 20px;
-  border: none;
+#companie h1 {
+  font-size: 43px;
+  font-weight: bold;
+  margin: 30px 10px;
 }
-.posterPreview {
-  width: 300px;
-  height: 375px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  display: inline-block;
+#companie h2 {
+  font-size: 45px;
+  margin: 30px 10px 10px 10px;
 }
+/* #484848 */
 
-.profilePreview {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
+.companieDetailed {
+  width: 50%;
+  height: 500px;
+  background: orange;
   display: inline-block;
+  vertical-align: top;
+  padding: 10px; 
 }
-.coverPreview {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
+.mapWrapper{
+  width: 50%;
+  height: 500px;
   display: inline-block;
-}#createCompany input{
   padding: 10px;
-  color: black;
-  margin: 10px;
-
+}#maps {
+  width: 100%;
+  height: 100%;
+}
+.pointer {
+  position: relative;
+}
+.pointer img {
+  position: absolute;
+  top: -33.19px;
+  left: -14px 
+}
+.mapAddress {
+  display: inline-block;
+  padding-bottom: 10px;
+  text-decoration: none; 
+  color: #484848;
+}
+.onlyMap {
+  height: calc(100% - 26px);
 }.rooms{
   min-height: calc(100vh - 260px);
   padding-top: 10px;
@@ -199,7 +215,7 @@ header a {
 .room a {
   display: inline-block;
   text-decoration: none;
-  color: black;
+  color: #484848;
   width: 100%;
   height: 100%;
   height: 100%;
@@ -279,9 +295,54 @@ header a {
   .room{
     width: 90%;
   }
+}#uploadImg {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+#image {
+  display: inline-block;
+  padding: 20px;
+  border: none;
+}
+.posterPreview {
+  width: 300px;
+  height: 375px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.profilePreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}
+.coverPreview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /*box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  display: inline-block;
+}#createCompany input{
+  padding: 10px;
+  color: #484848;
+  margin: 10px;
+
 }#registerForm input{
   padding: 10px;
-  color: black;
+  color: #484848;
   margin: 10px;
 }
 
@@ -290,7 +351,7 @@ header a {
 }
 #loginForm input{
   padding: 10px;
-  color: black;
+  color: #484848;
   margin: 10px;
 
 }#roomDetail {
@@ -336,7 +397,6 @@ header a {
 
 #mainSection {
   width: calc(100% - 300px);
-  height: 2000px;
   display: inline-block;
   vertical-align: top;
 }
@@ -413,11 +473,12 @@ header a {
 */}
 #location {
   width: 100%;
-  height: 200px;
   padding: 20px;
   padding-top: 40px;
 }
-
+#location > div {
+  height: 500px;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 1218px) {
@@ -429,7 +490,7 @@ header a {
   width: 300px;
 }
 #sideBar a {
-  color: black;
+  color: #484848;
   text-decoration: none; 
 }
 .sideBarFixed {
@@ -445,41 +506,51 @@ header a {
   overflow: hidden;
   position: relative;
 }
-.profileImg {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
+.companieInfo {
   display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+  vertical-align: middle;
 }
 .companieInfo p {
   display: inline-block;
-  padding-top: 30px;
   margin-right: 10px;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: bold;
-  width: 220px;
+  width: calc(100% - 70px);
+}
+.profileImg {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
 }
 .roomInfo hr{
   border: 0;
   background: grey;
 }
-.companieInfo {
-  display: inline-block;
-  width: 100%;
-  padding: 15px 0;
-}
 .contactInfo a {
   display: block;
   margin-bottom: 25px;
 }
+.contactInfo img {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.contactInfo p{
+  display: inline-block;
+}
+
 #book {
   width: 100%;
   padding: 10px;
   line-height: 30px;
   text-decoration: none;
-  color: black;
+  color: #484848;
   display: inline-block;
   text-align: center;
   font-size: 19px;

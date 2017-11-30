@@ -9,6 +9,8 @@ export default class SideBar extends Component {
   render () {
     const img = `/static/uploads/${this.props.profileImg}`
     const reservation = 'https://www-24c.bookeo.com/bookeo/b_escapehuntbarcelona_start.html'
+    const phone = '/static/media/phone.svg'
+    const mail = '/static/media/mail.svg'
     return (
       <div id='sideBar'>
         <div id='poster' style={{backgroundImage: `url(${img})`}} />
@@ -28,10 +30,10 @@ export default class SideBar extends Component {
             this.props.companie
             ? (<div className='contactInfo'>
               <a href={`mailto:${this.props.companie.email}`}>
-                {this.props.companie.contact.email}
+                <img src={mail} width='15' /><p>{this.props.companie.contact.email}</p>
               </a>
               <a href={`tel:${this.props.companie.phone}`}>
-                {this.props.companie.contact.phone}
+                <img src={phone} width='15' /><p>{this.props.companie.contact.phone}</p>
               </a>
             </div>)
             : 'Loading'

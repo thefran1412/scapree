@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
 import * as Vibrant from 'node-vibrant'
 import SideBar from '../components/SideBar/SideBar'
+import Maps from '../components/Maps/Maps'
 import './room.css'
 
 export default class Room extends Component {
@@ -88,19 +89,19 @@ export default class Room extends Component {
     }
   }
   render () {
-    const group = '/static/media/group_white.png'
-    const clock = '/static/media/clock_white.png'
+    const group = '/static/media/group_white.svg'
+    const clock = '/static/media/clock_white.svg'
 
     let difficulty = '/static/media/'
     let difficultyAlt = ''
     if (this.state.difficulty <= 33) {
-      difficulty += 'easy.png'
+      difficulty += 'easy.svg'
       difficultyAlt = 'Facil'
     } else if (this.state.difficulty <= 66) {
-      difficulty += 'medium.png'
+      difficulty += 'medium.svg'
       difficultyAlt = 'Medio'
     } else if (this.state.difficulty <= 100) {
-      difficulty += 'hard.png'
+      difficulty += 'hard.svg'
       difficultyAlt = 'Dificil'
     }
 
@@ -162,6 +163,14 @@ export default class Room extends Component {
             </div>
             <div id='location'>
               <h4>Ubicación</h4>
+              {
+                this.state.location
+                ? (<Maps
+                  coords={this.state.location.coordinates}
+                  address={this.state.location.address}
+                />)
+                : 'Loading map'
+              }
             </div>
           </div>
           <SideBar

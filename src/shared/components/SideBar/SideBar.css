@@ -3,7 +3,7 @@
   width: 300px;
 }
 #sideBar a {
-  color: black;
+  color: #484848;
   text-decoration: none; 
 }
 .sideBarFixed {
@@ -19,41 +19,51 @@
   overflow: hidden;
   position: relative;
 }
-.profileImg {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
+.companieInfo {
   display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+  vertical-align: middle;
 }
 .companieInfo p {
   display: inline-block;
-  padding-top: 30px;
   margin-right: 10px;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: bold;
-  width: 220px;
+  width: calc(100% - 70px);
+}
+.profileImg {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
 }
 .roomInfo hr{
   border: 0;
   background: grey;
 }
-.companieInfo {
-  display: inline-block;
-  width: 100%;
-  padding: 15px 0;
-}
 .contactInfo a {
   display: block;
   margin-bottom: 25px;
 }
+.contactInfo img {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.contactInfo p{
+  display: inline-block;
+}
+
 #book {
   width: 100%;
   padding: 10px;
   line-height: 30px;
   text-decoration: none;
-  color: black;
+  color: #484848;
   display: inline-block;
   text-align: center;
   font-size: 19px;

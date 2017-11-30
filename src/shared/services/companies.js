@@ -13,4 +13,12 @@ function createCompany (data, func) {
   })
 }
 
-export {createCompany}
+function getCompanie (id, func) {
+  ajax({
+    method: axios.get,
+    url: `${baseUrl}/api/companie/${id}`,
+    func
+  })
+}
+
+export {createCompany, getCompanie}

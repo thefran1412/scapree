@@ -1,0 +1,41 @@
+#companie {
+  min-height: calc(100vh - 260px);
+  position: relative;
+}
+
+.coverImg {
+  width: 100%;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+}
+.container {
+  max-width: 1290px;
+  width: 100%;
+  margin: 0 auto;
+}
+#companie h1 {
+  font-size: 43px;
+  font-weight: bold;
+  margin: 30px 10px;
+}
+#companie h2 {
+  font-size: 45px;
+  margin: 30px 10px 10px 10px;
+}
+/* #484848 */
+
+.companieDetailed {
+  width: 50%;
+  height: 500px;
+  background: orange;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px; 
+}
+.mapWrapper{
+  width: 50%;
+  height: 500px;
+  display: inline-block;
+  padding: 10px;
+}

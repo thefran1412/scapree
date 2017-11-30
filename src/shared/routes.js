@@ -5,6 +5,7 @@ import logout from './pages/logout'
 import register from './pages/register'
 import home from './pages/home'
 import addroom from './pages/addroom'
+import companie from './pages/companie'
 
 const routes = [
   {
@@ -35,6 +36,10 @@ const routes = [
   {
     path: '/addroom',
     component: addroom
+  },
+  {
+    path: '/companie/:id',
+    component: companie
   }
 ]
 
