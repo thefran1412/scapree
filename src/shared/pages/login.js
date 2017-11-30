@@ -25,7 +25,7 @@ export default class Login extends Component {
       return <Redirect to='/home' />
     }
     return (
-      <div style={{height: 'calc(100vh - 260px)'}}>
+      <div style={{minHeight: 'calc(100vh - 260px)'}}>
         <LoginForm submit={this.handleSubmit} />
       </div>
     )

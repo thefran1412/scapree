@@ -21,8 +21,7 @@ export default class Register extends Component {
   }
   render () {
     return (
-      <div>
-        <h1>Register</h1>
+      <div style={{minHeight: 'calc(100vh - 260px)'}}>
         <RegisterForm submit={this.handleSubmit} />
       </div>
     )

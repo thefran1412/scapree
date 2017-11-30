@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './RegisterForm.css'
 import {checkUsername, checkEmail} from '../../services/auth'
+import {Link} from 'react-router-dom'
 
 export default class RegisterForm extends Component {
   constructor (props) {
@@ -86,6 +87,7 @@ export default class RegisterForm extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} id='registerForm'>
+        <h1>Register</h1>
         <input
           type='text'
           name='username'
@@ -134,7 +136,12 @@ export default class RegisterForm extends Component {
         <input
           type='submit'
           value='Register'
+          className='registerButton'
+          style={{marginRight: '20px'}}
         />
+        <Link to='/login' className='loginButton'>
+          Login
+        </Link>
       </form>
     )
   }

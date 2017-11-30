@@ -372,14 +372,78 @@ header a {
   color: #484848;
   margin: 10px;
 
-}#registerForm input{
-  padding: 10px;
-  color: #484848;
-  margin: 10px;
+}#registerForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 50px 20px;
 }
-
+#registerForm h1 {
+  font-size: 30px;
+  
+}
+#registerForm input[type='text'], #registerForm input[type='password'], #registerForm input[type='email']{
+  padding: 10px 0;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.registerButton {
+  margin-top: 25px;
+  width: calc(50% - 10px);
+  background-color: #484848;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 10px;
+  cursor: pointer;
+}
 .validationError{
-  border: 1px solid red;
+  border-bottom: 2px solid red !important;
+}
+#loginForm {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 50px 20px;
+}
+#loginForm h1 {
+  font-size: 30px;
+  
+}
+#loginForm input[type='text'], #loginForm input[type='password']{
+  padding: 10px 0;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.loginButton {
+  margin-top: 25px;
+  width: calc(50% - 10px);
+  background-color: #484848;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 10px;
+  cursor: pointer;
 }
 #roomDetail {
   min-height: calc(100vh - 260px);
@@ -590,42 +654,5 @@ header a {
     right: 0;
   }
 }
-#loginForm {
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  /*background-color: red;*/
-  /*border: 1px solid #484848;*/
-  border-radius: 5px;
-  padding: 20px;
-  /*background-color: whitesmoke;*/
-}
-#loginForm h1 {
-  font-size: 30px;
-  
-}
-#loginForm input[type='text'], #loginForm input[type='password']{
-  padding: 10px 0;
-  color: #484848;
-  width: 100%;
-  border: 0;
-  /*border-radius: 3px;*/
-  margin: 10px 0;
-  border-bottom: 1px solid #484848;
-}
-.loginButton {
-  margin-top: 25px;
-  width: calc(50% - 10px);
-  background-color: #484848;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  padding: 10px 0;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 10px;
-}
+
 /*# sourceMappingURL=main.css.map*/

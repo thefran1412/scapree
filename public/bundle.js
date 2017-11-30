@@ -34439,7 +34439,7 @@ var Login = function (_Component) {
       }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { style: { height: 'calc(100vh - 260px)' }, __source: {
+        { style: { minHeight: 'calc(100vh - 260px)' }, __source: {
             fileName: _jsxFileName,
             lineNumber: 28
           },
@@ -35908,27 +35908,15 @@ var Register = function (_Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        {
-          __source: {
+        { style: { minHeight: 'calc(100vh - 260px)' }, __source: {
             fileName: _jsxFileName,
             lineNumber: 24
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 25
-            },
-            __self: this
-          },
-          'Register'
-        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_RegisterForm_RegisterForm__["a" /* default */], { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
-            lineNumber: 26
+            lineNumber: 25
           },
           __self: this
         })
@@ -35951,6 +35939,7 @@ var Register = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RegisterForm_css__ = __webpack_require__(325);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RegisterForm_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__RegisterForm_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(11);
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\RegisterForm\\RegisterForm.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -35962,6 +35951,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -36061,10 +36051,21 @@ var RegisterForm = function (_Component) {
         'form',
         { onSubmit: this.handleSubmit, id: 'registerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 89
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h1',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            },
+            __self: this
+          },
+          'Register'
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'text',
           name: 'username',
@@ -36075,7 +36076,7 @@ var RegisterForm = function (_Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 91
           },
           __self: this
         }),
@@ -36089,7 +36090,7 @@ var RegisterForm = function (_Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 100
           },
           __self: this
         }),
@@ -36103,7 +36104,7 @@ var RegisterForm = function (_Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107
+            lineNumber: 109
           },
           __self: this
         }),
@@ -36117,7 +36118,7 @@ var RegisterForm = function (_Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 118
           },
           __self: this
         }),
@@ -36131,19 +36132,31 @@ var RegisterForm = function (_Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 127
           },
           __self: this
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           type: 'submit',
           value: 'Register',
+          className: 'registerButton',
+          style: { marginRight: '20px' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 136
           },
           __self: this
-        })
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+          { to: '/login', className: 'loginButton', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 142
+            },
+            __self: this
+          },
+          'Login'
+        )
       );
     }
   }]);

@@ -2,11 +2,8 @@
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
-  /*background-color: red;*/
-  /*border: 1px solid #484848;*/
   border-radius: 5px;
-  padding: 20px;
-  /*background-color: whitesmoke;*/
+  padding: 50px 20px;
 }
 #loginForm h1 {
   font-size: 30px;
@@ -17,7 +14,6 @@
   color: #484848;
   width: 100%;
   border: 0;
-  /*border-radius: 3px;*/
   margin: 10px 0;
   border-bottom: 1px solid #484848;
 }
@@ -35,4 +31,5 @@
   font-size: 13px;
   font-weight: bold;
   line-height: 10px;
+  cursor: pointer;
 }
