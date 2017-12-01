@@ -3,9 +3,6 @@ import './SideBar.css'
 import {Link} from 'react-router-dom'
 
 export default class SideBar extends Component {
-  componentWillMount () {
-    console.log(this.props)
-  }
   render () {
     const img = `/static/uploads/${this.props.profileImg}`
     const phone = '/static/media/phone.svg'

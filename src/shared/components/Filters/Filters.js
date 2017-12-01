@@ -63,7 +63,6 @@ export default class Filters extends Component {
 
     if (newProps !== oldProps) {
       this.update(nextProps.filters)
-      console.log(nextProps.filters)
     }
   }
   render () {

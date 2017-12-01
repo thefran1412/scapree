@@ -37,7 +37,6 @@ export default class EditCompanie extends Component {
     data.id = this.state._id
     data.user = this.state.user
 
-    console.log(data)
     editCompanie(data, response => {
       if (response.success) {
         this.props.history.push('/home')

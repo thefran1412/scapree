@@ -10,6 +10,5 @@ module.exports.generateToken = (user, callback) => {
 module.exports.checkToken = (token, callback) => {
   jwt.verify(token, 'thisIsMySecretWord', (err, decoded) => {
     if (err) throw err
-    console.log(decoded)
   })
 }

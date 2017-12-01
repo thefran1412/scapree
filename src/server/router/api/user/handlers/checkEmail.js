@@ -2,7 +2,6 @@ const User = require('../../../../models/User')
 
 function checkEmail (req, res) {
   const {email} = req.body
-  console.log(email)
 
   req.check('email', 'Invalid email address').isEmail().trim().normalizeEmail()
   const errors = req.validationErrors()

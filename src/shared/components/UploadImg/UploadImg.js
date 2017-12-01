@@ -12,14 +12,11 @@ export default class UploadImg extends Component {
     }
     this.handleFileChange = this.handleFileChange.bind(this)
   }
-  componentDidMount () {
-  }
   handleFileChange () {
     const data = new FormData()
     data.append('image', document.getElementById(`${this.state.preview}Image`).files[0])
 
     uploadImage(data, response => {
-      console.log(response)
       if (response.success) {
         this.setState({
           image: response.msg

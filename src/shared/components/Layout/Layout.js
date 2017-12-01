@@ -13,7 +13,6 @@ import {getCoordsInfo} from '../../services/location'
 export default class Layout extends Component {
   constructor (props) {
     super(props)
-    console.log('props', props)
 
     // setting user
     let user

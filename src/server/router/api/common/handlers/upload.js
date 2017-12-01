@@ -3,7 +3,6 @@ module.exports = function (req, res) {
     return res.send({success: false, msg: 'No files were uploaded.'})
   } else {
     let image = req.files.image
-    console.log(image)
     const fileName = imgName()
 
     image.mv(`./public/uploads/${fileName}`, (err) => {

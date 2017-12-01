@@ -20103,9 +20103,6 @@ var UploadImg = function (_Component) {
   }
 
   _createClass(UploadImg, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
     key: 'handleFileChange',
     value: function handleFileChange() {
       var _this2 = this;
@@ -20114,7 +20111,6 @@ var UploadImg = function (_Component) {
       data.append('image', document.getElementById(this.state.preview + 'Image').files[0]);
 
       Object(__WEBPACK_IMPORTED_MODULE_0__services_images__["a" /* uploadImage */])(data, function (response) {
-        console.log(response);
         if (response.success) {
           _this2.setState({
             image: response.msg
@@ -20132,7 +20128,7 @@ var UploadImg = function (_Component) {
         'div',
         { id: 'uploadImg', __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 32
           },
           __self: this
         },
@@ -20144,13 +20140,13 @@ var UploadImg = function (_Component) {
           onChange: this.handleFileChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 33
           },
           __self: this
         }),
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { style: { backgroundImage: 'url(/static/uploads/' + this.state.image + ')' }, className: this.state.preview + 'Preview', __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 40
           },
           __self: this
         })
@@ -34685,11 +34681,9 @@ var Layout = function (_Component) {
   function Layout(props) {
     _classCallCheck(this, Layout);
 
+    // setting user
     var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-    console.log('props', props);
-
-    // setting user
     var user = void 0;
     var query = void 0;
     if (__isBrowser__) {
@@ -34788,7 +34782,7 @@ var Layout = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90
+            lineNumber: 89
           },
           __self: this
         },
@@ -34800,7 +34794,7 @@ var Layout = function (_Component) {
           updateState: this.updateState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91
+            lineNumber: 90
           },
           __self: this
         }),
@@ -34809,7 +34803,7 @@ var Layout = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 98
+              lineNumber: 97
             },
             __self: this
           },
@@ -34820,7 +34814,7 @@ var Layout = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 101
+                      lineNumber: 100
                     },
                     __self: _this3
                   },
@@ -34834,14 +34828,14 @@ var Layout = function (_Component) {
                   }, props, {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 102
+                      lineNumber: 101
                     },
                     __self: _this3
                   }))
                 );
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 100
+                lineNumber: 99
               },
               __self: _this3
             });
@@ -34850,7 +34844,7 @@ var Layout = function (_Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 114
           },
           __self: this
         })
@@ -38078,7 +38072,6 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      console.log('mounted');
       var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(this.props.filters);
       if (!this.state.rooms) {
         Index.requestInitialData(function (rooms) {
@@ -38094,21 +38087,7 @@ var Index = function (_Component) {
       var oldProps = JSON.stringify(this.props.filters);
       var newProps = JSON.stringify(nextProps.filters);
 
-      // const page = window.location.pathname
-
-      // if (page.length === 1) {
-      //   this.props.updateState({
-      //     filters: {
-      //       address: '',
-      //       coords: [],
-      //       direction: '',
-      //       order: '',
-      //       people: 0
-      //     }
-      //   })
-      // }
       if (newProps !== oldProps) {
-        console.log('props');
         var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(nextProps.filters);
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
 
@@ -38127,7 +38106,7 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 51
           },
           __self: this
         },
@@ -38136,13 +38115,13 @@ var Index = function (_Component) {
           updateState: this.props.updateState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 52
           },
           __self: this
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 56
           },
           __self: this
         })
@@ -41800,7 +41779,6 @@ var baseUrl = 'http://localhost:3000';
 // const baseUrl = 'https://scapree.herokuapp.com'
 
 function uploadImage(data, func) {
-  console.log(data);
   Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
     method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
     url: baseUrl + '/api/upload/',
@@ -50942,11 +50920,6 @@ var SideBar = function (_Component) {
   }
 
   _createClass(SideBar, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      console.log(this.props);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var img = '/static/uploads/' + this.props.profileImg;
@@ -50956,13 +50929,13 @@ var SideBar = function (_Component) {
         'div',
         { id: 'sideBar', __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 11
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 12
           },
           __self: this
         }),
@@ -50970,7 +50943,7 @@ var SideBar = function (_Component) {
           'div',
           { className: 'roomInfo', __source: {
               fileName: _jsxFileName,
-              lineNumber: 16
+              lineNumber: 13
             },
             __self: this
           },
@@ -50978,7 +50951,7 @@ var SideBar = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
             { to: '/companie/' + this.props.companie._id, className: 'companieInfo', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 20
+                lineNumber: 17
               },
               __self: this
             },
@@ -50987,7 +50960,7 @@ var SideBar = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 21
+                  lineNumber: 18
                 },
                 __self: this
               },
@@ -50995,7 +50968,7 @@ var SideBar = function (_Component) {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'profileImg', style: { backgroundImage: 'url(\'/static/uploads/' + this.props.companie.profileImg + '\')' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 22
+                lineNumber: 19
               },
               __self: this
             })
@@ -51004,7 +50977,7 @@ var SideBar = function (_Component) {
             'div',
             { className: 'contactInfo', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 27
               },
               __self: this
             },
@@ -51012,13 +50985,13 @@ var SideBar = function (_Component) {
               'a',
               { href: 'mailto:' + this.props.companie.email, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 31
+                  lineNumber: 28
                 },
                 __self: this
               },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 32
+                  lineNumber: 29
                 },
                 __self: this
               }),
@@ -51027,7 +51000,7 @@ var SideBar = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 33
+                    lineNumber: 30
                   },
                   __self: this
                 },
@@ -51038,13 +51011,13 @@ var SideBar = function (_Component) {
               'a',
               { href: 'tel:' + this.props.companie.phone, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 35
+                  lineNumber: 32
                 },
                 __self: this
               },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 36
+                  lineNumber: 33
                 },
                 __self: this
               }),
@@ -51053,7 +51026,7 @@ var SideBar = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 37
+                    lineNumber: 34
                   },
                   __self: this
                 },
@@ -51065,7 +51038,7 @@ var SideBar = function (_Component) {
             'a',
             { target: '_blank', href: this.props.reservation, id: 'book', style: { backgroundColor: this.props.rgb }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 42
+                lineNumber: 39
               },
               __self: this
             },
@@ -52280,7 +52253,6 @@ var EditRoom = function (_Component) {
     value: function handleSubmit(data) {
       var _this2 = this;
 
-      console.log(this.props);
       Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["c" /* editRoom */])(data, function (response) {
         if (response.success) {
           _this2.props.history.push('/home');
@@ -52301,7 +52273,6 @@ var EditRoom = function (_Component) {
           } else {
             alert(response.msg);
           }
-          console.log(response);
         });
       }
     }
@@ -52337,7 +52308,7 @@ var EditRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 65
           },
           __self: this
         },
@@ -52346,7 +52317,7 @@ var EditRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 68
+              lineNumber: 66
             },
             __self: this
           },
@@ -52354,7 +52325,7 @@ var EditRoom = function (_Component) {
         ),
         this.state.name ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, 'delete': this.handleDelete, __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 69
           },
           __self: this
         }) : 'Loading...'
@@ -52547,7 +52518,6 @@ var EditCompanie = function (_Component) {
       data.id = this.state._id;
       data.user = this.state.user;
 
-      console.log(data);
       Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["b" /* editCompanie */])(data, function (response) {
         if (response.success) {
           _this3.props.history.push('/home');
@@ -52563,7 +52533,7 @@ var EditCompanie = function (_Component) {
         'div',
         { id: 'editCompanie', __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 50
           },
           __self: this
         },
@@ -52572,7 +52542,7 @@ var EditCompanie = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 52
+              lineNumber: 51
             },
             __self: this
           },
@@ -52583,7 +52553,7 @@ var EditCompanie = function (_Component) {
           data: this.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 54
           },
           __self: this
         }) : 'Loading...'
@@ -52966,7 +52936,6 @@ var Filters = function (_Component) {
 
       if (newProps !== oldProps) {
         this.update(nextProps.filters);
-        console.log(nextProps.filters);
       }
     }
   }, {
@@ -52981,13 +52950,13 @@ var Filters = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 70
+              lineNumber: 69
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 70
+              lineNumber: 69
             },
             __self: _this3
           }),
@@ -53011,7 +52980,7 @@ var Filters = function (_Component) {
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 84
           },
           __self: this
         },
@@ -53020,7 +52989,7 @@ var Filters = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 86
+              lineNumber: 85
             },
             __self: this
           },
@@ -53033,7 +53002,7 @@ var Filters = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 86
             },
             __self: this
           }),
@@ -53045,14 +53014,14 @@ var Filters = function (_Component) {
             placeholder: 'People',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 94
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 103
+            lineNumber: 102
           },
           __self: this
         })

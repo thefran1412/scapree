@@ -6,7 +6,7 @@ function logout (req, res) {
       res.json({success: false})
     }
   })
-  console.log('session removed')
+  // console.log('session removed')
 }
 
 module.exports = logout

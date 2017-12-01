@@ -24,7 +24,6 @@ export default class EditRoom extends Component {
     getRoom(params.id, callback)
   }
   handleSubmit (data) {
-    console.log(this.props)
     editRoom(data, response => {
       if (response.success) {
         this.props.history.push('/home')
@@ -41,7 +40,6 @@ export default class EditRoom extends Component {
         } else {
           alert(response.msg)
         }
-        console.log(response)
       })
     }
   }

@@ -2,7 +2,6 @@ const User = require('../../../../models/User')
 
 function checkUsername (req, res) {
   const {username} = req.body
-  console.log(username)
 
   req.check('username', 'not a valid username provided').matches(/^[a-zA-Z0-9]+$/, 'g')
   const errors = req.validationErrors()

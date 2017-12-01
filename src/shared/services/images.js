@@ -5,7 +5,6 @@ const baseUrl = 'http://localhost:3000'
 // const baseUrl = 'https://scapree.herokuapp.com'
 
 function uploadImage (data, func) {
-  console.log(data)
   ajax({
     method: axios.post,
     url: `${baseUrl}/api/upload/`,
