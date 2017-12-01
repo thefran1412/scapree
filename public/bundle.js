@@ -53012,6 +53012,11 @@ var AddRoom = function (_Component) {
   }
 
   _createClass(AddRoom, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.selectOne();
+    }
+  }, {
     key: 'handleChange',
     value: function handleChange(e) {
       var _this2 = this;
@@ -53023,7 +53028,31 @@ var AddRoom = function (_Component) {
         filters.direction = _this2.state.direction;
 
         _this2.props.updateState({ filters: filters });
+      }, this.selectOne);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var oldProps = JSON.stringify(this.props.filters);
+      var newProps = JSON.stringify(nextProps.filters);
+      if (oldProps !== newProps) {
+        this.setState({
+          order: nextProps.filters.order,
+          direction: nextProps.filters.direction
+        }, this.selectOne);
+      }
+    }
+  }, {
+    key: 'selectOne',
+    value: function selectOne() {
+      var id = this.state.order + this.state.direction;
+      if (!id) id = 'order';
+      var everyElement = document.getElementsByClassName('sel');
+      Array.prototype.forEach.call(everyElement, function (el) {
+        el.removeAttribute('selected');
       });
+      var element = document.getElementById(id);
+      element.setAttribute('selected', 'selected');
     }
   }, {
     key: 'render',
@@ -53032,7 +53061,7 @@ var AddRoom = function (_Component) {
         'div',
         { className: 'order', __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 51
           },
           __self: this
         },
@@ -53040,15 +53069,15 @@ var AddRoom = function (_Component) {
           'select',
           { onChange: this.handleChange, __source: {
               fileName: _jsxFileName,
-              lineNumber: 28
+              lineNumber: 52
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: '', direction: '' }), selected: true, __source: {
+            { id: 'order', className: 'sel', value: JSON.stringify({ order: '', direction: '' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 29
+                lineNumber: 53
               },
               __self: this
             },
@@ -53056,9 +53085,9 @@ var AddRoom = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: 'price', direction: 'asc' }), __source: {
+            { id: 'priceasc', className: 'sel', value: JSON.stringify({ order: 'price', direction: 'asc' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 54
               },
               __self: this
             },
@@ -53066,9 +53095,9 @@ var AddRoom = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: 'price', direction: 'desc' }), __source: {
+            { id: 'pricedesc', className: 'sel', value: JSON.stringify({ order: 'price', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 31
+                lineNumber: 55
               },
               __self: this
             },
@@ -53076,9 +53105,9 @@ var AddRoom = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: 'location', direction: 'asc' }), __source: {
+            { id: 'locationasc', className: 'sel', value: JSON.stringify({ order: 'location', direction: 'asc' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 32
+                lineNumber: 56
               },
               __self: this
             },
@@ -53086,9 +53115,9 @@ var AddRoom = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: 'duration', direction: 'desc' }), __source: {
+            { id: 'durationdesc', className: 'sel', value: JSON.stringify({ order: 'duration', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 33
+                lineNumber: 57
               },
               __self: this
             },
@@ -53096,9 +53125,9 @@ var AddRoom = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'option',
-            { value: JSON.stringify({ order: 'difficulty', direction: 'desc' }), __source: {
+            { id: 'difficultydesc', className: 'sel', value: JSON.stringify({ order: 'difficulty', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
-                lineNumber: 34
+                lineNumber: 58
               },
               __self: this
             },
