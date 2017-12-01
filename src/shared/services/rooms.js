@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {ajax, objectToQuery} from './common'
 
-const baseUrl = 'http://localhost:3000'
-// const baseUrl = 'https://scapree.herokuapp.com'
+// const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://scapree.herokuapp.com'
 
 function getRooms (data, func) {
   ajax({
