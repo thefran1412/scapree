@@ -10,3 +10,6 @@
   position: absolute;
   z-index: 1;  
 }
+#people {
+  margin-left: 42px !important;
+}

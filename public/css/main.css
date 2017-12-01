@@ -162,6 +162,9 @@ header a {
 .autocompleteContainer {
   position: absolute;
   z-index: 1;  
+}
+#people {
+  margin-left: 42px !important;
 }#createCompany input{
   padding: 10px;
   color: #484848;
