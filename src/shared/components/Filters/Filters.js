@@ -97,6 +97,9 @@ export default class Filters extends Component {
             value={this.state.people}
             onChange={this.handleChange}
             placeholder='People'
+            id='people'
+            min='0'
+            max='20'
           />
         </form>
         <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places' />

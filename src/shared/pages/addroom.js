@@ -40,7 +40,6 @@ export default class AddRoom extends Component {
     }
     return (
       <div>
-        <h1>Add Room</h1>
         <ModifyRoom submit={this.handleSubmit} data={this.state} />
       </div>
     )

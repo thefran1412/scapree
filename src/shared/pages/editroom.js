@@ -58,9 +58,9 @@ export default class EditRoom extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
   render () {
-    // if (!this.props.logged) {
-    //   return <Redirect to='/login' />
-    // }
+    if (!this.props.logged) {
+      return <Redirect to='/login' />
+    }
     return (
       <div>
         <h1>Add Room</h1>

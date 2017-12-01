@@ -38,6 +38,7 @@
   border-radius: 50%;
   position: absolute;
   top: -105px;
+  background-color: white;
 }
 .titleAndSome {
   margin: 30px 10px;

@@ -736,32 +736,33 @@ module.exports = ReactDOMComponentTree;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(298);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(301);
-/* unused harmony reexport HashRouter */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(143);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(303);
-/* unused harmony reexport MemoryRouter */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(306);
-/* unused harmony reexport NavLink */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(309);
-/* unused harmony reexport Prompt */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(311);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(144);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(86);
-/* unused harmony reexport Router */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(317);
-/* unused harmony reexport StaticRouter */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(319);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(321);
-/* unused harmony reexport matchPath */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(322);
-/* unused harmony reexport withRouter */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
 
@@ -3567,12 +3568,14 @@ module.exports = DOMLazyTree;
 
 /***/ }),
 /* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ajax; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return stateToObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return objectToQuery; });
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function ajax(data) {
   data.method(data.url, data.data, { withCredentials: true }).then(function (answer) {
     data.func(answer.data);
@@ -3607,7 +3610,9 @@ function objectToQuery(object) {
   return '?' + array.join('&');
 }
 
-
+exports.ajax = ajax;
+exports.stateToObject = stateToObject;
+exports.objectToQuery = objectToQuery;
 
 /***/ }),
 /* 31 */
@@ -4505,27 +4510,30 @@ module.exports = __webpack_require__(333);
 
 /***/ }),
 /* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return checkToken; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return logout; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return register; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return checkUsername; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return checkEmail; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(30);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkEmail = exports.checkUsername = exports.register = exports.logout = exports.checkToken = exports.login = undefined;
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var _axios = __webpack_require__(40);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _common = __webpack_require__(30);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function login(username, password, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/login',
     data: { username: username, password: password },
     func: func
@@ -4533,8 +4541,8 @@ function login(username, password, func) {
 }
 
 function logout(func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/logout',
     data: {},
     func: func
@@ -4542,8 +4550,8 @@ function logout(func) {
 }
 
 function register(info, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/register',
     data: info,
     func: func
@@ -4551,8 +4559,8 @@ function register(info, func) {
 }
 
 function checkToken(token, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/check/token',
     data: { token: token },
     func: func
@@ -4560,8 +4568,8 @@ function checkToken(token, func) {
 }
 
 function checkUsername(username, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/check/username',
     data: { username: username },
     func: func
@@ -4569,15 +4577,20 @@ function checkUsername(username, func) {
 }
 
 function checkEmail(email, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/check/email',
     data: { email: email },
     func: func
   });
 }
 
-
+exports.login = login;
+exports.checkToken = checkToken;
+exports.logout = logout;
+exports.register = register;
+exports.checkUsername = checkUsername;
+exports.checkEmail = checkEmail;
 
 /***/ }),
 /* 42 */
@@ -6041,51 +6054,54 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 
 /***/ }),
 /* 57 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getRooms; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getRoom; });
-/* unused harmony export getMyRooms */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addRoom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return editRoom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return deleteRoom; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common__ = __webpack_require__(30);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deleteRoom = exports.editRoom = exports.addRoom = exports.getMyRooms = exports.getRoom = exports.getRooms = undefined;
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var _axios = __webpack_require__(40);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _common = __webpack_require__(30);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function getRooms(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
-    url: baseUrl + '/api/rooms/' + Object(__WEBPACK_IMPORTED_MODULE_1__common__["b" /* objectToQuery */])(data),
+  (0, _common.ajax)({
+    method: _axios2.default.get,
+    url: baseUrl + '/api/rooms/' + (0, _common.objectToQuery)(data),
     func: func
   });
 }
 
 function getRoom(id, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+  (0, _common.ajax)({
+    method: _axios2.default.get,
     url: baseUrl + '/api/room/' + id,
     func: func
   });
 }
 
 function getMyRooms(func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+  (0, _common.ajax)({
+    method: _axios2.default.get,
     url: baseUrl + '/api/myrooms',
     func: func
   });
 }
 
 function addRoom(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/room',
     data: data,
     func: func
@@ -6093,8 +6109,8 @@ function addRoom(data, func) {
 }
 
 function editRoom(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put,
+  (0, _common.ajax)({
+    method: _axios2.default.put,
     url: baseUrl + '/api/room/' + data._id,
     data: data,
     func: func
@@ -6102,13 +6118,18 @@ function editRoom(data, func) {
 }
 
 function deleteRoom(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete,
+  (0, _common.ajax)({
+    method: _axios2.default.delete,
     url: baseUrl + '/api/room/' + data._id,
     func: func
   });
 }
-
+exports.getRooms = getRooms;
+exports.getRoom = getRoom;
+exports.getMyRooms = getMyRooms;
+exports.addRoom = addRoom;
+exports.editRoom = editRoom;
+exports.deleteRoom = deleteRoom;
 
 /***/ }),
 /* 58 */
@@ -14512,25 +14533,30 @@ module.exports = engine.createStore(storages, plugins)
 
 /***/ }),
 /* 92 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createCompany; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getCompanie; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getMyCompanie; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return editCompanie; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(30);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.editCompanie = exports.getMyCompanie = exports.getCompanie = exports.createCompany = undefined;
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var _axios = __webpack_require__(40);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _common = __webpack_require__(30);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function createCompany(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/companie',
     data: data,
     func: func
@@ -14538,8 +14564,8 @@ function createCompany(data, func) {
 }
 
 function getCompanie(id, _func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+  (0, _common.ajax)({
+    method: _axios2.default.get,
     url: baseUrl + '/api/companie/' + id,
     func: function func(response) {
       _func(orderData(response, false));
@@ -14548,8 +14574,8 @@ function getCompanie(id, _func) {
 }
 
 function getMyCompanie(_func2) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get,
+  (0, _common.ajax)({
+    method: _axios2.default.get,
     url: baseUrl + '/api/mycompanie',
     func: function func(response) {
       _func2(orderData(response, true));
@@ -14558,8 +14584,8 @@ function getMyCompanie(_func2) {
 }
 
 function editCompanie(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put,
+  (0, _common.ajax)({
+    method: _axios2.default.put,
     url: baseUrl + '/api/companie/' + data.id,
     data: data,
     func: func
@@ -14581,7 +14607,10 @@ function orderData(response, mine) {
   return response;
 }
 
-
+exports.createCompany = createCompany;
+exports.getCompanie = getCompanie;
+exports.getMyCompanie = getMyCompanie;
+exports.editCompanie = editCompanie;
 
 /***/ }),
 /* 93 */
@@ -19249,29 +19278,37 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 
 /***/ }),
 /* 147 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Room_Room__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PrintRooms_css__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PrintRooms_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__PrintRooms_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\PrintRooms\\PrintRooms.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Room = __webpack_require__(327);
+
+var _Room2 = _interopRequireDefault(_Room);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(330);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var _class = function (_Component) {
   _inherits(_class, _Component);
@@ -19308,7 +19345,7 @@ var _class = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { className: 'rooms', __source: {
             fileName: _jsxFileName,
@@ -19317,13 +19354,13 @@ var _class = function (_Component) {
           __self: this
         },
         this.state.rooms.length ? this.state.rooms.map(function (room, item) {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Room_Room__["a" /* default */], { info: room, key: item, from: _this2.props.from || '', __source: {
+          return _react2.default.createElement(_Room2.default, { info: room, key: item, from: _this2.props.from || '', __source: {
               fileName: _jsxFileName,
               lineNumber: 31
             },
             __self: _this2
           });
-        }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        }) : _react2.default.createElement(
           'p',
           {
             __source: {
@@ -19334,7 +19371,7 @@ var _class = function (_Component) {
           },
           'Nothing found'
         ),
-        this.props.from === 'home' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        this.props.from === 'home' ? _react2.default.createElement(
           'div',
           { className: 'room', __source: {
               fileName: _jsxFileName,
@@ -19342,15 +19379,15 @@ var _class = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+          _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: '/room/add', className: 'roomLink', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 39
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { className: 'roomPoster', __source: {
                   fileName: _jsxFileName,
@@ -19358,7 +19395,7 @@ var _class = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'div',
                 { className: 'addRoom', __source: {
                     fileName: _jsxFileName,
@@ -19366,7 +19403,7 @@ var _class = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/static/media/plus.svg', width: '50', __source: {
+                _react2.default.createElement('img', { src: '/static/media/plus.svg', width: '50', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 42
                   },
@@ -19381,9 +19418,9 @@ var _class = function (_Component) {
   }]);
 
   return _class;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+exports.default = _class;
 
 /***/ }),
 /* 148 */
@@ -19862,17 +19899,29 @@ module.exports = Cancel;
 
 /***/ }),
 /* 154 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CreateCompany_css__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CreateCompany_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CreateCompany_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__ = __webpack_require__(155);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\CreateCompany\\CreateCompany.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(371);
+
+var _UploadImg = __webpack_require__(155);
+
+var _UploadImg2 = _interopRequireDefault(_UploadImg);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -19881,9 +19930,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 
 // import {Redirect} from 'react-router-dom'
 
@@ -19941,7 +19987,7 @@ var CreateCompany = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'createCompany', __source: {
             fileName: _jsxFileName,
@@ -19949,7 +19995,7 @@ var CreateCompany = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'h1',
           {
             __source: {
@@ -19960,7 +20006,7 @@ var CreateCompany = function (_Component) {
           },
           'Create Your company'
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
@@ -19968,7 +20014,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'text',
             name: 'name',
             placeholder: 'Name',
@@ -19981,7 +20027,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'email',
             name: 'email',
             placeholder: 'Email',
@@ -19994,7 +20040,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'text',
             name: 'phone',
             placeholder: 'Phone',
@@ -20007,7 +20053,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+          _react2.default.createElement('textarea', {
             name: 'desc',
             placeholder: 'Desc',
             onChange: this.handleChange,
@@ -20019,7 +20065,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
+          _react2.default.createElement(_UploadImg2.default, {
             onChange: this.handleFileChange,
             img: this.state.coverImg,
             preview: 'cover',
@@ -20030,7 +20076,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_UploadImg_UploadImg__["a" /* default */], {
+          _react2.default.createElement(_UploadImg2.default, {
             onChange: this.handleFileChange,
             img: this.state.profileImg,
             preview: 'profile',
@@ -20041,7 +20087,7 @@ var CreateCompany = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'submit',
             name: 'profileImg',
             value: 'Envia',
@@ -20058,33 +20104,39 @@ var CreateCompany = function (_Component) {
   }]);
 
   return CreateCompany;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (CreateCompany);
+exports.default = CreateCompany;
 
 /***/ }),
 /* 155 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_images__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UploadImg_css__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UploadImg_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__UploadImg_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\UploadImg\\UploadImg.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _images = __webpack_require__(372);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(373);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var UploadImg = function (_Component) {
   _inherits(UploadImg, _Component);
@@ -20110,7 +20162,7 @@ var UploadImg = function (_Component) {
       var data = new FormData();
       data.append('image', document.getElementById(this.state.preview + 'Image').files[0]);
 
-      Object(__WEBPACK_IMPORTED_MODULE_0__services_images__["a" /* uploadImage */])(data, function (response) {
+      (0, _images.uploadImage)(data, function (response) {
         if (response.success) {
           _this2.setState({
             image: response.msg
@@ -20124,7 +20176,7 @@ var UploadImg = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'uploadImg', __source: {
             fileName: _jsxFileName,
@@ -20132,7 +20184,7 @@ var UploadImg = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'file',
           name: 'image',
           id: this.state.preview + 'Image',
@@ -20144,7 +20196,7 @@ var UploadImg = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { style: { backgroundImage: 'url(/static/uploads/' + this.state.image + ')' }, className: this.state.preview + 'Preview', __source: {
+        _react2.default.createElement('div', { style: { backgroundImage: 'url(/static/uploads/' + this.state.image + ')' }, className: this.state.preview + 'Preview', __source: {
             fileName: _jsxFileName,
             lineNumber: 40
           },
@@ -20155,37 +20207,47 @@ var UploadImg = function (_Component) {
   }]);
 
   return UploadImg;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (UploadImg);
+exports.default = UploadImg;
 
 /***/ }),
 /* 156 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Maps_Maps__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__CompanieProfile_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\CompanieProfile\\CompanieProfile.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+var _PrintRooms = __webpack_require__(147);
+
+var _PrintRooms2 = _interopRequireDefault(_PrintRooms);
+
+var _Maps = __webpack_require__(157);
+
+var _Maps2 = _interopRequireDefault(_Maps);
+
+__webpack_require__(393);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
 
 var CompanieProfile = function (_Component) {
   _inherits(CompanieProfile, _Component);
@@ -20203,7 +20265,7 @@ var CompanieProfile = function (_Component) {
       var coverImg = 'url(/static/uploads/' + this.props.data.coverImg + ')';
       var phone = '/static/media/phone.svg';
       var mail = '/static/media/mail.svg';
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'companie', __source: {
             fileName: _jsxFileName,
@@ -20211,7 +20273,7 @@ var CompanieProfile = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
+        _react2.default.createElement('div', {
           className: 'coverImg',
           style: { backgroundImage: coverImg },
           __source: {
@@ -20220,7 +20282,7 @@ var CompanieProfile = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'div',
           { className: 'container', __source: {
               fileName: _jsxFileName,
@@ -20228,13 +20290,13 @@ var CompanieProfile = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'bigProfileImg', style: { backgroundImage: profileImg }, __source: {
+          _react2.default.createElement('div', { className: 'bigProfileImg', style: { backgroundImage: profileImg }, __source: {
               fileName: _jsxFileName,
               lineNumber: 20
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'titleAndSome', __source: {
                 fileName: _jsxFileName,
@@ -20242,7 +20304,7 @@ var CompanieProfile = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'h1',
               {
                 __source: {
@@ -20253,8 +20315,8 @@ var CompanieProfile = function (_Component) {
               },
               this.props.data.name
             ),
-            this.props.from === 'home' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+            this.props.from === 'home' ? _react2.default.createElement(
+              _reactRouterDom.Link,
               { to: '/companie/edit/' + this.props.data._id, className: 'adminButton', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 25
@@ -20264,7 +20326,7 @@ var CompanieProfile = function (_Component) {
               'Edit'
             ) : ''
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             {
               __source: {
@@ -20273,7 +20335,7 @@ var CompanieProfile = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { className: 'companieDetailed', __source: {
                   fileName: _jsxFileName,
@@ -20281,7 +20343,7 @@ var CompanieProfile = function (_Component) {
                 },
                 __self: this
               },
-              this.props.data.phone ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              this.props.data.phone ? _react2.default.createElement(
                 'div',
                 {
                   __source: {
@@ -20290,7 +20352,7 @@ var CompanieProfile = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   { className: 'descInfo', __source: {
                       fileName: _jsxFileName,
@@ -20298,7 +20360,7 @@ var CompanieProfile = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'h3',
                     {
                       __source: {
@@ -20309,7 +20371,7 @@ var CompanieProfile = function (_Component) {
                     },
                     'Descripci\xF3n'
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -20321,7 +20383,7 @@ var CompanieProfile = function (_Component) {
                     this.props.data.desc
                   )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   { className: 'contactInfo', __source: {
                       fileName: _jsxFileName,
@@ -20329,7 +20391,7 @@ var CompanieProfile = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'h3',
                     {
                       __source: {
@@ -20340,7 +20402,7 @@ var CompanieProfile = function (_Component) {
                     },
                     'Contacto'
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'a',
                     { href: 'mailto:' + this.props.data.email, __source: {
                         fileName: _jsxFileName,
@@ -20348,13 +20410,13 @@ var CompanieProfile = function (_Component) {
                       },
                       __self: this
                     },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
+                    _react2.default.createElement('img', { src: mail, width: '15', __source: {
                         fileName: _jsxFileName,
                         lineNumber: 42
                       },
                       __self: this
                     }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    _react2.default.createElement(
                       'p',
                       {
                         __source: {
@@ -20366,7 +20428,7 @@ var CompanieProfile = function (_Component) {
                       this.props.data.email
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'a',
                     { href: 'tel:' + this.props.data.phone, __source: {
                         fileName: _jsxFileName,
@@ -20374,13 +20436,13 @@ var CompanieProfile = function (_Component) {
                       },
                       __self: this
                     },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
+                    _react2.default.createElement('img', { src: phone, width: '15', __source: {
                         fileName: _jsxFileName,
                         lineNumber: 45
                       },
                       __self: this
                     }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    _react2.default.createElement(
                       'p',
                       {
                         __source: {
@@ -20395,7 +20457,7 @@ var CompanieProfile = function (_Component) {
                 )
               ) : 'Loading'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { className: 'mapWrapper', __source: {
                   fileName: _jsxFileName,
@@ -20403,7 +20465,7 @@ var CompanieProfile = function (_Component) {
                 },
                 __self: this
               },
-              this.props.data.rooms.length ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Maps_Maps__["a" /* default */], {
+              this.props.data.rooms.length ? _react2.default.createElement(_Maps2.default, {
                 coords: this.props.data.rooms[0].location.coordinates,
                 address: this.props.data.rooms[0].location.address,
                 __source: {
@@ -20414,7 +20476,7 @@ var CompanieProfile = function (_Component) {
               }) : 'Add room to see map'
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'h2',
             {
               __source: {
@@ -20425,7 +20487,7 @@ var CompanieProfile = function (_Component) {
             },
             'Rooms'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.props.data.rooms, from: this.props.from, __source: {
+          _react2.default.createElement(_PrintRooms2.default, { rooms: this.props.data.rooms, from: this.props.from, __source: {
               fileName: _jsxFileName,
               lineNumber: 65
             },
@@ -20437,25 +20499,36 @@ var CompanieProfile = function (_Component) {
   }]);
 
   return CompanieProfile;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (CompanieProfile);
+exports.default = CompanieProfile;
 
 /***/ }),
 /* 157 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_google_map_react__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_google_map_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_google_map_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Maps_css__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Maps_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Maps_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Maps\\Maps.js',
-    _this = this;
+var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Maps\\Maps.js';
+
+var _googleMapReact = __webpack_require__(374);
+
+var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(392);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20463,25 +20536,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-
-
-
-
 var AnyReactComponent = function AnyReactComponent(_ref) {
   var text = _ref.text;
-  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+  return _react2.default.createElement(
     'div',
     { className: 'pointer', __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
-      __self: _this
+      __self: undefined
     },
-    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: '/static/media/pin.png', width: '30', __source: {
+    _react2.default.createElement('img', { src: '/static/media/pin.png', width: '30', __source: {
         fileName: _jsxFileName,
         lineNumber: 5
       },
-      __self: _this
+      __self: undefined
     })
   );
 };
@@ -20508,7 +20577,7 @@ var Maps = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'maps', __source: {
             fileName: _jsxFileName,
@@ -20516,7 +20585,7 @@ var Maps = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        _react2.default.createElement(
           'a',
           { href: 'https://www.google.com/maps/place/' + this.props.address, target: '_blank', className: 'mapAddress', __source: {
               fileName: _jsxFileName,
@@ -20526,7 +20595,7 @@ var Maps = function (_Component) {
           },
           this.props.address
         ),
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        _react2.default.createElement(
           'div',
           { className: 'onlyMap', __source: {
               fileName: _jsxFileName,
@@ -20534,15 +20603,15 @@ var Maps = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_0_google_map_react___default.a,
+          _react2.default.createElement(
+            _googleMapReact2.default,
             { apiKey: 'AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8', center: [this.props.coords[1], this.props.coords[0]], defaultZoom: 15, __source: {
                 fileName: _jsxFileName,
                 lineNumber: 19
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(AnyReactComponent, {
+            _react2.default.createElement(AnyReactComponent, {
               lat: this.state.coords[1],
               lng: this.state.coords[0],
               text: 'Kreyser Avrora',
@@ -20559,9 +20628,9 @@ var Maps = function (_Component) {
   }]);
 
   return Maps;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Maps);
+exports.default = Maps;
 
 /***/ }),
 /* 158 */
@@ -22174,19 +22243,33 @@ module.exports = arrayReduce;
 
 /***/ }),
 /* 195 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UploadImg_UploadImg__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ModifyRoom_css__ = __webpack_require__(532);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ModifyRoom_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__ModifyRoom_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\ModifyRoom\\ModifyRoom.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _UploadImg = __webpack_require__(155);
+
+var _UploadImg2 = _interopRequireDefault(_UploadImg);
+
+var _reactPlacesAutocomplete = __webpack_require__(196);
+
+var _reactPlacesAutocomplete2 = _interopRequireDefault(_reactPlacesAutocomplete);
+
+__webpack_require__(532);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -22195,11 +22278,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var ModifyRoom = function (_Component) {
   _inherits(ModifyRoom, _Component);
@@ -22241,8 +22319,8 @@ var ModifyRoom = function (_Component) {
     value: function handleAddressSelect(address, placeId) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
-        return Object(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete__["getLatLng"])(results[0]);
+      (0, _reactPlacesAutocomplete.geocodeByAddress)(address).then(function (results) {
+        return (0, _reactPlacesAutocomplete.getLatLng)(results[0]);
       }).then(function (_ref) {
         var lat = _ref.lat,
             lng = _ref.lng;
@@ -22267,7 +22345,7 @@ var ModifyRoom = function (_Component) {
 
       var AutocompleteItem = function AutocompleteItem(_ref2) {
         var suggestion = _ref2.suggestion;
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        return _react2.default.createElement(
           'div',
           {
             __source: {
@@ -22276,7 +22354,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: _this3
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
+          _react2.default.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
               lineNumber: 47
             },
@@ -22299,7 +22377,7 @@ var ModifyRoom = function (_Component) {
         placeholder: 'City, Zipcode or Address',
         required: true
       };
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'roomForm', __source: {
             fileName: _jsxFileName,
@@ -22307,7 +22385,7 @@ var ModifyRoom = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'h1',
           {
             __source: {
@@ -22318,7 +22396,7 @@ var ModifyRoom = function (_Component) {
           },
           'Sala'
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
@@ -22326,7 +22404,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'p',
             {
               __source: {
@@ -22337,7 +22415,7 @@ var ModifyRoom = function (_Component) {
             },
             'Nombre'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'text',
             onChange: this.handleChange,
             value: this.state.name,
@@ -22349,7 +22427,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'p',
             {
               __source: {
@@ -22360,7 +22438,7 @@ var ModifyRoom = function (_Component) {
             },
             'Descripci\xF3n'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+          _react2.default.createElement('textarea', {
             onChange: this.handleChange,
             value: this.state.desc,
             name: 'desc',
@@ -22371,7 +22449,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             {
               __source: {
@@ -22380,7 +22458,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22391,7 +22469,7 @@ var ModifyRoom = function (_Component) {
               },
               'Edad M\xEDnima'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.minAge,
@@ -22405,7 +22483,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'roomFormRight', __source: {
                 fileName: _jsxFileName,
@@ -22413,7 +22491,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22424,7 +22502,7 @@ var ModifyRoom = function (_Component) {
               },
               'Duraci\xF3n'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.duration,
@@ -22439,7 +22517,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             {
               __source: {
@@ -22448,7 +22526,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22459,7 +22537,7 @@ var ModifyRoom = function (_Component) {
               },
               'Min. Personas'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.minPeople,
@@ -22474,7 +22552,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'roomFormRight', __source: {
                 fileName: _jsxFileName,
@@ -22482,7 +22560,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22493,7 +22571,7 @@ var ModifyRoom = function (_Component) {
               },
               'Max. Personas'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.maxPeople,
@@ -22508,7 +22586,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             {
               __source: {
@@ -22517,7 +22595,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22528,7 +22606,7 @@ var ModifyRoom = function (_Component) {
               },
               'Dificultad 0 - 100'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.difficulty,
@@ -22543,7 +22621,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'roomFormRight', __source: {
                 fileName: _jsxFileName,
@@ -22551,7 +22629,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -22562,7 +22640,7 @@ var ModifyRoom = function (_Component) {
               },
               'Precio'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'number',
               onChange: this.handleChange,
               value: this.state.price,
@@ -22576,7 +22654,7 @@ var ModifyRoom = function (_Component) {
               __self: this
             })
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'p',
             {
               __source: {
@@ -22587,7 +22665,7 @@ var ModifyRoom = function (_Component) {
             },
             'Reserva'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'url',
             onChange: this.handleChange,
             value: this.state.reservation,
@@ -22599,7 +22677,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'p',
             {
               __source: {
@@ -22610,7 +22688,7 @@ var ModifyRoom = function (_Component) {
             },
             'Ubicaci\xF3n'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete___default.a, {
+          _react2.default.createElement(_reactPlacesAutocomplete2.default, {
             inputProps: inputProps,
             autocompleteItem: AutocompleteItem,
             classNames: cssClasses,
@@ -22623,7 +22701,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UploadImg_UploadImg__["a" /* default */], {
+          _react2.default.createElement(_UploadImg2.default, {
             onChange: this.handleFileChange,
             img: this.state.profileImg,
             preview: 'poster',
@@ -22633,7 +22711,7 @@ var ModifyRoom = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'buttons', __source: {
                 fileName: _jsxFileName,
@@ -22641,7 +22719,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+            _react2.default.createElement('input', {
               type: 'submit',
               value: 'Envia',
               className: 'roomSubmit',
@@ -22652,7 +22730,7 @@ var ModifyRoom = function (_Component) {
               },
               __self: this
             }),
-            this.props.delete ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            this.props.delete ? _react2.default.createElement(
               'button',
               { onClick: this.props.delete, className: 'roomSubmit', style: { backgroundColor: '#c34a4a' }, __source: {
                   fileName: _jsxFileName,
@@ -22669,9 +22747,9 @@ var ModifyRoom = function (_Component) {
   }]);
 
   return ModifyRoom;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ModifyRoom);
+exports.default = ModifyRoom;
 
 /***/ }),
 /* 196 */
@@ -22700,36 +22778,41 @@ exports.default = _PlacesAutocomplete2.default;
 
 /***/ }),
 /* 197 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_components_Layout_Layout__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(7);
+
+
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\browser\\index.js';
 
+var _react = __webpack_require__(1);
 
+var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(114);
 
+var _Layout = __webpack_require__(297);
 
-Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* BrowserRouter */],
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _reactDom.render)(_react2.default.createElement(
+  _reactRouterDom.BrowserRouter,
   {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
-    __self: this
+    __self: undefined
   },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__shared_components_Layout_Layout__["a" /* default */], { url: window.location.href, __source: {
+  _react2.default.createElement(_Layout2.default, { url: window.location.href, __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     },
-    __self: this
+    __self: undefined
   })
 ), document.getElementById('root'));
 
@@ -34638,39 +34721,53 @@ module.exports = ReactDOMInvalidARIAHook;
 
 /***/ }),
 /* 297 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__default_css__ = __webpack_require__(537);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__default_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__default_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Header_Header__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Footer_Footer__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_auth__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_store__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_location__ = __webpack_require__(545);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Layout\\Layout.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+var _routes = __webpack_require__(325);
+
+var _routes2 = _interopRequireDefault(_routes);
+
+__webpack_require__(537);
+
+var _Header = __webpack_require__(538);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Footer = __webpack_require__(543);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+var _auth = __webpack_require__(41);
+
+var _store = __webpack_require__(91);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _location = __webpack_require__(545);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
-
 // import {geolocated} from 'react-geolocated'
 // import Geolocation from 'react-geolocation'
 
@@ -34742,7 +34839,7 @@ var Layout = function (_Component) {
       var user = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'unregistered';
 
       this.updateState({ user: user, logged: logged });
-      if (user === 'unregistered') __WEBPACK_IMPORTED_MODULE_7_store___default.a.remove('token');
+      if (user === 'unregistered') _store2.default.remove('token');
     }
   }, {
     key: 'login',
@@ -34753,7 +34850,7 @@ var Layout = function (_Component) {
       var token = arguments[1];
 
       if (token) {
-        Object(__WEBPACK_IMPORTED_MODULE_6__services_auth__["b" /* checkToken */])(token, function (response) {
+        (0, _auth.checkToken)(token, function (response) {
           if (response.success) {
             _this2.setUserInfo(true, user);
           } else {
@@ -34777,7 +34874,7 @@ var Layout = function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -34786,7 +34883,7 @@ var Layout = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Header_Header__["a" /* default */], {
+        _react2.default.createElement(_Header2.default, {
           logged: this.state.logged,
           login: this.login,
           user: this.state.user,
@@ -34798,8 +34895,8 @@ var Layout = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["e" /* Switch */],
+        _react2.default.createElement(
+          _reactRouterDom.Switch,
           {
             __source: {
               fileName: _jsxFileName,
@@ -34807,9 +34904,9 @@ var Layout = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].map(function (route, i) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { key: i, exact: route.exact, path: route.path, render: function render(props) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _routes2.default.map(function (route, i) {
+            return _react2.default.createElement(_reactRouterDom.Route, { key: i, exact: route.exact, path: route.path, render: function render(props) {
+                return _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -34818,7 +34915,7 @@ var Layout = function (_Component) {
                     },
                     __self: _this3
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(route.component, Object.assign({
+                  _react2.default.createElement(route.component, Object.assign({
                     logged: _this3.state.logged,
                     login: _this3.login,
                     user: _this3.state.user,
@@ -34841,7 +34938,7 @@ var Layout = function (_Component) {
             });
           })
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
+        _react2.default.createElement(_Footer2.default, {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 114
@@ -34853,9 +34950,9 @@ var Layout = function (_Component) {
   }]);
 
   return Layout;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Layout);
+exports.default = Layout;
 
 /***/ }),
 /* 298 */
@@ -35366,7 +35463,7 @@ HashRouter.propTypes = {
 };
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (HashRouter);
+/* harmony default export */ __webpack_exports__["a"] = (HashRouter);
 
 /***/ }),
 /* 302 */
@@ -35707,7 +35804,7 @@ exports.default = createHashHistory;
 // Written in this round about way for babel-transform-imports
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
 
 /***/ }),
 /* 304 */
@@ -36031,7 +36128,7 @@ NavLink.defaultProps = {
   ariaCurrent: 'true'
 };
 
-/* unused harmony default export */ var _unused_webpack_default_export = (NavLink);
+/* harmony default export */ __webpack_exports__["a"] = (NavLink);
 
 /***/ }),
 /* 307 */
@@ -36483,7 +36580,7 @@ module.exports = Array.isArray || function (arr) {
 // Written in this round about way for babel-transform-imports
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
 
 /***/ }),
 /* 310 */
@@ -37524,7 +37621,7 @@ var createMemoryHistory = function createMemoryHistory() {
 // Written in this round about way for babel-transform-imports
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
 
 /***/ }),
 /* 318 */
@@ -37823,7 +37920,7 @@ Switch.propTypes = {
 // Written in this round about way for babel-transform-imports
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
 
 /***/ }),
 /* 322 */
@@ -37834,7 +37931,7 @@ Switch.propTypes = {
 // Written in this round about way for babel-transform-imports
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
 
 /***/ }),
 /* 323 */
@@ -37955,96 +38052,135 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 /***/ }),
 /* 325 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_index__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_login__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_logout__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_register__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_room__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_addroom__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_editroom__ = __webpack_require__(533);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_companie__ = __webpack_require__(534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_editcompanie__ = __webpack_require__(536);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _index = __webpack_require__(326);
 
+var _index2 = _interopRequireDefault(_index);
 
+var _login = __webpack_require__(353);
 
+var _login2 = _interopRequireDefault(_login);
 
+var _logout = __webpack_require__(366);
 
+var _logout2 = _interopRequireDefault(_logout);
 
+var _register = __webpack_require__(367);
 
+var _register2 = _interopRequireDefault(_register);
+
+var _home = __webpack_require__(370);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _room = __webpack_require__(394);
+
+var _room2 = _interopRequireDefault(_room);
+
+var _addroom = __webpack_require__(524);
+
+var _addroom2 = _interopRequireDefault(_addroom);
+
+var _editroom = __webpack_require__(533);
+
+var _editroom2 = _interopRequireDefault(_editroom);
+
+var _companie = __webpack_require__(534);
+
+var _companie2 = _interopRequireDefault(_companie);
+
+var _editcompanie = __webpack_require__(536);
+
+var _editcompanie2 = _interopRequireDefault(_editcompanie);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var routes = [{
   path: '/',
-  component: __WEBPACK_IMPORTED_MODULE_0__pages_index__["a" /* default */],
+  component: _index2.default,
   exact: true
 }, {
   path: '/login',
-  component: __WEBPACK_IMPORTED_MODULE_1__pages_login__["a" /* default */]
+  component: _login2.default
 }, {
   path: '/logout',
-  component: __WEBPACK_IMPORTED_MODULE_2__pages_logout__["a" /* default */]
+  component: _logout2.default
 }, {
   path: '/register',
-  component: __WEBPACK_IMPORTED_MODULE_3__pages_register__["a" /* default */]
+  component: _register2.default
 }, {
   path: '/home',
-  component: __WEBPACK_IMPORTED_MODULE_4__pages_home__["a" /* default */]
+  component: _home2.default
 }, {
   path: '/room/add',
-  component: __WEBPACK_IMPORTED_MODULE_6__pages_addroom__["a" /* default */]
+  component: _addroom2.default
 }, {
   path: '/room/edit/:id',
-  component: __WEBPACK_IMPORTED_MODULE_7__pages_editroom__["a" /* default */]
+  component: _editroom2.default
 }, {
   path: '/room/:id',
-  component: __WEBPACK_IMPORTED_MODULE_5__pages_room__["a" /* default */],
+  component: _room2.default,
   exact: true
 }, {
   path: '/companie/edit/:id',
-  component: __WEBPACK_IMPORTED_MODULE_9__pages_editcompanie__["a" /* default */]
+  component: _editcompanie2.default
 }, {
   path: '/companie/:id',
-  component: __WEBPACK_IMPORTED_MODULE_8__pages_companie__["a" /* default */],
+  component: _companie2.default,
   exact: true
 }];
 
-/* harmony default export */ __webpack_exports__["a"] = (routes);
+exports.default = routes;
 
 /***/ }),
 /* 326 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_common__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_rooms__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Order_Order__ = __webpack_require__(351);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _PrintRooms = __webpack_require__(147);
+
+var _PrintRooms2 = _interopRequireDefault(_PrintRooms);
+
+var _isomorphicFetch = __webpack_require__(331);
+
+var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+
+var _common = __webpack_require__(30);
+
+var _rooms = __webpack_require__(57);
+
+var _Order = __webpack_require__(351);
+
+var _Order2 = _interopRequireDefault(_Order);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
 
 var Index = function (_Component) {
   _inherits(Index, _Component);
@@ -38072,7 +38208,7 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(this.props.filters);
+      var obj = (0, _common.stateToObject)(this.props.filters);
       if (!this.state.rooms) {
         Index.requestInitialData(function (rooms) {
           _this2.setState({ rooms: rooms });
@@ -38088,8 +38224,8 @@ var Index = function (_Component) {
       var newProps = JSON.stringify(nextProps.filters);
 
       if (newProps !== oldProps) {
-        var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(nextProps.filters);
-        var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
+        var obj = (0, _common.stateToObject)(nextProps.filters);
+        var url = '/' + (0, _common.objectToQuery)(obj);
 
         this.props.history.push(url);
 
@@ -38101,7 +38237,7 @@ var Index = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -38110,7 +38246,7 @@ var Index = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Order_Order__["a" /* default */], {
+        _react2.default.createElement(_Order2.default, {
           filters: this.props.filters,
           updateState: this.props.updateState,
           __source: {
@@ -38119,7 +38255,7 @@ var Index = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
+        _react2.default.createElement(_PrintRooms2.default, { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
             lineNumber: 56
           },
@@ -38130,41 +38266,48 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["e" /* getRooms */])(query, callback);
+      (0, _rooms.getRooms)(query, callback);
     }
   }]);
 
   return Index;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Index);
+exports.default = Index;
 
 /***/ }),
 /* 327 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__room_css__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__room_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__room_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_star_rating_component__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_star_rating_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_star_rating_component__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Room\\Room.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(328);
+
+var _reactStarRatingComponent = __webpack_require__(148);
+
+var _reactStarRatingComponent2 = _interopRequireDefault(_reactStarRatingComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var Room = function (_Component) {
   _inherits(Room, _Component);
@@ -38196,7 +38339,7 @@ var Room = function (_Component) {
         difficulty += 'hard.svg';
         difficultyAlt = 'Dificil';
       }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { className: 'room', __source: {
             fileName: _jsxFileName,
@@ -38204,15 +38347,15 @@ var Room = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+        _react2.default.createElement(
+          _reactRouterDom.Link,
           { to: '/room/' + this.props.info._id, className: 'roomLink', __source: {
               fileName: _jsxFileName,
               lineNumber: 28
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'roomPoster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
                 fileName: _jsxFileName,
@@ -38220,7 +38363,7 @@ var Room = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { className: 'features', __source: {
                   fileName: _jsxFileName,
@@ -38228,7 +38371,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'div',
                 { className: 'otherInfo', __source: {
                     fileName: _jsxFileName,
@@ -38236,7 +38379,7 @@ var Room = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -38245,13 +38388,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: group, width: '15', title: 'De ' + info.minPeople + ' a ' + info.maxPeople + ' personas', alt: 'Personas', __source: {
+                  _react2.default.createElement('img', { src: group, width: '15', title: 'De ' + info.minPeople + ' a ' + info.maxPeople + ' personas', alt: 'Personas', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 33
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -38265,7 +38408,7 @@ var Room = function (_Component) {
                     info.maxPeople
                   )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -38274,13 +38417,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: clock, width: '15', title: info.duration + ' minutos', alt: 'Tiempo', __source: {
+                  _react2.default.createElement('img', { src: clock, width: '15', title: info.duration + ' minutos', alt: 'Tiempo', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 37
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -38293,7 +38436,7 @@ var Room = function (_Component) {
                     '\''
                   )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -38302,13 +38445,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
+                  _react2.default.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 41
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -38324,7 +38467,7 @@ var Room = function (_Component) {
             )
           )
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'div',
           { className: 'roomInfo', __source: {
               fileName: _jsxFileName,
@@ -38332,15 +38475,15 @@ var Room = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+          _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: '/room/' + this.props.info._id, className: 'roomNameLink', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 49
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { className: 'basicInfo', __source: {
                   fileName: _jsxFileName,
@@ -38348,7 +38491,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'h4',
                 {
                   __source: {
@@ -38359,7 +38502,7 @@ var Room = function (_Component) {
                 },
                 this.props.info.name
               ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_star_rating_component___default.a, {
+              _react2.default.createElement(_reactStarRatingComponent2.default, {
                 name: 'stars',
                 starCount: 5,
                 value: 4,
@@ -38374,7 +38517,7 @@ var Room = function (_Component) {
               })
             )
           ),
-          this.props.from === 'home' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          this.props.from === 'home' ? _react2.default.createElement(
             'div',
             { className: 'bottomRight', __source: {
                 fileName: _jsxFileName,
@@ -38382,8 +38525,8 @@ var Room = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+            _react2.default.createElement(
+              _reactRouterDom.Link,
               { className: 'bottomRightButton', to: '/room/edit/' + this.props.info._id, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 65
@@ -38399,9 +38542,9 @@ var Room = function (_Component) {
   }]);
 
   return Room;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Room);
+exports.default = Room;
 
 /***/ }),
 /* 328 */
@@ -39835,27 +39978,33 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 351 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_css__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Order_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Order\\Order.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(352);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var AddRoom = function (_Component) {
   _inherits(AddRoom, _Component);
@@ -39919,7 +40068,7 @@ var AddRoom = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { className: 'order', __source: {
             fileName: _jsxFileName,
@@ -39927,7 +40076,7 @@ var AddRoom = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'select',
           { onChange: this.handleChange, __source: {
               fileName: _jsxFileName,
@@ -39935,7 +40084,7 @@ var AddRoom = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'order', className: 'sel', value: JSON.stringify({ order: '', direction: '' }), __source: {
                 fileName: _jsxFileName,
@@ -39945,7 +40094,7 @@ var AddRoom = function (_Component) {
             },
             'Ordena'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'priceasc', className: 'sel', value: JSON.stringify({ order: 'price', direction: 'asc' }), __source: {
                 fileName: _jsxFileName,
@@ -39955,7 +40104,7 @@ var AddRoom = function (_Component) {
             },
             'Baratos'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'pricedesc', className: 'sel', value: JSON.stringify({ order: 'price', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
@@ -39965,7 +40114,7 @@ var AddRoom = function (_Component) {
             },
             'Caros'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'locationasc', className: 'sel', value: JSON.stringify({ order: 'location', direction: 'asc' }), __source: {
                 fileName: _jsxFileName,
@@ -39975,7 +40124,7 @@ var AddRoom = function (_Component) {
             },
             'M\xE1s cerca'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'durationdesc', className: 'sel', value: JSON.stringify({ order: 'duration', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
@@ -39985,7 +40134,7 @@ var AddRoom = function (_Component) {
             },
             'Duraci\xF3n'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'option',
             { id: 'difficultydesc', className: 'sel', value: JSON.stringify({ order: 'difficulty', direction: 'desc' }), __source: {
                 fileName: _jsxFileName,
@@ -40001,9 +40150,9 @@ var AddRoom = function (_Component) {
   }]);
 
   return AddRoom;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (AddRoom);
+exports.default = AddRoom;
 
 /***/ }),
 /* 352 */
@@ -40013,31 +40162,41 @@ var AddRoom = function (_Component) {
 
 /***/ }),
 /* 353 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_LoginForm_LoginForm__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_store__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\login.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LoginForm = __webpack_require__(354);
+
+var _LoginForm2 = _interopRequireDefault(_LoginForm);
+
+var _auth = __webpack_require__(41);
+
+var _store = __webpack_require__(91);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
 
 var Login = function (_Component) {
   _inherits(Login, _Component);
@@ -40055,9 +40214,9 @@ var Login = function (_Component) {
     key: 'handleSubmit',
     value: function handleSubmit(info) {
       var doLogin = this.props.login;
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_auth__["d" /* login */])(info.username, info.password, function (answer) {
+      (0, _auth.login)(info.username, info.password, function (answer) {
         if (answer.success) {
-          __WEBPACK_IMPORTED_MODULE_3_store___default.a.set('token', answer.token);
+          _store2.default.set('token', answer.token);
           doLogin(answer.user, answer.token);
         } else {
           alert(answer.message);
@@ -40068,14 +40227,14 @@ var Login = function (_Component) {
     key: 'render',
     value: function render() {
       if (this.props.logged) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_router_dom__["c" /* Redirect */], { to: '/home', __source: {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/home', __source: {
             fileName: _jsxFileName,
             lineNumber: 25
           },
           __self: this
         });
       }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { style: { minHeight: 'calc(100vh - 260px)' }, __source: {
             fileName: _jsxFileName,
@@ -40083,7 +40242,7 @@ var Login = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_LoginForm_LoginForm__["a" /* default */], { submit: this.handleSubmit, __source: {
+        _react2.default.createElement(_LoginForm2.default, { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
             lineNumber: 29
           },
@@ -40094,23 +40253,33 @@ var Login = function (_Component) {
   }]);
 
   return Login;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Login);
+exports.default = Login;
 
 /***/ }),
 /* 354 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LoginForm_css__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LoginForm_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__LoginForm_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\LoginForm\\LoginForm.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(355);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -40119,10 +40288,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var LoginForm = function (_Component) {
   _inherits(LoginForm, _Component);
@@ -40155,7 +40320,7 @@ var LoginForm = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'form',
         { onSubmit: this.handleSubmit, id: 'loginForm', __source: {
             fileName: _jsxFileName,
@@ -40163,7 +40328,7 @@ var LoginForm = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'h1',
           {
             __source: {
@@ -40174,7 +40339,7 @@ var LoginForm = function (_Component) {
           },
           'Login'
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'text',
           name: 'username',
           placeholder: 'Username',
@@ -40186,7 +40351,7 @@ var LoginForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'password',
           name: 'password',
           placeholder: 'Password',
@@ -40198,7 +40363,7 @@ var LoginForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           style: { marginRight: '20px' },
           type: 'submit',
           value: 'Login',
@@ -40209,8 +40374,8 @@ var LoginForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+        _react2.default.createElement(
+          _reactRouterDom.Link,
           { to: '/register', className: 'loginButton', __source: {
               fileName: _jsxFileName,
               lineNumber: 49
@@ -40224,9 +40389,9 @@ var LoginForm = function (_Component) {
   }]);
 
   return LoginForm;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (LoginForm);
+exports.default = LoginForm;
 
 /***/ }),
 /* 355 */
@@ -41400,26 +41565,33 @@ if (typeof JSON !== "object") {
 
 /***/ }),
 /* 366 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\logout.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _auth = __webpack_require__(41);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var Login = function (_Component) {
   _inherits(Login, _Component);
@@ -41442,7 +41614,7 @@ var Login = function (_Component) {
     value: function logOut() {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_1__services_auth__["e" /* logout */])(function (response) {
+      (0, _auth.logout)(function (response) {
         if (response.success) {
           _this2.props.logout();
           _this2.setState({
@@ -41460,14 +41632,14 @@ var Login = function (_Component) {
     key: 'render',
     value: function render() {
       if (this.state.done) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: '/', __source: {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/', __source: {
             fileName: _jsxFileName,
             lineNumber: 28
           },
           __self: this
         });
       } else {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        return _react2.default.createElement(
           'div',
           {
             __source: {
@@ -41483,37 +41655,47 @@ var Login = function (_Component) {
   }]);
 
   return Login;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Login);
+exports.default = Login;
 
 /***/ }),
 /* 367 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_RegisterForm_RegisterForm__ = __webpack_require__(368);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_store__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\register.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _RegisterForm = __webpack_require__(368);
+
+var _RegisterForm2 = _interopRequireDefault(_RegisterForm);
+
+var _auth = __webpack_require__(41);
+
+var _store = __webpack_require__(91);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
 
 var Register = function (_Component) {
   _inherits(Register, _Component);
@@ -41535,7 +41717,7 @@ var Register = function (_Component) {
     value: function handleSubmit(info) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_auth__["f" /* register */])(info, function (data) {
+      (0, _auth.register)(info, function (data) {
         if (data.success) {
           _this2.props.history.push('/login');
         }
@@ -41544,7 +41726,7 @@ var Register = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { style: { minHeight: 'calc(100vh - 260px)' }, __source: {
             fileName: _jsxFileName,
@@ -41552,7 +41734,7 @@ var Register = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_RegisterForm_RegisterForm__["a" /* default */], { submit: this.handleSubmit, __source: {
+        _react2.default.createElement(_RegisterForm2.default, { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
             lineNumber: 25
           },
@@ -41563,24 +41745,35 @@ var Register = function (_Component) {
   }]);
 
   return Register;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Register);
+exports.default = Register;
 
 /***/ }),
 /* 368 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RegisterForm_css__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RegisterForm_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__RegisterForm_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\RegisterForm\\RegisterForm.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(369);
+
+var _auth = __webpack_require__(41);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -41589,11 +41782,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var RegisterForm = function (_Component) {
   _inherits(RegisterForm, _Component);
@@ -41633,7 +41821,7 @@ var RegisterForm = function (_Component) {
 
       // change errors
       if (name === 'username' || name === 'email') {
-        var func = name === 'username' ? __WEBPACK_IMPORTED_MODULE_2__services_auth__["c" /* checkUsername */] : __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* checkEmail */];
+        var func = name === 'username' ? _auth.checkUsername : _auth.checkEmail;
 
         func(value, function (data) {
           data.success ? _this2.deleteError(name) : _this2.addError(name);
@@ -41685,7 +41873,7 @@ var RegisterForm = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'form',
         { onSubmit: this.handleSubmit, id: 'registerForm', __source: {
             fileName: _jsxFileName,
@@ -41693,7 +41881,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'h1',
           {
             __source: {
@@ -41704,7 +41892,7 @@ var RegisterForm = function (_Component) {
           },
           'Register'
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'text',
           name: 'username',
           placeholder: 'Username',
@@ -41718,7 +41906,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'text',
           name: 'name',
           placeholder: 'Name',
@@ -41732,7 +41920,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'email',
           name: 'email',
           placeholder: 'Email',
@@ -41746,7 +41934,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'password',
           name: 'password',
           placeholder: 'Password',
@@ -41760,7 +41948,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'password',
           name: 'alsoPassword',
           placeholder: 'Repeat Password',
@@ -41774,7 +41962,7 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+        _react2.default.createElement('input', {
           type: 'submit',
           value: 'Register',
           className: 'registerButton',
@@ -41785,8 +41973,8 @@ var RegisterForm = function (_Component) {
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+        _react2.default.createElement(
+          _reactRouterDom.Link,
           { to: '/login', className: 'loginButton', __source: {
               fileName: _jsxFileName,
               lineNumber: 142
@@ -41800,9 +41988,9 @@ var RegisterForm = function (_Component) {
   }]);
 
   return RegisterForm;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (RegisterForm);
+exports.default = RegisterForm;
 
 /***/ }),
 /* 369 */
@@ -41812,30 +42000,42 @@ var RegisterForm = function (_Component) {
 
 /***/ }),
 /* 370 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_companies__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_CompanieProfile_CompanieProfile__ = __webpack_require__(156);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\home.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+var _CreateCompany = __webpack_require__(154);
+
+var _CreateCompany2 = _interopRequireDefault(_CreateCompany);
+
+var _companies = __webpack_require__(92);
+
+var _CompanieProfile = __webpack_require__(156);
+
+var _CompanieProfile2 = _interopRequireDefault(_CompanieProfile);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 // import PrintRooms from '../components/PrintRooms/PrintRooms'
-
-
 
 
 var Home = function (_Component) {
@@ -41874,7 +42074,7 @@ var Home = function (_Component) {
     value: function handleSubmit(data) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["a" /* createCompany */])(data, function (data) {
+      (0, _companies.createCompany)(data, function (data) {
         _this2.getData();
       });
     }
@@ -41883,17 +42083,22 @@ var Home = function (_Component) {
     value: function getData() {
       var _this3 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_3__services_companies__["d" /* getMyCompanie */])(function (response) {
+      (0, _companies.getMyCompanie)(function (response) {
         _this3.setState(response);
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      // if (!this.props.logged) {
-      //   return <Redirect to='/login' />
-      // }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      if (!this.props.logged) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/login', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 42
+          },
+          __self: this
+        });
+      }
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -41902,17 +42107,17 @@ var Home = function (_Component) {
           },
           __self: this
         },
-        this.state.logged && !this.state.success ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__["a" /* default */], { submit: this.handleSubmit, __source: {
+        this.state.logged && !this.state.success ? _react2.default.createElement(_CreateCompany2.default, { submit: this.handleSubmit, __source: {
             fileName: _jsxFileName,
             lineNumber: 48
           },
           __self: this
-        }) : this.state.success && this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_CompanieProfile_CompanieProfile__["a" /* default */], { data: this.state, from: 'home', __source: {
+        }) : this.state.success && this.state.rooms ? _react2.default.createElement(_CompanieProfile2.default, { data: this.state, from: 'home', __source: {
             fileName: _jsxFileName,
             lineNumber: 50
           },
           __self: this
-        }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        }) : _react2.default.createElement(
           'p',
           {
             __source: {
@@ -41928,9 +42133,9 @@ var Home = function (_Component) {
   }]);
 
   return Home;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Home);
+exports.default = Home;
 
 /***/ }),
 /* 371 */
@@ -41940,29 +42145,37 @@ var Home = function (_Component) {
 
 /***/ }),
 /* 372 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return uploadImage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common__ = __webpack_require__(30);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.uploadImage = undefined;
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var _axios = __webpack_require__(40);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _common = __webpack_require__(30);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function uploadImage(data, func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: baseUrl + '/api/upload/',
     data: data,
     func: func
   });
 }
 
-
+exports.uploadImage = uploadImage;
 
 /***/ }),
 /* 373 */
@@ -44463,37 +44676,51 @@ module.exports = {
 
 /***/ }),
 /* 394 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_star_rating_component__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_star_rating_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_star_rating_component__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_node_vibrant__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_node_vibrant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_node_vibrant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SideBar_SideBar__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Maps_Maps__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_rooms__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__room_css__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__room_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__room_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\room.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactStarRatingComponent = __webpack_require__(148);
+
+var _reactStarRatingComponent2 = _interopRequireDefault(_reactStarRatingComponent);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _nodeVibrant = __webpack_require__(395);
+
+var Vibrant = _interopRequireWildcard(_nodeVibrant);
+
+var _SideBar = __webpack_require__(521);
+
+var _SideBar2 = _interopRequireDefault(_SideBar);
+
+var _Maps = __webpack_require__(157);
+
+var _Maps2 = _interopRequireDefault(_Maps);
+
+var _rooms = __webpack_require__(57);
+
+__webpack_require__(523);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
 
 var Room = function (_Component) {
   _inherits(Room, _Component);
@@ -44572,7 +44799,7 @@ var Room = function (_Component) {
 
       if (this.state.profileImg && this.state.rgb === 'rgb(195, 74, 74)') {
         var img = '/static/uploads/' + this.state.profileImg;
-        __WEBPACK_IMPORTED_MODULE_2_node_vibrant__["from"](img).getPalette(function (err, palette) {
+        Vibrant.from(img).getPalette(function (err, palette) {
           if (err) throw err;
           if (palette.DarkMuted) {
             var rgbdark = palette.DarkMuted._rgb;
@@ -44610,7 +44837,7 @@ var Room = function (_Component) {
         difficultyAlt = 'Dificil';
       }
 
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'roomDetail', __source: {
             fileName: _jsxFileName,
@@ -44618,7 +44845,7 @@ var Room = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        _react2.default.createElement(
           'div',
           {
             __source: {
@@ -44627,7 +44854,7 @@ var Room = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { id: 'sectionSelector', __source: {
                 fileName: _jsxFileName,
@@ -44635,7 +44862,7 @@ var Room = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            _react2.default.createElement(
               'ul',
               {
                 __source: {
@@ -44644,7 +44871,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'li',
                 { onClick: function onClick() {
                     _this4.handleClick('#summary');
@@ -44656,7 +44883,7 @@ var Room = function (_Component) {
                 },
                 'Summary'
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'li',
                 { onClick: function onClick() {
                     _this4.handleClick('#description');
@@ -44668,7 +44895,7 @@ var Room = function (_Component) {
                 },
                 'Description'
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'li',
                 { onClick: function onClick() {
                     _this4.handleClick('#ratings');
@@ -44680,7 +44907,7 @@ var Room = function (_Component) {
                 },
                 'Ratings'
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'li',
                 { onClick: function onClick() {
                     _this4.handleClick('#location');
@@ -44694,7 +44921,7 @@ var Room = function (_Component) {
               )
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { id: 'mainSection', __source: {
                 fileName: _jsxFileName,
@@ -44702,7 +44929,7 @@ var Room = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { id: 'summary', style: { backgroundColor: this.state.rgbdark }, __source: {
                   fileName: _jsxFileName,
@@ -44710,7 +44937,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'h1',
                 {
                   __source: {
@@ -44721,7 +44948,7 @@ var Room = function (_Component) {
                 },
                 this.state.name
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_star_rating_component___default.a, {
+              _react2.default.createElement(_reactStarRatingComponent2.default, {
                 name: 'stars',
                 starCount: 5,
                 value: 4,
@@ -44734,7 +44961,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               }),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'div',
                 { className: 'address', __source: {
                     fileName: _jsxFileName,
@@ -44742,7 +44969,7 @@ var Room = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                _react2.default.createElement(
                   'p',
                   { onClick: function onClick() {
                       _this4.handleClick('#location');
@@ -44755,7 +44982,7 @@ var Room = function (_Component) {
                   this.state.location ? this.state.location.address : 'Loading...'
                 )
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'div',
                 { className: 'summaryInfo', __source: {
                     fileName: _jsxFileName,
@@ -44763,7 +44990,7 @@ var Room = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -44772,13 +44999,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: group, width: '15', title: 'De ' + this.state.minPeople + ' a ' + this.state.maxPeople + ' personas', alt: 'Personas', __source: {
+                  _react2.default.createElement('img', { src: group, width: '15', title: 'De ' + this.state.minPeople + ' a ' + this.state.maxPeople + ' personas', alt: 'Personas', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 136
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -44792,7 +45019,7 @@ var Room = function (_Component) {
                     this.state.maxPeople
                   )
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -44801,13 +45028,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: clock, width: '15', title: this.state.duration + ' minutos', alt: 'Tiempo', __source: {
+                  _react2.default.createElement('img', { src: clock, width: '15', title: this.state.duration + ' minutos', alt: 'Tiempo', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 140
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -44820,7 +45047,7 @@ var Room = function (_Component) {
                     ' min.'
                   )
                 ),
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                _react2.default.createElement(
                   'div',
                   {
                     __source: {
@@ -44829,13 +45056,13 @@ var Room = function (_Component) {
                     },
                     __self: this
                   },
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
+                  _react2.default.createElement('img', { src: difficulty, title: difficultyAlt, alt: difficultyAlt, width: '15', __source: {
                       fileName: _jsxFileName,
                       lineNumber: 144
                     },
                     __self: this
                   }),
-                  __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                  _react2.default.createElement(
                     'p',
                     {
                       __source: {
@@ -44848,7 +45075,7 @@ var Room = function (_Component) {
                   )
                 )
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'div',
                 { id: 'price', __source: {
                     fileName: _jsxFileName,
@@ -44856,7 +45083,7 @@ var Room = function (_Component) {
                   },
                   __self: this
                 },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+                _react2.default.createElement(
                   'p',
                   {
                     __source: {
@@ -44870,7 +45097,7 @@ var Room = function (_Component) {
                 )
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { id: 'description', __source: {
                   fileName: _jsxFileName,
@@ -44878,7 +45105,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'h4',
                 {
                   __source: {
@@ -44889,7 +45116,7 @@ var Room = function (_Component) {
                 },
                 'Descripci\xF3n'
               ),
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'p',
                 {
                   __source: {
@@ -44901,7 +45128,7 @@ var Room = function (_Component) {
                 this.state.desc
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { id: 'ratings', __source: {
                   fileName: _jsxFileName,
@@ -44909,7 +45136,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'h4',
                 {
                   __source: {
@@ -44921,7 +45148,7 @@ var Room = function (_Component) {
                 'Opiniones'
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+            _react2.default.createElement(
               'div',
               { id: 'location', __source: {
                   fileName: _jsxFileName,
@@ -44929,7 +45156,7 @@ var Room = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+              _react2.default.createElement(
                 'h4',
                 {
                   __source: {
@@ -44940,7 +45167,7 @@ var Room = function (_Component) {
                 },
                 'Ubicaci\xF3n'
               ),
-              this.state.location ? __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Maps_Maps__["a" /* default */], {
+              this.state.location ? _react2.default.createElement(_Maps2.default, {
                 coords: this.state.location.coordinates,
                 address: this.state.location.address,
                 __source: {
@@ -44951,7 +45178,7 @@ var Room = function (_Component) {
               }) : 'Loading map'
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_SideBar_SideBar__["a" /* default */], {
+          _react2.default.createElement(_SideBar2.default, {
             companie: this.state.companie,
             profileImg: this.state.profileImg,
             reservation: this.state.reservation,
@@ -44968,14 +45195,14 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_5__services_rooms__["d" /* getRoom */])(params.id, callback);
+      (0, _rooms.getRoom)(params.id, callback);
     }
   }]);
 
   return Room;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Room);
+exports.default = Room;
 
 /***/ }),
 /* 395 */
@@ -51063,27 +51290,33 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ }),
 /* 521 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SideBar_css__ = __webpack_require__(522);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SideBar_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SideBar_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\SideBar\\SideBar.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(522);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var SideBar = function (_Component) {
   _inherits(SideBar, _Component);
@@ -51100,7 +51333,7 @@ var SideBar = function (_Component) {
       var img = '/static/uploads/' + this.props.profileImg;
       var phone = '/static/media/phone.svg';
       var mail = '/static/media/mail.svg';
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'sideBar', __source: {
             fileName: _jsxFileName,
@@ -51108,13 +51341,13 @@ var SideBar = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
+        _react2.default.createElement('div', { id: 'poster', style: { backgroundImage: 'url(' + img + ')' }, __source: {
             fileName: _jsxFileName,
             lineNumber: 12
           },
           __self: this
         }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'div',
           { className: 'roomInfo', __source: {
               fileName: _jsxFileName,
@@ -51122,15 +51355,15 @@ var SideBar = function (_Component) {
             },
             __self: this
           },
-          this.props.companie ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+          this.props.companie ? _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: '/companie/' + this.props.companie._id, className: 'companieInfo', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 17
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'p',
               {
                 __source: {
@@ -51141,14 +51374,14 @@ var SideBar = function (_Component) {
               },
               this.props.companie.name
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'profileImg', style: { backgroundImage: 'url(\'/static/uploads/' + this.props.companie.profileImg + '\')' }, __source: {
+            _react2.default.createElement('div', { className: 'profileImg', style: { backgroundImage: 'url(\'/static/uploads/' + this.props.companie.profileImg + '\')' }, __source: {
                 fileName: _jsxFileName,
                 lineNumber: 19
               },
               __self: this
             })
           ) : 'Loading...',
-          this.props.companie ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          this.props.companie ? _react2.default.createElement(
             'div',
             { className: 'contactInfo', __source: {
                 fileName: _jsxFileName,
@@ -51156,7 +51389,7 @@ var SideBar = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'a',
               { href: 'mailto:' + this.props.companie.email, __source: {
                   fileName: _jsxFileName,
@@ -51164,13 +51397,13 @@ var SideBar = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mail, width: '15', __source: {
+              _react2.default.createElement('img', { src: mail, width: '15', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 29
                 },
                 __self: this
               }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'p',
                 {
                   __source: {
@@ -51182,7 +51415,7 @@ var SideBar = function (_Component) {
                 this.props.companie.email
               )
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'a',
               { href: 'tel:' + this.props.companie.phone, __source: {
                   fileName: _jsxFileName,
@@ -51190,13 +51423,13 @@ var SideBar = function (_Component) {
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: phone, width: '15', __source: {
+              _react2.default.createElement('img', { src: phone, width: '15', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 33
                 },
                 __self: this
               }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'p',
                 {
                   __source: {
@@ -51209,7 +51442,7 @@ var SideBar = function (_Component) {
               )
             )
           ) : 'Loading',
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'a',
             { target: '_blank', href: this.props.reservation, id: 'book', style: { backgroundColor: this.props.rgb }, __source: {
                 fileName: _jsxFileName,
@@ -51225,9 +51458,9 @@ var SideBar = function (_Component) {
   }]);
 
   return SideBar;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (SideBar);
+exports.default = SideBar;
 
 /***/ }),
 /* 522 */
@@ -51243,28 +51476,37 @@ var SideBar = function (_Component) {
 
 /***/ }),
 /* 524 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_rooms__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__ = __webpack_require__(195);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\addroom.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+var _rooms = __webpack_require__(57);
+
+var _ModifyRoom = __webpack_require__(195);
+
+var _ModifyRoom2 = _interopRequireDefault(_ModifyRoom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var AddRoom = function (_Component) {
   _inherits(AddRoom, _Component);
@@ -51299,7 +51541,7 @@ var AddRoom = function (_Component) {
     value: function handleSubmit(data) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["a" /* addRoom */])(data, function (response) {
+      (0, _rooms.addRoom)(data, function (response) {
         if (response._id) {
           _this2.props.history.push('/home');
         } else {
@@ -51311,14 +51553,14 @@ var AddRoom = function (_Component) {
     key: 'render',
     value: function render() {
       if (!this.props.logged) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/login', __source: {
             fileName: _jsxFileName,
             lineNumber: 39
           },
           __self: this
         });
       }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -51327,20 +51569,9 @@ var AddRoom = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 43
-            },
-            __self: this
-          },
-          'Add Room'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, __source: {
+        _react2.default.createElement(_ModifyRoom2.default, { submit: this.handleSubmit, data: this.state, __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 43
           },
           __self: this
         })
@@ -51349,9 +51580,9 @@ var AddRoom = function (_Component) {
   }]);
 
   return AddRoom;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (AddRoom);
+exports.default = AddRoom;
 
 /***/ }),
 /* 525 */
@@ -52377,28 +52608,37 @@ var geocodeByPlaceId = exports.geocodeByPlaceId = function geocodeByPlaceId(plac
 
 /***/ }),
 /* 533 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_rooms__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__ = __webpack_require__(195);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\editroom.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+var _rooms = __webpack_require__(57);
+
+var _ModifyRoom = __webpack_require__(195);
+
+var _ModifyRoom2 = _interopRequireDefault(_ModifyRoom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var EditRoom = function (_Component) {
   _inherits(EditRoom, _Component);
@@ -52428,7 +52668,7 @@ var EditRoom = function (_Component) {
     value: function handleSubmit(data) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["c" /* editRoom */])(data, function (response) {
+      (0, _rooms.editRoom)(data, function (response) {
         if (response.success) {
           _this2.props.history.push('/home');
         } else {
@@ -52442,7 +52682,7 @@ var EditRoom = function (_Component) {
       var _this3 = this;
 
       if (confirm('Seguro que quieres eliminar este elemento?')) {
-        Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["b" /* deleteRoom */])(this.state, function (response) {
+        (0, _rooms.deleteRoom)(this.state, function (response) {
           if (response.success) {
             _this3.props.history.push('/home');
           } else {
@@ -52475,10 +52715,15 @@ var EditRoom = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      // if (!this.props.logged) {
-      //   return <Redirect to='/login' />
-      // }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      if (!this.props.logged) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/login', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 62
+          },
+          __self: this
+        });
+      }
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -52487,7 +52732,7 @@ var EditRoom = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'h1',
           {
             __source: {
@@ -52498,7 +52743,7 @@ var EditRoom = function (_Component) {
           },
           'Add Room'
         ),
-        this.state.name ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, 'delete': this.handleDelete, __source: {
+        this.state.name ? _react2.default.createElement(_ModifyRoom2.default, { submit: this.handleSubmit, data: this.state, 'delete': this.handleDelete, __source: {
             fileName: _jsxFileName,
             lineNumber: 69
           },
@@ -52509,40 +52754,48 @@ var EditRoom = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["d" /* getRoom */])(params.id, callback);
+      (0, _rooms.getRoom)(params.id, callback);
     }
   }]);
 
   return EditRoom;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (EditRoom);
+exports.default = EditRoom;
 
 /***/ }),
 /* 534 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_companies__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companie_css__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__companie_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__companie_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CompanieProfile_CompanieProfile__ = __webpack_require__(156);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\companie.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _companies = __webpack_require__(92);
+
+__webpack_require__(535);
+
+var _CompanieProfile = __webpack_require__(156);
+
+var _CompanieProfile2 = _interopRequireDefault(_CompanieProfile);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var Companie = function (_Component) {
   _inherits(Companie, _Component);
@@ -52588,7 +52841,7 @@ var Companie = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         {
           __source: {
@@ -52597,7 +52850,7 @@ var Companie = function (_Component) {
           },
           __self: this
         },
-        this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_CompanieProfile_CompanieProfile__["a" /* default */], { data: this.state, from: 'companie', __source: {
+        this.state.rooms ? _react2.default.createElement(_CompanieProfile2.default, { data: this.state, from: 'companie', __source: {
             fileName: _jsxFileName,
             lineNumber: 45
           },
@@ -52608,14 +52861,14 @@ var Companie = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["c" /* getCompanie */])(params.id, callback);
+      (0, _companies.getCompanie)(params.id, callback);
     }
   }]);
 
   return Companie;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Companie);
+exports.default = Companie;
 
 /***/ }),
 /* 535 */
@@ -52625,25 +52878,35 @@ var Companie = function (_Component) {
 
 /***/ }),
 /* 536 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_companies__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__ = __webpack_require__(154);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\pages\\editcompanie.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _companies = __webpack_require__(92);
+
+var _CreateCompany = __webpack_require__(154);
+
+var _CreateCompany2 = _interopRequireDefault(_CreateCompany);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 // import {Link} from 'react-router-dom'
 
 
@@ -52693,7 +52956,7 @@ var EditCompanie = function (_Component) {
       data.id = this.state._id;
       data.user = this.state.user;
 
-      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["b" /* editCompanie */])(data, function (response) {
+      (0, _companies.editCompanie)(data, function (response) {
         if (response.success) {
           _this3.props.history.push('/home');
         } else {
@@ -52704,7 +52967,7 @@ var EditCompanie = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'editCompanie', __source: {
             fileName: _jsxFileName,
@@ -52712,7 +52975,7 @@ var EditCompanie = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'p',
           {
             __source: {
@@ -52723,7 +52986,7 @@ var EditCompanie = function (_Component) {
           },
           'Edit companie'
         ),
-        this.state.rooms ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_CreateCompany_CreateCompany__["a" /* default */], {
+        this.state.rooms ? _react2.default.createElement(_CreateCompany2.default, {
           submit: this.handleSubmit,
           data: this.state,
           __source: {
@@ -52737,14 +53000,14 @@ var EditCompanie = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      Object(__WEBPACK_IMPORTED_MODULE_1__services_companies__["c" /* getCompanie */])(params.id, callback);
+      (0, _companies.getCompanie)(params.id, callback);
     }
   }]);
 
   return EditCompanie;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (EditCompanie);
+exports.default = EditCompanie;
 
 /***/ }),
 /* 537 */
@@ -52754,31 +53017,41 @@ var EditCompanie = function (_Component) {
 
 /***/ }),
 /* 538 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserControl_UserControl__ = __webpack_require__(539);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__ = __webpack_require__(540);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Header_css__ = __webpack_require__(542);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Header_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Header_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Header\\Header.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _UserControl = __webpack_require__(539);
+
+var _UserControl2 = _interopRequireDefault(_UserControl);
+
+var _Filters = __webpack_require__(540);
+
+var _Filters2 = _interopRequireDefault(_Filters);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(542);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
 
 var _class = function (_Component) {
   _inherits(_class, _Component);
@@ -52820,7 +53093,7 @@ var _class = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'header',
         {
           __source: {
@@ -52829,7 +53102,7 @@ var _class = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'nav',
           {
             __source: {
@@ -52838,7 +53111,7 @@ var _class = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'headerLogo', __source: {
                 fileName: _jsxFileName,
@@ -52846,15 +53119,15 @@ var _class = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+            _react2.default.createElement(
+              _reactRouterDom.Link,
               { to: '/', onClick: this.emptyFilters, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 39
                 },
                 __self: this
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              _react2.default.createElement(
                 'h1',
                 {
                   __source: {
@@ -52867,21 +53140,21 @@ var _class = function (_Component) {
               )
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], { updateState: this.props.updateState, filters: this.props.filters, __source: {
+          _react2.default.createElement(_Filters2.default, { updateState: this.props.updateState, filters: this.props.filters, __source: {
               fileName: _jsxFileName,
               lineNumber: 43
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+          _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: '/home', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 44
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            _react2.default.createElement(
               'h1',
               {
                 __source: {
@@ -52893,13 +53166,13 @@ var _class = function (_Component) {
               'Home'
             )
           ),
-          this.state.logged ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UserControl_UserControl__["a" /* default */], {
+          this.state.logged ? _react2.default.createElement(_UserControl2.default, {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 49
             },
             __self: this
-          }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          }) : _react2.default.createElement(
             'div',
             { className: 'headerLogin', __source: {
                 fileName: _jsxFileName,
@@ -52907,8 +53180,8 @@ var _class = function (_Component) {
               },
               __self: this
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+            _react2.default.createElement(
+              _reactRouterDom.Link,
               { to: '/register', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 51
@@ -52917,8 +53190,8 @@ var _class = function (_Component) {
               },
               'Sign Up'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
+            _react2.default.createElement(
+              _reactRouterDom.Link,
               { to: '/login', __source: {
                   fileName: _jsxFileName,
                   lineNumber: 52
@@ -52934,30 +53207,37 @@ var _class = function (_Component) {
   }]);
 
   return _class;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+exports.default = _class;
 
 /***/ }),
 /* 539 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\UserControl\\UserControl.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 
 var _class = function (_Component) {
   _inherits(_class, _Component);
@@ -52971,7 +53251,7 @@ var _class = function (_Component) {
   _createClass(_class, [{
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'userControl', __source: {
             fileName: _jsxFileName,
@@ -52979,8 +53259,8 @@ var _class = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+        _react2.default.createElement(
+          _reactRouterDom.Link,
           { to: '/logout', __source: {
               fileName: _jsxFileName,
               lineNumber: 8
@@ -52994,24 +53274,35 @@ var _class = function (_Component) {
   }]);
 
   return _class;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+exports.default = _class;
 
 /***/ }),
 /* 540 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Filters_css__ = __webpack_require__(541);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Filters_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Filters_css__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Filters\\Filters.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactPlacesAutocomplete = __webpack_require__(196);
+
+var _reactPlacesAutocomplete2 = _interopRequireDefault(_reactPlacesAutocomplete);
+
+__webpack_require__(541);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -53020,10 +53311,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var Filters = function (_Component) {
   _inherits(Filters, _Component);
@@ -53087,8 +53374,8 @@ var Filters = function (_Component) {
     value: function handleAddressSelect(address, placeId) {
       var _this2 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__["geocodeByAddress"])(address).then(function (results) {
-        return Object(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete__["getLatLng"])(results[0]);
+      (0, _reactPlacesAutocomplete.geocodeByAddress)(address).then(function (results) {
+        return (0, _reactPlacesAutocomplete.getLatLng)(results[0]);
       }).then(function (_ref) {
         var lat = _ref.lat,
             lng = _ref.lng;
@@ -53120,7 +53407,7 @@ var Filters = function (_Component) {
 
       var AutocompleteItem = function AutocompleteItem(_ref2) {
         var suggestion = _ref2.suggestion;
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        return _react2.default.createElement(
           'div',
           {
             __source: {
@@ -53129,7 +53416,7 @@ var Filters = function (_Component) {
             },
             __self: _this3
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
+          _react2.default.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
               lineNumber: 69
             },
@@ -53151,7 +53438,7 @@ var Filters = function (_Component) {
         onChange: this.handleAddressChange,
         placeholder: 'City, Zipcode or Address'
       };
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
@@ -53159,7 +53446,7 @@ var Filters = function (_Component) {
           },
           __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        _react2.default.createElement(
           'form',
           {
             __source: {
@@ -53168,7 +53455,7 @@ var Filters = function (_Component) {
             },
             __self: this
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_places_autocomplete___default.a, {
+          _react2.default.createElement(_reactPlacesAutocomplete2.default, {
             inputProps: inputProps,
             autocompleteItem: AutocompleteItem,
             classNames: cssClasses,
@@ -53181,12 +53468,15 @@ var Filters = function (_Component) {
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+          _react2.default.createElement('input', {
             type: 'number',
             name: 'people',
             value: this.state.people,
             onChange: this.handleChange,
             placeholder: 'People',
+            id: 'people',
+            min: '0',
+            max: '20',
             __source: {
               fileName: _jsxFileName,
               lineNumber: 94
@@ -53194,9 +53484,9 @@ var Filters = function (_Component) {
             __self: this
           })
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
+        _react2.default.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 102
+            lineNumber: 105
           },
           __self: this
         })
@@ -53205,9 +53495,9 @@ var Filters = function (_Component) {
   }]);
 
   return Filters;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(_react.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Filters);
+exports.default = Filters;
 
 /***/ }),
 /* 541 */
@@ -53223,62 +53513,67 @@ var Filters = function (_Component) {
 
 /***/ }),
 /* 543 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer_css__ = __webpack_require__(544);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Footer_css__);
-var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Footer\\Footer.js',
-    _this = this;
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'C:\\wamp64\\www\\skylab\\scapree\\src\\shared\\components\\Footer\\Footer.js';
 
+var _react = __webpack_require__(1);
 
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+__webpack_require__(544);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+  return _react2.default.createElement(
     'footer',
     {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 7
       },
-      __self: _this
+      __self: undefined
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    _react2.default.createElement(
       'div',
       { className: 'line', __source: {
           fileName: _jsxFileName,
           lineNumber: 8
         },
-        __self: _this
+        __self: undefined
       },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      _react2.default.createElement(
         'a',
         { target: '_blank', href: 'https://github.com/thefran1412/scapree', __source: {
             fileName: _jsxFileName,
             lineNumber: 9
           },
-          __self: _this
+          __self: undefined
         },
         ' GitHub '
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'dot', __source: {
+      _react2.default.createElement('div', { className: 'dot', __source: {
           fileName: _jsxFileName,
           lineNumber: 10
         },
-        __self: _this
+        __self: undefined
       }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      _react2.default.createElement(
         'a',
         { target: '_blank', href: 'https://github.com/thefran1412/', __source: {
             fileName: _jsxFileName,
             lineNumber: 11
           },
-          __self: _this
+          __self: undefined
         },
         '\xA9 Copyright'
       )
@@ -53286,7 +53581,7 @@ var App = function App() {
   );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (App);
+exports.default = App;
 
 /***/ }),
 /* 544 */
@@ -53296,19 +53591,27 @@ var App = function App() {
 
 /***/ }),
 /* 545 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* unused harmony export getCoordsInfo */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(30);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getCoordsInfo = undefined;
+
+var _axios = __webpack_require__(40);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _common = __webpack_require__(30);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getCoordsInfo(coords, _func) {
-  Object(__WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* ajax */])({
-    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post,
+  (0, _common.ajax)({
+    method: _axios2.default.post,
     url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + coords.latitude + ',' + coords.longitude,
     func: function func(response) {
       var city = response.results.filter(function (location) {
@@ -53321,7 +53624,7 @@ function getCoordsInfo(coords, _func) {
   });
 }
 
-
+exports.getCoordsInfo = getCoordsInfo;
 
 /***/ })
 /******/ ]);

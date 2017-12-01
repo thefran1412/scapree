@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const browserConfig = {
   entry: './src/browser/index.js',
@@ -38,7 +39,7 @@ const browserConfig = {
         test: /js$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
-        query: { presets: ['react-app'] }
+        query: { presets: ['react-app', 'es2015'] }
       }
     ]
   },
@@ -86,7 +87,7 @@ const serverConfig = {
         test: /js$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
-        query: { presets: ['react-app'] }
+        query: { presets: ['react-app', 'es2015'] }
       }
     ]
   },
@@ -95,6 +96,12 @@ const serverConfig = {
       banner: '__isBrowser__ = false;',
       raw: true,
       include: /\.js$/
+    }),
+    new UglifyJsPlugin({
+      uglifyOptions: { 
+        mangle: false,
+        ecma: 8 
+      }
     })
   ]
 }
