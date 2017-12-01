@@ -53104,7 +53104,41 @@ var App = function App() {
       },
       __self: _this
     },
-    'footer'
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'line', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        },
+        __self: _this
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'a',
+        { target: '_blank', href: 'https://github.com/thefran1412/scapree', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          },
+          __self: _this
+        },
+        ' GitHub '
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'dot', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        },
+        __self: _this
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'a',
+        { target: '_blank', href: 'https://github.com/thefran1412/', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          },
+          __self: _this
+        },
+        '\xA9 Copyright'
+      )
+    )
   );
 };
 
