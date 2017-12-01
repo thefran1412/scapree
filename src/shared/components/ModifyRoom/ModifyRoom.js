@@ -53,7 +53,6 @@ export default class ModifyRoom extends Component {
     const options = {
       country: ['es']
     }
-    console.log(this.state)
     const inputProps = {
       value: this.state.location.address,
       onChange: this.handleAddressChange,
@@ -162,6 +161,11 @@ export default class ModifyRoom extends Component {
             value='Create'
           />
         </form>
+        {
+          (this.props.delete)
+          ? <button onClick={this.props.delete}>Borrar</button>
+          : ''
+        }
       </div>
     )
   }

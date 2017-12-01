@@ -46,4 +46,11 @@ function editRoom (data, func) {
   })
 }
 
-export {getRooms, getRoom, getMyRooms, addRoom, editRoom}
+function deleteRoom (data, func) {
+  ajax({
+    method: axios.delete,
+    url: `${baseUrl}/api/room/${data._id}`,
+    func
+  })
+}
+export {getRooms, getRoom, getMyRooms, addRoom, editRoom, deleteRoom}

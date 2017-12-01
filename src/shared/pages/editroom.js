@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {editRoom, getRoom} from '../services/rooms'
+import {editRoom, getRoom, deleteRoom} from '../services/rooms'
 import ModifyRoom from '../components/ModifyRoom/ModifyRoom'
 
 export default class EditRoom extends Component {
@@ -16,6 +16,9 @@ export default class EditRoom extends Component {
     }
 
     this.state = {...initialData}
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
   static requestInitialData (callback, params) {
     getRoom(params.id, callback)
@@ -24,12 +27,23 @@ export default class EditRoom extends Component {
     console.log(this.props)
     editRoom(data, response => {
       if (response.success) {
-        console.log(response)
-        // this.props.history.push('/home')
+        this.props.history.push('/home')
       } else {
         alert(response.msg)
       }
     })
+  }
+  handleDelete () {
+    if (confirm('Seguro que quieres eliminar este elemento?')) {
+      deleteRoom(this.state, response => {
+        if (response.success) {
+          this.props.history.push('/home')
+        } else {
+          alert(response.msg)
+        }
+        console.log(response)
+      })
+    }
   }
   componentDidMount () {
     document.documentElement.scrollTop = 0
@@ -54,7 +68,7 @@ export default class EditRoom extends Component {
         <h1>Add Room</h1>
         {
           this.state.name
-          ? <ModifyRoom submit={this.handleSubmit} data={this.state} />
+          ? <ModifyRoom submit={this.handleSubmit} data={this.state} delete={this.handleDelete} />
           : 'Loading...'
         }
       </div>

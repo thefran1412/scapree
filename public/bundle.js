@@ -6040,11 +6040,12 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getRooms; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getRoom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getRooms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getRoom; });
 /* unused harmony export getMyRooms */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addRoom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return editRoom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return editRoom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return deleteRoom; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common__ = __webpack_require__(30);
@@ -6096,6 +6097,13 @@ function editRoom(data, func) {
   });
 }
 
+function deleteRoom(data, func) {
+  Object(__WEBPACK_IMPORTED_MODULE_1__common__["a" /* ajax */])({
+    method: __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete,
+    url: baseUrl + '/api/room/' + data._id,
+    func: func
+  });
+}
 
 
 /***/ }),
@@ -22284,7 +22292,6 @@ var ModifyRoom = function (_Component) {
       var options = {
         country: ['es']
       };
-      console.log(this.state);
       var inputProps = {
         value: this.state.location.address,
         onChange: this.handleAddressChange,
@@ -22296,7 +22303,7 @@ var ModifyRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           },
           __self: this
         },
@@ -22304,7 +22311,7 @@ var ModifyRoom = function (_Component) {
           'form',
           { onSubmit: this.handleSubmit, id: 'uploadForm', __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 64
             },
             __self: this
           },
@@ -22317,7 +22324,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 65
             },
             __self: this
           }),
@@ -22329,7 +22336,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 73
             },
             __self: this
           }),
@@ -22343,7 +22350,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 80
             },
             __self: this
           }),
@@ -22358,7 +22365,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 89
             },
             __self: this
           }),
@@ -22373,7 +22380,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 100
+              lineNumber: 99
             },
             __self: this
           }),
@@ -22388,7 +22395,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 110
+              lineNumber: 109
             },
             __self: this
           }),
@@ -22403,7 +22410,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 120
+              lineNumber: 119
             },
             __self: this
           }),
@@ -22417,7 +22424,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 130
+              lineNumber: 129
             },
             __self: this
           }),
@@ -22430,7 +22437,7 @@ var ModifyRoom = function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 138
             },
             __self: this
           }),
@@ -22443,7 +22450,7 @@ var ModifyRoom = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 146
             },
             __self: this
           }),
@@ -22453,7 +22460,7 @@ var ModifyRoom = function (_Component) {
             preview: 'poster',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 155
+              lineNumber: 154
             },
             __self: this
           }),
@@ -22462,11 +22469,21 @@ var ModifyRoom = function (_Component) {
             value: 'Create',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 160
+              lineNumber: 159
             },
             __self: this
           })
-        )
+        ),
+        this.props.delete ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'button',
+          { onClick: this.props.delete, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 166
+            },
+            __self: this
+          },
+          'Borrar'
+        ) : ''
       );
     }
   }]);
@@ -37941,7 +37958,7 @@ var Index = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params, query) {
-      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["d" /* getRooms */])(query, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_4__services_rooms__["e" /* getRooms */])(query, callback);
     }
   }]);
 
@@ -44938,7 +44955,7 @@ var Room = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_5__services_rooms__["c" /* getRoom */])(params.id, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_5__services_rooms__["d" /* getRoom */])(params.id, callback);
     }
   }]);
 
@@ -52397,26 +52414,46 @@ var EditRoom = function (_Component) {
     }
 
     _this.state = Object.assign({}, initialData);
+
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleDelete = _this.handleDelete.bind(_this);
     return _this;
   }
 
   _createClass(EditRoom, [{
     key: 'handleSubmit',
     value: function handleSubmit(data) {
+      var _this2 = this;
+
       console.log(this.props);
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["b" /* editRoom */])(data, function (response) {
+      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["c" /* editRoom */])(data, function (response) {
         if (response.success) {
-          console.log(response);
-          // this.props.history.push('/home')
+          _this2.props.history.push('/home');
         } else {
           alert(response.msg);
         }
       });
     }
   }, {
+    key: 'handleDelete',
+    value: function handleDelete() {
+      var _this3 = this;
+
+      if (confirm('Seguro que quieres eliminar este elemento?')) {
+        Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["b" /* deleteRoom */])(this.state, function (response) {
+          if (response.success) {
+            _this3.props.history.push('/home');
+          } else {
+            alert(response.msg);
+          }
+          console.log(response);
+        });
+      }
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
+      var _this4 = this;
 
       document.documentElement.scrollTop = 0;
 
@@ -52424,7 +52461,7 @@ var EditRoom = function (_Component) {
 
       if (!this.state.info) {
         EditRoom.requestInitialData(function (info) {
-          _this2.setState(info, _this2.getColor);
+          _this4.setState(info, _this4.getColor);
         }, params);
       }
       window.addEventListener('scroll', this.handleScroll);
@@ -52445,7 +52482,7 @@ var EditRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 67
           },
           __self: this
         },
@@ -52454,15 +52491,15 @@ var EditRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 54
+              lineNumber: 68
             },
             __self: this
           },
           'Add Room'
         ),
-        this.state.name ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, __source: {
+        this.state.name ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, 'delete': this.handleDelete, __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 71
           },
           __self: this
         }) : 'Loading...'
@@ -52471,7 +52508,7 @@ var EditRoom = function (_Component) {
   }], [{
     key: 'requestInitialData',
     value: function requestInitialData(callback, params) {
-      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["c" /* getRoom */])(params.id, callback);
+      Object(__WEBPACK_IMPORTED_MODULE_2__services_rooms__["d" /* getRoom */])(params.id, callback);
     }
   }]);
 
