@@ -1,6 +1,5 @@
 import StarRatingComponent from 'react-star-rating-component'
 import React, {Component} from 'react'
-import fetch from 'isomorphic-fetch'
 import * as Vibrant from 'node-vibrant'
 import SideBar from '../components/SideBar/SideBar'
 import Maps from '../components/Maps/Maps'

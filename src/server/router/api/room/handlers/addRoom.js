@@ -22,8 +22,8 @@ module.exports = function (req, res) {
           reservation: params.reservation || '/',
           location: {
             type: 'Point',
-            coordinates: [params.coords[1], params.coords[0]],
-            address: params.address
+            coordinates: [params.location.coordinates[1], params.location.coordinates[0]],
+            address: params.location.address
           },
           created: +new Date() + 7 * 24 * 60 * 60 * 1000
         })

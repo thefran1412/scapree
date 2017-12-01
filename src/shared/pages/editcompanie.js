@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {getCompanie, editCompanie} from '../services/companies'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import CreateCompany from '../components/CreateCompany/CreateCompany'
 
 export default class EditCompanie extends Component {

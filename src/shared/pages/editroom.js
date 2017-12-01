@@ -1,17 +1,62 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
+import {editRoom, getRoom} from '../services/rooms'
+import ModifyRoom from '../components/ModifyRoom/ModifyRoom'
 
 export default class EditRoom extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      rooms: []
+
+    let initialData
+    if (__isBrowser__) {
+      initialData = window.__initialData__
+      delete window.__initialData__
+    } else {
+      initialData = props.staticContext.initialData
     }
+
+    this.state = {...initialData}
+  }
+  static requestInitialData (callback, params) {
+    getRoom(params.id, callback)
+  }
+  handleSubmit (data) {
+    console.log(this.props)
+    editRoom(data, response => {
+      if (response.success) {
+        console.log(response)
+        // this.props.history.push('/home')
+      } else {
+        alert(response.msg)
+      }
+    })
+  }
+  componentDidMount () {
+    document.documentElement.scrollTop = 0
+
+    const {params} = this.props.match
+    if (!this.state.info) {
+      EditRoom.requestInitialData(info => {
+        this.setState(info, this.getColor)
+      }, params)
+    }
+    window.addEventListener('scroll', this.handleScroll)
+  }
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
   render () {
+    // if (!this.props.logged) {
+    //   return <Redirect to='/login' />
+    // }
     return (
-      <div id='editRoom'>
-        <p>Edit Room</p>
+      <div>
+        <h1>Add Room</h1>
+        {
+          this.state.name
+          ? <ModifyRoom submit={this.handleSubmit} data={this.state} />
+          : 'Loading...'
+        }
       </div>
     )
   }

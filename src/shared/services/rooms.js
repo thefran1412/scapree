@@ -37,4 +37,13 @@ function addRoom (data, func) {
   })
 }
 
-export {getRooms, getRoom, getMyRooms, addRoom}
+function editRoom (data, func) {
+  ajax({
+    method: axios.put,
+    url: `${baseUrl}/api/room/${data._id}`,
+    data,
+    func
+  })
+}
+
+export {getRooms, getRoom, getMyRooms, addRoom, editRoom}
