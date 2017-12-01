@@ -2,13 +2,15 @@ import React, {Component} from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import './Filters.css'
 
-export default class extends Component {
+export default class Filters extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      number: this.props.filters.people,
+      people: this.props.filters.people,
       address: this.props.filters.address,
-      coords: this.props.filters.coords
+      coords: this.props.filters.coords,
+      order: this.props.filters.order,
+      direction: this.props.filters.direction
     }
     this.update = this.update.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -18,15 +20,17 @@ export default class extends Component {
   }
   // handle form
   handleChange (e) {
-    this.update({[e.target.type]: e.target.value}, this.handleSubmit)
+    this.update({[e.target.name]: e.target.value}, this.handleSubmit)
   }
   handleSubmit (e) {
     if (e) e.preventDefault()
     let newState = {
       filters: {
-        people: +this.state.number,
+        people: +this.state.people,
         address: this.state.address,
-        coords: this.state.coords
+        coords: this.state.coords,
+        order: this.state.order,
+        direction: this.state.direction
       }
     }
     if (this.state.coords.length) {
@@ -53,7 +57,15 @@ export default class extends Component {
     ? this.setState(object, func)
     : this.setState(object)
   }
+  componentWillReceiveProps (nextProps) {
+    const oldProps = JSON.stringify(this.props.filters)
+    const newProps = JSON.stringify(nextProps.filters)
 
+    if (newProps !== oldProps) {
+      this.update(nextProps.filters)
+      console.log(nextProps.filters)
+    }
+  }
   render () {
     const AutocompleteItem = ({ suggestion }) => (<div><i className='fa fa-map-marker' />{suggestion}</div>)
     const cssClasses = {
@@ -82,7 +94,8 @@ export default class extends Component {
           />
           <input
             type='number'
-            value={this.state.number}
+            name='people'
+            value={this.state.people}
             onChange={this.handleChange}
             placeholder='People'
           />

@@ -12,6 +12,7 @@ export default class extends Component {
       user: this.props.user,
       logged: this.props.logged
     }
+    this.emptyFilters = this.emptyFilters.bind(this)
   }
   componentWillReceiveProps (props) {
     this.setState({
@@ -19,12 +20,23 @@ export default class extends Component {
       logged: props.logged
     })
   }
+  emptyFilters () {
+    this.props.updateState({
+      filters: {
+        address: '',
+        coords: [],
+        direction: '',
+        order: '',
+        people: 0
+      }
+    })
+  }
   render () {
     return (
       <header>
         <nav>
           <div className='headerLogo'>
-            <Link to='/'>
+            <Link to='/' onClick={this.emptyFilters}>
               <h1>Scapree</h1>
             </Link>
           </div>

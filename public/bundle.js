@@ -3591,6 +3591,10 @@ function stateToObject(object) {
   if (object.people) {
     newObject.people = object.people;
   }
+  if (object.order) {
+    newObject.order = object.order;
+    newObject.direction = object.direction;
+  }
   return newObject;
 }
 
@@ -34495,13 +34499,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import Geolocation from 'react-geolocation'
 
 
-var _class = function (_Component) {
-  _inherits(_class, _Component);
+var Layout = function (_Component) {
+  _inherits(Layout, _Component);
 
-  function _class(props) {
-    _classCallCheck(this, _class);
+  function Layout(props) {
+    _classCallCheck(this, Layout);
 
-    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
     console.log('props', props);
 
@@ -34540,19 +34544,20 @@ var _class = function (_Component) {
         location: {},
         people: query.people ? +query.people : 0,
         address: coords.length && query.address ? query.address : '',
-        coords: coords
+        coords: coords,
+        order: query.order || '',
+        direction: query.direction || ''
       }
     };
 
     _this.login = _this.login.bind(_this);
     _this.logout = _this.logout.bind(_this);
     _this.setUserInfo = _this.setUserInfo.bind(_this);
-    _this.setLocation = _this.setLocation.bind(_this);
     _this.updateState = _this.updateState.bind(_this);
     return _this;
   }
 
-  _createClass(_class, [{
+  _createClass(Layout, [{
     key: 'updateState',
     value: function updateState(object) {
       this.setState(object);
@@ -34594,31 +34599,16 @@ var _class = function (_Component) {
       this.login(this.props.token);
     }
   }, {
-    key: 'setLocation',
-    value: function setLocation(position) {
-      var _this3 = this;
-
-      var coords = position.coords;
-      Object(__WEBPACK_IMPORTED_MODULE_8__services_location__["a" /* getCoordsInfo */])(coords, function (response) {
-        _this3.updateState({
-          location: {
-            coords: [coords.latitude, coords.longitude],
-            city: response
-          }
-        });
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 100
+            lineNumber: 90
           },
           __self: this
         },
@@ -34630,7 +34620,7 @@ var _class = function (_Component) {
           updateState: this.updateState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101
+            lineNumber: 91
           },
           __self: this
         }),
@@ -34639,7 +34629,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 108
+              lineNumber: 98
             },
             __self: this
           },
@@ -34650,37 +34640,37 @@ var _class = function (_Component) {
                   {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 111
+                      lineNumber: 101
                     },
-                    __self: _this4
+                    __self: _this3
                   },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(route.component, Object.assign({
-                    logged: _this4.state.logged,
-                    login: _this4.login,
-                    user: _this4.state.user,
-                    logout: _this4.logout,
-                    filters: _this4.state.filters,
-                    updateState: _this4.updateState
+                    logged: _this3.state.logged,
+                    login: _this3.login,
+                    user: _this3.state.user,
+                    logout: _this3.logout,
+                    filters: _this3.state.filters,
+                    updateState: _this3.updateState
                   }, props, {
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 112
+                      lineNumber: 102
                     },
-                    __self: _this4
+                    __self: _this3
                   }))
                 );
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 110
+                lineNumber: 100
               },
-              __self: _this4
+              __self: _this3
             });
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer_Footer__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 115
           },
           __self: this
         })
@@ -34688,10 +34678,10 @@ var _class = function (_Component) {
     }
   }]);
 
-  return _class;
+  return Layout;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+/* harmony default export */ __webpack_exports__["a"] = (Layout);
 
 /***/ }),
 /* 298 */
@@ -37864,8 +37854,7 @@ var routes = [{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_common__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_rooms__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_query_string__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_query_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_query_string__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Order_Order__ = __webpack_require__(548);
 var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\pages\\index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37909,6 +37898,7 @@ var Index = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      console.log('mounted');
       var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(this.props.filters);
       if (!this.state.rooms) {
         Index.requestInitialData(function (rooms) {
@@ -37924,7 +37914,21 @@ var Index = function (_Component) {
       var oldProps = JSON.stringify(this.props.filters);
       var newProps = JSON.stringify(nextProps.filters);
 
+      // const page = window.location.pathname
+
+      // if (page.length === 1) {
+      //   this.props.updateState({
+      //     filters: {
+      //       address: '',
+      //       coords: [],
+      //       direction: '',
+      //       order: '',
+      //       people: 0
+      //     }
+      //   })
+      // }
       if (newProps !== oldProps) {
+        console.log('props');
         var obj = Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["c" /* stateToObject */])(nextProps.filters);
         var url = '/' + Object(__WEBPACK_IMPORTED_MODULE_3__services_common__["b" /* objectToQuery */])(obj);
 
@@ -37943,13 +37947,22 @@ var Index = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 66
           },
           __self: this
         },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Order_Order__["a" /* default */], {
+          filters: this.props.filters,
+          updateState: this.props.updateState,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 67
+          },
+          __self: this
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_PrintRooms_PrintRooms__["a" /* default */], { rooms: this.state.rooms, __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 71
           },
           __self: this
         })
@@ -39662,337 +39675,9 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 351 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var strictUriEncode = __webpack_require__(352);
-var objectAssign = __webpack_require__(5);
-var decodeComponent = __webpack_require__(353);
-
-function encoderForArrayFormat(opts) {
-	switch (opts.arrayFormat) {
-		case 'index':
-			return function (key, value, index) {
-				return value === null ? [
-					encode(key, opts),
-					'[',
-					index,
-					']'
-				].join('') : [
-					encode(key, opts),
-					'[',
-					encode(index, opts),
-					']=',
-					encode(value, opts)
-				].join('');
-			};
-
-		case 'bracket':
-			return function (key, value) {
-				return value === null ? encode(key, opts) : [
-					encode(key, opts),
-					'[]=',
-					encode(value, opts)
-				].join('');
-			};
-
-		default:
-			return function (key, value) {
-				return value === null ? encode(key, opts) : [
-					encode(key, opts),
-					'=',
-					encode(value, opts)
-				].join('');
-			};
-	}
-}
-
-function parserForArrayFormat(opts) {
-	var result;
-
-	switch (opts.arrayFormat) {
-		case 'index':
-			return function (key, value, accumulator) {
-				result = /\[(\d*)\]$/.exec(key);
-
-				key = key.replace(/\[\d*\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				}
-
-				if (accumulator[key] === undefined) {
-					accumulator[key] = {};
-				}
-
-				accumulator[key][result[1]] = value;
-			};
-
-		case 'bracket':
-			return function (key, value, accumulator) {
-				result = /(\[\])$/.exec(key);
-				key = key.replace(/\[\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				} else if (accumulator[key] === undefined) {
-					accumulator[key] = [value];
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-
-		default:
-			return function (key, value, accumulator) {
-				if (accumulator[key] === undefined) {
-					accumulator[key] = value;
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-	}
-}
-
-function encode(value, opts) {
-	if (opts.encode) {
-		return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
-	}
-
-	return value;
-}
-
-function keysSorter(input) {
-	if (Array.isArray(input)) {
-		return input.sort();
-	} else if (typeof input === 'object') {
-		return keysSorter(Object.keys(input)).sort(function (a, b) {
-			return Number(a) - Number(b);
-		}).map(function (key) {
-			return input[key];
-		});
-	}
-
-	return input;
-}
-
-exports.extract = function (str) {
-	var queryStart = str.indexOf('?');
-	if (queryStart === -1) {
-		return '';
-	}
-	return str.slice(queryStart + 1);
-};
-
-exports.parse = function (str, opts) {
-	opts = objectAssign({arrayFormat: 'none'}, opts);
-
-	var formatter = parserForArrayFormat(opts);
-
-	// Create an object with no prototype
-	// https://github.com/sindresorhus/query-string/issues/47
-	var ret = Object.create(null);
-
-	if (typeof str !== 'string') {
-		return ret;
-	}
-
-	str = str.trim().replace(/^[?#&]/, '');
-
-	if (!str) {
-		return ret;
-	}
-
-	str.split('&').forEach(function (param) {
-		var parts = param.replace(/\+/g, ' ').split('=');
-		// Firefox (pre 40) decodes `%3D` to `=`
-		// https://github.com/sindresorhus/query-string/pull/37
-		var key = parts.shift();
-		var val = parts.length > 0 ? parts.join('=') : undefined;
-
-		// missing `=` should be `null`:
-		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-		val = val === undefined ? null : decodeComponent(val);
-
-		formatter(decodeComponent(key), val, ret);
-	});
-
-	return Object.keys(ret).sort().reduce(function (result, key) {
-		var val = ret[key];
-		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
-			// Sort object keys, not values
-			result[key] = keysSorter(val);
-		} else {
-			result[key] = val;
-		}
-
-		return result;
-	}, Object.create(null));
-};
-
-exports.stringify = function (obj, opts) {
-	var defaults = {
-		encode: true,
-		strict: true,
-		arrayFormat: 'none'
-	};
-
-	opts = objectAssign(defaults, opts);
-
-	var formatter = encoderForArrayFormat(opts);
-
-	return obj ? Object.keys(obj).sort().map(function (key) {
-		var val = obj[key];
-
-		if (val === undefined) {
-			return '';
-		}
-
-		if (val === null) {
-			return encode(key, opts);
-		}
-
-		if (Array.isArray(val)) {
-			var result = [];
-
-			val.slice().forEach(function (val2) {
-				if (val2 === undefined) {
-					return;
-				}
-
-				result.push(formatter(key, val2, result.length));
-			});
-
-			return result.join('&');
-		}
-
-		return encode(key, opts) + '=' + encode(val, opts);
-	}).filter(function (x) {
-		return x.length > 0;
-	}).join('&') : '';
-};
-
-
-/***/ }),
-/* 352 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function (str) {
-	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-	});
-};
-
-
-/***/ }),
-/* 353 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var token = '%[a-f0-9]{2}';
-var singleMatcher = new RegExp(token, 'gi');
-var multiMatcher = new RegExp('(' + token + ')+', 'gi');
-
-function decodeComponents(components, split) {
-	try {
-		// Try to decode the entire string first
-		return decodeURIComponent(components.join(''));
-	} catch (err) {
-		// Do nothing
-	}
-
-	if (components.length === 1) {
-		return components;
-	}
-
-	split = split || 1;
-
-	// Split the array in 2 parts
-	var left = components.slice(0, split);
-	var right = components.slice(split);
-
-	return Array.prototype.concat.call([], decodeComponents(left), decodeComponents(right));
-}
-
-function decode(input) {
-	try {
-		return decodeURIComponent(input);
-	} catch (err) {
-		var tokens = input.match(singleMatcher);
-
-		for (var i = 1; i < tokens.length; i++) {
-			input = decodeComponents(tokens, i).join('');
-
-			tokens = input.match(singleMatcher);
-		}
-
-		return input;
-	}
-}
-
-function customDecodeURIComponent(input) {
-	// Keep track of all the replacements and prefill the map with the `BOM`
-	var replaceMap = {
-		'%FE%FF': '\uFFFD\uFFFD',
-		'%FF%FE': '\uFFFD\uFFFD'
-	};
-
-	var match = multiMatcher.exec(input);
-	while (match) {
-		try {
-			// Decode as big chunks as possible
-			replaceMap[match[0]] = decodeURIComponent(match[0]);
-		} catch (err) {
-			var result = decode(match[0]);
-
-			if (result !== match[0]) {
-				replaceMap[match[0]] = result;
-			}
-		}
-
-		match = multiMatcher.exec(input);
-	}
-
-	// Add `%C2` at the end of the map to make sure it does not replace the combinator before everything else
-	replaceMap['%C2'] = '\uFFFD';
-
-	var entries = Object.keys(replaceMap);
-
-	for (var i = 0; i < entries.length; i++) {
-		// Replace all decoded components
-		var key = entries[i];
-		input = input.replace(new RegExp(key, 'g'), replaceMap[key]);
-	}
-
-	return input;
-}
-
-module.exports = function (encodedURI) {
-	if (typeof encodedURI !== 'string') {
-		throw new TypeError('Expected `encodedURI` to be of type `string`, got `' + typeof encodedURI + '`');
-	}
-
-	try {
-		encodedURI = encodedURI.replace(/\+/g, ' ');
-
-		// Try the built in decoder first
-		return decodeURIComponent(encodedURI);
-	} catch (err) {
-		// Fallback to a more advanced decoder
-		return customDecodeURIComponent(encodedURI);
-	}
-};
-
-
-/***/ }),
+/* 351 */,
+/* 352 */,
+/* 353 */,
 /* 354 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51300,17 +50985,12 @@ var AddRoom = function (_Component) {
       });
     }
   }, {
-    key: 'handleFileChange',
-    value: function handleFileChange(imgName) {
-      this.setState({ profileImg: imgName });
-    }
-  }, {
     key: 'render',
     value: function render() {
       if (!this.props.logged) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 39
           },
           __self: this
         });
@@ -51320,7 +51000,7 @@ var AddRoom = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 42
           },
           __self: this
         },
@@ -51329,7 +51009,7 @@ var AddRoom = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 43
             },
             __self: this
           },
@@ -51337,7 +51017,7 @@ var AddRoom = function (_Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_ModifyRoom_ModifyRoom__["a" /* default */], { submit: this.handleSubmit, data: this.state, __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 44
           },
           __self: this
         })
@@ -52792,6 +52472,7 @@ var _class = function (_Component) {
       user: _this.props.user,
       logged: _this.props.logged
     };
+    _this.emptyFilters = _this.emptyFilters.bind(_this);
     return _this;
   }
 
@@ -52804,6 +52485,19 @@ var _class = function (_Component) {
       });
     }
   }, {
+    key: 'emptyFilters',
+    value: function emptyFilters() {
+      this.props.updateState({
+        filters: {
+          address: '',
+          coords: [],
+          direction: '',
+          order: '',
+          people: 0
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -52811,7 +52505,7 @@ var _class = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 36
           },
           __self: this
         },
@@ -52820,7 +52514,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 25
+              lineNumber: 37
             },
             __self: this
           },
@@ -52828,15 +52522,15 @@ var _class = function (_Component) {
             'div',
             { className: 'headerLogo', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 26
+                lineNumber: 38
               },
               __self: this
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
-              { to: '/', __source: {
+              { to: '/', onClick: this.emptyFilters, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 27
+                  lineNumber: 39
                 },
                 __self: this
               },
@@ -52845,7 +52539,7 @@ var _class = function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 28
+                    lineNumber: 40
                   },
                   __self: this
                 },
@@ -52855,7 +52549,7 @@ var _class = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Filters_Filters_js__["a" /* default */], { updateState: this.props.updateState, filters: this.props.filters, __source: {
               fileName: _jsxFileName,
-              lineNumber: 31
+              lineNumber: 43
             },
             __self: this
           }),
@@ -52863,7 +52557,7 @@ var _class = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
             { to: '/home', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 32
+                lineNumber: 44
               },
               __self: this
             },
@@ -52872,7 +52566,7 @@ var _class = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 33
+                  lineNumber: 45
                 },
                 __self: this
               },
@@ -52882,14 +52576,14 @@ var _class = function (_Component) {
           this.state.logged ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UserControl_UserControl__["a" /* default */], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 49
             },
             __self: this
           }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'headerLogin', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 38
+                lineNumber: 50
               },
               __self: this
             },
@@ -52897,7 +52591,7 @@ var _class = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
               { to: '/register', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 39
+                  lineNumber: 51
                 },
                 __self: this
               },
@@ -52907,7 +52601,7 @@ var _class = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
               { to: '/login', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 40
+                  lineNumber: 52
                 },
                 __self: this
               },
@@ -53011,18 +52705,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var _class = function (_Component) {
-  _inherits(_class, _Component);
+var Filters = function (_Component) {
+  _inherits(Filters, _Component);
 
-  function _class(props) {
-    _classCallCheck(this, _class);
+  function Filters(props) {
+    _classCallCheck(this, Filters);
 
-    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Filters.__proto__ || Object.getPrototypeOf(Filters)).call(this, props));
 
     _this.state = {
-      number: _this.props.filters.people,
+      people: _this.props.filters.people,
       address: _this.props.filters.address,
-      coords: _this.props.filters.coords
+      coords: _this.props.filters.coords,
+      order: _this.props.filters.order,
+      direction: _this.props.filters.direction
     };
     _this.update = _this.update.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
@@ -53034,10 +52730,10 @@ var _class = function (_Component) {
   // handle form
 
 
-  _createClass(_class, [{
+  _createClass(Filters, [{
     key: 'handleChange',
     value: function handleChange(e) {
-      this.update(_defineProperty({}, e.target.type, e.target.value), this.handleSubmit);
+      this.update(_defineProperty({}, e.target.name, e.target.value), this.handleSubmit);
     }
   }, {
     key: 'handleSubmit',
@@ -53045,9 +52741,11 @@ var _class = function (_Component) {
       if (e) e.preventDefault();
       var newState = {
         filters: {
-          people: +this.state.number,
+          people: +this.state.people,
           address: this.state.address,
-          coords: this.state.coords
+          coords: this.state.coords,
+          order: this.state.order,
+          direction: this.state.direction
         }
       };
       if (this.state.coords.length) {
@@ -53086,6 +52784,17 @@ var _class = function (_Component) {
       func ? this.setState(object, func) : this.setState(object);
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var oldProps = JSON.stringify(this.props.filters);
+      var newProps = JSON.stringify(nextProps.filters);
+
+      if (newProps !== oldProps) {
+        this.update(nextProps.filters);
+        console.log(nextProps.filters);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this3 = this;
@@ -53097,13 +52806,13 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 70
             },
             __self: _this3
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 70
             },
             __self: _this3
           }),
@@ -53127,7 +52836,7 @@ var _class = function (_Component) {
         'div',
         { id: 'headerForm', __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 85
           },
           __self: this
         },
@@ -53136,7 +52845,7 @@ var _class = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 86
             },
             __self: this
           },
@@ -53149,25 +52858,26 @@ var _class = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 87
             },
             __self: this
           }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
             type: 'number',
-            value: this.state.number,
+            name: 'people',
+            value: this.state.people,
             onChange: this.handleChange,
             placeholder: 'People',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 95
             },
             __self: this
           })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyClZ9K5b1v3scim5ZQ04SGJfQhMKCCCOB8&libraries=places', __source: {
             fileName: _jsxFileName,
-            lineNumber: 90
+            lineNumber: 103
           },
           __self: this
         })
@@ -53175,10 +52885,10 @@ var _class = function (_Component) {
     }
   }]);
 
-  return _class;
+  return Filters;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+/* harmony default export */ __webpack_exports__["a"] = (Filters);
 
 /***/ }),
 /* 542 */
@@ -53236,7 +52946,7 @@ var App = function App() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCoordsInfo; });
+/* unused harmony export getCoordsInfo */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(30);
@@ -53259,6 +52969,156 @@ function getCoordsInfo(coords, _func) {
 }
 
 
+
+/***/ }),
+/* 547 */,
+/* 548 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_css__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Order_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Order_css__);
+var _jsxFileName = 'C:\\wamp64\\www\\scapree\\src\\shared\\components\\Order\\Order.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var AddRoom = function (_Component) {
+  _inherits(AddRoom, _Component);
+
+  function AddRoom(props) {
+    _classCallCheck(this, AddRoom);
+
+    var _this = _possibleConstructorReturn(this, (AddRoom.__proto__ || Object.getPrototypeOf(AddRoom)).call(this, props));
+
+    _this.state = {
+      order: _this.props.filters.order,
+      direction: _this.props.filters.direction
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(AddRoom, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      var _this2 = this;
+
+      var orderBy = JSON.parse(e.target.value);
+      this.setState(orderBy, function () {
+        var filters = Object.assign({}, _this2.props.filters);
+        filters.order = _this2.state.order;
+        filters.direction = _this2.state.direction;
+
+        _this2.props.updateState({ filters: filters });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'order', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          },
+          __self: this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'select',
+          { onChange: this.handleChange, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: '', direction: '' }), selected: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              },
+              __self: this
+            },
+            'Ordena'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: 'price', direction: 'asc' }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 30
+              },
+              __self: this
+            },
+            'Baratos'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: 'price', direction: 'desc' }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 31
+              },
+              __self: this
+            },
+            'Caros'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: 'location', direction: 'asc' }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+              },
+              __self: this
+            },
+            'M\xE1s cerca'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: 'duration', direction: 'desc' }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 33
+              },
+              __self: this
+            },
+            'Duraci\xF3n'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'option',
+            { value: JSON.stringify({ order: 'difficulty', direction: 'desc' }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              },
+              __self: this
+            },
+            'Dificultad'
+          )
+        )
+      );
+    }
+  }]);
+
+  return AddRoom;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (AddRoom);
+
+/***/ }),
+/* 549 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

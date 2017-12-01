@@ -18,6 +18,10 @@ function stateToObject (object) {
   if (object.people) {
     newObject.people = object.people
   }
+  if (object.order) {
+    newObject.order = object.order
+    newObject.direction = object.direction
+  }
   return newObject
 }
 

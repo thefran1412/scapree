@@ -10,7 +10,7 @@ import store from 'store'
 // import Geolocation from 'react-geolocation'
 import {getCoordsInfo} from '../../services/location'
 
-export default class extends Component {
+export default class Layout extends Component {
   constructor (props) {
     super(props)
     console.log('props', props)
@@ -50,14 +50,15 @@ export default class extends Component {
         location: {},
         people: query.people ? +query.people : 0,
         address: coords.length && query.address ? query.address : '',
-        coords: coords
+        coords: coords,
+        order: query.order || '',
+        direction: query.direction || ''
       }
     }
 
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
     this.setUserInfo = this.setUserInfo.bind(this)
-    this.setLocation = this.setLocation.bind(this)
     this.updateState = this.updateState.bind(this)
   }
   updateState (object) {
@@ -83,17 +84,6 @@ export default class extends Component {
   }
   componentDidMount () {
     this.login(this.props.token)
-  }
-  setLocation (position) {
-    const coords = position.coords
-    getCoordsInfo(coords, response => {
-      this.updateState({
-        location: {
-          coords: [coords.latitude, coords.longitude],
-          city: response
-        }
-      })
-    })
   }
   render () {
     return (

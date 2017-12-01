@@ -34,9 +34,6 @@ export default class AddRoom extends Component {
       }
     })
   }
-  handleFileChange (imgName) {
-    this.setState({profileImg: imgName})
-  }
   render () {
     if (!this.props.logged) {
       return <Redirect to='/login' />
