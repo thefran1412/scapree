@@ -60,89 +60,103 @@ export default class ModifyRoom extends Component {
       required: true
     }
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} id='uploadForm'>
+      <div id='roomForm'>
+        <h1>Sala</h1>
+        <form onSubmit={this.handleSubmit} >
+          <p>Nombre</p>
           <input
             type='text'
             onChange={this.handleChange}
             value={this.state.name}
             name='name'
-            placeholder='Name'
             required
           />
+          <p>Descripción</p>
           <textarea
             onChange={this.handleChange}
             value={this.state.desc}
             name='desc'
-            placeholder='Description'
             required
           />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.minAge}
-            name='minAge'
-            placeholder='Min. Age'
-            min='1'
-            required
-          />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.minPeople}
-            name='minPeople'
-            placeholder='Min. People'
-            min='1'
-            max='1000'
-            required
-          />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.maxPeople}
-            name='maxPeople'
-            placeholder='Max. People'
-            min={this.state.minPeople}
-            max='1000'
-            required
-          />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.duration}
-            name='duration'
-            placeholder='Duration'
-            min='1'
-            max='1000'
-            required
-          />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.difficulty}
-            name='difficulty'
-            placeholder='Difficulty'
-            max='100'
-            min='0'
-            required
-          />
-          <input
-            type='number'
-            onChange={this.handleChange}
-            value={this.state.price}
-            name='price'
-            placeholder='Price'
-            min='1'
-            required
-          />
+          <div>
+            <p>Edad Mínima</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.minAge}
+              name='minAge'
+              min='1'
+              required
+            />
+          </div>
+          <div className='roomFormRight'>
+            <p>Duración</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.duration}
+              name='duration'
+              min='1'
+              max='1000'
+              required
+            />
+          </div>
+          <div>
+            <p>Min. Personas</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.minPeople}
+              name='minPeople'
+              min='1'
+              max='1000'
+              required
+            />
+          </div>
+          <div className='roomFormRight'>
+            <p>Max. Personas</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.maxPeople}
+              name='maxPeople'
+              min={this.state.minPeople}
+              max='1000'
+              required
+            />
+          </div>
+          <div>
+            <p>Dificultad 0 - 100</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.difficulty}
+              name='difficulty'
+              max='100'
+              min='0'
+              required
+            />
+          </div>
+          <div className='roomFormRight'>
+            <p>Precio</p>
+            <input
+              type='number'
+              onChange={this.handleChange}
+              value={this.state.price}
+              name='price'
+              min='1'
+              required
+            />
+          </div>
+          <p>Reserva</p>
           <input
             type='url'
             onChange={this.handleChange}
             value={this.state.reservation}
             name='reservation'
-            placeholder='Url de Reserva'
             required
           />
+          <p>Ubicación</p>
           <PlacesAutocomplete
             inputProps={inputProps}
             autocompleteItem={AutocompleteItem}
@@ -156,16 +170,20 @@ export default class ModifyRoom extends Component {
             img={this.state.profileImg}
             preview='poster'
           />
-          <input
-            type='submit'
-            value='Create'
-          />
+          <div className='buttons'>
+            <input
+              type='submit'
+              value='Envia'
+              className='roomSubmit'
+              style={{backgroundColor: '#7ca949'}}
+            />
+            {
+              (this.props.delete)
+              ? <button onClick={this.props.delete} className='roomSubmit' style={{backgroundColor: '#c34a4a'}}>Borrar</button>
+              : ''
+            }
+          </div>
         </form>
-        {
-          (this.props.delete)
-          ? <button onClick={this.props.delete}>Borrar</button>
-          : ''
-        }
       </div>
     )
   }

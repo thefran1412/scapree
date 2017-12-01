@@ -1,0 +1,55 @@
+#roomForm {
+  max-width: 500px;
+  margin: 0 auto;
+}
+#roomForm input:not([type='submit']):not([type='file']) {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+#roomForm h1 {
+  padding-top: 30px;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+#roomForm > form > div:not([id='uploadImg']){
+  width: 45%;
+  display: inline-block;
+}
+#roomForm textarea {
+  width: 100%;
+  margin: 10px;
+  resize: vertical;
+  min-height: 100px;
+  color: #484848;
+  width: 100%;
+  border: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #484848;
+}
+.roomFormRight {
+  margin-left: 10%;
+}
+.autocompleteInput {
+  width: 100%;
+}
+.roomSubmit {
+  width: calc(50% - 21px);
+  margin: 30px 10px;
+  display: inline-block;
+  padding: 0;
+  color: white;
+  line-height: 30px;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+}
+.buttons {
+  text-align: center;
+  width: 100% !important;
+}

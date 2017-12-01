@@ -96,6 +96,7 @@ export default class CreateCompany extends Component {
             type='submit'
             name='profileImg'
             value='Envia'
+            className='companieSubmit'
           />
         </form>
 

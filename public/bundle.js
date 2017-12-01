@@ -20045,6 +20045,7 @@ var CreateCompany = function (_Component) {
             type: 'submit',
             name: 'profileImg',
             value: 'Envia',
+            className: 'companieSubmit',
             __source: {
               fileName: _jsxFileName,
               lineNumber: 95
@@ -22304,147 +22305,315 @@ var ModifyRoom = function (_Component) {
       };
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        {
-          __source: {
+        { id: 'roomForm', __source: {
             fileName: _jsxFileName,
             lineNumber: 63
           },
           __self: this
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'form',
-          { onSubmit: this.handleSubmit, id: 'uploadForm', __source: {
+          'h1',
+          {
+            __source: {
               fileName: _jsxFileName,
               lineNumber: 64
             },
             __self: this
           },
+          'Sala'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'form',
+          { onSubmit: this.handleSubmit, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 65
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 66
+              },
+              __self: this
+            },
+            'Nombre'
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
             type: 'text',
             onChange: this.handleChange,
             value: this.state.name,
             name: 'name',
-            placeholder: 'Name',
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 67
             },
             __self: this
           }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 74
+              },
+              __self: this
+            },
+            'Descripci\xF3n'
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
             onChange: this.handleChange,
             value: this.state.desc,
             name: 'desc',
-            placeholder: 'Description',
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 75
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.minAge,
-            name: 'minAge',
-            placeholder: 'Min. Age',
-            min: '1',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 80
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 81
+              },
+              __self: this
             },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.minPeople,
-            name: 'minPeople',
-            placeholder: 'Min. People',
-            min: '1',
-            max: '1000',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 89
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                },
+                __self: this
+              },
+              'Edad M\xEDnima'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.minAge,
+              name: 'minAge',
+              min: '1',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 83
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'roomFormRight', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 92
+              },
+              __self: this
             },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.maxPeople,
-            name: 'maxPeople',
-            placeholder: 'Max. People',
-            min: this.state.minPeople,
-            max: '1000',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 99
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 93
+                },
+                __self: this
+              },
+              'Duraci\xF3n'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.duration,
+              name: 'duration',
+              min: '1',
+              max: '1000',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 94
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 104
+              },
+              __self: this
             },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.duration,
-            name: 'duration',
-            placeholder: 'Duration',
-            min: '1',
-            max: '1000',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 109
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 105
+                },
+                __self: this
+              },
+              'Min. Personas'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.minPeople,
+              name: 'minPeople',
+              min: '1',
+              max: '1000',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 106
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'roomFormRight', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 116
+              },
+              __self: this
             },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.difficulty,
-            name: 'difficulty',
-            placeholder: 'Difficulty',
-            max: '100',
-            min: '0',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 119
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 117
+                },
+                __self: this
+              },
+              'Max. Personas'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.maxPeople,
+              name: 'maxPeople',
+              min: this.state.minPeople,
+              max: '1000',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 118
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 128
+              },
+              __self: this
             },
-            __self: this
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'number',
-            onChange: this.handleChange,
-            value: this.state.price,
-            name: 'price',
-            placeholder: 'Price',
-            min: '1',
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 129
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 129
+                },
+                __self: this
+              },
+              'Dificultad 0 - 100'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.difficulty,
+              name: 'difficulty',
+              max: '100',
+              min: '0',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 130
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'roomFormRight', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 140
+              },
+              __self: this
             },
-            __self: this
-          }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'p',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 141
+                },
+                __self: this
+              },
+              'Precio'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'number',
+              onChange: this.handleChange,
+              value: this.state.price,
+              name: 'price',
+              min: '1',
+              required: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 142
+              },
+              __self: this
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 151
+              },
+              __self: this
+            },
+            'Reserva'
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
             type: 'url',
             onChange: this.handleChange,
             value: this.state.reservation,
             name: 'reservation',
-            placeholder: 'Url de Reserva',
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 152
             },
             __self: this
           }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 159
+              },
+              __self: this
+            },
+            'Ubicaci\xF3n'
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_places_autocomplete___default.a, {
             inputProps: inputProps,
             autocompleteItem: AutocompleteItem,
@@ -22454,7 +22623,7 @@ var ModifyRoom = function (_Component) {
             googleLogo: false,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 160
             },
             __self: this
           }),
@@ -22464,30 +22633,41 @@ var ModifyRoom = function (_Component) {
             preview: 'poster',
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 168
             },
             __self: this
           }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
-            type: 'submit',
-            value: 'Create',
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 159
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'buttons', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 173
+              },
+              __self: this
             },
-            __self: this
-          })
-        ),
-        this.props.delete ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'button',
-          { onClick: this.props.delete, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 166
-            },
-            __self: this
-          },
-          'Borrar'
-        ) : ''
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              type: 'submit',
+              value: 'Envia',
+              className: 'roomSubmit',
+              style: { backgroundColor: '#7ca949' },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 174
+              },
+              __self: this
+            }),
+            this.props.delete ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'button',
+              { onClick: this.props.delete, className: 'roomSubmit', style: { backgroundColor: '#c34a4a' }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 182
+                },
+                __self: this
+              },
+              'Borrar'
+            ) : ''
+          )
+        )
       );
     }
   }]);
@@ -41556,14 +41736,9 @@ var Home = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (!this.props.logged) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 42
-          },
-          __self: this
-        });
-      }
+      // if (!this.props.logged) {
+      //   return <Redirect to='/login' />
+      // }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
