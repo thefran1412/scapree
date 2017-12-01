@@ -9,6 +9,7 @@ module.exports = function (req, res) {
     .then(companies => {
       if (companies) {
         Room.find({companie: companies._id})
+          .limit(50)
           .then(rooms => res.send({success: true, logged: true, companie: true, rooms: rooms}))
           .catch(err => console.log(err))
       } else {

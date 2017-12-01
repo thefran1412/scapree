@@ -2,15 +2,15 @@ const Room = require('../../../../models/Room.js')
 
 module.exports = function (req, res) {
   const props = req.query
-  console.log(props)
 
   let filters = {
     visible: true
   }
-  console.log(req.session.user)
-  if (props.type === 'mine') {
-    filters.companie = req.session.user.companie
-  }
+  let page = props.page && !isNaN(props.page) ? +props.page : 1
+  let order = props.order || 'price'
+  let direction = props.direction || 'asc'
+  let orderBy = { [order]: direction }
+
   if (props.lat && props.long) {
     filters.location = {
       $near: {
@@ -24,6 +24,9 @@ module.exports = function (req, res) {
     filters.maxPeople = {$gte: +props.people}
   }
   Room.find(filters)
+    .skip(50 * (page - 1))
+    .limit(50)
+    .sort(orderBy)
     // .populate('companie')
     .then(tasks => res.json(tasks))
     .catch(err => console.log(err))
