@@ -5,7 +5,7 @@ header{
   background-color: whitesmoke;
   border-bottom: #ccc 1px solid;
   /*overflow: hidden;*/
-  position:relative
+  position:relative;
 }
 
 .headerLogo{
@@ -71,4 +71,28 @@ header input {
 header a {
   color: #484848;
   text-decoration: none;
+}
+
+@media (max-width: 740px) {
+  header {
+    height: 120px;
+  }
+  .homeLink {
+    position: absolute;
+    right: 215px;
+    top: 0;
+  }
+  .headerLogo{
+    vertical-align: top;
+  }
+  #headerForm {
+    position: absolute;
+    left: 0;
+    top: 52px;
+  }
+}
+@media (max-width: 355px) {
+  .autocompleteInput{
+    
+  }
 }

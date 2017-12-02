@@ -41,7 +41,7 @@ export default class extends Component {
             </Link>
           </div>
           <Filters updateState={this.props.updateState} filters={this.props.filters} />
-          <Link to='/home'>
+          <Link to='/home' className='homeLink'>
             <h1>Home</h1>
           </Link>
           {

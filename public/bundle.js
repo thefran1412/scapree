@@ -4528,8 +4528,8 @@ var _common = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function login(username, password, func) {
   (0, _common.ajax)({
@@ -6072,8 +6072,8 @@ var _common = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function getRooms(data, func) {
   (0, _common.ajax)({
@@ -14551,8 +14551,8 @@ var _common = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function createCompany(data, func) {
   (0, _common.ajax)({
@@ -42163,8 +42163,8 @@ var _common = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const baseUrl = 'http://localhost:3000'
-var baseUrl = 'https://scapree.herokuapp.com';
+var baseUrl = 'http://localhost:3000';
+// const baseUrl = 'https://scapree.herokuapp.com'
 
 function uploadImage(data, func) {
   (0, _common.ajax)({
@@ -53148,7 +53148,7 @@ var _class = function (_Component) {
           }),
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/home', __source: {
+            { to: '/home', className: 'homeLink', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 44
               },
